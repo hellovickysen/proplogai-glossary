@@ -28,6 +28,11 @@ const relatedTerms = (term.relatedTerms || [])
   .map(slug => glossaryTerms.find(t => t.slug === slug))
   .filter(Boolean);
 
+// Get other terms in same category (for "More in category" section)
+const sameCategoryTerms = glossaryTerms
+  .filter(t => t.category === term.category && t.slug !== term.slug)
+  .slice(0, 4);
+
 // Prev/Next navigation
 const allSorted = [...glossaryTerms].sort((a, b) => a.title.localeCompare(b.title));
 const currentIndex = allSorted.findIndex(t => t.slug === term.slug);
@@ -129,16 +134,20 @@ const nextTerm = currentIndex < allSorted.length - 1 ? allSorted[currentIndex + 
           </div>
         )}
 
-        <!-- Back to Glossary -->
-        <a
-          href="/glossary"
-          class="flex items-center gap-2 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4 text-sm text-white/40 hover:text-white/70 hover:border-white/[0.12] transition-all"
-        >
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" />
-          </svg>
-          All glossary terms
-        </a>
+        <!-- More in this category -->
+        {sameCategoryTerms.length > 0 && (
+          <div class="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5">
+            <h3 class="font-mono text-[10px] uppercase tracking-[0.15em] text-white/30 mb-4">More in {term.category}</h3>
+            <div class="space-y-2.5">
+              {sameCategoryTerms.map(st => (
+                <a href={`/glossary/${st.slug}`} class="block text-sm text-white/45 hover:text-white/80 transition-colors py-1">
+                  {st.title}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
       </aside>
     </div>
 
