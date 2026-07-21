@@ -135,8 +135,9 @@ const allTermsSorted = [...glossaryTerms].sort((a, b) => a.title.localeCompare(b
           {termsByLetter[letter].map(term => {
             const colors = categoryColors[term.category] || { bg: 'bg-white/5', text: 'text-white/60', border: 'border-white/10' };
             return (
-              <div
-                class="term-card p-5 group"
+              <a
+                href={`/glossary/${term.slug}`}
+                class="term-card p-5 group block"
                 data-slug={term.slug}
                 data-category={term.category}
                 data-title={term.title.toLowerCase()}
@@ -152,51 +153,19 @@ const allTermsSorted = [...glossaryTerms].sort((a, b) => a.title.localeCompare(b
                       {term.category}
                     </span>
                   </div>
-                  <!-- Expand icon -->
-                  <button class="expand-btn mt-1 grid h-7 w-7 flex-shrink-0 place-items-center rounded-lg bg-white/[0.04] text-white/30 transition-all hover:bg-white/[0.08] hover:text-white/60" aria-label="Expand definition">
-                    <svg class="expand-icon w-4 h-4 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="6 9 12 15 18 9" />
+                  <!-- Arrow icon -->
+                  <span class="mt-1 grid h-7 w-7 flex-shrink-0 place-items-center rounded-lg bg-white/[0.04] text-white/20 transition-all group-hover:bg-white/[0.08] group-hover:text-white/50">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
                     </svg>
-                  </button>
+                  </span>
                 </div>
 
-                <!-- Short definition (always visible) -->
+                <!-- Short definition -->
                 <p class="mt-3 text-sm text-white/45 leading-relaxed line-clamp-2">
                   {term.shortDefinition}
                 </p>
-
-                <!-- Expanded content (hidden by default) -->
-                <div class="expanded-content hidden mt-4 pt-4 border-t border-white/[0.06]">
-                  <p class="text-sm text-white/60 leading-relaxed">
-                    {term.shortDefinition}
-                  </p>
-
-                  <!-- PropLogAI connection -->
-                  <div class="mt-4 rounded-xl bg-violet-500/[0.06] border border-violet-500/[0.12] p-3.5">
-                    <div class="flex items-center gap-2 mb-1.5">
-                      <span class="grid h-5 w-5 place-items-center rounded-md" style="background:linear-gradient(135deg,#a78bfa,#22d3ee);">
-                        <svg width="12" height="12" viewBox="0 0 100 100" aria-hidden="true">
-                          <polygon points="22,42 50,49 50,75 22,69" fill="#08080f" />
-                          <polygon points="78,42 50,49 50,75 78,69" fill="#08080f" />
-                        </svg>
-                      </span>
-                      <span class="font-mono text-[10px] uppercase tracking-wider text-violet-300/70">PropLogAI</span>
-                    </div>
-                    <p class="text-xs text-violet-200/60 leading-relaxed">{term.proplogConnection}</p>
-                  </div>
-
-                  <!-- Read more link -->
-                  <a
-                    href={`/glossary/${term.slug}`}
-                    class="inline-flex items-center gap-1.5 mt-4 text-sm font-medium text-violet-400 hover:text-cyan-300 transition-colors"
-                  >
-                    Read full definition
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
+              </a>
             );
           })}
         </div>
@@ -296,28 +265,6 @@ const allTermsSorted = [...glossaryTerms].sort((a, b) => a.title.localeCompare(b
       activeCategory = btn.dataset.category || 'all';
       filterTerms();
     });
-  });
-
-  // ── Expand/Collapse Cards ──
-  termCards.forEach(card => {
-    const expandBtn = card.querySelector('.expand-btn');
-    const expandedContent = card.querySelector('.expanded-content');
-    const expandIcon = card.querySelector('.expand-icon');
-
-    function toggleExpand(e) {
-      // Don't toggle when clicking the "Read full definition" link
-      if (e.target.closest('a')) return;
-
-      const isExpanded = !expandedContent?.classList.contains('hidden');
-      expandedContent?.classList.toggle('hidden');
-      card.classList.toggle('expanded');
-
-      if (expandIcon) {
-        expandIcon.style.transform = isExpanded ? '' : 'rotate(180deg)';
-      }
-    }
-
-    card.addEventListener('click', toggleExpand);
   });
 
   // ── Alphabet Smooth Scroll ──
