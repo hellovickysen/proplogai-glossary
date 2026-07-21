@@ -28,11 +28,6 @@ const relatedTerms = (term.relatedTerms || [])
   .map(slug => glossaryTerms.find(t => t.slug === slug))
   .filter(Boolean);
 
-// Get other terms in same category (for "More in category" section)
-const sameCategoryTerms = glossaryTerms
-  .filter(t => t.category === term.category && t.slug !== term.slug)
-  .slice(0, 4);
-
 // Prev/Next navigation
 const allSorted = [...glossaryTerms].sort((a, b) => a.title.localeCompare(b.title));
 const currentIndex = allSorted.findIndex(t => t.slug === term.slug);
@@ -130,20 +125,6 @@ const nextTerm = currentIndex < allSorted.length - 1 ? allSorted[currentIndex + 
                   </a>
                 );
               })}
-            </div>
-          </div>
-        )}
-
-        <!-- More in this category -->
-        {sameCategoryTerms.length > 0 && (
-          <div class="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5">
-            <h3 class="font-mono text-[10px] uppercase tracking-[0.15em] text-white/30 mb-4">More in {term.category}</h3>
-            <div class="space-y-2.5">
-              {sameCategoryTerms.map(st => (
-                <a href={`/glossary/${st.slug}`} class="block text-sm text-white/45 hover:text-white/80 transition-colors py-1">
-                  {st.title}
-                </a>
-              ))}
             </div>
           </div>
         )}
