@@ -28,11 +28,7 @@ const relatedTerms = (term.relatedTerms || [])
   .map(slug => glossaryTerms.find(t => t.slug === slug))
   .filter(Boolean);
 
-// Prev/Next navigation
-const allSorted = [...glossaryTerms].sort((a, b) => a.title.localeCompare(b.title));
-const currentIndex = allSorted.findIndex(t => t.slug === term.slug);
-const prevTerm = currentIndex > 0 ? allSorted[currentIndex - 1] : null;
-const nextTerm = currentIndex < allSorted.length - 1 ? allSorted[currentIndex + 1] : null;
+
 ---
 
 <BaseLayout
@@ -133,31 +129,7 @@ const nextTerm = currentIndex < allSorted.length - 1 ? allSorted[currentIndex + 
       </aside>
     </div>
 
-    <!-- Prev/Next Navigation -->
-    <nav class="mt-14 pt-8 border-t border-white/[0.06] grid grid-cols-1 sm:grid-cols-2 gap-4">
-      {prevTerm ? (
-        <a href={`/glossary/${prevTerm.slug}`} class="group flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 hover:border-white/[0.12] transition-all">
-          <svg class="w-5 h-5 text-white/25 group-hover:text-white/50 transition-colors flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-          <div class="min-w-0">
-            <p class="font-mono text-[10px] text-white/25 uppercase tracking-wider">Previous</p>
-            <p class="text-sm font-medium text-white/60 group-hover:text-white/90 transition-colors truncate">{prevTerm.title}</p>
-          </div>
-        </a>
-      ) : <div />}
-      {nextTerm && (
-        <a href={`/glossary/${nextTerm.slug}`} class="group flex items-center justify-end gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 hover:border-white/[0.12] transition-all text-right">
-          <div class="min-w-0">
-            <p class="font-mono text-[10px] text-white/25 uppercase tracking-wider">Next</p>
-            <p class="text-sm font-medium text-white/60 group-hover:text-white/90 transition-colors truncate">{nextTerm.title}</p>
-          </div>
-          <svg class="w-5 h-5 text-white/25 group-hover:text-white/50 transition-colors flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="9 18 15 12 9 6" />
-          </svg>
-        </a>
-      )}
-    </nav>
+
 
   </article>
 </BaseLayout>
