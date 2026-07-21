@@ -1,0 +1,246 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { glossaryTerms } from '../data/glossary-terms.js';
+
+export function getStaticPaths() {
+  return glossaryTerms.map(term => ({
+    params: { slug: term.slug },
+    props: { term },
+  }));
+}
+
+const { term } = Astro.props;
+
+// Category colors
+const categoryColors = {
+  'Trading Psychology': { bg: 'bg-violet-500/10', text: 'text-violet-300', border: 'border-violet-500/20', dot: 'bg-violet-400' },
+  'Risk Management': { bg: 'bg-red-500/10', text: 'text-red-300', border: 'border-red-500/20', dot: 'bg-red-400' },
+  'Performance Metrics': { bg: 'bg-cyan-500/10', text: 'text-cyan-300', border: 'border-cyan-500/20', dot: 'bg-cyan-400' },
+  'Trading Discipline': { bg: 'bg-amber-500/10', text: 'text-amber-300', border: 'border-amber-500/20', dot: 'bg-amber-400' },
+  'Prop Firm': { bg: 'bg-emerald-500/10', text: 'text-emerald-300', border: 'border-emerald-500/20', dot: 'bg-emerald-400' },
+  'Journal & Analysis': { bg: 'bg-blue-500/10', text: 'text-blue-300', border: 'border-blue-500/20', dot: 'bg-blue-400' },
+};
+
+const colors = categoryColors[term.category] || { bg: 'bg-white/5', text: 'text-white/60', border: 'border-white/10', dot: 'bg-violet-400' };
+
+// Get related terms
+const relatedTerms = (term.relatedTerms || [])
+  .map(slug => glossaryTerms.find(t => t.slug === slug))
+  .filter(Boolean);
+
+// Get other terms in same category (for "More in category" section)
+const sameCategoryTerms = glossaryTerms
+  .filter(t => t.category === term.category && t.slug !== term.slug)
+  .slice(0, 4);
+
+// Prev/Next navigation
+const allSorted = [...glossaryTerms].sort((a, b) => a.title.localeCompare(b.title));
+const currentIndex = allSorted.findIndex(t => t.slug === term.slug);
+const prevTerm = currentIndex > 0 ? allSorted[currentIndex - 1] : null;
+const nextTerm = currentIndex < allSorted.length - 1 ? allSorted[currentIndex + 1] : null;
+---
+
+<BaseLayout
+  title={term.title}
+  description={term.shortDefinition}
+>
+  <article class="mx-auto max-w-4xl px-6 sm:px-10 py-10">
+
+    <!-- Breadcrumbs -->
+    <nav class="flex items-center gap-2 text-sm mb-8 animate-fade-in-up">
+      <a href="/glossary" class="text-white/30 hover:text-white/60 transition-colors">Glossary</a>
+      <svg class="w-3.5 h-3.5 text-white/15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6" /></svg>
+      <span class={`${colors.text} text-xs`}>{term.category}</span>
+      <svg class="w-3.5 h-3.5 text-white/15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6" /></svg>
+      <span class="text-white/50">{term.title}</span>
+    </nav>
+
+    <!-- Term Header -->
+    <header class="mb-10 animate-fade-in-up stagger-1">
+      <div class="flex items-center gap-3 mb-4">
+        <span class={`inline-flex items-center gap-1.5 rounded-full ${colors.bg} ${colors.text} border ${colors.border} px-3 py-1 text-[11px] font-medium uppercase tracking-wider`}>
+          <span class={`w-1.5 h-1.5 rounded-full ${colors.dot}`}></span>
+          {term.category}
+        </span>
+      </div>
+
+      <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.15]">
+        {term.title}
+      </h1>
+
+      <p class="mt-5 text-lg text-white/50 leading-relaxed max-w-2xl">
+        {term.shortDefinition}
+      </p>
+    </header>
+
+    <!-- Content Grid: Main + Sidebar -->
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-10">
+
+      <!-- Main Content -->
+      <div class="animate-fade-in-up stagger-2">
+        <div class="prose-glossary" set:html={term.fullContent} />
+
+        <!-- PropLogAI Connection Card -->
+        <div class="mt-10 rounded-2xl border border-violet-500/15 bg-violet-500/[0.04] p-6 sm:p-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="grid h-8 w-8 place-items-center rounded-lg" style="background:linear-gradient(135deg,#a78bfa,#22d3ee);">
+              <svg width="18" height="18" viewBox="0 0 100 100" aria-hidden="true">
+                <polygon points="22,42 50,49 50,75 22,69" fill="#08080f" />
+                <polygon points="78,42 50,49 50,75 78,69" fill="#08080f" />
+                <polyline points="50,49 63,39 74,27" fill="none" stroke="#08080f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+                <circle cx="74" cy="27" r="4" fill="#08080f" />
+              </svg>
+            </span>
+            <div>
+              <p class="font-display text-sm font-semibold text-white">How PropLogAI helps</p>
+              <p class="text-[11px] text-white/30">AI-powered trading journal</p>
+            </div>
+          </div>
+          <p class="text-sm text-violet-200/60 leading-relaxed">{term.proplogConnection}</p>
+          <a
+            href="https://proplogai.com/login?mode=signup"
+            class="inline-flex items-center gap-2 mt-5 rounded-full px-5 py-2.5 text-sm font-semibold text-[#08080f]"
+            style="background:linear-gradient(120deg,#a78bfa,#22d3ee);"
+          >
+            Try PropLogAI Free
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="space-y-6 animate-fade-in-up stagger-3">
+
+        <!-- Related Terms -->
+        {relatedTerms.length > 0 && (
+          <div class="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5">
+            <h3 class="font-mono text-[10px] uppercase tracking-[0.15em] text-white/30 mb-4">Related Terms</h3>
+            <div class="space-y-3">
+              {relatedTerms.map(related => {
+                const rc = categoryColors[related.category] || { dot: 'bg-white/40' };
+                return (
+                  <a href={`/glossary/${related.slug}`} class="flex items-start gap-3 group">
+                    <span class={`mt-1.5 w-2 h-2 rounded-full flex-shrink-0 ${rc.dot}`}></span>
+                    <div class="min-w-0">
+                      <p class="text-sm font-medium text-white/70 group-hover:text-white transition-colors">{related.title}</p>
+                      <p class="text-xs text-white/30 mt-0.5 line-clamp-2">{related.shortDefinition}</p>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        <!-- More in this category -->
+        {sameCategoryTerms.length > 0 && (
+          <div class="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5">
+            <h3 class="font-mono text-[10px] uppercase tracking-[0.15em] text-white/30 mb-4">More in {term.category}</h3>
+            <div class="space-y-2.5">
+              {sameCategoryTerms.map(st => (
+                <a href={`/glossary/${st.slug}`} class="block text-sm text-white/45 hover:text-white/80 transition-colors py-1">
+                  {st.title}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- Back to Glossary -->
+        <a
+          href="/glossary"
+          class="flex items-center gap-2 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4 text-sm text-white/40 hover:text-white/70 hover:border-white/[0.12] transition-all"
+        >
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" />
+          </svg>
+          All glossary terms
+        </a>
+      </aside>
+    </div>
+
+    <!-- Prev/Next Navigation -->
+    <nav class="mt-14 pt-8 border-t border-white/[0.06] grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {prevTerm ? (
+        <a href={`/glossary/${prevTerm.slug}`} class="group flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 hover:border-white/[0.12] transition-all">
+          <svg class="w-5 h-5 text-white/25 group-hover:text-white/50 transition-colors flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+          <div class="min-w-0">
+            <p class="font-mono text-[10px] text-white/25 uppercase tracking-wider">Previous</p>
+            <p class="text-sm font-medium text-white/60 group-hover:text-white/90 transition-colors truncate">{prevTerm.title}</p>
+          </div>
+        </a>
+      ) : <div />}
+      {nextTerm && (
+        <a href={`/glossary/${nextTerm.slug}`} class="group flex items-center justify-end gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 hover:border-white/[0.12] transition-all text-right">
+          <div class="min-w-0">
+            <p class="font-mono text-[10px] text-white/25 uppercase tracking-wider">Next</p>
+            <p class="text-sm font-medium text-white/60 group-hover:text-white/90 transition-colors truncate">{nextTerm.title}</p>
+          </div>
+          <svg class="w-5 h-5 text-white/25 group-hover:text-white/50 transition-colors flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </a>
+      )}
+    </nav>
+
+  </article>
+</BaseLayout>
+
+<style>
+  /* Glossary prose styles */
+  .prose-glossary :global(h3) {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    color: white;
+    font-size: 1.25rem;
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+    letter-spacing: -0.01em;
+  }
+
+  .prose-glossary :global(p) {
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.8;
+    margin-bottom: 1.25em;
+    font-size: 0.9375rem;
+  }
+
+  .prose-glossary :global(ul) {
+    margin-bottom: 1.25em;
+    padding-left: 1.5em;
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  .prose-glossary :global(li) {
+    margin-bottom: 0.5em;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+  }
+
+  .prose-glossary :global(ul li::marker) {
+    color: #8b5cf6;
+  }
+
+  .prose-glossary :global(strong) {
+    color: white;
+    font-weight: 600;
+  }
+
+  .prose-glossary :global(em) {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .prose-glossary :global(code) {
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(139, 92, 246, 0.08);
+    padding: 0.15em 0.4em;
+    border-radius: 0.375rem;
+    font-size: 0.85em;
+    color: #22d3ee;
+    border: 1px solid rgba(139, 92, 246, 0.1);
+  }
+</style>
