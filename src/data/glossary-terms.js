@@ -1,3 +1,7 @@
+// Page-level revision date for the shared glossary data and template.
+// It is not a reconstructed publication date or a factual-review claim.
+export const glossaryPageUpdatedAt = '2026-09-21';
+
 export const glossaryTerms = [
   // ─── Trading Psychology (6) ───
   {
@@ -28,6 +32,7 @@ export const glossaryTerms = [
     shortDefinition: 'Trading aggressively after a loss to "win back" the money, typically with larger positions or lower-quality setups, leading to even bigger losses.',
     category: 'Trading Psychology',
     relatedTerms: ['tilt', 'fomo', 'overtrading'],
+    guide: { href: '/blogs/revenge-trading-prop-firm', label: 'Review a practical revenge-trading interruption workflow' },
     proplogConnection: 'PropLogAI detects revenge trading patterns by analyzing your trade timing, position sizes, and emotions after consecutive losses — then alerts you before the spiral deepens.',
     fullContent: `
       <h3>What is Revenge Trading?</h3>
@@ -90,22 +95,28 @@ export const glossaryTerms = [
   {
     slug: 'loss-aversion',
     title: 'Loss Aversion',
-    shortDefinition: 'The psychological tendency where the pain of losing money feels roughly twice as intense as the pleasure of gaining the same amount.',
+    shortDefinition: 'The tendency for a loss to affect a decision more strongly than an equivalent gain in many situations.',
     category: 'Trading Psychology',
+    updatedAt: '2026-09-20',
     relatedTerms: ['tilt', 'risk-per-trade', 'stop-loss'],
-    proplogConnection: 'PropLogAI tracks your holding times on winners vs losers. The AI coach identifies if you are cutting winners short and holding losers too long — the classic signature of loss aversion.',
+    sourceIds: ['RES-001', 'PLAI-001', 'PLAI-005'],
+    sources: [
+      { id: 'RES-001', label: 'Kahneman and Tversky — Prospect Theory (1979)', url: 'https://web.mit.edu/curhan/www/docs/Articles/15341_Readings/Behavioral_Decision_Theory/Kahneman_Tversky_1979_Prospect_theory.pdf', checkedOn: '2026-09-19' },
+      { id: 'PLAI-001', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
+    ],
+    proplogConnection: 'PropLogAI can use your own journal entries to help you review patterns. Emotion tags and rule-adherence notes let you compare planned decisions with what you recorded after a gain or loss.',
     fullContent: `
       <h3>What is Loss Aversion?</h3>
-      <p>Loss aversion, identified by psychologists Kahneman and Tversky, is the finding that humans experience losses approximately twice as powerfully as equivalent gains. Losing $100 feels about as bad as gaining $200 feels good. This asymmetry is hardwired — it's not a flaw you can simply decide to fix.</p>
-      <p>In trading, loss aversion manifests in two destructive ways: cutting winning trades too early (to lock in the gain before it disappears) and holding losing trades too long (hoping they'll come back to breakeven so you don't have to realize the loss).</p>
-      <h3>Impact on Trading Performance</h3>
+      <p>Loss aversion is a concept from prospect theory. It describes how a loss can influence a choice more strongly than an equivalent gain. The strength of the effect varies by person and situation, so this definition does not use a fixed multiplier.</p>
+      <p>In a trading journal, possible signs include closing a planned winner early to protect a gain or changing an exit after a loss becomes uncomfortable. Those actions can also have other causes, so a single trade does not prove a bias.</p>
+      <h3>What to Review</h3>
       <ul>
-        <li><strong>Cutting winners short:</strong> You take profit at +20 pips because you're afraid of giving it back, even though your target was +60</li>
-        <li><strong>Holding losers:</strong> You move your stop loss further away or remove it entirely because taking the loss feels unbearable</li>
-        <li><strong>Asymmetric risk-reward:</strong> Your average win becomes smaller than your average loss, requiring an impossibly high win rate to be profitable</li>
+        <li><strong>Planned versus actual exit:</strong> Record whether the exit followed the written rule.</li>
+        <li><strong>Reason for the change:</strong> Note new market information separately from discomfort about realizing a loss.</li>
+        <li><strong>Repeated pattern:</strong> Compare many similar trades before drawing a conclusion.</li>
       </ul>
-      <h3>Working With Loss Aversion</h3>
-      <p>You can't eliminate loss aversion, but you can build systems that account for it. Use preset take-profit orders so your exits are automated. Risk only an amount per trade that you can genuinely accept losing. Review your journal weekly to compare your planned exits versus actual exits — the gap reveals exactly how much loss aversion is costing you.</p>
+      <h3>How to Use the Concept</h3>
+      <p>Treat loss aversion as a review question, not a diagnosis. A written exit rule and a journal comparison can show whether decisions changed after gains or losses. The record can identify a pattern, but it cannot guarantee why the pattern occurred or what a trader should do next.</p>
     `
   },
   {
@@ -137,6 +148,7 @@ export const glossaryTerms = [
     shortDefinition: 'The peak-to-trough decline in your trading account, measured as a percentage or dollar amount from the highest point to the lowest point before a new high.',
     category: 'Risk Management',
     relatedTerms: ['daily-drawdown-limit', 'overall-drawdown-limit', 'equity-curve'],
+    guide: { href: '/blogs/daily-drawdown-calculator', label: 'See how to track a daily drawdown buffer' },
     proplogConnection: 'PropLogAI automatically calculates your drawdown on the dashboard and P&L calendar. The AI coach analyzes your drawdown patterns and identifies which behaviors precede your deepest drawdowns.',
     fullContent: `
       <h3>What is Drawdown?</h3>
@@ -145,7 +157,7 @@ export const glossaryTerms = [
       <ul>
         <li><strong>Absolute drawdown:</strong> The decline from your initial balance — relevant for overall drawdown limits</li>
         <li><strong>Relative (trailing) drawdown:</strong> The decline from your highest equity point — used by many prop firms as a trailing maximum</li>
-        <li><strong>Daily drawdown:</strong> The maximum loss allowed in a single trading day — typically 4-5% of account balance</li>
+        <li><strong>Daily drawdown:</strong> A firm-defined daily loss limit whose percentage, reference value, and reset method vary by program</li>
       </ul>
       <h3>Managing Drawdown</h3>
       <p>The key to surviving prop firm drawdown rules is position sizing. If your maximum daily drawdown is 5% ($5,000 on a $100K account) and you risk 1% per trade, you can absorb 5 consecutive losing trades before hitting the limit. If you risk 2%, only 2.5 losses will breach it. Conservative position sizing isn't timid — it's mathematical survival.</p>
@@ -216,44 +228,32 @@ export const glossaryTerms = [
     `
   },
   {
-    slug: 'daily-drawdown-limit',
-    title: 'Maximum Daily Loss',
-    shortDefinition: 'The maximum amount you are allowed to lose in a single trading day, typically set by your prop firm at 4-5% of account balance.',
-    category: 'Risk Management',
-    relatedTerms: ['drawdown', 'overall-drawdown-limit', 'risk-per-trade'],
-    proplogConnection: 'PropLogAI displays your daily P&L on the calendar and dashboard. When you approach your daily loss limit, the system helps you track exactly how much room you have left.',
-    fullContent: `
-      <h3>What is a Maximum Daily Loss?</h3>
-      <p>Maximum daily loss (also called daily drawdown limit) is the most you can lose in a single trading day. In prop firm challenges, this is typically 4-5% of your starting balance — hard-coded, non-negotiable, and breaching it ends your challenge instantly.</p>
-      <p>For a $100,000 account with a 5% daily limit, you cannot lose more than $5,000 in one day. Some firms calculate this from your starting daily balance, while others use a trailing high-water mark that includes unrealized profits.</p>
-      <h3>Why Daily Limits Exist</h3>
-      <p>Daily limits exist because the most dangerous trading behavior — revenge trading, tilt, overleveraging — happens within a single session. A trader who loses $3,000 in the morning and then tries to "make it back" in the afternoon often turns a bad day into an account-ending day. The daily limit forces a circuit breaker.</p>
-      <ul>
-        <li><strong>Know your calculation method:</strong> Does your firm use balance-based or equity-based daily drawdown?</li>
-        <li><strong>Set a personal limit tighter than the firm's:</strong> If the firm allows 5%, set your own at 3%</li>
-        <li><strong>Track intraday P&L:</strong> Many blown accounts happen because the trader lost track of cumulative daily losses</li>
-      </ul>
-    `
-  },
-  {
     slug: 'risk-per-trade',
     title: 'Risk Per Trade',
-    shortDefinition: 'The percentage of your account you are willing to lose on any single trade, typically 0.5% to 2% for prop firm traders.',
+    shortDefinition: 'The maximum planned loss for one trade, stated as money, account percentage, or risk units if the stop is reached.',
     category: 'Risk Management',
+    updatedAt: '2026-09-20',
     relatedTerms: ['position-sizing', 'stop-loss', 'daily-drawdown-limit'],
-    proplogConnection: 'PropLogAI calculates your effective risk per trade from your lot size and stop loss. The AI coach flags trades where your risk exceeded your stated rules.',
+    sourceIds: ['PFR-002', 'PFR-006', 'PLAI-002'],
+    sources: [
+      { id: 'PFR-002', label: 'FTMO trading objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-19' },
+      { id: 'PFR-006', label: 'FundedNext maximum daily loss', url: 'https://help.fundednext.com/en/articles/8019914-what-is-the-maximum-daily-loss-limit', checkedOn: '2026-09-19' },
+      { id: 'PLAI-002', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
+    ],
+    proplogConnection: 'PropLogAI lets you manually record trade details, notes, emotions, and rule adherence. That record can be used to compare planned loss with the result you logged.',
     fullContent: `
       <h3>What is Risk Per Trade?</h3>
-      <p>Risk per trade is the maximum amount of capital you're willing to lose on a single trade, expressed as a percentage of your account balance. It's the starting point for your position sizing calculation and the single most controllable variable in your trading.</p>
-      <p>Most professional traders risk between 0.5% and 2% per trade. At 1% risk on a $100,000 account, a losing trade costs $1,000 — painful but survivable. At 5% risk, a losing trade costs $5,000, and three consecutive losses put you in serious drawdown territory.</p>
-      <h3>Finding Your Risk Level</h3>
+      <p>Risk per trade is the loss planned before entry if the stop is filled at the expected price. It can be recorded as a currency amount, a percentage of the account reference value, or one risk unit (1R). It is an input to position sizing, not a universal percentage.</p>
+      <h3>Basic Calculation</h3>
+      <p><strong>Planned risk amount = account reference value × chosen risk percentage.</strong> Position size then depends on that amount, the stop distance, instrument value, and expected costs. Slippage or gaps can make the realized loss different from the planned loss.</p>
+      <h3>Why the Firm Rule Matters</h3>
       <ul>
-        <li><strong>Conservative (0.5%):</strong> Best for new prop firm challenges — allows 10 consecutive losses before hitting a 5% daily limit</li>
-        <li><strong>Moderate (1%):</strong> The most common choice — allows 5 consecutive losses before hitting daily limits</li>
-        <li><strong>Aggressive (2%):</strong> Requires high win rate — only 2-3 consecutive losses before daily limit concerns</li>
+        <li><strong>Reference value:</strong> Confirm whether the relevant rule uses initial balance, daily balance, or equity.</li>
+        <li><strong>Open P&amp;L:</strong> Some daily-loss calculations include unrealized losses, swaps, and commissions.</li>
+        <li><strong>Combined exposure:</strong> Several open trades can consume the same loss allowance at once.</li>
       </ul>
-      <h3>The Math Behind Risk Per Trade</h3>
-      <p>If your daily drawdown limit is 5% and you risk 1% per trade, you can lose 5 trades in a row before being forced to stop. With a 50% win rate, the probability of 5 consecutive losses is about 3% — unlikely but possible. At 2% risk, only 2.5 consecutive losses trigger the daily limit — a far more probable event. Choose your risk level by working backward from your drawdown limits.</p>
+      <h3>No Universal Setting</h3>
+      <p>A suitable limit depends on the exact firm program, strategy distribution, open positions, costs, and the trader's written plan. The FTMO and FundedNext examples in the sources show why the governing daily-loss calculation must be checked before doing the arithmetic.</p>
     `
   },
 
@@ -263,42 +263,51 @@ export const glossaryTerms = [
     title: 'Win Rate',
     shortDefinition: 'The percentage of your trades that close in profit, calculated as winning trades divided by total trades.',
     category: 'Performance Metrics',
+    updatedAt: '2026-09-20',
     relatedTerms: ['risk-reward-ratio', 'profit-factor', 'expectancy'],
-    proplogConnection: 'PropLogAI calculates your win rate overall and broken down by setup, session, pair, and emotion — revealing which specific conditions give you the highest edge.',
+    sourceIds: ['PLAI-003'],
+    sources: [
+      { id: 'PLAI-003', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
+    ],
+    proplogConnection: 'PropLogAI displays win rate from logged trade data. Review it with average win, average loss, trade count, and costs rather than treating it as a complete performance score.',
     fullContent: `
       <h3>What is Win Rate?</h3>
       <p>Win rate is the simplest performance metric: the number of winning trades divided by the total number of trades, expressed as a percentage. If you took 100 trades and 58 were profitable, your win rate is 58%.</p>
-      <p>While intuitive, win rate alone tells you very little about profitability. A trader with an 80% win rate can still lose money if their average loss is much larger than their average win. Conversely, a trader with a 35% win rate can be highly profitable with a strong risk-reward ratio.</p>
-      <h3>Win Rate Context Matters</h3>
+      <p><strong>Win rate = winning trades ÷ total closed trades × 100.</strong> Define how breakeven trades, partial exits, fees, and multi-leg positions are counted before comparing periods.</p>
+      <h3>What Win Rate Does Not Show</h3>
       <ul>
-        <li><strong>Scalpers:</strong> Often have 60-75% win rates with smaller R:R ratios (1:0.5 to 1:1)</li>
-        <li><strong>Swing traders:</strong> Typically 40-55% win rates with larger R:R (1:2 to 1:4)</li>
-        <li><strong>Breakout traders:</strong> Can have 30-40% win rates with very high R:R (1:3+)</li>
+        <li><strong>Trade size:</strong> A small win and a large win both count as one winning trade.</li>
+        <li><strong>Loss size:</strong> A high win rate can coexist with losses that outweigh the gains.</li>
+        <li><strong>Sample stability:</strong> A short sequence may not represent the longer record.</li>
+        <li><strong>Trading costs:</strong> Spread, commission, swaps, and slippage can change the net result.</li>
       </ul>
-      <h3>The Minimum Viable Win Rate</h3>
-      <p>Your minimum profitable win rate depends entirely on your risk-reward ratio. At 1:1 R:R, you need over 50%. At 1:2 R:R, you need over 33%. The formula is: Breakeven Win Rate = 1 / (1 + R:R). Track both metrics together — either one alone is incomplete.</p>
+      <h3>Use It With Other Metrics</h3>
+      <p>Read win rate beside average win, average loss, expectancy, profit factor, and the number of trades included. Style-based ranges are not used here because they require a defined market, timeframe, rule set, cost model, and dataset.</p>
     `
   },
   {
     slug: 'profit-factor',
     title: 'Profit Factor',
-    shortDefinition: 'Total gross profits divided by total gross losses. A profit factor above 1.0 means you are making money; above 1.5 is considered strong.',
+    shortDefinition: 'Total gross profit divided by the absolute value of total gross loss for a defined set of closed trades.',
     category: 'Performance Metrics',
+    updatedAt: '2026-09-20',
     relatedTerms: ['win-rate', 'expectancy', 'average-win-vs-average-loss'],
+    sourceIds: ['PLAI-003'],
+    sources: [
+      { id: 'PLAI-003', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
+    ],
     proplogConnection: 'PropLogAI displays your profit factor on the dashboard alongside monthly breakdowns, so you can see how your edge evolves over time.',
     fullContent: `
       <h3>What is Profit Factor?</h3>
       <p>Profit factor is your total gross profit divided by your total gross loss (using absolute values). If your winning trades totaled $15,000 and your losing trades totaled $10,000, your profit factor is 1.5. It's a single number that captures the relationship between your wins and losses.</p>
-      <h3>Interpreting Profit Factor</h3>
+      <h3>How to Read It</h3>
       <ul>
-        <li><strong>Below 1.0:</strong> You're losing money — losses exceed profits</li>
-        <li><strong>1.0 - 1.2:</strong> Marginally profitable — commissions and slippage may eat your edge</li>
-        <li><strong>1.2 - 1.5:</strong> Decent profitability — sustainable with consistent execution</li>
-        <li><strong>1.5 - 2.0:</strong> Strong performance — clear edge in your strategy</li>
-        <li><strong>Above 2.0:</strong> Excellent — but verify with sufficient sample size (50+ trades)</li>
+        <li><strong>Above 1:</strong> Gross gains were larger than gross losses in the selected sample.</li>
+        <li><strong>Equal to 1:</strong> Gross gains and gross losses were equal before any excluded costs.</li>
+        <li><strong>Below 1:</strong> Gross losses were larger than gross gains in the selected sample.</li>
       </ul>
-      <h3>Why Profit Factor Beats Win Rate</h3>
-      <p>Profit factor is more useful than win rate because it accounts for the SIZE of wins and losses, not just their frequency. A trader with 40% win rate but large winners can have a profit factor of 2.0, while a trader with 70% win rate but tiny winners and large losers might have a profit factor of 0.8. Always evaluate profit factor alongside your trade count — anything under 30 trades is not statistically meaningful.</p>
+      <h3>Limits of the Number</h3>
+      <p>Profit factor depends on the selected dates, included trades, currency conversion, and whether costs are already reflected in each trade's result. A small or unusually favorable sample can move the ratio sharply. There is no universal threshold for a “strong” value, so compare like-for-like periods and show the trade count.</p>
     `
   },
   {
@@ -436,6 +445,7 @@ export const glossaryTerms = [
     shortDefinition: 'Taking more trades than your strategy calls for, driven by boredom, greed, or the belief that more trades equals more profit.',
     category: 'Trading Discipline',
     relatedTerms: ['fomo', 'revenge-trading', 'trading-plan'],
+    guide: { href: '/blogs/overtrading-prop-firm-challenges', label: 'Review overtrading patterns in prop firm challenges' },
     proplogConnection: 'PropLogAI counts your daily trade frequency and the AI coach identifies when you are overtrading compared to your normal baseline, especially on losing days.',
     fullContent: `
       <h3>What is Overtrading?</h3>
@@ -520,122 +530,179 @@ export const glossaryTerms = [
   {
     slug: 'prop-firm-challenge',
     title: 'Prop Firm Challenge',
-    shortDefinition: 'An evaluation phase where a trader must demonstrate profitability and risk management on a simulated account to qualify for a funded trading account.',
+    shortDefinition: 'A rules-based evaluation, often on a simulated account, that a trader must complete to qualify for the firm’s next account stage.',
     category: 'Prop Firm',
+    updatedAt: '2026-09-20',
     relatedTerms: ['funded-account', 'profit-target', 'daily-drawdown-limit'],
-    proplogConnection: 'PropLogAI is purpose-built for prop firm traders. Track your challenge progress, monitor drawdown limits, and get AI coaching tailored to passing evaluations.',
+    sourceIds: ['PFR-001', 'PFR-002', 'PFR-004', 'PFR-009', 'PLAI-002'],
+    sources: [
+      { id: 'PFR-001', label: 'FTMO trading objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-19' },
+      { id: 'PFR-009', label: 'FundedNext Stellar 2-Step profit target', url: 'https://help.fundednext.com/en/articles/8021071-what-is-the-profit-target-of-the-stellar-2-step-challenge', checkedOn: '2026-09-19' },
+      { id: 'PLAI-002', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
+    ],
+    proplogConnection: 'PropLogAI lets traders manually log trades, emotions, screenshots, and rule adherence. Use the journal record alongside the exact terms shown in the firm’s current dashboard and rules.',
     fullContent: `
       <h3>What is a Prop Firm Challenge?</h3>
-      <p>A prop firm challenge (also called an evaluation or assessment) is a test where you trade a simulated account under specific rules to prove you can trade profitably and manage risk. If you pass, the firm gives you a funded account with real capital. You typically pay a one-time fee to attempt the challenge.</p>
-      <h3>Typical Challenge Structure</h3>
+      <p>A prop firm challenge, evaluation, or assessment is a stage in which a trader follows a named program's objectives and loss limits. Many online programs use simulated accounts. Passing can qualify the trader for another simulated or funded-stage account under a separate contract.</p>
+      <h3>Rules Vary by Program</h3>
       <ul>
-        <li><strong>Phase 1:</strong> Hit a profit target (usually 8-10% of account) within 30 days while staying within drawdown limits</li>
-        <li><strong>Phase 2 (Verification):</strong> Hit a smaller target (usually 5%) with the same risk rules, proving consistency</li>
-        <li><strong>Funded:</strong> Trade the firm's real capital and keep 70-90% of profits</li>
+        <li><strong>Objectives:</strong> A program may set one or more profit targets.</li>
+        <li><strong>Loss limits:</strong> Daily and maximum-loss calculations may use different reference values and reset times.</li>
+        <li><strong>Trading days and time:</strong> Minimum days and time limits are program-specific.</li>
+        <li><strong>Next stage:</strong> Account model, reward eligibility, and payout conditions come from the firm's contract.</li>
       </ul>
-      <h3>Why Most Traders Fail</h3>
-      <p>Statistics from major prop firms suggest 80-90% of traders fail the challenge. The primary reason isn't bad strategy — it's poor risk management and psychology. Traders overtrade to hit targets quickly, take excessive risk after drawdowns, or abandon their plan under the pressure of the evaluation timeline. The traders who pass consistently report that they traded their plan exactly as they would with no challenge — no special adjustments for the evaluation.</p>
+      <h3>Named Examples</h3>
+      <p>On the pages checked for this revision, FTMO's 2-Step program lists 10% for its Challenge and 5% for Verification, while FundedNext's Stellar 2-Step lists 8% for Phase 1 and 5% for Phase 2. These examples explain variation; they are not a universal range. Verify the exact program page before relying on any number.</p>
+      <h3>What This Definition Does Not Claim</h3>
+      <p>There is no approved general failure rate, standard fee, fixed duration, or universal account model in this glossary. Those details can change and require a current first-party source.</p>
     `
   },
   {
     slug: 'funded-account',
     title: 'Funded Account',
-    shortDefinition: 'A trading account provided by a prop firm with their capital, where the trader keeps a percentage of profits (typically 70-90%) after passing the evaluation.',
+    shortDefinition: 'An account stage offered under a prop firm agreement after eligibility conditions are met; it may use simulated or live-market capital depending on the firm.',
     category: 'Prop Firm',
+    updatedAt: '2026-09-20',
     relatedTerms: ['prop-firm-challenge', 'overall-drawdown-limit', 'consistency-rule'],
-    proplogConnection: 'PropLogAI helps funded traders maintain their accounts by tracking performance, monitoring drawdown, and coaching disciplined behavior through the AI coach.',
+    sourceIds: ['PFR-013', 'PFR-014', 'PLAI-002', 'PLAI-003'],
+    sources: [
+      { id: 'PFR-013', label: 'FTMO — capital used on an FTMO Account', url: 'https://ftmo.com/faq/what-capital-will-i-trade-on-an-ftmo-account/', checkedOn: '2026-09-19' },
+      { id: 'PFR-014', label: 'FundedNext — how its account model works', url: 'https://help.fundednext.com/en/articles/11982431-how-does-fundednext-work', checkedOn: '2026-09-19' },
+      { id: 'PLAI-002', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
+    ],
+    proplogConnection: 'PropLogAI provides manual journal records and dashboard metrics from logged data. Those records can support a review, while the firm’s agreement remains the source for account and reward rules.',
     fullContent: `
       <h3>What is a Funded Account?</h3>
-      <p>A funded account is a trading account where a proprietary trading firm provides the capital and the trader provides the skill. After passing the firm's evaluation, you trade with their money — typically $25,000 to $400,000 or more. Profits are split between you and the firm, with traders typically receiving 70-90% of gains.</p>
-      <h3>Funded Account Rules</h3>
+      <p>“Funded account” is an industry label for an account stage governed by a prop firm's agreement. The label alone does not prove that orders use the firm's live capital. Some online firms expressly describe these accounts as simulated and pay rewards based on simulated performance.</p>
+      <h3>What to Verify</h3>
       <ul>
-        <li><strong>Drawdown limits still apply:</strong> You can lose your funded account by breaching daily or overall drawdown limits</li>
-        <li><strong>Profit splits:</strong> Usually monthly or bi-weekly payouts once you meet a minimum threshold</li>
-        <li><strong>Scaling:</strong> Some firms increase your account size as you demonstrate consistent profitability</li>
-        <li><strong>Consistency requirements:</strong> Many firms require that no single day represents more than a certain percentage of total profit</li>
+        <li><strong>Account model:</strong> Simulated, live, or another contractual structure.</li>
+        <li><strong>Loss rules:</strong> Daily, maximum, trailing, and open-position calculations.</li>
+        <li><strong>Rewards:</strong> Eligibility, calculation, request schedule, and exclusions.</li>
+        <li><strong>Termination and scaling:</strong> Events that close, reset, or change the account.</li>
       </ul>
-      <h3>Keeping Your Funded Account</h3>
-      <p>Getting funded is only half the challenge — keeping the account is the other half. Many traders who pass the evaluation lose their funded accounts within the first few months. The shift from "trying to pass" to "trying to keep" requires a mindset change: from aggressive target-chasing to sustainable, consistent trading.</p>
+      <h3>Two Current Examples</h3>
+      <p>FTMO states that its FTMO Accounts use fictitious capital. FundedNext describes its funded-stage account as simulated with rewards based on performance. These statements apply to those firms' checked pages and should not be generalized to every proprietary trading business.</p>
+      <h3>Avoid Assumptions</h3>
+      <p>Account size labels and reward percentages are not included as “typical” values here. Read the current agreement and program rules before describing whose capital is used or how a payout works.</p>
     `
   },
   {
     slug: 'overall-drawdown-limit',
     title: 'Overall Drawdown Limit',
-    shortDefinition: 'The maximum total loss allowed on your account from the starting balance or high-water mark, typically 8-12%. Breaching it ends your challenge or funded account.',
+    shortDefinition: 'A program rule that sets the lowest permitted account value, using a fixed or moving reference defined by the firm.',
     category: 'Prop Firm',
+    updatedAt: '2026-09-20',
     relatedTerms: ['daily-drawdown-limit', 'drawdown', 'prop-firm-challenge'],
-    proplogConnection: 'PropLogAI tracks your cumulative P&L and monitors how close you are to overall drawdown limits, helping you manage risk across your entire challenge period.',
+    guide: { href: '/blogs/daily-drawdown-calculator', label: 'Compare daily and overall drawdown tracking' },
+    sourceIds: ['PFR-003', 'PFR-005', 'PFR-008', 'PLAI-004'],
+    sources: [
+      { id: 'PFR-003', label: 'FTMO trading objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-19' },
+      { id: 'PFR-008', label: 'FundedNext maximum loss calculation', url: 'https://help.fundednext.com/en/articles/8019812-how-can-i-calculate-the-maximum-loss-limit', checkedOn: '2026-09-19' },
+      { id: 'PLAI-004', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
+    ],
+    proplogConnection: 'PropLogAI provides a P&L calendar from logged data. Use it as a review aid, and use the firm’s platform and current rules for the official limit calculation.',
     fullContent: `
       <h3>What is an Overall Drawdown Limit?</h3>
-      <p>The overall drawdown limit is the maximum total loss your account can sustain before the prop firm closes it. If you start with $100,000 and the overall limit is 10%, your account cannot drop below $90,000 at any point — including unrealized losses on open positions.</p>
-      <h3>Static vs Trailing Overall Drawdown</h3>
+      <p>An overall drawdown or maximum-loss limit defines a floor that account equity must not cross. The source amount, percentage, update schedule, and treatment of open P&amp;L depend on the named program.</p>
+      <h3>Fixed and Moving Floors</h3>
       <ul>
-        <li><strong>Static drawdown:</strong> The limit is fixed from your starting balance. Start at $100K with 10% limit = floor is always $90K, regardless of how high your balance goes</li>
-        <li><strong>Trailing drawdown:</strong> The floor moves up with your highest balance. If you grow to $105K, the floor moves to $95K. This means profits can actually increase your risk of hitting the limit if you then draw down</li>
+        <li><strong>Static:</strong> The floor stays tied to a stated reference such as initial simulated capital.</li>
+        <li><strong>Trailing:</strong> The floor can move after gains according to a defined balance or equity rule.</li>
+        <li><strong>End-of-day trailing:</strong> A firm may update the floor at a daily checkpoint instead of on every price change.</li>
       </ul>
-      <h3>Strategy Implications</h3>
-      <p>Trailing drawdown is significantly harder to manage because every new equity high raises the floor. With a trailing 10% limit, if you grow your $100K account to $108K, your floor is now $97.2K — only $10.8K from your starting balance. Some traders deliberately slow their profit rate to avoid raising the floor too quickly, especially early in challenges.</p>
+      <h3>Named Examples</h3>
+      <p>FTMO's checked objectives describe a static 10% Maximum Loss amount for 2-Step and an end-of-day trailing 10% amount for 1-Step. FundedNext's checked page lists a 10% Maximum Loss limit for Stellar 2-Step. The matching percentages do not make the calculation methods identical.</p>
+      <h3>Calculation Checklist</h3>
+      <p>Confirm the program name, reference value, reset or update time, open P&amp;L treatment, commissions, swaps, and what happens after a reward. A simplified example must state all of those assumptions.</p>
     `
   },
   {
     slug: 'profit-target',
     title: 'Profit Target',
-    shortDefinition: 'The minimum profit required to pass a prop firm challenge phase, usually expressed as a percentage of account balance (e.g., 8% for Phase 1, 5% for Phase 2).',
+    shortDefinition: 'The net-profit objective a named prop firm program requires for a particular evaluation phase.',
     category: 'Prop Firm',
+    updatedAt: '2026-09-20',
     relatedTerms: ['prop-firm-challenge', 'consistency-rule', 'funded-account'],
-    proplogConnection: 'PropLogAI tracks your progress toward profit targets on the dashboard and P&L calendar, showing you exactly how much remains and at what pace you are trading.',
+    sourceIds: ['PFR-001', 'PFR-009', 'PLAI-004'],
+    sources: [
+      { id: 'PFR-001', label: 'FTMO trading objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-19' },
+      { id: 'PFR-009', label: 'FundedNext Stellar 2-Step profit target', url: 'https://help.fundednext.com/en/articles/8021071-what-is-the-profit-target-of-the-stellar-2-step-challenge', checkedOn: '2026-09-19' },
+      { id: 'PLAI-004', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
+    ],
+    proplogConnection: 'PropLogAI provides a P&L calendar from logged trades. It can help you review the record, while the firm’s current program page remains the source for the target and pass conditions.',
     fullContent: `
       <h3>What is a Profit Target?</h3>
-      <p>In prop firm challenges, the profit target is the minimum profit you must achieve to pass to the next phase. Typical targets are 8-10% for Phase 1 and 4-5% for Phase 2. On a $100,000 account, a 10% target means you need to earn $10,000 in net profit.</p>
-      <h3>Target Strategy</h3>
+      <p>A profit target is the net-profit objective attached to a specific phase of a prop firm evaluation. The percentage, starting reference, eligible trading days, time limit, and other pass conditions come from that program's current rules.</p>
+      <h3>Basic Arithmetic</h3>
+      <p><strong>Target amount = program reference amount × target percentage.</strong> For a purely illustrative $100,000 reference and a stated 8% target, the arithmetic target is $8,000. That example does not say that 8% applies to every challenge.</p>
+      <h3>Named Examples</h3>
       <ul>
-        <li><strong>Don't rush:</strong> Most challenges give you 30 days. You don't need to hit the target in week 1. Spreading it over 20 trading days means you need 0.5% per day for a 10% target</li>
-        <li><strong>Risk-adjusted approach:</strong> At 1% risk per trade with a 2:1 R:R and 50% win rate, you need roughly 20 trades to hit a 10% target. That's 1 trade per day</li>
-        <li><strong>Avoid target fixation:</strong> Trading differently because you're "close to the target" leads to emotional decisions. Trade your plan regardless of where you stand</li>
+        <li><strong>FTMO 2-Step:</strong> The checked page lists 10% for the Challenge and 5% for Verification.</li>
+        <li><strong>FundedNext Stellar 2-Step:</strong> The checked page lists 8% for Phase 1 and 5% for Phase 2.</li>
       </ul>
-      <h3>The Target Trap</h3>
-      <p>The biggest mistake is treating the profit target as a daily goal that must be achieved aggressively. Traders who approach a 10% monthly target as a 0.5% daily target trade very differently from those who try to "have a big day." Consistent small gains compound; aggressive target-chasing leads to drawdown.</p>
+      <h3>Read the Whole Rule Set</h3>
+      <p>Reaching a target may not be enough if a minimum-day, loss-limit, consistency, or prohibited-practice rule is unmet. Do not convert a phase target into a promised daily return or a recommendation to increase risk.</p>
     `
   },
   {
     slug: 'consistency-rule',
     title: 'Consistency Rule',
-    shortDefinition: 'A prop firm requirement that no single trading day accounts for more than a certain percentage of total profits, ensuring sustainable rather than lucky performance.',
+    shortDefinition: 'A program-specific rule that compares the best profit day with a defined total-profit or target figure.',
     category: 'Prop Firm',
+    updatedAt: '2026-09-20',
+    guide: { href: '/blogs/prop-firm-consistency-calculator', label: 'Work through the consistency calculation and its limits' },
     relatedTerms: ['sharpe-ratio', 'profit-target', 'funded-account'],
-    proplogConnection: 'PropLogAI monitors your daily P&L distribution and warns you if a single day is becoming too dominant relative to your total profit, helping you stay within consistency requirements.',
+    sourceIds: ['PFR-010', 'PFR-011', 'PLAI-004'],
+    sources: [
+      { id: 'PFR-010', label: 'Topstep consistency rules', url: 'https://help.topstep.com/en/articles/8284208-consistency-at-topstep', checkedOn: '2026-09-19' },
+      { id: 'PLAI-004', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
+    ],
+    proplogConnection: 'PropLogAI provides a P&L calendar from logged trades. Use those entries to review daily distribution, but calculate compliance from the firm’s exact current formula and official account figures.',
     fullContent: `
       <h3>What is the Consistency Rule?</h3>
-      <p>The consistency rule requires that no single trading day's profit makes up more than a specific percentage (typically 30-40%) of your total profit. If you made $10,000 total in your challenge, no single day should account for more than $3,000-$4,000 of that. This prevents traders from passing challenges through one lucky day of high-risk trading.</p>
-      <h3>Why Firms Use This Rule</h3>
-      <p>Without a consistency rule, a trader could risk 5% of the account on a single day, get lucky with a 10:1 winner, and pass the challenge — despite having no sustainable edge. The consistency rule ensures that the profit came from repeated edge execution across multiple days, which is predictive of future performance.</p>
+      <p>A consistency rule measures how concentrated a result is in one trading day. The denominator, threshold, consequence, timing, and account stage differ by program. It is not safe to assume one percentage applies across firms.</p>
+      <h3>Common Formula Shape</h3>
+      <p><strong>Consistency percentage = best profit day ÷ the program's defined total × 100.</strong> The “defined total” may be total net profit or a profit target, so copy the denominator from the official rule.</p>
+      <h3>Topstep Examples</h3>
       <ul>
-        <li><strong>Typical threshold:</strong> No single day exceeds 30-40% of total profit</li>
-        <li><strong>Calculation:</strong> Best day profit / Total net profit × 100</li>
-        <li><strong>When it matters:</strong> Usually checked at the end of the challenge, not daily</li>
+        <li><strong>Trading Combine:</strong> The checked page uses a 55% Consistency Target and says the profit target increases when the best day is above the limit.</li>
+        <li><strong>Express Funded Account Consistency path:</strong> The checked page uses 40% or below for payout eligibility.</li>
       </ul>
-      <h3>Trading Around the Consistency Rule</h3>
-      <p>The best approach is to not worry about it — if you trade with consistent sizing and follow your plan, the consistency rule is rarely an issue. It only becomes a problem when you're overleveraging on some days and under-trading on others. Steady 0.3-0.5% daily returns naturally satisfy any consistency requirement.</p>
+      <h3>Check Before Calculating</h3>
+      <p>Confirm the program, account stage, timezone, included days, treatment of losses, and whether the result changes a target or blocks a payout. Consistency is a contractual calculation, not proof that a strategy will perform in the future.</p>
     `
   },
   {
     slug: 'daily-drawdown-limit',
     title: 'Daily Drawdown Limit',
-    shortDefinition: 'The maximum loss a prop firm allows in a single trading day, typically 4-5% of account balance. Breaching it ends your challenge or funded account instantly.',
+    aliases: ['Maximum Daily Loss'],
+    shortDefinition: 'A prop firm rule that sets the lowest permitted account value during a defined trading day.',
     category: 'Prop Firm',
+    updatedAt: '2026-09-20',
     relatedTerms: ['overall-drawdown-limit', 'drawdown', 'risk-per-trade'],
-    proplogConnection: 'PropLogAI tracks your real-time daily P&L and helps you monitor your distance from the daily drawdown limit throughout each trading session.',
+    guide: { href: '/blogs/daily-drawdown-calculator', label: 'Calculate and review a daily drawdown buffer' },
+    sourceIds: ['PFR-002', 'PFR-006', 'PFR-007', 'PLAI-004'],
+    sources: [
+      { id: 'PFR-002', label: 'FTMO trading objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-19' },
+      { id: 'PFR-006', label: 'FundedNext maximum daily loss', url: 'https://help.fundednext.com/en/articles/8019914-what-is-the-maximum-daily-loss-limit', checkedOn: '2026-09-19' },
+      { id: 'PLAI-004', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
+    ],
+    proplogConnection: 'PropLogAI provides a P&L calendar from logged trades. It is a review aid; the firm’s platform and current rule page remain the source for the official daily-loss figure.',
     fullContent: `
       <h3>What is a Daily Drawdown Limit?</h3>
-      <p>The daily drawdown limit is the maximum loss allowed in a single calendar day on your prop firm account. It's typically 4-5% of your account balance (or sometimes of your starting equity that day). Breaching this limit — even by a single dollar, including unrealized losses on open positions — results in immediate account termination.</p>
-      <h3>How Daily Drawdown is Calculated</h3>
+      <p>A daily drawdown limit, also called maximum daily loss by some firms, defines a daily account floor. A breach and its consequence are determined by the named program's contract. The reset time, reference value, and included costs can materially change the answer.</p>
+      <h3>Calculation Inputs</h3>
       <ul>
-        <li><strong>Balance-based:</strong> Calculated from your closing balance of the previous day. If yesterday you closed at $103,000 and the daily limit is 5%, you can lose up to $5,150 today</li>
-        <li><strong>Equity-based:</strong> Calculated from your starting equity, including open positions. More restrictive because it counts unrealized P&L</li>
-        <li><strong>Includes open trades:</strong> If you have a running -$3,000 position and take another -$2,500 realized loss, you've hit $5,500 — past a 5% limit on $100K</li>
+        <li><strong>Reference:</strong> Initial simulated capital, start-of-day balance, or another stated amount.</li>
+        <li><strong>Current value:</strong> Balance or equity, with the firm's treatment of open P&amp;L.</li>
+        <li><strong>Costs:</strong> Commissions and swaps may be included.</li>
+        <li><strong>Reset:</strong> The firm defines the timezone and daily checkpoint.</li>
       </ul>
-      <h3>Survival Strategy</h3>
-      <p>The golden rule: set your own daily limit tighter than the firm's. If the firm allows 5%, stop trading after a 3% loss day. This gives you a buffer for slippage and one more losing trade. Many experienced prop firm traders stop after 2 losing trades in a row, regardless of the percentage — not because of risk, but because their judgment deteriorates after consecutive losses.</p>
+      <h3>Named Examples</h3>
+      <p>FTMO's checked 2-Step objectives use a 5% Maximum Daily Loss amount based on initial simulated capital and recalculate the limit at 00:00 CE(S)T; the calculation includes open P&amp;L, swaps, and commissions. FundedNext's checked page lists 5% for Stellar 2-Step and 3% for Stellar 1-Step and counts running plus closed loss.</p>
+      <h3>Use the Exact Rule</h3>
+      <p>Do not substitute a generic percentage or another firm's formula. Confirm the program and calculate against the official figures displayed for that account.</p>
     `
   },
 
@@ -646,6 +713,7 @@ export const glossaryTerms = [
     shortDefinition: 'A systematic record of every trade including entry/exit details, setup, emotions, reasoning, and lessons learned — the foundation of trading improvement.',
     category: 'Journal & Analysis',
     relatedTerms: ['trade-review', 'emotion-tracking', 'performance-report'],
+    guide: { href: '/blogs/prop-firm-trading-journal', label: 'Build a prop firm trading journal workflow' },
     proplogConnection: 'PropLogAI is a purpose-built trading journal that goes beyond spreadsheets. Log trades with emotions, screenshots, tags, and lessons — then let AI analyze your patterns.',
     fullContent: `
       <h3>What is a Trading Journal?</h3>
@@ -669,7 +737,7 @@ export const glossaryTerms = [
     shortDefinition: 'A structured analysis of past trades to identify patterns, mistakes, and strengths — typically done daily, weekly, or monthly to drive continuous improvement.',
     category: 'Journal & Analysis',
     relatedTerms: ['trading-journal', 'performance-report', 'pattern-recognition'],
-    proplogConnection: 'PropLogAI automates your trade reviews with AI-powered analysis. The Propol AI Coach generates monthly reviews covering discipline, psychology, mistakes, and action plans.',
+    proplogConnection: 'PropLogAI automates your trade reviews with AI-powered analysis. PropLogAI Coach generates monthly reviews covering discipline, psychology, mistakes, and action plans.',
     fullContent: `
       <h3>What is a Trade Review?</h3>
       <p>A trade review is the process of analyzing your past trades to extract actionable insights. It's not just looking at P&L — it's examining your decision-making process, emotional patterns, and execution quality to identify what's working and what needs to change.</p>
@@ -735,7 +803,7 @@ export const glossaryTerms = [
     shortDefinition: 'A comprehensive analysis of your trading over a defined period, covering statistics, patterns, strengths, weaknesses, and actionable recommendations.',
     category: 'Journal & Analysis',
     relatedTerms: ['trade-review', 'trading-journal', 'equity-curve'],
-    proplogConnection: 'PropLogAI generates AI-powered monthly performance reports with the Propol Coach, covering discipline scores, psychology analysis, top mistakes, and a personalized action plan.',
+    proplogConnection: 'PropLogAI generates AI-powered monthly performance reports with PropLogAI Coach, covering discipline scores, psychology analysis, top mistakes, and a personalized action plan.',
     fullContent: `
       <h3>What is a Performance Report?</h3>
       <p>A performance report is a structured analysis of your trading over a specific period — typically monthly. It goes beyond raw numbers to provide context: what's improving, what's declining, what behavioral changes led to the results, and what to focus on next.</p>
