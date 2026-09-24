@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import TradingJournalLoop from '../components/TradingJournalLoop.astro';
 import { glossaryPageUpdatedAt, glossaryTerms } from '../data/glossary-terms.js';
 
 export function getStaticPaths() {
@@ -130,6 +131,8 @@ const structuredData = {
 
       <!-- Main Content -->
       <div class="animate-fade-in-up stagger-2">
+        {term.visual === 'trading-journal-loop' && <TradingJournalLoop />}
+
         <div class="prose-glossary" set:html={term.fullContent} />
 
         {term.guide && (

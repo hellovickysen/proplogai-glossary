@@ -1,0 +1,347 @@
+---
+const steps = [
+  {
+    number: '01',
+    label: 'Context',
+    title: 'Name the trade precisely',
+    description: 'Stable labels make similar trades easier to filter and compare later.',
+    primary: 'XAUUSD · London session',
+    secondary: 'Asian-session liquidity sweep',
+  },
+  {
+    number: '02',
+    label: 'Plan',
+    title: 'Preserve the decision before the outcome',
+    description: 'Record the confirmation and invalidation conditions before hindsight changes the story.',
+    primary: 'Wait for the breakout candle to close',
+    secondary: 'Invalidation recorded before entry',
+  },
+  {
+    number: '03',
+    label: 'Execution',
+    title: 'Compare the action with the plan',
+    description: 'The journal should show what happened, including any change made during the trade.',
+    primary: 'Entry taken before candle close',
+    secondary: 'Plan followed: Partly',
+  },
+  {
+    number: '04',
+    label: 'Review',
+    title: 'Separate outcome from process',
+    description: 'A positive result does not erase a repeatable execution mistake.',
+    primary: 'Outcome: +$42 (fictional)',
+    secondary: 'Process: Early-entry rule break',
+  },
+];
+---
+
+<section class="journal-loop" data-journal-loop aria-labelledby="journal-loop-title">
+  <div class="loop-heading">
+    <div>
+      <p class="eyebrow">Interactive example · fictional trade</p>
+      <h2 id="journal-loop-title">One trade, four useful records</h2>
+    </div>
+    <span class="instrument">XAUUSD</span>
+  </div>
+
+  <div class="step-grid" role="group" aria-label="Trading journal stages">
+    {steps.map((step, index) => (
+      <button
+        type="button"
+        class:list={['step-button', { active: index === 0 }]}
+        aria-pressed={index === 0 ? 'true' : 'false'}
+        data-number={step.number}
+        data-label={step.label}
+        data-title={step.title}
+        data-description={step.description}
+        data-primary={step.primary}
+        data-secondary={step.secondary}
+      >
+        <span class="step-number">{step.number}</span>
+        <span class="step-label">{step.label}</span>
+      </button>
+    ))}
+  </div>
+
+  <div class="example-panel" aria-live="polite">
+    <div class="panel-copy">
+      <p class="panel-kicker" data-panel-kicker>01 · Context</p>
+      <h3 data-panel-title>{steps[0].title}</h3>
+      <p data-panel-description>{steps[0].description}</p>
+    </div>
+    <div class="record-card">
+      <span class="record-dot" aria-hidden="true"></span>
+      <div>
+        <p data-panel-primary>{steps[0].primary}</p>
+        <span data-panel-secondary>{steps[0].secondary}</span>
+      </div>
+    </div>
+  </div>
+
+  <noscript>
+    <p class="noscript-note">The four records are context, plan, execution, and review. Keep the trade outcome separate from process compliance.</p>
+  </noscript>
+</section>
+
+<script>
+  document.querySelectorAll('[data-journal-loop]').forEach((root) => {
+    const buttons = [...root.querySelectorAll('[data-number]')];
+    const kicker = root.querySelector('[data-panel-kicker]');
+    const title = root.querySelector('[data-panel-title]');
+    const description = root.querySelector('[data-panel-description]');
+    const primary = root.querySelector('[data-panel-primary]');
+    const secondary = root.querySelector('[data-panel-secondary]');
+
+    for (const button of buttons) {
+      button.addEventListener('click', () => {
+        for (const candidate of buttons) {
+          const isActive = candidate === button;
+          candidate.classList.toggle('active', isActive);
+          candidate.setAttribute('aria-pressed', String(isActive));
+        }
+
+        kicker.textContent = `${button.dataset.number} · ${button.dataset.label}`;
+        title.textContent = button.dataset.title;
+        description.textContent = button.dataset.description;
+        primary.textContent = button.dataset.primary;
+        secondary.textContent = button.dataset.secondary;
+      });
+    }
+  });
+</script>
+
+<style>
+  .journal-loop {
+    margin: 0 0 2rem;
+    overflow: hidden;
+    border: 1px solid rgba(96, 165, 250, 0.18);
+    border-radius: 1.25rem;
+    background:
+      radial-gradient(circle at 88% 8%, rgba(34, 211, 238, 0.11), transparent 34%),
+      radial-gradient(circle at 8% 100%, rgba(139, 92, 246, 0.12), transparent 38%),
+      rgba(255, 255, 255, 0.025);
+    padding: 1.25rem;
+  }
+
+  .loop-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .eyebrow,
+  .panel-kicker {
+    margin: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(103, 232, 249, 0.62);
+  }
+
+  h2 {
+    margin: 0.35rem 0 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .instrument {
+    flex: none;
+    border: 1px solid rgba(250, 204, 21, 0.22);
+    border-radius: 999px;
+    background: rgba(250, 204, 21, 0.07);
+    padding: 0.35rem 0.55rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    letter-spacing: 0.08em;
+    color: rgba(253, 224, 71, 0.8);
+  }
+
+  .step-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.45rem;
+    margin-top: 1.25rem;
+  }
+
+  .step-grid::before {
+    position: absolute;
+    top: 1.05rem;
+    right: 8%;
+    left: 8%;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(139, 92, 246, 0.35), rgba(34, 211, 238, 0.35));
+    content: '';
+  }
+
+  .step-button {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    border: 0;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.42);
+    cursor: pointer;
+  }
+
+  .step-number {
+    display: grid;
+    width: 2.1rem;
+    height: 2.1rem;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.65rem;
+    background: #0b0b12;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    transition: 180ms ease;
+  }
+
+  .step-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+
+  .step-button:hover,
+  .step-button:focus-visible,
+  .step-button.active {
+    color: rgba(255, 255, 255, 0.9);
+    outline: none;
+  }
+
+  .step-button:hover .step-number,
+  .step-button:focus-visible .step-number,
+  .step-button.active .step-number {
+    border-color: rgba(34, 211, 238, 0.42);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.22), rgba(34, 211, 238, 0.18));
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.08);
+  }
+
+  .example-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(190px, 0.8fr);
+    gap: 1rem;
+    align-items: center;
+    margin-top: 1.15rem;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 0.9rem;
+    background: rgba(5, 7, 13, 0.62);
+    padding: 1rem;
+  }
+
+  .panel-copy h3 {
+    margin: 0.25rem 0 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .panel-copy > p:last-child {
+    margin: 0.4rem 0 0;
+    font-size: 0.75rem;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.43);
+  }
+
+  .record-card {
+    display: flex;
+    gap: 0.65rem;
+    align-items: flex-start;
+    border-left: 1px solid rgba(34, 211, 238, 0.18);
+    padding-left: 1rem;
+  }
+
+  .record-dot {
+    width: 0.45rem;
+    height: 0.45rem;
+    flex: none;
+    margin-top: 0.3rem;
+    border-radius: 999px;
+    background: #22d3ee;
+    box-shadow: 0 0 12px rgba(34, 211, 238, 0.55);
+  }
+
+  .record-card p {
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.86);
+  }
+
+  .record-card span:last-child {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.68rem;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.38);
+  }
+
+  .noscript-note {
+    margin: 1rem 0 0;
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.42);
+  }
+
+  @media (max-width: 640px) {
+    .journal-loop {
+      padding: 1rem;
+    }
+
+    .loop-heading {
+      align-items: center;
+    }
+
+    .step-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+
+    .step-grid::before {
+      display: none;
+    }
+
+    .step-button {
+      flex-direction: row;
+      justify-content: flex-start;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 0.75rem;
+      padding: 0.55rem;
+      background: rgba(255, 255, 255, 0.018);
+    }
+
+    .step-button.active {
+      border-color: rgba(34, 211, 238, 0.25);
+      background: rgba(34, 211, 238, 0.06);
+    }
+
+    .step-number {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+
+    .example-panel {
+      grid-template-columns: 1fr;
+    }
+
+    .record-card {
+      border-top: 1px solid rgba(34, 211, 238, 0.18);
+      border-left: 0;
+      padding-top: 0.8rem;
+      padding-left: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .step-number {
+      transition: none;
+    }
+  }
+</style>

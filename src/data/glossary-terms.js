@@ -712,6 +712,7 @@ export const glossaryTerms = [
     title: 'Trading Journal',
     aliases: ['Trade journal', 'Forex trading journal'],
     updatedAt: '2026-09-24',
+    visual: 'trading-journal-loop',
     shortDefinition: 'A structured record of trade context, plan, execution, result, rule compliance, emotions, screenshots, and review notes used to compare decisions over time.',
     category: 'Journal & Analysis',
     relatedTerms: ['trade-review', 'emotion-tracking', 'performance-report'],

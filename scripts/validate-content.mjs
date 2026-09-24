@@ -56,6 +56,7 @@ const requiredGuides = new Map([
 const requiredBodyLinks = new Map([
   ['trading-journal', ['/blogs/trading-journal-template', '/glossary/trade-review']],
 ]);
+const allowedVisuals = new Set(['trading-journal-loop']);
 for (const term of glossaryTerms) {
   if (term.updatedAt && !/^\d{4}-\d{2}-\d{2}$/.test(term.updatedAt)) {
     failures.push(`${term.slug}: updatedAt must be an ISO date`);
@@ -63,6 +64,7 @@ for (const term of glossaryTerms) {
   if (term.aliases && (!Array.isArray(term.aliases) || term.aliases.some((alias) => typeof alias !== 'string' || !alias.trim()))) {
     failures.push(`${term.slug}: aliases must be non-empty strings`);
   }
+  if (term.visual && !allowedVisuals.has(term.visual)) failures.push(`${term.slug}: unsupported visual ${term.visual}`);
   for (const related of term.relatedTerms ?? []) {
     if (!slugs.has(related)) failures.push(`${term.slug}: unknown related term ${related}`);
   }
@@ -92,6 +94,9 @@ for (const [slug, hrefs] of requiredBodyLinks) {
   for (const href of hrefs) {
     if (!term?.fullContent?.includes(`href="${href}"`)) failures.push(`${slug}: missing required body link ${href}`);
   }
+}
+if (glossaryTerms.find((term) => term.slug === 'trading-journal')?.visual !== 'trading-journal-loop') {
+  failures.push('trading-journal: interactive journal-loop visual is required');
 }
 
 const blockedHighRiskWording = [
