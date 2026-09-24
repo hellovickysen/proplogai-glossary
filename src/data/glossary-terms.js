@@ -710,25 +710,36 @@ export const glossaryTerms = [
   {
     slug: 'trading-journal',
     title: 'Trading Journal',
-    shortDefinition: 'A systematic record of every trade including entry/exit details, setup, emotions, reasoning, and lessons learned — the foundation of trading improvement.',
+    aliases: ['Trade journal', 'Forex trading journal'],
+    updatedAt: '2026-09-24',
+    shortDefinition: 'A structured record of trade context, plan, execution, result, rule compliance, emotions, screenshots, and review notes used to compare decisions over time.',
     category: 'Journal & Analysis',
     relatedTerms: ['trade-review', 'emotion-tracking', 'performance-report'],
     guide: { href: '/blogs/prop-firm-trading-journal', label: 'Build a prop firm trading journal workflow' },
-    proplogConnection: 'PropLogAI is a purpose-built trading journal that goes beyond spreadsheets. Log trades with emotions, screenshots, tags, and lessons — then let AI analyze your patterns.',
+    proplogConnection: 'PropLogAI lets traders record trade details, notes, emotions, rule adherence, screenshots, and tags in one journal. Its review tools help organise patterns in the trader’s own records; they do not provide signals or tell the trader what to trade.',
     fullContent: `
       <h3>What is a Trading Journal?</h3>
-      <p>A trading journal is a detailed log of every trade you take. Beyond basic trade data (pair, direction, entry, exit, P&L), a complete journal captures the <em>why</em> behind each trade: your setup rationale, emotional state, market conditions, and post-trade reflections. It's the single most powerful tool for trading improvement.</p>
+      <p>A trading journal is a structured record of what you planned, what you did, and what happened during a trade. It keeps the result beside the decision-making process, so a profitable rule break does not look the same as a well-executed trade.</p>
+      <p>For example, an entry can identify <strong>XAUUSD</strong>, the <strong>London session</strong>, an <strong>Asian-session liquidity sweep</strong>, the planned breakout confirmation, the actual execution, and the result in USD. These stable labels make similar trades easier to compare later.</p>
       <h3>What to Record</h3>
       <ul>
-        <li><strong>Trade mechanics:</strong> Pair, direction, entry/exit price, stop loss, lot size, P&L</li>
-        <li><strong>Setup:</strong> Which setup triggered the entry, whether all criteria were met</li>
-        <li><strong>Emotions:</strong> How you felt before, during, and after the trade</li>
-        <li><strong>Screenshots:</strong> Charts at entry and exit to review your technical analysis</li>
-        <li><strong>Notes:</strong> What you were thinking, why you made the decisions you made</li>
-        <li><strong>Lesson:</strong> One specific takeaway from the trade</li>
+        <li><strong>Context:</strong> Date, account, instrument, session, setup name, timeframe, and review timezone.</li>
+        <li><strong>Plan:</strong> Why the setup qualified, what would invalidate it, and the intended entry and exit method.</li>
+        <li><strong>Execution:</strong> Actual entry and exit, whether the checklist was followed, and any unplanned change.</li>
+        <li><strong>Result:</strong> Profit, loss, or breakeven outcome with the P&amp;L amount in USD for forex records.</li>
+        <li><strong>Behaviour:</strong> Emotion, rule adherence, behaviour tags, screenshots, and one specific next-time lesson.</li>
       </ul>
-      <h3>Why Journals Work</h3>
-      <p>Trading improvement is invisible without a journal. You can't remember what you did differently last Tuesday that made it your best day, or what emotional state preceded your worst week. The journal makes the invisible visible — patterns in your emotions, timing, and behavior that you'd never notice otherwise.</p>
+      <h3>Journal Entry vs Trade Review</h3>
+      <p>A journal entry records evidence from one trade. A <a href="/glossary/trade-review">trade review</a> compares one or more entries to find a repeated process, mistake, or strength. Keeping the two tasks separate helps you record facts first and interpret them later.</p>
+      <h3>Use a Consistent Template</h3>
+      <p>A consistent layout makes weekly and monthly comparisons easier. Use the same core fields for a meaningful review period, then change a field only when you know which question it should answer. The practical <a href="/blogs/trading-journal-template">trading journal template</a> includes a copyable structure, an interactive journal builder, a worked XAUUSD example, and a CSV download.</p>
+      <h3>Common Mistakes</h3>
+      <ul>
+        <li>Recording only P&amp;L and leaving out setup or rule compliance.</li>
+        <li>Using vague labels such as “gold trade” instead of a stable instrument, session, and setup name.</li>
+        <li>Writing only after difficult trades, which makes later comparisons incomplete.</li>
+        <li>Collecting entries without scheduling a weekly or monthly review.</li>
+      </ul>
     `
   },
   {

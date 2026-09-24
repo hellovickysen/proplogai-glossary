@@ -53,6 +53,9 @@ const requiredGuides = new Map([
   ['daily-drawdown-limit', '/blogs/daily-drawdown-calculator'],
   ['trading-journal', '/blogs/prop-firm-trading-journal'],
 ]);
+const requiredBodyLinks = new Map([
+  ['trading-journal', ['/blogs/trading-journal-template', '/glossary/trade-review']],
+]);
 for (const term of glossaryTerms) {
   if (term.updatedAt && !/^\d{4}-\d{2}-\d{2}$/.test(term.updatedAt)) {
     failures.push(`${term.slug}: updatedAt must be an ISO date`);
@@ -82,6 +85,13 @@ for (const term of glossaryTerms) {
 for (const [slug, href] of requiredGuides) {
   const term = glossaryTerms.find((item) => item.slug === slug);
   if (term?.guide?.href !== href) failures.push(`${slug}: missing required guide relationship ${href}`);
+}
+
+for (const [slug, hrefs] of requiredBodyLinks) {
+  const term = glossaryTerms.find((item) => item.slug === slug);
+  for (const href of hrefs) {
+    if (!term?.fullContent?.includes(`href="${href}"`)) failures.push(`${slug}: missing required body link ${href}`);
+  }
 }
 
 const blockedHighRiskWording = [
