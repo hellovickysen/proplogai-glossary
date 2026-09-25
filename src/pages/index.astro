@@ -28,9 +28,34 @@ const categoryColors = {
 
 // Sort all terms alphabetically for the main list
 const allTermsSorted = [...glossaryTerms].sort((a, b) => a.title.localeCompare(b.title));
+const collectionDescription = `${termCount} essential trading terms explained for prop firm traders. From FOMO to funded accounts — learn the vocabulary that makes you a better trader.`;
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      name: 'PropLogAI Trading Glossary',
+      description: collectionDescription,
+      url: 'https://proplogai.com/glossary',
+      mainEntity: { '@id': 'https://proplogai.com/glossary#term-set' },
+    },
+    {
+      '@type': 'DefinedTermSet',
+      '@id': 'https://proplogai.com/glossary#term-set',
+      name: 'PropLogAI Trading Glossary',
+      description: collectionDescription,
+      url: 'https://proplogai.com/glossary',
+      hasDefinedTerm: allTermsSorted.map((term) => ({
+        '@type': 'DefinedTerm',
+        name: term.title,
+        url: `https://proplogai.com/glossary/${term.slug}`,
+      })),
+    },
+  ],
+};
 ---
 
-<BaseLayout title="Trading Glossary" description={`${termCount} essential trading terms explained for prop firm traders. From FOMO to funded accounts — learn the vocabulary that makes you a better trader.`}>
+<BaseLayout title="Trading Glossary" description={collectionDescription} structuredData={structuredData}>
 
   <!-- Hero Section -->
   <section class="relative overflow-hidden">
@@ -141,6 +166,7 @@ const allTermsSorted = [...glossaryTerms].sort((a, b) => a.title.localeCompare(b
                 data-slug={term.slug}
                 data-category={term.category}
                 data-title={term.title.toLowerCase()}
+                data-aliases={(term.aliases || []).join(' ').toLowerCase()}
                 data-def={term.shortDefinition.toLowerCase()}
               >
                 <!-- Card Header -->
@@ -221,10 +247,11 @@ const allTermsSorted = [...glossaryTerms].sort((a, b) => a.title.localeCompare(b
 
     termCards.forEach(card => {
       const title = card.dataset.title || '';
+      const aliases = card.dataset.aliases || '';
       const def = card.dataset.def || '';
       const category = card.dataset.category || '';
 
-      const matchesSearch = !query || title.includes(query) || def.includes(query);
+      const matchesSearch = !query || title.includes(query) || aliases.includes(query) || def.includes(query);
       const matchesCategory = activeCategory === 'all' || category === activeCategory;
       const visible = matchesSearch && matchesCategory;
 
