@@ -582,6 +582,7 @@ export const glossaryTerms = [
     category: 'Prop Firm',
     updatedAt: '2026-09-20',
     relatedTerms: ['prop-firm-challenge', 'overall-drawdown-limit', 'consistency-rule'],
+    guide: { href: '/blogs/prop-firm-expense-tracking-guide', label: 'Track prop-firm expenses and payouts' },
     sourceIds: ['PFR-013', 'PFR-014', 'PLAI-002', 'PLAI-003'],
     sources: [
       { id: 'PFR-013', label: 'FTMO — capital used on an FTMO Account', url: 'https://ftmo.com/faq/what-capital-will-i-trade-on-an-ftmo-account/', checkedOn: '2026-09-19' },
