@@ -57,7 +57,7 @@ const requiredBodyLinks = new Map([
   ['trading-journal', ['/blogs/trading-journal-template', '/glossary/trade-review']],
   ['overtrading', ['/glossary/trade-review', '/glossary/revenge-trading', '/glossary/fomo', '/glossary/trading-journal']],
 ]);
-const allowedVisuals = new Set(['trading-journal-loop', 'overtrading-drift']);
+const allowedVisuals = new Set(['trading-journal-loop', 'overtrading-drift', 'daily-drawdown-buffer-note']);
 for (const term of glossaryTerms) {
   if (term.updatedAt && !/^\d{4}-\d{2}-\d{2}$/.test(term.updatedAt)) {
     failures.push(`${term.slug}: updatedAt must be an ISO date`);
@@ -73,7 +73,7 @@ for (const term of glossaryTerms) {
     failures.push(`${term.slug}: guide requires a no-slash blog href and non-empty label`);
   }
   if (highRiskSlugs.has(term.slug)) {
-    if (term.updatedAt !== '2026-09-20') failures.push(`${term.slug}: Batch D revision date is missing`);
+    if (term.updatedAt < '2026-09-20') failures.push(`${term.slug}: high-risk revision date is older than the Batch D baseline`);
     if (!Array.isArray(term.sourceIds) || term.sourceIds.length === 0) failures.push(`${term.slug}: sourceIds are required`);
     if (!Array.isArray(term.sources) || term.sources.length === 0) failures.push(`${term.slug}: visible sources are required`);
     if (term.sources?.some((source) => !source.id || !source.label || !/^https:\/\//.test(source.url ?? '') || !/^\d{4}-\d{2}-\d{2}$/.test(source.checkedOn ?? ''))) {

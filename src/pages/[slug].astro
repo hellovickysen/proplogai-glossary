@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import OvertradingDrift from '../components/OvertradingDrift.astro';
 import TradingJournalLoop from '../components/TradingJournalLoop.astro';
+import DrawdownBufferNote from '../components/DrawdownBufferNote.astro';
 import { glossaryPageUpdatedAt, glossaryTerms } from '../data/glossary-terms.js';
 
 export function getStaticPaths() {
@@ -134,6 +135,7 @@ const structuredData = {
       <div class="animate-fade-in-up stagger-2">
         {term.visual === 'trading-journal-loop' && <TradingJournalLoop />}
         {term.visual === 'overtrading-drift' && <OvertradingDrift />}
+        {term.visual === 'daily-drawdown-buffer-note' && <DrawdownBufferNote />}
 
         <div class="prose-glossary" set:html={term.fullContent} />
 

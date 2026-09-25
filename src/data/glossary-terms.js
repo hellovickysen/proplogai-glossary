@@ -145,22 +145,33 @@ export const glossaryTerms = [
   {
     slug: 'drawdown',
     title: 'Drawdown',
-    shortDefinition: 'The peak-to-trough decline in your trading account, measured as a percentage or dollar amount from the highest point to the lowest point before a new high.',
+    aliases: ['Trading drawdown', 'Account drawdown'],
+    updatedAt: '2026-09-25',
+    shortDefinition: 'Drawdown is the fall in an account value from an earlier high to a later low, shown in dollars or as a percentage of that high.',
     category: 'Risk Management',
     relatedTerms: ['daily-drawdown-limit', 'overall-drawdown-limit', 'equity-curve'],
-    guide: { href: '/blogs/daily-drawdown-calculator', label: 'See how to track a daily drawdown buffer' },
-    proplogConnection: 'PropLogAI automatically calculates your drawdown on the dashboard and P&L calendar. The AI coach analyzes your drawdown patterns and identifies which behaviors precede your deepest drawdowns.',
+    guide: { href: '/blogs/daily-drawdown-calculator', label: 'See how to check a daily drawdown buffer' },
+    sourceIds: ['PFR-002', 'PLAI-003'],
+    sources: [
+      { id: 'PFR-002', label: 'FTMO trading objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-25' },
+      { id: 'PLAI-003', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+    ],
+    proplogConnection: 'PropLogAI displays an equity curve and performance metrics from the trades you log. Use those records to review account declines; use the firm’s current dashboard and rules for official breach calculations.',
     fullContent: `
-      <h3>What is Drawdown?</h3>
-      <p>Drawdown measures how much your account has declined from its peak value before recovering. If your account grows from $100,000 to $108,000 and then drops to $104,000, your drawdown is $4,000 or 3.7% (from the $108,000 peak). It's the most important risk metric for prop firm traders because most challenges have strict drawdown limits.</p>
-      <h3>Types of Drawdown</h3>
+      <h3>What is drawdown?</h3>
+      <p>Drawdown shows how far an account value fell from an earlier high. If the account reaches $108,000 and later falls to $104,000, the dollar drawdown is $4,000. The percentage drawdown is $4,000 divided by $108,000, or about 3.7%.</p>
+      <p>The result depends on the value you measure. A balance drawdown uses closed-trade balance. An equity drawdown can include the changing value of open positions.</p>
+      <h3>Drawdown is not automatically a prop-firm limit</h3>
+      <p>Normal performance drawdown describes a fall from a peak. A <a href="/glossary/daily-drawdown-limit">daily drawdown limit</a> or <a href="/glossary/overall-drawdown-limit">overall drawdown limit</a> is a contract rule with its own reference value, floor, reset or update method, and treatment of open profit and loss.</p>
+      <h3>Common drawdown views</h3>
       <ul>
-        <li><strong>Absolute drawdown:</strong> The decline from your initial balance — relevant for overall drawdown limits</li>
-        <li><strong>Relative (trailing) drawdown:</strong> The decline from your highest equity point — used by many prop firms as a trailing maximum</li>
-        <li><strong>Daily drawdown:</strong> A firm-defined daily loss limit whose percentage, reference value, and reset method vary by program</li>
+        <li><strong>Peak-to-trough drawdown:</strong> the fall from a chosen high to a later low.</li>
+        <li><strong>Balance drawdown:</strong> the fall measured from closed-trade balance values.</li>
+        <li><strong>Equity drawdown:</strong> the fall measured from equity, which can change while trades are open.</li>
+        <li><strong>Trailing rule:</strong> a program floor that may move after gains. This is a rule method, so check the exact contract.</li>
       </ul>
-      <h3>Managing Drawdown</h3>
-      <p>The key to surviving prop firm drawdown rules is position sizing. If your maximum daily drawdown is 5% ($5,000 on a $100K account) and you risk 1% per trade, you can absorb 5 consecutive losing trades before hitting the limit. If you risk 2%, only 2.5 losses will breach it. Conservative position sizing isn't timid — it's mathematical survival.</p>
+      <h3>What should you record?</h3>
+      <p>Record the peak, the later low, whether you used balance or equity, and the period you measured. Do not use drawdown alone to judge whether a trade followed your plan. Review the setup, session, sizing method, rule adherence, and result separately.</p>
     `
   },
   {
@@ -611,29 +622,31 @@ export const glossaryTerms = [
     title: 'Overall Drawdown Limit',
     shortDefinition: 'A program rule that sets the lowest permitted account value, using a fixed or moving reference defined by the firm.',
     category: 'Prop Firm',
-    updatedAt: '2026-09-20',
+    updatedAt: '2026-09-25',
     relatedTerms: ['daily-drawdown-limit', 'drawdown', 'prop-firm-challenge'],
     guide: { href: '/blogs/daily-drawdown-calculator', label: 'Compare daily and overall drawdown tracking' },
     sourceIds: ['PFR-003', 'PFR-005', 'PFR-008', 'PLAI-004'],
     sources: [
-      { id: 'PFR-003', label: 'FTMO trading objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-19' },
-      { id: 'PFR-008', label: 'FundedNext maximum loss calculation', url: 'https://help.fundednext.com/en/articles/8019812-how-can-i-calculate-the-maximum-loss-limit', checkedOn: '2026-09-19' },
+      { id: 'PFR-003', label: 'FTMO trading objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-25' },
+      { id: 'PFR-005', label: 'FTMO 1-Step loss objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-25' },
+      { id: 'PFR-008', label: 'FundedNext maximum loss calculation', url: 'https://help.fundednext.com/en/articles/8019812-how-can-i-calculate-the-maximum-loss-limit', checkedOn: '2026-09-25' },
       { id: 'PLAI-004', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
     ],
     proplogConnection: 'PropLogAI provides a P&L calendar from logged data. Use it as a review aid, and use the firm’s platform and current rules for the official limit calculation.',
     fullContent: `
-      <h3>What is an Overall Drawdown Limit?</h3>
-      <p>An overall drawdown or maximum-loss limit defines a floor that account equity must not cross. The source amount, percentage, update schedule, and treatment of open P&amp;L depend on the named program.</p>
-      <h3>Fixed and Moving Floors</h3>
+      <h3>What is an overall drawdown limit?</h3>
+      <p>An overall drawdown limit is a program rule that sets the lowest permitted account value across the account period. The firm may call it maximum loss. A breach depends on the exact program contract.</p>
+      <p>To calculate the buffer, compare the value named in the rule with the current official floor. Do not copy a percentage or floor from another account.</p>
+      <h3>Static and moving floors</h3>
       <ul>
-        <li><strong>Static:</strong> The floor stays tied to a stated reference such as initial simulated capital.</li>
-        <li><strong>Trailing:</strong> The floor can move after gains according to a defined balance or equity rule.</li>
-        <li><strong>End-of-day trailing:</strong> A firm may update the floor at a daily checkpoint instead of on every price change.</li>
+        <li><strong>Static:</strong> the floor stays tied to a stated reference such as initial simulated capital.</li>
+        <li><strong>Trailing:</strong> the floor can move after gains according to the program's balance or equity rule.</li>
+        <li><strong>End-of-day trailing:</strong> the program updates the floor at a daily checkpoint rather than on every price change.</li>
       </ul>
-      <h3>Named Examples</h3>
-      <p>FTMO's checked objectives describe a static 10% Maximum Loss amount for 2-Step and an end-of-day trailing 10% amount for 1-Step. FundedNext's checked page lists a 10% Maximum Loss limit for Stellar 2-Step. The matching percentages do not make the calculation methods identical.</p>
-      <h3>Calculation Checklist</h3>
-      <p>Confirm the program name, reference value, reset or update time, open P&amp;L treatment, commissions, swaps, and what happens after a reward. A simplified example must state all of those assumptions.</p>
+      <h3>Current named examples</h3>
+      <p>FTMO's page checked on 25 September 2026 describes a static Maximum Loss for 2-Step and an end-of-day trailing Maximum Loss for 1-Step. FundedNext's checked page describes a fixed $90,000 floor in its $100,000 Stellar 2-Step example. These examples belong only to those named programs.</p>
+      <h3>What should you check?</h3>
+      <p>Confirm the program, account stage, reference value, current floor, balance or equity test, update time, included costs, and what happens after a reward or withdrawal. The practical <a href="/blogs/daily-drawdown-calculator">daily drawdown calculator guide</a> shows how to compare an official floor with the measured account value.</p>
     `
   },
   {
@@ -698,30 +711,37 @@ export const glossaryTerms = [
     aliases: ['Maximum Daily Loss'],
     shortDefinition: 'A prop firm rule that sets the lowest permitted account value during a defined trading day.',
     category: 'Prop Firm',
-    updatedAt: '2026-09-20',
+    updatedAt: '2026-09-25',
+    visual: 'daily-drawdown-buffer-note',
     relatedTerms: ['overall-drawdown-limit', 'drawdown', 'risk-per-trade'],
     guide: { href: '/blogs/daily-drawdown-calculator', label: 'Calculate and review a daily drawdown buffer' },
-    sourceIds: ['PFR-002', 'PFR-006', 'PFR-007', 'PLAI-004'],
+    sourceIds: ['PFR-002', 'PFR-006', 'PFR-007', 'PFR-015', 'PLAI-004'],
     sources: [
-      { id: 'PFR-002', label: 'FTMO trading objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-19' },
-      { id: 'PFR-006', label: 'FundedNext maximum daily loss', url: 'https://help.fundednext.com/en/articles/8019914-what-is-the-maximum-daily-loss-limit', checkedOn: '2026-09-19' },
+      { id: 'PFR-002', label: 'FTMO trading objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-25' },
+      { id: 'PFR-006', label: 'FundedNext maximum daily loss', url: 'https://help.fundednext.com/en/articles/8019914-what-is-the-maximum-daily-loss-limit', checkedOn: '2026-09-25' },
+      { id: 'PFR-007', label: 'FundedNext Stellar 1-Step daily loss', url: 'https://help.fundednext.com/en/articles/8019914-what-is-the-maximum-daily-loss-limit', checkedOn: '2026-09-25' },
+      { id: 'PFR-015', label: 'FundedNext Stellar Lite daily loss', url: 'https://help.fundednext.com/en/articles/8019914-what-is-the-maximum-daily-loss-limit', checkedOn: '2026-09-25' },
       { id: 'PLAI-004', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
     ],
     proplogConnection: 'PropLogAI provides a P&L calendar from logged trades. It is a review aid; the firm’s platform and current rule page remain the source for the official daily-loss figure.',
     fullContent: `
-      <h3>What is a Daily Drawdown Limit?</h3>
-      <p>A daily drawdown limit, also called maximum daily loss by some firms, defines a daily account floor. A breach and its consequence are determined by the named program's contract. The reset time, reference value, and included costs can materially change the answer.</p>
-      <h3>Calculation Inputs</h3>
+      <h3>What is a daily drawdown limit?</h3>
+      <p>A daily drawdown limit is a prop-firm rule that sets the lowest permitted account value during the firm's defined trading day. Some firms call it maximum daily loss.</p>
+      <p>The safest buffer calculation is current measured value minus the official daily floor. Use the firm's dashboard or current rule to find the floor. Do not assume every firm starts from the same amount or resets at the same time.</p>
+      <h3>What changes the calculation?</h3>
       <ul>
-        <li><strong>Reference:</strong> Initial simulated capital, start-of-day balance, or another stated amount.</li>
-        <li><strong>Current value:</strong> Balance or equity, with the firm's treatment of open P&amp;L.</li>
-        <li><strong>Costs:</strong> Commissions and swaps may be included.</li>
-        <li><strong>Reset:</strong> The firm defines the timezone and daily checkpoint.</li>
+        <li><strong>Program:</strong> one-step, two-step, evaluation, and funded-stage products may differ.</li>
+        <li><strong>Reference:</strong> the rule may use initial simulated capital, a balance at reset, or another stated value.</li>
+        <li><strong>Measured value:</strong> the rule may test balance or equity and may include open P&amp;L.</li>
+        <li><strong>Costs:</strong> commissions and swaps may count.</li>
+        <li><strong>Reset:</strong> the firm defines the timezone and checkpoint. It may not be midnight in India.</li>
       </ul>
-      <h3>Named Examples</h3>
-      <p>FTMO's checked 2-Step objectives use a 5% Maximum Daily Loss amount based on initial simulated capital and recalculate the limit at 00:00 CE(S)T; the calculation includes open P&amp;L, swaps, and commissions. FundedNext's checked page lists 5% for Stellar 2-Step and 3% for Stellar 1-Step and counts running plus closed loss.</p>
-      <h3>Use the Exact Rule</h3>
-      <p>Do not substitute a generic percentage or another firm's formula. Confirm the program and calculate against the official figures displayed for that account.</p>
+      <h3>Simple example</h3>
+      <p>If the official daily floor is $47,500 and the measured equity is $48,300, the buffer above the floor is $800. That does not mean the trader should risk $800. It only shows the distance between the two figures entered.</p>
+      <h3>Current named examples</h3>
+      <p>FTMO's 2-Step page checked on 25 September 2026 uses a 5% Maximum Daily Loss amount based on initial simulated capital and recalculates the floor at 00:00 CE(S)T from the balance at that time. Its breach test uses equity including open P&amp;L, swaps, and commissions. FundedNext's checked page lists 5% for Stellar 2-Step, 3% for Stellar 1-Step, and 4% for Stellar Lite, with running plus closed losses counted.</p>
+      <h3>Use the exact rule</h3>
+      <p>Confirm the program, copy the official floor, and compare it with the account value the rule measures. Then use the <a href="/blogs/daily-drawdown-calculator">daily drawdown calculator</a> to check the dollar buffer without turning that buffer into a trade instruction.</p>
     `
   },
 
