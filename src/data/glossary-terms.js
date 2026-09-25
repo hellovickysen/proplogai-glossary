@@ -785,25 +785,27 @@ export const glossaryTerms = [
   {
     slug: 'emotion-tracking',
     title: 'Emotion Tracking',
-    shortDefinition: 'The practice of logging your emotional state alongside each trade to identify how feelings like fear, greed, and frustration impact your trading outcomes.',
+    shortDefinition: 'Emotion tracking means recording a simple feeling tag beside a trade so you can review whether the feeling appeared near a change in your trading decisions.',
     category: 'Journal & Analysis',
     relatedTerms: ['trading-journal', 'tilt', 'fomo'],
-    proplogConnection: 'PropLogAI has built-in emotion tagging with violet badges. Tag each trade with your emotional state and the AI coach correlates emotions with performance — showing you which emotions cost you money.',
+    guide: { href: '/blogs/how-emotions-affect-trading-decisions', label: 'See how a feeling may change a trading decision' },
+    proplogConnection: 'PropLogAI lets you tag emotions and record whether a trade followed your own rules. These are user-entered review records, not a diagnosis or proof that an emotion caused a result.',
     fullContent: `
-      <h3>What is Emotion Tracking?</h3>
-      <p>Emotion tracking means recording how you feel before and during each trade — not after, when hindsight colors your memory. The goal is to build a dataset that connects your emotional states to your trading outcomes, revealing patterns you can't see in real-time.</p>
-      <h3>Common Trading Emotions to Track</h3>
+      <h3>What emotion tracking means</h3>
+      <p>Emotion tracking means adding a short feeling tag to a specific trading moment. You might record how you felt before entering, while managing the position, or after exiting.</p>
+      <p>The tag does not tell you whether the trade was good or bad. It gives you one piece of context to compare with the setup, session, rule adherence, decision, and result.</p>
+      <h3>Simple tags you can use</h3>
       <ul>
-        <li><strong>Confident:</strong> Clear-headed, plan is clear, executing calmly</li>
-        <li><strong>Anxious:</strong> Uncertain about the trade, worried about loss</li>
-        <li><strong>Greedy:</strong> Wanting more, increasing size, taking extra trades</li>
-        <li><strong>FOMO:</strong> Rushing to enter because the market is moving</li>
-        <li><strong>Frustrated:</strong> Angry about recent losses, feeling impatient</li>
-        <li><strong>Bored:</strong> No setups available, trading for entertainment</li>
-        <li><strong>Revenge:</strong> Trying to win back a loss immediately</li>
+        <li><strong>Calm:</strong> You feel able to check the plan without rushing.</li>
+        <li><strong>Hesitant:</strong> You keep delaying a decision that the plan already covers.</li>
+        <li><strong>Frustrated:</strong> A recent result is still affecting your attention.</li>
+        <li><strong>Rushed:</strong> You feel pressure to act before the move continues.</li>
+        <li><strong>Confident:</strong> You feel sure about the decision; check whether the written rules stayed the same.</li>
       </ul>
-      <h3>What the Data Reveals</h3>
-      <p>After 30-50 tagged trades, patterns emerge that are genuinely surprising. A trader might discover that trades tagged "bored" have a 22% win rate versus 61% overall. Or that "confident" trades have the highest win rate but also the largest average loss (because confidence leads to larger position sizes). These insights are impossible to access without systematic tracking.</p>
+      <h3>Example</h3>
+      <p>You record <strong>frustrated</strong> after an XAUUSD loss. Before the next trade, you enter before the breakout candle closes. The useful record is not "frustration caused a loss." It is "frustrated + entered before the planned confirmation." You can later check whether that same combination appears again.</p>
+      <h3>Common confusion</h3>
+      <p>Emotion tracking is not a mental-health diagnosis, and a repeated tag does not prove that the feeling caused a profit or loss. Review the observable decision beside the tag and keep the trade result separate.</p>
     `
   },
   {
