@@ -442,23 +442,41 @@ export const glossaryTerms = [
   {
     slug: 'overtrading',
     title: 'Overtrading',
-    shortDefinition: 'Taking more trades than your strategy calls for, driven by boredom, greed, or the belief that more trades equals more profit.',
+    aliases: ['Over trading', 'Excessive trading'],
+    updatedAt: '2026-09-25',
+    visual: 'overtrading-drift',
+    shortDefinition: 'A departure from a trader’s written process in which trade frequency, timing, size, or setup quality changes because of pressure, impulse, or recent results.',
     category: 'Trading Discipline',
     relatedTerms: ['fomo', 'revenge-trading', 'trading-plan'],
     guide: { href: '/blogs/overtrading-prop-firm-challenges', label: 'Review overtrading patterns in prop firm challenges' },
-    proplogConnection: 'PropLogAI counts your daily trade frequency and the AI coach identifies when you are overtrading compared to your normal baseline, especially on losing days.',
+    proplogConnection: 'PropLogAI lets traders record setup labels, sessions, emotions, notes, rule adherence, screenshots, and trade results. Those records can support a later review of when the trader’s own process changed; PropLogAI does not provide signals or define a universal trade limit.',
     fullContent: `
       <h3>What is Overtrading?</h3>
-      <p>Overtrading means taking more trades than your strategy justifies. It can manifest as excessive frequency (20 trades when your strategy typically produces 3-5 setups per day), excessive size (risking too much of your account on a single trade), or trading outside your defined markets and sessions.</p>
-      <h3>Common Triggers</h3>
+      <p>Overtrading means that a trader’s decisions have moved away from their documented process. The change may involve trade frequency, session timing, setup quality, position size, or the reason for entering. It is measured against the trader’s plan, not against a universal number of trades.</p>
+      <p>A high-frequency strategy can produce many valid entries. A slower strategy can drift after one unplanned trade. The useful question is whether the decision still matched the written setup, session, checklist, and account rules.</p>
+      <h3>High Activity vs Overtrading</h3>
       <ul>
-        <li><strong>Boredom:</strong> Sitting in front of charts with no valid setup, so you create one that isn't really there</li>
-        <li><strong>Revenge:</strong> After a loss, taking rapid-fire trades to recover</li>
-        <li><strong>Greed:</strong> After a win, feeling like you can keep going and bank more</li>
-        <li><strong>Commission blindness:</strong> Not accounting for the cumulative cost of frequent trades</li>
+        <li><strong>High activity:</strong> Several entries qualify under the same written rules and are recorded consistently.</li>
+        <li><strong>Frequency drift:</strong> Extra trades appear after a loss, win, missed move, or quiet period without a matching planned setup.</li>
+        <li><strong>Session drift:</strong> Trading continues into an unplanned session because stopping feels difficult.</li>
+        <li><strong>Setup drift:</strong> The trader weakens confirmation requirements or changes the setup label after entry.</li>
+        <li><strong>Size drift:</strong> Position size changes because of the previous result rather than the documented sizing process.</li>
       </ul>
-      <h3>The Hidden Cost</h3>
-      <p>Overtrading doesn't just risk more capital — it degrades the quality of each trade. Your best setups are rare by definition. The 4th, 5th, and 6th trades of the day are almost always lower quality than the 1st and 2nd. Many prop firm traders find that their profitability increases when they impose a maximum trade count per day, even though it feels counterintuitive to trade less.</p>
+      <h3>Fictional XAUUSD Example</h3>
+      <p>A trader records an XAUUSD plan using IST timestamps: trade only during the London session, wait for an Asian-session liquidity sweep, and require a breakout candle to close. The first trade follows the checklist and ends at <strong>−$38</strong>. Later, the trader enters a New York-session breakout after a missed move and writes “wanted to recover the loss.” The second decision is reviewable as overtrading because the session, setup confirmation, and reason changed—not because it was simply the second trade.</p>
+      <h3>What to Record</h3>
+      <ul>
+        <li>Instrument, session, setup name, and timestamp timezone.</li>
+        <li>Whether the setup and confirmation matched the written plan.</li>
+        <li>Trade number in the session and the result of the previous trade.</li>
+        <li>Emotion or behaviour tag before entry.</li>
+        <li>Any change in size, timing, or account-rule compliance.</li>
+        <li>A factual reason for the entry and one point for later <a href="/glossary/trade-review">trade review</a>.</li>
+      </ul>
+      <h3>Related Behaviours</h3>
+      <p><a href="/glossary/revenge-trading">Revenge trading</a> describes a reaction to a loss or frustration. <a href="/glossary/fomo">FOMO</a> describes pressure created by a move that appears to be leaving without the trader. Either can contribute to overtrading, but the terms are not interchangeable. Overtrading is the observable change in the trading process.</p>
+      <h3>Review the Pattern</h3>
+      <p>Use stable labels and compare similar entries rather than judging one isolated result. The practical guide explains how to review trade count, session drift, setup quality, and rule adherence without treating profit or loss as proof that the decision was sound. A consistent <a href="/glossary/trading-journal">trading journal</a> preserves the evidence needed for that comparison.</p>
     `
   },
   {

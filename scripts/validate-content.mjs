@@ -55,8 +55,9 @@ const requiredGuides = new Map([
 ]);
 const requiredBodyLinks = new Map([
   ['trading-journal', ['/blogs/trading-journal-template', '/glossary/trade-review']],
+  ['overtrading', ['/glossary/trade-review', '/glossary/revenge-trading', '/glossary/fomo', '/glossary/trading-journal']],
 ]);
-const allowedVisuals = new Set(['trading-journal-loop']);
+const allowedVisuals = new Set(['trading-journal-loop', 'overtrading-drift']);
 for (const term of glossaryTerms) {
   if (term.updatedAt && !/^\d{4}-\d{2}-\d{2}$/.test(term.updatedAt)) {
     failures.push(`${term.slug}: updatedAt must be an ISO date`);
@@ -97,6 +98,10 @@ for (const [slug, hrefs] of requiredBodyLinks) {
 }
 if (glossaryTerms.find((term) => term.slug === 'trading-journal')?.visual !== 'trading-journal-loop') {
   failures.push('trading-journal: interactive journal-loop visual is required');
+}
+
+if (glossaryTerms.find((term) => term.slug === 'overtrading')?.visual !== 'overtrading-drift') {
+  failures.push('overtrading: interactive drift visual is required');
 }
 
 const blockedHighRiskWording = [
