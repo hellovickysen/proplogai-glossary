@@ -680,29 +680,34 @@ export const glossaryTerms = [
   {
     slug: 'consistency-rule',
     title: 'Consistency Rule',
-    shortDefinition: 'A program-specific rule that compares the best profit day with a defined total-profit or target figure.',
+    shortDefinition: 'A program-specific rule that measures how much of a result came from the best profit day or another figure named by the firm.',
     category: 'Prop Firm',
-    updatedAt: '2026-09-20',
-    guide: { href: '/blogs/prop-firm-consistency-calculator', label: 'Work through the consistency calculation and its limits' },
-    relatedTerms: ['sharpe-ratio', 'profit-target', 'funded-account'],
-    sourceIds: ['PFR-010', 'PFR-011', 'PLAI-004'],
+    updatedAt: '2026-09-29',
+    visual: 'consistency-ratio-note',
+    guide: { href: '/blogs/prop-firm-consistency-calculator', label: 'Calculate a best-day percentage and understand its limits' },
+    relatedTerms: ['profit-target', 'funded-account', 'prop-firm-challenge'],
+    sourceIds: ['PFR-010', 'PFR-011', 'PLAI-002', 'PLAI-004'],
     sources: [
-      { id: 'PFR-010', label: 'Topstep consistency rules', url: 'https://help.topstep.com/en/articles/8284208-consistency-at-topstep', checkedOn: '2026-09-19' },
-      { id: 'PLAI-004', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
+      { id: 'PFR-010', label: 'Topstep Trading Combine consistency target', url: 'https://help.topstep.com/en/articles/8284208-consistency-at-topstep', checkedOn: '2026-09-29' },
+      { id: 'PFR-011', label: 'Topstep Express Funded Account consistency path', url: 'https://help.topstep.com/en/articles/8284208-consistency-at-topstep', checkedOn: '2026-09-29' },
+      { id: 'PLAI-002', label: 'PropLogAI manual journal feature', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
     ],
-    proplogConnection: 'PropLogAI provides a P&L calendar from logged trades. Use those entries to review daily distribution, but calculate compliance from the firm’s exact current formula and official account figures.',
+    proplogConnection: 'PropLogAI can store manually logged daily results and rule-adherence notes. Use the firm’s current dashboard and rules for the official calculation and account status.',
     fullContent: `
-      <h3>What is the Consistency Rule?</h3>
-      <p>A consistency rule measures how concentrated a result is in one trading day. The denominator, threshold, consequence, timing, and account stage differ by program. It is not safe to assume one percentage applies across firms.</p>
-      <h3>Common Formula Shape</h3>
-      <p><strong>Consistency percentage = best profit day ÷ the program's defined total × 100.</strong> The “defined total” may be total net profit or a profit target, so copy the denominator from the official rule.</p>
-      <h3>Topstep Examples</h3>
+      <h3>What is a Consistency Rule?</h3>
+      <p>A consistency rule is a program-specific check on how concentrated a trading result is. A common version asks what percentage of total net profit came from the best profit day. The firm decides the formula, percentage, time window, reset, and consequence.</p>
+      <h3>Best-Day Formula</h3>
+      <p>When the official rule uses this method, calculate <strong>best profit day ÷ total net profit × 100</strong>. For example, a $400 best day divided by $800 total net profit equals 50%. Losing days may reduce total net profit, so the same best day can become a larger percentage.</p>
+      <h3>Named Program Examples</h3>
       <ul>
-        <li><strong>Trading Combine:</strong> The checked page uses a 55% Consistency Target and says the profit target increases when the best day is above the limit.</li>
-        <li><strong>Express Funded Account Consistency path:</strong> The checked page uses 40% or below for payout eligibility.</li>
+        <li><strong>Topstep Trading Combine:</strong> The page rechecked on 29 September 2026 uses a 55% Consistency Target and says the required profit target can increase when the best-day percentage is over that line.</li>
+        <li><strong>Topstep Express Funded Account Consistency path:</strong> The same page uses a 40% objective for that payout path and says the calculation resets after a payout request under its published conditions.</li>
       </ul>
-      <h3>Check Before Calculating</h3>
-      <p>Confirm the program, account stage, timezone, included days, treatment of losses, and whether the result changes a target or blocks a payout. Consistency is a contractual calculation, not proof that a strategy will perform in the future.</p>
+      <h3>Common Confusion</h3>
+      <p>A result under the percentage entered into a calculator is not automatic payout approval. Other account rules and the firm's official review still apply. The calculated gap is also not a target for the next trade.</p>
+      <h3>What You Must Check</h3>
+      <p>Confirm the exact program and stage, best-day definition, total-profit definition, losing-day treatment, daily cut-off, calculation window, reset, percentage, and consequence. A consistency percentage describes past distribution; it does not prove that a strategy will perform the same way later.</p>
+      <p>Use the <a href="/blogs/prop-firm-challenge-readiness">prop firm challenge readiness guide</a> when you need to review this rule alongside profit targets, loss limits, and other account conditions.</p>
     `
   },
   {

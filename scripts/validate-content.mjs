@@ -56,8 +56,9 @@ const requiredGuides = new Map([
 const requiredBodyLinks = new Map([
   ['trading-journal', ['/blogs/trading-journal-template', '/glossary/trade-review']],
   ['overtrading', ['/glossary/trade-review', '/glossary/revenge-trading', '/glossary/fomo', '/glossary/trading-journal']],
+  ['consistency-rule', ['/blogs/prop-firm-challenge-readiness']],
 ]);
-const allowedVisuals = new Set(['trading-journal-loop', 'overtrading-drift', 'daily-drawdown-buffer-note']);
+const allowedVisuals = new Set(['trading-journal-loop', 'overtrading-drift', 'daily-drawdown-buffer-note', 'consistency-ratio-note']);
 for (const term of glossaryTerms) {
   if (term.updatedAt && !/^\d{4}-\d{2}-\d{2}$/.test(term.updatedAt)) {
     failures.push(`${term.slug}: updatedAt must be an ISO date`);
