@@ -130,10 +130,10 @@ const structuredData = {
     </header>
 
     <!-- Content Grid: Main + Sidebar -->
-    <div class="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-10">
+    <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_280px] gap-10">
 
       <!-- Main Content -->
-      <div class="animate-fade-in-up stagger-2">
+      <div class="min-w-0 animate-fade-in-up stagger-2">
         {term.visual === 'trading-journal-loop' && <TradingJournalLoop />}
         {term.visual === 'overtrading-drift' && <OvertradingDrift />}
         {term.visual === 'daily-drawdown-buffer-note' && <DrawdownBufferNote />}
@@ -274,7 +274,7 @@ const structuredData = {
 
   .prose-glossary :global(table) {
     display: block;
-    width: calc(100vw - 3rem);
+    width: 100%;
     max-width: 100%;
     margin: 2em 0;
     overflow-x: auto;
