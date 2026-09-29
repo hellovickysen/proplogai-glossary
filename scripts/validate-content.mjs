@@ -105,6 +105,27 @@ if (glossaryTerms.find((term) => term.slug === 'overtrading')?.visual !== 'overt
   failures.push('overtrading: interactive drift visual is required');
 }
 
+const consistencyTerm = glossaryTerms.find((term) => term.slug === 'consistency-rule');
+for (const asset of [
+  '/glossary/images/consistency-ratio-loss-note.webp',
+  '/glossary/images/consistency-day-vs-trade-note.webp',
+  '/glossary/images/consistency-ratio-change-example.webp',
+  '/glossary/images/consistency-breach-decision-note.webp',
+]) {
+  const isPrimaryNote = asset.endsWith('/consistency-ratio-loss-note.webp');
+  const isReferenced = isPrimaryNote
+    ? consistencyTerm?.visual === 'consistency-ratio-note'
+    : consistencyTerm?.fullContent?.includes(asset);
+  if (!isReferenced) {
+    failures.push(`consistency-rule: missing required teaching image ${asset}`);
+  }
+  try {
+    await readFile(path.join(root, 'public', asset.slice('/glossary/'.length)));
+  } catch {
+    failures.push(`consistency-rule: missing teaching image file ${asset}`);
+  }
+}
+
 const blockedHighRiskWording = [
   /typically 4-5%/i,
   /typically 0\.5% to 2%/i,

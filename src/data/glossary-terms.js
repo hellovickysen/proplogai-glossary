@@ -680,34 +680,96 @@ export const glossaryTerms = [
   {
     slug: 'consistency-rule',
     title: 'Consistency Rule',
-    shortDefinition: 'A program-specific rule that measures how much of a result came from the best profit day or another figure named by the firm.',
+    shortDefinition: 'A consistency rule checks whether too much of your total profit came from one day or one trade. Your firm decides the formula, limit, and what happens when you are over it.',
     category: 'Prop Firm',
     updatedAt: '2026-09-29',
     visual: 'consistency-ratio-note',
     guide: { href: '/blogs/prop-firm-consistency-calculator', label: 'Calculate a best-day percentage and understand its limits' },
     relatedTerms: ['profit-target', 'funded-account', 'prop-firm-challenge'],
-    sourceIds: ['PFR-010', 'PFR-011', 'PLAI-002', 'PLAI-004'],
+    sourceIds: ['PFR-010', 'PFR-011', 'PFR-016', 'PFR-017', 'PFR-018', 'PFR-019', 'PLAI-002', 'PLAI-004'],
     sources: [
       { id: 'PFR-010', label: 'Topstep Trading Combine consistency target', url: 'https://help.topstep.com/en/articles/8284208-consistency-at-topstep', checkedOn: '2026-09-29' },
       { id: 'PFR-011', label: 'Topstep Express Funded Account consistency path', url: 'https://help.topstep.com/en/articles/8284208-consistency-at-topstep', checkedOn: '2026-09-29' },
+      { id: 'PFR-016', label: 'Tradeify consistency rule', url: 'https://help.tradeify.co/en/articles/10468320-rules-consistency-rule', checkedOn: '2026-09-29' },
+      { id: 'PFR-017', label: 'Instant Funding IF1 rules', url: 'https://instantfunding.com/help/if1/', checkedOn: '2026-09-29' },
+      { id: 'PFR-018', label: 'Apex 50% consistency requirement', url: 'https://apextraderfunding.com/help-center/additional-helpful-items/50-consistency-requirement/', checkedOn: '2026-09-29' },
+      { id: 'PFR-019', label: 'My Funded Futures consistency rule', url: 'https://help.myfundedfutures.com/en/articles/11994562-consistency-rule-at-my-fundedfutures', checkedOn: '2026-09-29' },
       { id: 'PLAI-002', label: 'PropLogAI manual journal feature', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
     ],
     proplogConnection: 'PropLogAI can store manually logged daily results and rule-adherence notes. Use the firm’s current dashboard and rules for the official calculation and account status.',
     fullContent: `
-      <h3>What is a Consistency Rule?</h3>
-      <p>A consistency rule is a program-specific check on how concentrated a trading result is. A common version asks what percentage of total net profit came from the best profit day. The firm decides the formula, percentage, time window, reset, and consequence.</p>
-      <h3>Best-Day Formula</h3>
-      <p>When the official rule uses this method, calculate <strong>best profit day ÷ total net profit × 100</strong>. For example, a $400 best day divided by $800 total net profit equals 50%. Losing days may reduce total net profit, so the same best day can become a larger percentage.</p>
-      <h3>Named Program Examples</h3>
+      <h3>What does a consistency rule mean?</h3>
+      <p>It asks one simple question: <strong>did too much of your total profit come from one result?</strong></p>
+      <p>The confusing part is that firms do not all check the same result. One program may check your biggest profit <strong>day</strong>. Another may check your biggest winning <strong>trade</strong>. The limit may be 15%, 20%, 30%, 40%, 50%, 55%, or another number stated by that program.</p>
+
+      <h3>First check: best day or best trade?</h3>
+      <p>A best-day rule groups every closed result inside the firm's defined trading day. A best-trade rule checks one trade or trade idea. They are different calculations.</p>
+      <figure class="consistency-note" data-consistency-note-root>
+        <button type="button" class="consistency-note-trigger" aria-label="Open the best-day versus best-trade learning note at a larger size" data-consistency-note-trigger>
+          <img src="/glossary/images/consistency-day-vs-trade-note.webp" alt="Handwritten note comparing a 20 percent best-day rule with a 15 percent best-trade rule" loading="lazy" decoding="async" />
+          <span aria-hidden="true">Click to zoom</span>
+        </button>
+        <figcaption>Do not put a best trade into a best-day calculator. Click or tap to enlarge.</figcaption>
+        <dialog class="consistency-note-dialog" data-consistency-note-dialog aria-label="Larger best-day versus best-trade learning note"><div><button type="button" class="consistency-note-close" data-consistency-note-close>Close</button><img src="/glossary/images/consistency-day-vs-trade-note.webp" alt="Handwritten note comparing a 20 percent best-day rule with a 15 percent best-trade rule" /></div></dialog>
+      </figure>
+
+      <h3>How a best-day rule is calculated</h3>
+      <p>When the rule says best day, the usual calculation is <strong>best profit day ÷ total net profit × 100</strong>.</p>
+      <p>Example: your best XAUUSD day made $400 and your total net profit is $800. The calculation is $400 ÷ $800 × 100 = 50%.</p>
+      <p>If your program's limit is 40%, then 50% is above that limit. This tells you the calculation result. It does not yet tell you whether the account is breached.</p>
+
+      <h3>What happens when you are over the limit?</h3>
+      <p><strong>Read the consequence written for your exact firm, program, and stage.</strong> A consistency condition can delay a payout or pass without closing the account. Another program could define a violation differently.</p>
       <ul>
-        <li><strong>Topstep Trading Combine:</strong> The page rechecked on 29 September 2026 uses a 55% Consistency Target and says the required profit target can increase when the best-day percentage is over that line.</li>
-        <li><strong>Topstep Express Funded Account Consistency path:</strong> The same page uses a 40% objective for that payout path and says the calculation resets after a payout request under its published conditions.</li>
+        <li><strong>Tradeify:</strong> its checked page says a trader over the applicable percentage does not meet the payout condition yet and may continue trading. It says this is not an account failure or penalty.</li>
+        <li><strong>Apex 50% requirement:</strong> its checked page says the payout option is unavailable while the figure is over the limit, but the account remains active and the trader may continue.</li>
+        <li><strong>My Funded Futures:</strong> its checked page says exceeding its 30% or 50% evaluation target does not breach the account; the trader needs additional trading days until the condition is met.</li>
       </ul>
-      <h3>Common Confusion</h3>
-      <p>A result under the percentage entered into a calculator is not automatic payout approval. Other account rules and the firm's official review still apply. The calculated gap is also not a target for the next trade.</p>
-      <h3>What You Must Check</h3>
-      <p>Confirm the exact program and stage, best-day definition, total-profit definition, losing-day treatment, daily cut-off, calculation window, reset, percentage, and consequence. A consistency percentage describes past distribution; it does not prove that a strategy will perform the same way later.</p>
-      <p>Use the <a href="/blogs/prop-firm-challenge-readiness">prop firm challenge readiness guide</a> when you need to review this rule alongside profit targets, loss limits, and other account conditions.</p>
+      <p>Those are named examples, not a rule for every firm. If your own program calls it a hard breach, stop and follow that instruction.</p>
+      <figure class="consistency-note" data-consistency-note-root>
+        <button type="button" class="consistency-note-trigger" aria-label="Open the consistency breach decision note at a larger size" data-consistency-note-trigger>
+          <img src="/glossary/images/consistency-breach-decision-note.webp" alt="Handwritten decision note explaining that the individual program decides whether exceeding a consistency limit is a breach" loading="lazy" decoding="async" />
+          <span aria-hidden="true">Click to zoom</span>
+        </button>
+        <figcaption>Being over a percentage is not automatically a breach. The written consequence decides. Click or tap to enlarge.</figcaption>
+        <dialog class="consistency-note-dialog" data-consistency-note-dialog aria-label="Larger consistency breach decision note"><div><button type="button" class="consistency-note-close" data-consistency-note-close>Close</button><img src="/glossary/images/consistency-breach-decision-note.webp" alt="Handwritten decision note explaining that the individual program decides whether exceeding a consistency limit is a breach" /></div></dialog>
+      </figure>
+
+      <h3>Simple example when continued trading is allowed</h3>
+      <p>Your best day is $400, total net profit is $800, and the program uses a 40% best-day condition. Your current result is 50%.</p>
+      <p>If the program says the account stays active, two later <strong>planned</strong> days of +$100 each would bring total net profit to $1,000. The best day remains $400, so $400 ÷ $1,000 = 40%.</p>
+      <p>This is an arithmetic example, not an instruction to make $200. Do not force trades, increase size, or take a setup that is not in your plan. Continue only when the firm's rule allows it and your normal setup appears.</p>
+      <figure class="consistency-note" data-consistency-note-root>
+        <button type="button" class="consistency-note-trigger" aria-label="Open the consistency ratio change example at a larger size" data-consistency-note-trigger>
+          <img src="/glossary/images/consistency-ratio-change-example.webp" alt="Handwritten example showing a 400 dollar best day moving from 50 percent to 40 percent after total net profit becomes 1000 dollars" loading="lazy" decoding="async" />
+          <span aria-hidden="true">Click to zoom</span>
+        </button>
+        <figcaption>The best day stays $400 while the total changes from $800 to $1,000. Click or tap to enlarge.</figcaption>
+        <dialog class="consistency-note-dialog" data-consistency-note-dialog aria-label="Larger consistency ratio change example"><div><button type="button" class="consistency-note-close" data-consistency-note-close>Close</button><img src="/glossary/images/consistency-ratio-change-example.webp" alt="Handwritten example showing a 400 dollar best day moving from 50 percent to 40 percent after total net profit becomes 1000 dollars" /></div></dialog>
+      </figure>
+
+      <h3>Why you may see 15%, 20%, 30%, or 50%</h3>
+      <table>
+        <thead><tr><th>Current named example</th><th>What is checked</th><th>Limit shown on the checked page</th></tr></thead>
+        <tbody>
+          <tr><td>Instant Funding IF1</td><td>Best single trade ÷ total profit</td><td>15%</td></tr>
+          <tr><td>Tradeify Lightning Funded, first payout</td><td>Biggest day ÷ total profit</td><td>20%</td></tr>
+          <tr><td>My Funded Futures Rapid EOD evaluation</td><td>Single day ÷ total evaluation profit</td><td>30%</td></tr>
+          <tr><td>Apex cited payout requirement</td><td>Largest profitable day ÷ accumulated net profit</td><td>50% threshold; verify the boundary on the dashboard</td></tr>
+          <tr><td>My Funded Futures Rapid Intraday and Pro evaluation</td><td>Single day ÷ total evaluation profit</td><td>50%</td></tr>
+        </tbody>
+      </table>
+      <p>These examples were checked on 29 September 2026 and can change. A percentage copied without its formula, stage, time window, and consequence is incomplete.</p>
+
+      <h3>What should you check before acting?</h3>
+      <ol>
+        <li>Is the numerator your best day, best trade, or something else?</li>
+        <li>What counts in total profit, including losing days and costs?</li>
+        <li>Which stage and payout window does the rule cover?</li>
+        <li>Is going over it a hard breach, a delayed payout, a higher target, or simply a condition not met yet?</li>
+        <li>Does the firm explicitly allow continued trading?</li>
+      </ol>
+      <p>Use the <a href="/blogs/prop-firm-consistency-calculator">consistency rule calculator guide</a> for the full XAUUSD example. Use the <a href="/blogs/prop-firm-challenge-readiness">prop firm challenge readiness guide</a> when you need to check this beside profit targets and drawdown rules.</p>
     `
   },
   {
