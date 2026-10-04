@@ -1,6 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import OvertradingDrift from '../components/OvertradingDrift.astro';
 import TradingJournalLoop from '../components/TradingJournalLoop.astro';
+import DrawdownBufferNote from '../components/DrawdownBufferNote.astro';
+import DrawdownLearningNote from '../components/DrawdownLearningNote.astro';
+import ConsistencyRatioNote from '../components/ConsistencyRatioNote.astro';
+import RevengeTradingNote from '../components/RevengeTradingNote.astro';
 import { glossaryPageUpdatedAt, glossaryTerms } from '../data/glossary-terms.js';
 
 export function getStaticPaths() {
@@ -127,11 +132,16 @@ const structuredData = {
     </header>
 
     <!-- Content Grid: Main + Sidebar -->
-    <div class="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-10">
+    <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_280px] gap-10">
 
       <!-- Main Content -->
-      <div class="animate-fade-in-up stagger-2">
+      <div class="min-w-0 animate-fade-in-up stagger-2">
         {term.visual === 'trading-journal-loop' && <TradingJournalLoop />}
+        {term.visual === 'overtrading-drift' && <OvertradingDrift />}
+        {term.visual === 'daily-drawdown-buffer-note' && <DrawdownBufferNote />}
+        {term.visual === 'drawdown-performance-rule-note' && <DrawdownLearningNote />}
+        {term.visual === 'consistency-ratio-note' && <ConsistencyRatioNote />}
+        {term.visual === 'revenge-trading-full-check' && <RevengeTradingNote />}
 
         <div class="prose-glossary" set:html={term.fullContent} />
 
@@ -239,25 +249,73 @@ const structuredData = {
 
   .prose-glossary :global(p) {
     color: rgba(255, 255, 255, 0.65);
-    line-height: 1.8;
+    line-height: 1.85;
     margin-bottom: 1.25em;
-    font-size: 0.9375rem;
+    font-size: 1.0625rem;
+  }
+
+  .prose-glossary :global(ul),
+  .prose-glossary :global(ol) {
+    margin-bottom: 1.25em;
+    padding-left: 1.75em;
+    color: rgba(255, 255, 255, 0.65);
   }
 
   .prose-glossary :global(ul) {
-    margin-bottom: 1.25em;
-    padding-left: 1.5em;
-    color: rgba(255, 255, 255, 0.65);
+    list-style-type: disc;
+  }
+
+  .prose-glossary :global(ol) {
+    list-style-type: decimal;
   }
 
   .prose-glossary :global(li) {
     margin-bottom: 0.5em;
-    font-size: 0.9375rem;
-    line-height: 1.7;
+    font-size: 1.0625rem;
+    line-height: 1.85;
   }
 
   .prose-glossary :global(ul li::marker) {
     color: #8b5cf6;
+  }
+
+  .prose-glossary :global(ol li::marker) {
+    color: #22d3ee;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .prose-glossary :global(table) {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 2em 0;
+    overflow-x: auto;
+    border-collapse: collapse;
+    border-radius: 0.75rem;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(139, 92, 246, 0.45) rgba(255, 255, 255, 0.04);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .prose-glossary :global(th) {
+    min-width: 12rem;
+    padding: 0.875em 1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+    color: white;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  .prose-glossary :global(td) {
+    min-width: 12rem;
+    padding: 0.875em 1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.7);
+    vertical-align: top;
+    line-height: 1.6;
   }
 
   .prose-glossary :global(strong) {

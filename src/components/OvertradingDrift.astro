@@ -1,0 +1,322 @@
+---
+const stages = [
+  {
+    number: '01',
+    label: 'Plan',
+    title: 'Define the decision before the session',
+    description: 'The reference point is the trader’s written process, not a universal trade-count limit.',
+    primary: 'XAUUSD · London session · timestamps in IST',
+    secondary: 'Liquidity sweep + breakout candle close required',
+    tone: 'aligned',
+  },
+  {
+    number: '02',
+    label: 'Trade 1',
+    title: 'Record the planned trade without judging the loss',
+    description: 'A losing trade can still follow the plan. Outcome and process need separate fields.',
+    primary: 'Outcome: −$38 (fictional)',
+    secondary: 'Setup compliance: Yes',
+    tone: 'aligned',
+  },
+  {
+    number: '03',
+    label: 'Drift',
+    title: 'Notice what changed after the result',
+    description: 'The later trade is reviewable because the session, setup, and reason no longer match the original plan.',
+    primary: 'New York session · late breakout entry',
+    secondary: 'Reason logged: “wanted to recover the loss”',
+    tone: 'drift',
+  },
+  {
+    number: '04',
+    label: 'Review',
+    title: 'Name the process change precisely',
+    description: 'The useful finding is the change in behaviour, regardless of whether the extra trade won or lost.',
+    primary: 'Review focus: session and setup drift',
+    secondary: 'Next check: compare similar post-loss entries',
+    tone: 'review',
+  },
+];
+---
+
+<section class="drift-map" data-drift-map aria-labelledby="drift-map-title">
+  <div class="map-heading">
+    <div>
+      <p class="eyebrow">Interactive example · fictional XAUUSD session</p>
+      <h2 id="drift-map-title">Where planned trading becomes overtrading</h2>
+    </div>
+    <span class="timezone">IST journal</span>
+  </div>
+
+  <div class="stage-grid" role="group" aria-label="Overtrading review stages">
+    {stages.map((stage, index) => (
+      <button
+        type="button"
+        class:list={['stage-button', { active: index === 0 }]}
+        aria-pressed={index === 0 ? 'true' : 'false'}
+        data-number={stage.number}
+        data-label={stage.label}
+        data-title={stage.title}
+        data-description={stage.description}
+        data-primary={stage.primary}
+        data-secondary={stage.secondary}
+        data-tone={stage.tone}
+      >
+        <span class="stage-number">{stage.number}</span>
+        <span class="stage-label">{stage.label}</span>
+      </button>
+    ))}
+  </div>
+
+  <div class="evidence-panel" data-tone="aligned" aria-live="polite">
+    <div class="panel-copy">
+      <p class="panel-kicker" data-panel-kicker>01 · Plan</p>
+      <h3 data-panel-title>{stages[0].title}</h3>
+      <p data-panel-description>{stages[0].description}</p>
+    </div>
+    <div class="evidence-card">
+      <span class="evidence-dot" aria-hidden="true"></span>
+      <div>
+        <p data-panel-primary>{stages[0].primary}</p>
+        <span data-panel-secondary>{stages[0].secondary}</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="boundary-note">A high trade count is not automatically overtrading. The evidence is the change from the trader’s documented process.</p>
+
+  <noscript>
+    <p class="noscript-note">Compare the plan, first trade, later decision, and review. Overtrading is identified against the written process rather than a universal number of trades.</p>
+  </noscript>
+</section>
+
+<script>
+  document.querySelectorAll('[data-drift-map]').forEach((root) => {
+    const buttons = [...root.querySelectorAll('[data-number]')];
+    const panel = root.querySelector('.evidence-panel');
+    const kicker = root.querySelector('[data-panel-kicker]');
+    const title = root.querySelector('[data-panel-title]');
+    const description = root.querySelector('[data-panel-description]');
+    const primary = root.querySelector('[data-panel-primary]');
+    const secondary = root.querySelector('[data-panel-secondary]');
+
+    for (const button of buttons) {
+      button.addEventListener('click', () => {
+        for (const candidate of buttons) {
+          const isActive = candidate === button;
+          candidate.classList.toggle('active', isActive);
+          candidate.setAttribute('aria-pressed', String(isActive));
+        }
+
+        kicker.textContent = `${button.dataset.number} · ${button.dataset.label}`;
+        title.textContent = button.dataset.title;
+        description.textContent = button.dataset.description;
+        primary.textContent = button.dataset.primary;
+        secondary.textContent = button.dataset.secondary;
+        panel.dataset.tone = button.dataset.tone;
+      });
+    }
+  });
+</script>
+
+<style>
+  .drift-map {
+    margin: 0 0 2rem;
+    overflow: hidden;
+    border: 1px solid rgba(251, 191, 36, 0.18);
+    border-radius: 1.25rem;
+    background:
+      radial-gradient(circle at 88% 10%, rgba(248, 113, 113, 0.11), transparent 34%),
+      radial-gradient(circle at 6% 100%, rgba(139, 92, 246, 0.12), transparent 38%),
+      rgba(255, 255, 255, 0.025);
+    padding: 1.25rem;
+  }
+
+  .map-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .eyebrow,
+  .panel-kicker {
+    margin: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(252, 211, 77, 0.65);
+  }
+
+  h2 {
+    margin: 0.35rem 0 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .timezone {
+    flex: none;
+    border: 1px solid rgba(103, 232, 249, 0.2);
+    border-radius: 999px;
+    background: rgba(34, 211, 238, 0.06);
+    padding: 0.35rem 0.55rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    color: rgba(165, 243, 252, 0.75);
+  }
+
+  .stage-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.45rem;
+    margin-top: 1.25rem;
+  }
+
+  .stage-grid::before {
+    position: absolute;
+    top: 1.05rem;
+    right: 8%;
+    left: 8%;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(34, 211, 238, 0.3), rgba(251, 191, 36, 0.34), rgba(248, 113, 113, 0.36));
+    content: '';
+  }
+
+  .stage-button {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    border: 0;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.42);
+    cursor: pointer;
+  }
+
+  .stage-number {
+    display: grid;
+    width: 2.1rem;
+    height: 2.1rem;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.65rem;
+    background: #0b0b12;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    transition: 180ms ease;
+  }
+
+  .stage-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+
+  .stage-button:hover,
+  .stage-button:focus-visible,
+  .stage-button.active {
+    color: rgba(255, 255, 255, 0.92);
+    outline: none;
+  }
+
+  .stage-button:hover .stage-number,
+  .stage-button:focus-visible .stage-number,
+  .stage-button.active .stage-number {
+    border-color: rgba(251, 191, 36, 0.45);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(251, 191, 36, 0.15));
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.07);
+  }
+
+  .evidence-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(210px, 0.9fr);
+    gap: 1rem;
+    align-items: center;
+    margin-top: 1.15rem;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 0.9rem;
+    background: rgba(5, 7, 13, 0.62);
+    padding: 1rem;
+  }
+
+  .panel-copy h3 {
+    margin: 0.25rem 0 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .panel-copy > p:last-child {
+    margin: 0.4rem 0 0;
+    font-size: 0.75rem;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.46);
+  }
+
+  .evidence-card {
+    display: flex;
+    gap: 0.65rem;
+    align-items: flex-start;
+    border-left: 1px solid rgba(34, 211, 238, 0.2);
+    padding-left: 1rem;
+  }
+
+  .evidence-panel[data-tone='drift'] .evidence-card { border-left-color: rgba(248, 113, 113, 0.38); }
+  .evidence-panel[data-tone='review'] .evidence-card { border-left-color: rgba(167, 139, 250, 0.38); }
+
+  .evidence-dot {
+    width: 0.55rem;
+    height: 0.55rem;
+    flex: none;
+    margin-top: 0.3rem;
+    border-radius: 999px;
+    background: #22d3ee;
+    box-shadow: 0 0 12px rgba(34, 211, 238, 0.42);
+  }
+
+  .evidence-panel[data-tone='drift'] .evidence-dot { background: #f87171; box-shadow: 0 0 12px rgba(248, 113, 113, 0.4); }
+  .evidence-panel[data-tone='review'] .evidence-dot { background: #a78bfa; box-shadow: 0 0 12px rgba(167, 139, 250, 0.4); }
+
+  .evidence-card p {
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.86);
+  }
+
+  .evidence-card span:last-child {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.68rem;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .boundary-note,
+  .noscript-note {
+    margin: 0.9rem 0 0;
+    font-size: 0.68rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  @media (max-width: 640px) {
+    .drift-map { padding: 1rem; }
+    .map-heading { display: block; }
+    .timezone { display: inline-block; margin-top: 0.75rem; }
+    .stage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 0.85rem; }
+    .stage-grid::before { display: none; }
+    .evidence-panel { grid-template-columns: 1fr; }
+    .evidence-card { border-top: 1px solid rgba(34, 211, 238, 0.18); border-left: 0; padding-top: 0.85rem; padding-left: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .stage-number { transition: none; }
+  }
+</style>

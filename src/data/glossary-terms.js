@@ -29,24 +29,41 @@ export const glossaryTerms = [
   {
     slug: 'revenge-trading',
     title: 'Revenge Trading',
-    shortDefinition: 'Trading aggressively after a loss to "win back" the money, typically with larger positions or lower-quality setups, leading to even bigger losses.',
+    shortDefinition: 'A post-loss pattern where recovering the lost money becomes the purpose of the next decision and the trader changes or ignores part of the written plan.',
     category: 'Trading Psychology',
+    updatedAt: '2026-10-04',
     relatedTerms: ['tilt', 'fomo', 'overtrading'],
+    sourceIds: ['RES-001', 'RES-009', 'RES-010', 'PLAI-001', 'PLAI-002', 'PLAI-005'],
+    sources: [
+      { id: 'RES-001', label: 'Kahneman and Tversky — Prospect Theory (1979)', url: 'https://web.mit.edu/curhan/www/docs/Articles/15341_Readings/Behavioral_Decision_Theory/Kahneman_Tversky_1979_Prospect_theory.pdf', checkedOn: '2026-09-19' },
+      { id: 'RES-009', label: 'Zerodha Varsity — Controlling your trading emotions', url: 'https://zerodha.com/varsity/chapter/controlling-your-trading-emotions/', checkedOn: '2026-09-25' },
+      { id: 'RES-010', label: 'OANDA — Understanding emotions in trading', url: 'https://www.oanda.com/us-en/skills-and-insights/education/trading-psychology/emotions-in-trading/trading-psychology-understanding-your-emotions/', checkedOn: '2026-09-25' },
+      { id: 'PLAI-001', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+    ],
+    visual: 'revenge-trading-full-check',
     guide: { href: '/blogs/revenge-trading-prop-firm', label: 'Review a practical revenge-trading interruption workflow' },
-    proplogConnection: 'PropLogAI detects revenge trading patterns by analyzing your trade timing, position sizes, and emotions after consecutive losses — then alerts you before the spiral deepens.',
+    proplogConnection: 'PropLogAI lets you manually record trade details, emotions, rule adherence, notes, and screenshots. It can help you review patterns in your own journal data, but it does not detect revenge trading in real time, block orders, or guarantee that the behaviour stops.',
     fullContent: `
       <h3>What is Revenge Trading?</h3>
-      <p>Revenge trading is the compulsive urge to immediately re-enter the market after a losing trade, driven by the need to recover the lost money. The trader abandons their plan, increases position size, or takes setups they'd normally skip — all to "get even" with the market.</p>
-      <p>It's called "revenge" because the trader is emotionally reacting to the market as if it personally wronged them. The rational part of the brain shuts down, and the fight-or-flight response takes over.</p>
-      <h3>The Revenge Trading Spiral</h3>
-      <p>The pattern is predictable: Loss → Frustration → Impulsive re-entry → Bigger loss → More frustration → Even more impulsive trading. For prop firm traders, this spiral can blow an entire challenge account in a single session. Studies of prop firm failure rates consistently show that accounts are most often lost in clusters of rapid trades, not from a single bad setup.</p>
-      <ul>
-        <li><strong>Larger lot sizes:</strong> Doubling up to recover faster — which doubles the risk</li>
-        <li><strong>Ignoring stop losses:</strong> Moving or removing stops because "this one has to work"</li>
-        <li><strong>Trading off-plan:</strong> Entering random pairs, timeframes, or sessions you don't normally trade</li>
-      </ul>
-      <h3>Breaking the Pattern</h3>
-      <p>The most effective countermeasure is a mandatory cooling-off period after consecutive losses. Many successful prop firm traders use a "3-strike rule" — after 3 losses in a day, they close the platform. Journaling immediately after a loss (before the next trade) forces a pause and engages the analytical brain, interrupting the emotional spiral.</p>
+      <p>Revenge trading is a decision pattern that can appear after a loss. The main goal of the next trade changes from following a valid setup to recovering the money that was just lost.</p>
+      <p>Another trade after a loss is not automatically revenge trading. Check whether the setup, confirmation, session, sizing method, or reason changed because of the previous result.</p>
+      <h3>Simple XAUUSD Example</h3>
+      <p>You take a planned XAUUSD trade during the London session after an Asian-range liquidity sweep and a confirmed breakout. The trade follows your rules and ends at <strong>−$50</strong>.</p>
+      <p>Three minutes later, price reverses. You want to enter before a fresh breakout candle closes and use a bigger size to recover the <strong>$50</strong>. The possible revenge pattern is not the second trade itself. It is the change in confirmation, size, and reason.</p>
+      <h3>What Should You Check?</h3>
+      <ol>
+        <li><strong>Setup:</strong> Is there a completely new setup that meets the same written conditions?</li>
+        <li><strong>Confirmation:</strong> Did the required candle close or checklist finish?</li>
+        <li><strong>Session:</strong> Are you still inside the time window written in your plan?</li>
+        <li><strong>Size:</strong> Are you using the same documented sizing method?</li>
+        <li><strong>Reason:</strong> Would you take this exact trade if the previous result were <strong>$0</strong>?</li>
+      </ol>
+      <p>If the new decision passes the same checks, the fact that it follows a loss does not prove revenge trading. If the main reason is “make it back” and the normal conditions have changed, record that change before making another decision.</p>
+      <h3>Revenge Trading, Tilt, and Overtrading</h3>
+      <p><a href="/glossary/tilt">Tilt</a> is a broader state where frustration or pressure may affect decisions. <a href="/glossary/overtrading">Overtrading</a> is a drift from the planned trading process, such as repeated entries or trading outside the planned session. Revenge trading is the more specific pattern centred on recovering a previous loss.</p>
+      <h3>What Happens Next?</h3>
+      <p>There is no universal waiting time or number of losses that fits every trader. Use the loss-response rule written before the session and the current official rules for your exact prop-firm program and account stage.</p>
+      <p>A short record can include the first result, the urge you noticed, what changed in the next idea, whether you applied your written rule, and the final decision. Review several similar records before calling it a repeated pattern.</p>
     `
   },
   {
@@ -55,6 +72,7 @@ export const glossaryTerms = [
     shortDefinition: 'A state of emotional frustration where a trader abandons rational decision-making, often triggered by a string of losses or a single large loss.',
     category: 'Trading Psychology',
     relatedTerms: ['revenge-trading', 'loss-aversion', 'overtrading'],
+    guide: { href: '/blogs/revenge-trading-prop-firm', label: 'Compare tilt with a revenge-trading decision after a loss' },
     proplogConnection: 'PropLogAI tracks your emotional state across trades. When you log frustration or anger, the AI coach identifies which situations trigger tilt and suggests specific countermeasures based on your history.',
     fullContent: `
       <h3>What is Tilt?</h3>
@@ -97,7 +115,7 @@ export const glossaryTerms = [
     title: 'Loss Aversion',
     shortDefinition: 'The tendency for a loss to affect a decision more strongly than an equivalent gain in many situations.',
     category: 'Trading Psychology',
-    updatedAt: '2026-09-20',
+    updatedAt: '2026-10-02',
     relatedTerms: ['tilt', 'risk-per-trade', 'stop-loss'],
     sourceIds: ['RES-001', 'PLAI-001', 'PLAI-005'],
     sources: [
@@ -145,22 +163,51 @@ export const glossaryTerms = [
   {
     slug: 'drawdown',
     title: 'Drawdown',
-    shortDefinition: 'The peak-to-trough decline in your trading account, measured as a percentage or dollar amount from the highest point to the lowest point before a new high.',
+    aliases: ['Trading drawdown', 'Account drawdown'],
+    updatedAt: '2026-10-01',
+    visual: 'drawdown-performance-rule-note',
+    shortDefinition: 'Drawdown is the amount an account falls from an earlier high to a later value. A prop firm drawdown limit is a separate rule that sets an official account floor.',
     category: 'Risk Management',
     relatedTerms: ['daily-drawdown-limit', 'overall-drawdown-limit', 'equity-curve'],
-    guide: { href: '/blogs/daily-drawdown-calculator', label: 'See how to track a daily drawdown buffer' },
-    proplogConnection: 'PropLogAI automatically calculates your drawdown on the dashboard and P&L calendar. The AI coach analyzes your drawdown patterns and identifies which behaviors precede your deepest drawdowns.',
+    guide: { href: '/blogs/daily-drawdown-calculator', label: 'See how to check a daily drawdown buffer' },
+    sourceIds: ['PFR-002', 'PFR-003', 'PFR-005', 'PFR-006', 'PFR-008', 'PLAI-003'],
+    sources: [
+      { id: 'PFR-002', label: 'FTMO trading objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-25' },
+      { id: 'PFR-003', label: 'FTMO 2-Step maximum loss', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-25' },
+      { id: 'PFR-005', label: 'FTMO 1-Step loss objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-25' },
+      { id: 'PFR-006', label: 'FundedNext maximum daily loss', url: 'https://help.fundednext.com/en/articles/8019914-what-is-the-maximum-daily-loss-limit', checkedOn: '2026-09-25' },
+      { id: 'PFR-008', label: 'FundedNext maximum loss calculation', url: 'https://help.fundednext.com/en/articles/8019812-how-can-i-calculate-the-maximum-loss-limit', checkedOn: '2026-09-25' },
+      { id: 'PLAI-003', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+    ],
+    proplogConnection: 'PropLogAI displays an equity curve and performance metrics from the trades you log. Use those records to review account declines; use the firm’s current dashboard and rules for official breach calculations.',
     fullContent: `
-      <h3>What is Drawdown?</h3>
-      <p>Drawdown measures how much your account has declined from its peak value before recovering. If your account grows from $100,000 to $108,000 and then drops to $104,000, your drawdown is $4,000 or 3.7% (from the $108,000 peak). It's the most important risk metric for prop firm traders because most challenges have strict drawdown limits.</p>
-      <h3>Types of Drawdown</h3>
+      <h3>What does drawdown mean?</h3>
+      <p>Drawdown tells you how far your account fell from an earlier high. It can be shown in dollars or as a percentage of that high.</p>
+      <p>Imagine your account reaches <strong>$108,000</strong>. After a fictional XAUUSD New York-session result, the account value is <strong>$104,000</strong>. The decline is $4,000:</p>
+      <p><strong>$108,000 − $104,000 = $4,000</strong></p>
+      <p><strong>$4,000 ÷ $108,000 × 100 ≈ 3.7%</strong></p>
+      <p>The 3.7% describes what happened between those two account values. It is not a suggested risk percentage or a prop-firm limit.</p>
+
+      <h3>Are you checking balance or equity?</h3>
       <ul>
-        <li><strong>Absolute drawdown:</strong> The decline from your initial balance — relevant for overall drawdown limits</li>
-        <li><strong>Relative (trailing) drawdown:</strong> The decline from your highest equity point — used by many prop firms as a trailing maximum</li>
-        <li><strong>Daily drawdown:</strong> A firm-defined daily loss limit whose percentage, reference value, and reset method vary by program</li>
+        <li><strong>Balance drawdown:</strong> uses results from trades that have already closed.</li>
+        <li><strong>Equity drawdown:</strong> can change while a trade is still open because open profit or loss affects equity.</li>
       </ul>
-      <h3>Managing Drawdown</h3>
-      <p>The key to surviving prop firm drawdown rules is position sizing. If your maximum daily drawdown is 5% ($5,000 on a $100K account) and you risk 1% per trade, you can absorb 5 consecutive losing trades before hitting the limit. If you risk 2%, only 2.5 losses will breach it. Conservative position sizing isn't timid — it's mathematical survival.</p>
+      <p>If you have an open XAUUSD trade, your balance may look unchanged while your equity is moving. Write down which value you used before comparing two figures.</p>
+
+      <h3>Does being in drawdown mean you breached a prop-firm rule?</h3>
+      <p><strong>No, not automatically.</strong> Performance drawdown describes an account decline. A <a href="/glossary/daily-drawdown-limit">daily drawdown limit</a> or <a href="/glossary/overall-drawdown-limit">overall drawdown limit</a> is a written program rule that sets an official floor.</p>
+      <p>The firm decides whether the rule uses balance, equity, open profit and loss, costs, a daily reset, or a moving floor. Different programs can use different methods. Your firm's current dashboard and rules decide whether the account is breached.</p>
+
+      <h3>What should you check?</h3>
+      <ol>
+        <li>What was the earlier account high?</li>
+        <li>What is the later account value?</li>
+        <li>Are you measuring balance or equity?</li>
+        <li>What period are you reviewing?</li>
+        <li>Are you studying performance drawdown or checking an official firm limit?</li>
+      </ol>
+      <p>If you are checking a firm rule, copy the official floor first. Then use the <a href="/blogs/daily-drawdown-calculator">daily drawdown calculator guide</a> to compare that floor with the account value named in the rule. Use the <a href="/blogs/prop-firm-risk-management">prop firm risk management guide</a> when you need the wider process around position size, stop loss, and daily controls.</p>
     `
   },
   {
@@ -283,6 +330,7 @@ export const glossaryTerms = [
       </ul>
       <h3>Use It With Other Metrics</h3>
       <p>Read win rate beside average win, average loss, expectancy, profit factor, and the number of trades included. Style-based ranges are not used here because they require a defined market, timeframe, rule set, cost model, and dataset.</p>
+      <p>The <a href="/blogs/trading-performance-metrics">trading performance metrics guide</a> shows how to read these numbers together using one consistent XAUUSD sample.</p>
     `
   },
   {
@@ -308,48 +356,50 @@ export const glossaryTerms = [
       </ul>
       <h3>Limits of the Number</h3>
       <p>Profit factor depends on the selected dates, included trades, currency conversion, and whether costs are already reflected in each trade's result. A small or unusually favorable sample can move the ratio sharply. There is no universal threshold for a “strong” value, so compare like-for-like periods and show the trade count.</p>
+      <p>Use the <a href="/blogs/trading-performance-metrics">trading performance metrics guide</a> to connect profit factor with win rate, average win and loss, expectancy, drawdown, and the equity curve.</p>
     `
   },
   {
     slug: 'expectancy',
     title: 'Expectancy',
-    shortDefinition: 'The average amount you can expect to win or lose per trade, combining your win rate with your average win and average loss sizes.',
+    shortDefinition: 'The average result per trade in a defined historical sample, calculated from win rate, loss rate, average win, and average loss.',
     category: 'Performance Metrics',
     relatedTerms: ['win-rate', 'profit-factor', 'risk-reward-ratio'],
-    proplogConnection: 'PropLogAI computes your expectancy per trade and per setup, showing you exactly which trading patterns have positive expectancy and which are costing you money.',
+    proplogConnection: 'PropLogAI stores the trade results, setup labels, and session labels that can support a later expectancy review of your own logged data.',
     fullContent: `
       <h3>What is Expectancy?</h3>
-      <p>Expectancy tells you how much you can expect to make (or lose) on average per trade. The formula is: <strong>Expectancy = (Win Rate × Average Win) - (Loss Rate × Average Loss)</strong>. A positive expectancy means your strategy makes money over time; negative means it loses.</p>
-      <p>Example: If your win rate is 55%, average win is $800, and average loss is $500: Expectancy = (0.55 × $800) - (0.45 × $500) = $440 - $225 = $215 per trade. On average, every trade you take is worth $215.</p>
-      <h3>Why Expectancy is the Most Important Metric</h3>
-      <p>Expectancy is the only metric that directly answers the question "Is my trading strategy profitable?" Win rate doesn't account for trade sizes. Risk-reward doesn't account for frequency. Expectancy combines everything into a single, actionable number.</p>
+      <p>Expectancy shows the average result per trade in a defined historical sample. The formula is: <strong>Expectancy = (Win Rate × Average Win) - (Loss Rate × Average Loss)</strong>.</p>
+      <p>Example: if your win rate is 55%, average win is $800, and average loss is $500, the calculation is (0.55 × $800) - (0.45 × $500) = $215 per trade for that sample.</p>
+      <h3>What Expectancy Can and Cannot Tell You</h3>
+      <p>Expectancy combines how often trades won with the average size of wins and losses. It does not predict the next trade or guarantee that the same average will continue.</p>
       <ul>
-        <li><strong>Positive expectancy + enough trades = profit.</strong> This is the fundamental equation of trading</li>
-        <li><strong>Negative expectancy + any number of trades = loss.</strong> No amount of trading volume fixes a losing strategy</li>
-        <li><strong>Break it down by setup:</strong> Your overall expectancy might be positive, but some setups could have negative expectancy — dragging down your total</li>
+        <li><strong>Keep the sample visible:</strong> show the number of trades, dates, costs, and counting method.</li>
+        <li><strong>Use the same data:</strong> win rate and average win or loss must come from the same closed trades.</li>
+        <li><strong>Break it down carefully:</strong> setup or session comparisons need enough comparable trades before you draw a conclusion.</li>
       </ul>
+      <p>Use the <a href="/blogs/trading-expectancy-calculator">trading expectancy calculator</a> to enter your own trade counts, average win, and average loss. The <a href="/blogs/trading-performance-metrics">trading performance metrics guide</a> shows how to read expectancy beside the other numbers from the same sample.</p>
     `
   },
   {
     slug: 'sharpe-ratio',
     title: 'Sharpe Ratio',
-    shortDefinition: 'A measure of risk-adjusted returns that compares your trading profits to their volatility. Higher Sharpe ratios indicate more consistent performance.',
+    shortDefinition: 'A risk-adjusted-return measure that compares average return above a chosen baseline with the variation of those returns.',
     category: 'Performance Metrics',
     relatedTerms: ['equity-curve', 'drawdown', 'profit-factor'],
-    proplogConnection: 'PropLogAI helps you evaluate consistency over time. The AI coach focuses on steadying your equity curve rather than just maximizing raw profits.',
+    proplogConnection: 'PropLogAI can organise logged results for performance review. A Sharpe ratio still needs a defined return period, baseline, and calculation method.',
     fullContent: `
       <h3>What is Sharpe Ratio?</h3>
-      <p>The Sharpe ratio measures how much return you earn for each unit of risk you take. It's calculated as: <strong>(Average Return - Risk-Free Rate) / Standard Deviation of Returns</strong>. In simpler terms, it rewards consistency — two traders making the same total profit, but one does it steadily while the other swings wildly, will have very different Sharpe ratios.</p>
-      <h3>Why Consistency Matters for Prop Firms</h3>
-      <p>Many prop firms have consistency rules that effectively demand a minimum Sharpe-like performance. They don't want a trader who makes $10,000 in one day and loses $9,000 the next — even though the net is positive. A high Sharpe ratio means your P&L curve is smooth and predictable.</p>
+      <p>The Sharpe ratio compares average return above a chosen baseline with the standard deviation, or variation, of returns. The return period and baseline must be defined before two results can be compared.</p>
+      <h3>Do Not Confuse It With a Prop-Firm Consistency Rule</h3>
+      <p>A prop-firm consistency rule may compare a best day or best trade with total profit. That is a different formula. Use the exact rule published for your program instead of replacing it with a Sharpe ratio.</p>
       <ul>
-        <li><strong>Below 0.5:</strong> Poor risk-adjusted returns — high volatility relative to profit</li>
-        <li><strong>0.5 - 1.0:</strong> Acceptable for most prop firm evaluations</li>
-        <li><strong>1.0 - 2.0:</strong> Good — consistent profitability with controlled risk</li>
-        <li><strong>Above 2.0:</strong> Excellent — very smooth equity curve</li>
+        <li><strong>Same period:</strong> compare daily returns with daily returns, not daily with monthly.</li>
+        <li><strong>Same baseline:</strong> changing the risk-free or comparison rate changes the result.</li>
+        <li><strong>Enough observations:</strong> a short record can produce an unstable ratio.</li>
       </ul>
-      <h3>Improving Your Sharpe Ratio</h3>
-      <p>To improve your Sharpe ratio, focus on reducing the volatility of your daily returns rather than maximizing your best days. Consistent 0.5% daily gains produce a better Sharpe ratio than alternating between +3% and -2% days, even though the latter might produce more total profit.</p>
+      <h3>Use It as an Advanced Review Metric</h3>
+      <p>Read the ratio beside the underlying return series, drawdown, trade count, costs, and calculation assumptions. A higher historical value is not a promise of smoother future results.</p>
+      <p>Start with the simpler <a href="/blogs/trading-performance-metrics">trading performance metrics reading order</a> before adding this advanced measure.</p>
     `
   },
   {
@@ -358,7 +408,7 @@ export const glossaryTerms = [
     shortDefinition: 'The comparison between the average dollar amount of your winning trades versus your losing trades, revealing whether your winners outsize your losers.',
     category: 'Performance Metrics',
     relatedTerms: ['profit-factor', 'expectancy', 'risk-reward-ratio'],
-    proplogConnection: 'PropLogAI calculates your average win and loss sizes and tracks them over time. The AI coach identifies if loss aversion is causing you to cut winners short.',
+    proplogConnection: 'PropLogAI stores logged trade results so you can compare the average size of winning and losing trades in a defined period.',
     fullContent: `
       <h3>What is Average Win vs Average Loss?</h3>
       <p>This metric compares the average size of your profitable trades against the average size of your losing trades. If your average winner is $600 and your average loser is $400, your win/loss ratio is 1.5:1. It directly reflects your trade management — how you handle entries, exits, and stop losses.</p>
@@ -368,29 +418,31 @@ export const glossaryTerms = [
         <li><strong>Average win = average loss (ratio near 1:1):</strong> You need a win rate above 50% to make money</li>
         <li><strong>Average win < average loss (ratio below 1:1):</strong> Your losers are bigger than your winners — you need a very high win rate to compensate</li>
       </ul>
-      <h3>Common Problem: Asymmetric Exits</h3>
-      <p>The most common pattern among struggling traders is an average win significantly smaller than their average loss. This happens because of loss aversion — they grab profits quickly (fear of losing the gain) but let losses run (hope of recovery). If your ratio is below 1:1, your exit strategy needs work before your entry strategy.</p>
+      <h3>Check the Reason Behind the Ratio</h3>
+      <p>A smaller average win may come from the setup, exit rules, partial exits, costs, or a few large losses. Use the trade notes and screenshots to investigate. The ratio alone cannot diagnose the cause or tell you what to change.</p>
+      <p>Use the <a href="/blogs/trading-expectancy-calculator">trading expectancy calculator</a> to combine these averages with your winning and losing trade counts. The <a href="/blogs/trading-performance-metrics">trading performance metrics guide</a> shows why this comparison must be read beside win rate rather than alone.</p>
     `
   },
   {
     slug: 'equity-curve',
     title: 'Equity Curve',
-    shortDefinition: 'A graph plotting your account balance over time, showing the trajectory of your trading performance including all wins, losses, and drawdowns.',
+    shortDefinition: 'A graph of cumulative account balance or equity across time or trade order, showing gains, losses, flat periods, and drawdowns.',
     category: 'Performance Metrics',
     relatedTerms: ['drawdown', 'sharpe-ratio', 'profit-factor'],
-    proplogConnection: 'PropLogAI generates your equity curve from trade history and overlays it with emotional data, showing you how psychology impacts your account growth.',
+    proplogConnection: 'PropLogAI can display performance from logged trades and keep user-entered setup, session, emotion, and rule-adherence records beside the results.',
     fullContent: `
       <h3>What is an Equity Curve?</h3>
-      <p>An equity curve is a visual representation of your account balance plotted against time or trade number. A healthy equity curve trends upward with shallow, short-lived dips. An unhealthy one shows sharp drops, extended flat periods, or a downward trend. It's the most honest picture of your trading — you can't argue with the line.</p>
+      <p>An equity curve plots cumulative balance or equity across time or trade order. It helps you see the path taken to reach the final result, including gains, losses, flat periods, and drawdowns.</p>
       <h3>Reading Your Equity Curve</h3>
       <ul>
-        <li><strong>Smooth upward slope:</strong> Consistent edge with good risk management</li>
-        <li><strong>Staircase pattern:</strong> Winning streaks followed by flat periods — common with trend-following strategies</li>
-        <li><strong>Spiky/volatile:</strong> Inconsistent sizing or strategy — high Sharpe ratio concern</li>
-        <li><strong>Sharp drops:</strong> Overleveraging or failed risk management events</li>
+        <li><strong>Upward section:</strong> cumulative results increased during that part of the sample.</li>
+        <li><strong>Flat section:</strong> cumulative results changed little during that part.</li>
+        <li><strong>Uneven section:</strong> check trade size, setup, session, and result distribution.</li>
+        <li><strong>Sharp drop:</strong> inspect the original trades and compare the decline with the relevant account limits.</li>
       </ul>
       <h3>Equity Curve for Prop Firm Traders</h3>
-      <p>Prop firms essentially evaluate your equity curve. They want to see a smooth, upward-trending line that stays within drawdown limits. The ideal prop firm equity curve rises gradually without any single day contributing more than 20-30% of total profits — this demonstrates edge-based trading rather than gambling on a few big trades.</p>
+      <p>Your equity curve can help you review how close the logged account came to a loss limit. It does not replace the firm's current dashboard or rules, and there is no universal ideal curve or best-day percentage across prop-firm programs.</p>
+      <p>Use the <a href="/blogs/trading-performance-metrics">trading performance metrics guide</a> to read the curve beside drawdown, expectancy, profit factor, and the sample behind them.</p>
     `
   },
 
@@ -442,23 +494,41 @@ export const glossaryTerms = [
   {
     slug: 'overtrading',
     title: 'Overtrading',
-    shortDefinition: 'Taking more trades than your strategy calls for, driven by boredom, greed, or the belief that more trades equals more profit.',
+    aliases: ['Over trading', 'Excessive trading'],
+    updatedAt: '2026-09-25',
+    visual: 'overtrading-drift',
+    shortDefinition: 'A departure from a trader’s written process in which trade frequency, timing, size, or setup quality changes because of pressure, impulse, or recent results.',
     category: 'Trading Discipline',
     relatedTerms: ['fomo', 'revenge-trading', 'trading-plan'],
     guide: { href: '/blogs/overtrading-prop-firm-challenges', label: 'Review overtrading patterns in prop firm challenges' },
-    proplogConnection: 'PropLogAI counts your daily trade frequency and the AI coach identifies when you are overtrading compared to your normal baseline, especially on losing days.',
+    proplogConnection: 'PropLogAI lets traders record setup labels, sessions, emotions, notes, rule adherence, screenshots, and trade results. Those records can support a later review of when the trader’s own process changed; PropLogAI does not provide signals or define a universal trade limit.',
     fullContent: `
       <h3>What is Overtrading?</h3>
-      <p>Overtrading means taking more trades than your strategy justifies. It can manifest as excessive frequency (20 trades when your strategy typically produces 3-5 setups per day), excessive size (risking too much of your account on a single trade), or trading outside your defined markets and sessions.</p>
-      <h3>Common Triggers</h3>
+      <p>Overtrading means that a trader’s decisions have moved away from their documented process. The change may involve trade frequency, session timing, setup quality, position size, or the reason for entering. It is measured against the trader’s plan, not against a universal number of trades.</p>
+      <p>A high-frequency strategy can produce many valid entries. A slower strategy can drift after one unplanned trade. The useful question is whether the decision still matched the written setup, session, checklist, and account rules.</p>
+      <h3>High Activity vs Overtrading</h3>
       <ul>
-        <li><strong>Boredom:</strong> Sitting in front of charts with no valid setup, so you create one that isn't really there</li>
-        <li><strong>Revenge:</strong> After a loss, taking rapid-fire trades to recover</li>
-        <li><strong>Greed:</strong> After a win, feeling like you can keep going and bank more</li>
-        <li><strong>Commission blindness:</strong> Not accounting for the cumulative cost of frequent trades</li>
+        <li><strong>High activity:</strong> Several entries qualify under the same written rules and are recorded consistently.</li>
+        <li><strong>Frequency drift:</strong> Extra trades appear after a loss, win, missed move, or quiet period without a matching planned setup.</li>
+        <li><strong>Session drift:</strong> Trading continues into an unplanned session because stopping feels difficult.</li>
+        <li><strong>Setup drift:</strong> The trader weakens confirmation requirements or changes the setup label after entry.</li>
+        <li><strong>Size drift:</strong> Position size changes because of the previous result rather than the documented sizing process.</li>
       </ul>
-      <h3>The Hidden Cost</h3>
-      <p>Overtrading doesn't just risk more capital — it degrades the quality of each trade. Your best setups are rare by definition. The 4th, 5th, and 6th trades of the day are almost always lower quality than the 1st and 2nd. Many prop firm traders find that their profitability increases when they impose a maximum trade count per day, even though it feels counterintuitive to trade less.</p>
+      <h3>Fictional XAUUSD Example</h3>
+      <p>A trader records an XAUUSD plan using IST timestamps: trade only during the London session, wait for an Asian-session liquidity sweep, and require a breakout candle to close. The first trade follows the checklist and ends at <strong>−$38</strong>. Later, the trader enters a New York-session breakout after a missed move and writes “wanted to recover the loss.” The second decision is reviewable as overtrading because the session, setup confirmation, and reason changed—not because it was simply the second trade.</p>
+      <h3>What to Record</h3>
+      <ul>
+        <li>Instrument, session, setup name, and timestamp timezone.</li>
+        <li>Whether the setup and confirmation matched the written plan.</li>
+        <li>Trade number in the session and the result of the previous trade.</li>
+        <li>Emotion or behaviour tag before entry.</li>
+        <li>Any change in size, timing, or account-rule compliance.</li>
+        <li>A factual reason for the entry and one point for later <a href="/glossary/trade-review">trade review</a>.</li>
+      </ul>
+      <h3>Related Behaviours</h3>
+      <p><a href="/glossary/revenge-trading">Revenge trading</a> describes a reaction to a loss or frustration. <a href="/glossary/fomo">FOMO</a> describes pressure created by a move that appears to be leaving without the trader. Either can contribute to overtrading, but the terms are not interchangeable. Overtrading is the observable change in the trading process.</p>
+      <h3>Review the Pattern</h3>
+      <p>Use stable labels and compare similar entries rather than judging one isolated result. The practical guide explains how to review trade count, session drift, setup quality, and rule adherence without treating profit or loss as proof that the decision was sound. A consistent <a href="/glossary/trading-journal">trading journal</a> preserves the evidence needed for that comparison.</p>
     `
   },
   {
@@ -532,8 +602,9 @@ export const glossaryTerms = [
     title: 'Prop Firm Challenge',
     shortDefinition: 'A rules-based evaluation, often on a simulated account, that a trader must complete to qualify for the firm’s next account stage.',
     category: 'Prop Firm',
-    updatedAt: '2026-09-20',
+    updatedAt: '2026-10-02',
     relatedTerms: ['funded-account', 'profit-target', 'daily-drawdown-limit'],
+    guide: { href: '/blogs/prop-firm-rules-guide', label: 'Check the exact prop firm rules before you buy' },
     sourceIds: ['PFR-001', 'PFR-002', 'PFR-004', 'PFR-009', 'PLAI-002'],
     sources: [
       { id: 'PFR-001', label: 'FTMO trading objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-19' },
@@ -564,6 +635,7 @@ export const glossaryTerms = [
     category: 'Prop Firm',
     updatedAt: '2026-09-20',
     relatedTerms: ['prop-firm-challenge', 'overall-drawdown-limit', 'consistency-rule'],
+    guide: { href: '/blogs/prop-firm-payout-rules', label: 'Check payout conditions before you request' },
     sourceIds: ['PFR-013', 'PFR-014', 'PLAI-002', 'PLAI-003'],
     sources: [
       { id: 'PFR-013', label: 'FTMO — capital used on an FTMO Account', url: 'https://ftmo.com/faq/what-capital-will-i-trade-on-an-ftmo-account/', checkedOn: '2026-09-19' },
@@ -585,6 +657,7 @@ export const glossaryTerms = [
       <p>FTMO states that its FTMO Accounts use fictitious capital. FundedNext describes its funded-stage account as simulated with rewards based on performance. These statements apply to those firms' checked pages and should not be generalized to every proprietary trading business.</p>
       <h3>Avoid Assumptions</h3>
       <p>Account size labels and reward percentages are not included as “typical” values here. Read the current agreement and program rules before describing whose capital is used or how a payout works.</p>
+      <p>Before you request money, use the <a href="/blogs/prop-firm-payout-rules">prop firm payout rules checklist</a>. After a request or payment, keep it in a separate record using the <a href="/blogs/prop-firm-expense-tracking-guide">expense and payout tracking guide</a>.</p>
     `
   },
   {
@@ -592,29 +665,31 @@ export const glossaryTerms = [
     title: 'Overall Drawdown Limit',
     shortDefinition: 'A program rule that sets the lowest permitted account value, using a fixed or moving reference defined by the firm.',
     category: 'Prop Firm',
-    updatedAt: '2026-09-20',
+    updatedAt: '2026-09-25',
     relatedTerms: ['daily-drawdown-limit', 'drawdown', 'prop-firm-challenge'],
     guide: { href: '/blogs/daily-drawdown-calculator', label: 'Compare daily and overall drawdown tracking' },
     sourceIds: ['PFR-003', 'PFR-005', 'PFR-008', 'PLAI-004'],
     sources: [
-      { id: 'PFR-003', label: 'FTMO trading objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-19' },
-      { id: 'PFR-008', label: 'FundedNext maximum loss calculation', url: 'https://help.fundednext.com/en/articles/8019812-how-can-i-calculate-the-maximum-loss-limit', checkedOn: '2026-09-19' },
+      { id: 'PFR-003', label: 'FTMO trading objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-25' },
+      { id: 'PFR-005', label: 'FTMO 1-Step loss objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-25' },
+      { id: 'PFR-008', label: 'FundedNext maximum loss calculation', url: 'https://help.fundednext.com/en/articles/8019812-how-can-i-calculate-the-maximum-loss-limit', checkedOn: '2026-09-25' },
       { id: 'PLAI-004', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
     ],
     proplogConnection: 'PropLogAI provides a P&L calendar from logged data. Use it as a review aid, and use the firm’s platform and current rules for the official limit calculation.',
     fullContent: `
-      <h3>What is an Overall Drawdown Limit?</h3>
-      <p>An overall drawdown or maximum-loss limit defines a floor that account equity must not cross. The source amount, percentage, update schedule, and treatment of open P&amp;L depend on the named program.</p>
-      <h3>Fixed and Moving Floors</h3>
+      <h3>What is an overall drawdown limit?</h3>
+      <p>An overall drawdown limit is a program rule that sets the lowest permitted account value across the account period. The firm may call it maximum loss. A breach depends on the exact program contract.</p>
+      <p>To calculate the buffer, compare the value named in the rule with the current official floor. Do not copy a percentage or floor from another account.</p>
+      <h3>Static and moving floors</h3>
       <ul>
-        <li><strong>Static:</strong> The floor stays tied to a stated reference such as initial simulated capital.</li>
-        <li><strong>Trailing:</strong> The floor can move after gains according to a defined balance or equity rule.</li>
-        <li><strong>End-of-day trailing:</strong> A firm may update the floor at a daily checkpoint instead of on every price change.</li>
+        <li><strong>Static:</strong> the floor stays tied to a stated reference such as initial simulated capital.</li>
+        <li><strong>Trailing:</strong> the floor can move after gains according to the program's balance or equity rule.</li>
+        <li><strong>End-of-day trailing:</strong> the program updates the floor at a daily checkpoint rather than on every price change.</li>
       </ul>
-      <h3>Named Examples</h3>
-      <p>FTMO's checked objectives describe a static 10% Maximum Loss amount for 2-Step and an end-of-day trailing 10% amount for 1-Step. FundedNext's checked page lists a 10% Maximum Loss limit for Stellar 2-Step. The matching percentages do not make the calculation methods identical.</p>
-      <h3>Calculation Checklist</h3>
-      <p>Confirm the program name, reference value, reset or update time, open P&amp;L treatment, commissions, swaps, and what happens after a reward. A simplified example must state all of those assumptions.</p>
+      <h3>Current named examples</h3>
+      <p>FTMO's page checked on 25 September 2026 describes a static Maximum Loss for 2-Step and an end-of-day trailing Maximum Loss for 1-Step. FundedNext's checked page describes a fixed $90,000 floor in its $100,000 Stellar 2-Step example. These examples belong only to those named programs.</p>
+      <h3>What should you check?</h3>
+      <p>Confirm the program, account stage, reference value, current floor, balance or equity test, update time, included costs, and what happens after a reward or withdrawal. The practical <a href="/blogs/daily-drawdown-calculator">daily drawdown calculator guide</a> shows how to compare an official floor with the measured account value.</p>
     `
   },
   {
@@ -648,29 +723,96 @@ export const glossaryTerms = [
   {
     slug: 'consistency-rule',
     title: 'Consistency Rule',
-    shortDefinition: 'A program-specific rule that compares the best profit day with a defined total-profit or target figure.',
+    shortDefinition: 'A consistency rule checks whether too much of your total profit came from one day or one trade. Your firm decides the formula, limit, and what happens when you are over it.',
     category: 'Prop Firm',
-    updatedAt: '2026-09-20',
-    guide: { href: '/blogs/prop-firm-consistency-calculator', label: 'Work through the consistency calculation and its limits' },
-    relatedTerms: ['sharpe-ratio', 'profit-target', 'funded-account'],
-    sourceIds: ['PFR-010', 'PFR-011', 'PLAI-004'],
+    updatedAt: '2026-09-30',
+    visual: 'consistency-ratio-note',
+    guide: { href: '/blogs/prop-firm-consistency-calculator', label: 'Calculate a best-day percentage and understand its limits' },
+    relatedTerms: ['profit-target', 'funded-account', 'prop-firm-challenge'],
+    sourceIds: ['PFR-010', 'PFR-011', 'PFR-016', 'PFR-017', 'PFR-018', 'PFR-019', 'PLAI-002', 'PLAI-004'],
     sources: [
-      { id: 'PFR-010', label: 'Topstep consistency rules', url: 'https://help.topstep.com/en/articles/8284208-consistency-at-topstep', checkedOn: '2026-09-19' },
-      { id: 'PLAI-004', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
+      { id: 'PFR-010', label: 'Topstep Trading Combine consistency target', url: 'https://help.topstep.com/en/articles/8284208-consistency-at-topstep', checkedOn: '2026-09-29' },
+      { id: 'PFR-011', label: 'Topstep Express Funded Account consistency path', url: 'https://help.topstep.com/en/articles/8284208-consistency-at-topstep', checkedOn: '2026-09-29' },
+      { id: 'PFR-016', label: 'Tradeify consistency rule', url: 'https://help.tradeify.co/en/articles/10468320-rules-consistency-rule', checkedOn: '2026-09-29' },
+      { id: 'PFR-017', label: 'Instant Funding IF1 rules', url: 'https://instantfunding.com/help/if1/', checkedOn: '2026-09-29' },
+      { id: 'PFR-018', label: 'Apex 50% consistency requirement', url: 'https://apextraderfunding.com/help-center/additional-helpful-items/50-consistency-requirement/', checkedOn: '2026-09-29' },
+      { id: 'PFR-019', label: 'My Funded Futures consistency rule', url: 'https://help.myfundedfutures.com/en/articles/11994562-consistency-rule-at-my-fundedfutures', checkedOn: '2026-09-29' },
+      { id: 'PLAI-002', label: 'PropLogAI manual journal feature', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
     ],
-    proplogConnection: 'PropLogAI provides a P&L calendar from logged trades. Use those entries to review daily distribution, but calculate compliance from the firm’s exact current formula and official account figures.',
+    proplogConnection: 'PropLogAI can store manually logged daily results and rule-adherence notes. Use the firm’s current dashboard and rules for the official calculation and account status.',
     fullContent: `
-      <h3>What is the Consistency Rule?</h3>
-      <p>A consistency rule measures how concentrated a result is in one trading day. The denominator, threshold, consequence, timing, and account stage differ by program. It is not safe to assume one percentage applies across firms.</p>
-      <h3>Common Formula Shape</h3>
-      <p><strong>Consistency percentage = best profit day ÷ the program's defined total × 100.</strong> The “defined total” may be total net profit or a profit target, so copy the denominator from the official rule.</p>
-      <h3>Topstep Examples</h3>
+      <h3>What does a consistency rule mean?</h3>
+      <p>It asks one simple question: <strong>did too much of your total profit come from one result?</strong></p>
+      <p>Depending on the program, a firm may check either your most profitable <strong>day</strong> or your biggest winning <strong>trade</strong>. The limit may be 15%, 20%, 30%, 40%, 50%, or another number stated by that program.</p>
+
+      <h3>First check: best day or best trade?</h3>
+      <p>For a best-day consistency rule, the firm adds up the profits and losses from all trades closed within its defined trading day and identifies the day with the highest net profit. A best-trade rule looks at the individual trade with the highest profit. They are different calculations.</p>
+      <figure class="consistency-note" data-consistency-note-root>
+        <button type="button" class="consistency-note-trigger" aria-label="Open the best-day versus best-trade learning note at a larger size" data-consistency-note-trigger>
+          <img src="/glossary/images/consistency-day-vs-trade-note.webp" alt="Handwritten note comparing a 20 percent best-day rule with a 15 percent best-trade rule" loading="lazy" decoding="async" />
+          <span aria-hidden="true">Click to zoom</span>
+        </button>
+        <figcaption>Do not put a best trade into a best-day calculator. Click or tap to enlarge.</figcaption>
+        <dialog class="consistency-note-dialog" data-consistency-note-dialog aria-label="Larger best-day versus best-trade learning note"><div><button type="button" class="consistency-note-close" data-consistency-note-close>Close</button><img src="/glossary/images/consistency-day-vs-trade-note.webp" alt="Handwritten note comparing a 20 percent best-day rule with a 15 percent best-trade rule" /></div></dialog>
+      </figure>
+
+      <h3>How a best-day rule is calculated</h3>
+      <p>When the rule says best day, the usual calculation is <strong>most profitable day ÷ total net profit × 100</strong>.</p>
+      <p>Example: your best day made $400 profit and your total net profit is $800. The calculation is $400 ÷ $800 × 100 = 50%.</p>
+      <p>If your firm's consistency rule is 40%, then 50% is above that limit. This tells you the calculation result. It does not yet tell you whether the account is breached.</p>
+
+      <h3>What happens when you are over the limit?</h3>
+      <p><strong>Read the consequence written for your exact firm, program, and stage. If it is unclear, ask the firm's support team.</strong> A consistency condition can delay a payout until you meet the requirement.</p>
       <ul>
-        <li><strong>Trading Combine:</strong> The checked page uses a 55% Consistency Target and says the profit target increases when the best day is above the limit.</li>
-        <li><strong>Express Funded Account Consistency path:</strong> The checked page uses 40% or below for payout eligibility.</li>
+        <li><strong>Tradeify:</strong> Its rules state that traders who do not meet the consistency requirement during the payout period may continue trading until they meet it. This is not considered an account failure or a penalty.</li>
+        <li><strong>Apex 50% requirement:</strong> Its rules state that the payout option is unavailable while the consistency score exceeds the limit. However, the account remains active, and the trader may continue trading.</li>
+        <li><strong>My Funded Futures:</strong> Its rules state that exceeding the applicable 30% or 50% consistency threshold during evaluation does not breach the account. A trader may need additional trading days before meeting the requirement.</li>
       </ul>
-      <h3>Check Before Calculating</h3>
-      <p>Confirm the program, account stage, timezone, included days, treatment of losses, and whether the result changes a target or blocks a payout. Consistency is a contractual calculation, not proof that a strategy will perform in the future.</p>
+      <p>Those are named examples, not a rule for every firm. If your own prop firm calls it a hard breach, stop and follow that instruction.</p>
+      <figure class="consistency-note" data-consistency-note-root>
+        <button type="button" class="consistency-note-trigger" aria-label="Open the consistency breach decision note at a larger size" data-consistency-note-trigger>
+          <img src="/glossary/images/consistency-breach-decision-note.webp" alt="Handwritten decision note explaining that the individual program decides whether exceeding a consistency limit is a breach" loading="lazy" decoding="async" />
+          <span aria-hidden="true">Click to zoom</span>
+        </button>
+        <figcaption>Being over a percentage is not automatically a breach. The written consequence decides. Click or tap to enlarge.</figcaption>
+        <dialog class="consistency-note-dialog" data-consistency-note-dialog aria-label="Larger consistency breach decision note"><div><button type="button" class="consistency-note-close" data-consistency-note-close>Close</button><img src="/glossary/images/consistency-breach-decision-note.webp" alt="Handwritten decision note explaining that the individual program decides whether exceeding a consistency limit is a breach" /></div></dialog>
+      </figure>
+
+      <h3>Simple example when continued trading is allowed</h3>
+      <p>Your best day is $400, total net profit is $800, and your firm's program uses a 40% best-day consistency rule. Your current consistency score is 50%.</p>
+      <p>If the program allows the account to remain active, earning <strong>$100</strong> in net profit in each of the next two trading sessions would bring your total net profit to $1,000. Your best day would remain $400, making your consistency score 40% ($400 ÷ $1,000). This would meet the requirement if the program accepts a score of 40% or less.</p>
+      <p>This is an arithmetic example, not an instruction to make $200. Do not force trades, increase size, or take a setup that is not in your plan. Continue only when the firm's rule allows it and your normal setup appears.</p>
+      <figure class="consistency-note" data-consistency-note-root>
+        <button type="button" class="consistency-note-trigger" aria-label="Open the consistency ratio change example at a larger size" data-consistency-note-trigger>
+          <img src="/glossary/images/consistency-ratio-change-example.webp" alt="Handwritten example showing a 400 dollar best day moving from 50 percent to 40 percent after total net profit becomes 1000 dollars" loading="lazy" decoding="async" />
+          <span aria-hidden="true">Click to zoom</span>
+        </button>
+        <figcaption>The best day stays $400 while the total changes from $800 to $1,000. Click or tap to enlarge.</figcaption>
+        <dialog class="consistency-note-dialog" data-consistency-note-dialog aria-label="Larger consistency ratio change example"><div><button type="button" class="consistency-note-close" data-consistency-note-close>Close</button><img src="/glossary/images/consistency-ratio-change-example.webp" alt="Handwritten example showing a 400 dollar best day moving from 50 percent to 40 percent after total net profit becomes 1000 dollars" /></div></dialog>
+      </figure>
+
+      <h3>Why you may see 15%, 20%, 30%, or 50%</h3>
+      <table>
+        <thead><tr><th>Current named example</th><th>What is checked</th><th>Limit shown on the checked page</th></tr></thead>
+        <tbody>
+          <tr><td>Instant Funding IF1</td><td>Best single trade ÷ total profit</td><td>15%</td></tr>
+          <tr><td>Tradeify Lightning Funded, first payout</td><td>Biggest day ÷ total profit</td><td>20%</td></tr>
+          <tr><td>My Funded Futures Rapid EOD evaluation</td><td>Single day ÷ total evaluation profit</td><td>30%</td></tr>
+          <tr><td>Apex cited payout requirement</td><td>Largest profitable day ÷ accumulated net profit</td><td>50% threshold; verify the boundary on the dashboard</td></tr>
+          <tr><td>My Funded Futures Rapid Intraday and Pro evaluation</td><td>Single day ÷ total evaluation profit</td><td>50%</td></tr>
+        </tbody>
+      </table>
+      <p>These examples were checked on 29 September 2026 and can change. A percentage copied without its formula, stage, time window, and consequence is incomplete.</p>
+
+      <h3>What should you check before acting?</h3>
+      <ol>
+        <li>Does your prop firm calculate consistency based on your best day, best trade, or another measure?</li>
+        <li>What counts in total profit, including losing days and costs?</li>
+        <li>Which account stage and payout period does the consistency rule apply to?</li>
+        <li>Is going over it a hard breach, a delayed payout, a higher target, or simply a condition not met yet?</li>
+        <li>Does the firm explicitly allow continued trading until you meet the requirement?</li>
+      </ol>
+      <p>Use the <a href="/blogs/prop-firm-consistency-calculator">consistency rule calculator guide</a> for a complete calculation example. Use the <a href="/blogs/prop-firm-challenge-readiness">prop firm challenge readiness guide</a> when you need to check this alongside profit targets and drawdown rules.</p>
     `
   },
   {
@@ -679,30 +821,37 @@ export const glossaryTerms = [
     aliases: ['Maximum Daily Loss'],
     shortDefinition: 'A prop firm rule that sets the lowest permitted account value during a defined trading day.',
     category: 'Prop Firm',
-    updatedAt: '2026-09-20',
+    updatedAt: '2026-09-25',
+    visual: 'daily-drawdown-buffer-note',
     relatedTerms: ['overall-drawdown-limit', 'drawdown', 'risk-per-trade'],
     guide: { href: '/blogs/daily-drawdown-calculator', label: 'Calculate and review a daily drawdown buffer' },
-    sourceIds: ['PFR-002', 'PFR-006', 'PFR-007', 'PLAI-004'],
+    sourceIds: ['PFR-002', 'PFR-006', 'PFR-007', 'PFR-015', 'PLAI-004'],
     sources: [
-      { id: 'PFR-002', label: 'FTMO trading objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-19' },
-      { id: 'PFR-006', label: 'FundedNext maximum daily loss', url: 'https://help.fundednext.com/en/articles/8019914-what-is-the-maximum-daily-loss-limit', checkedOn: '2026-09-19' },
+      { id: 'PFR-002', label: 'FTMO trading objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-25' },
+      { id: 'PFR-006', label: 'FundedNext maximum daily loss', url: 'https://help.fundednext.com/en/articles/8019914-what-is-the-maximum-daily-loss-limit', checkedOn: '2026-09-25' },
+      { id: 'PFR-007', label: 'FundedNext Stellar 1-Step daily loss', url: 'https://help.fundednext.com/en/articles/8019914-what-is-the-maximum-daily-loss-limit', checkedOn: '2026-09-25' },
+      { id: 'PFR-015', label: 'FundedNext Stellar Lite daily loss', url: 'https://help.fundednext.com/en/articles/8019914-what-is-the-maximum-daily-loss-limit', checkedOn: '2026-09-25' },
       { id: 'PLAI-004', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
     ],
     proplogConnection: 'PropLogAI provides a P&L calendar from logged trades. It is a review aid; the firm’s platform and current rule page remain the source for the official daily-loss figure.',
     fullContent: `
-      <h3>What is a Daily Drawdown Limit?</h3>
-      <p>A daily drawdown limit, also called maximum daily loss by some firms, defines a daily account floor. A breach and its consequence are determined by the named program's contract. The reset time, reference value, and included costs can materially change the answer.</p>
-      <h3>Calculation Inputs</h3>
+      <h3>What is a daily drawdown limit?</h3>
+      <p>A daily drawdown limit is a prop-firm rule that sets the lowest permitted account value during the firm's defined trading day. Some firms call it maximum daily loss.</p>
+      <p>The safest buffer calculation is current measured value minus the official daily floor. Use the firm's dashboard or current rule to find the floor. Do not assume every firm starts from the same amount or resets at the same time.</p>
+      <h3>What changes the calculation?</h3>
       <ul>
-        <li><strong>Reference:</strong> Initial simulated capital, start-of-day balance, or another stated amount.</li>
-        <li><strong>Current value:</strong> Balance or equity, with the firm's treatment of open P&amp;L.</li>
-        <li><strong>Costs:</strong> Commissions and swaps may be included.</li>
-        <li><strong>Reset:</strong> The firm defines the timezone and daily checkpoint.</li>
+        <li><strong>Program:</strong> one-step, two-step, evaluation, and funded-stage products may differ.</li>
+        <li><strong>Reference:</strong> the rule may use initial simulated capital, a balance at reset, or another stated value.</li>
+        <li><strong>Measured value:</strong> the rule may test balance or equity and may include open P&amp;L.</li>
+        <li><strong>Costs:</strong> commissions and swaps may count.</li>
+        <li><strong>Reset:</strong> the firm defines the timezone and checkpoint. It may not be midnight in India.</li>
       </ul>
-      <h3>Named Examples</h3>
-      <p>FTMO's checked 2-Step objectives use a 5% Maximum Daily Loss amount based on initial simulated capital and recalculate the limit at 00:00 CE(S)T; the calculation includes open P&amp;L, swaps, and commissions. FundedNext's checked page lists 5% for Stellar 2-Step and 3% for Stellar 1-Step and counts running plus closed loss.</p>
-      <h3>Use the Exact Rule</h3>
-      <p>Do not substitute a generic percentage or another firm's formula. Confirm the program and calculate against the official figures displayed for that account.</p>
+      <h3>Simple example</h3>
+      <p>If the official daily floor is $47,500 and the measured equity is $48,300, the buffer above the floor is $800. That does not mean the trader should risk $800. It only shows the distance between the two figures entered.</p>
+      <h3>Current named examples</h3>
+      <p>FTMO's 2-Step page checked on 25 September 2026 uses a 5% Maximum Daily Loss amount based on initial simulated capital and recalculates the floor at 00:00 CE(S)T from the balance at that time. Its breach test uses equity including open P&amp;L, swaps, and commissions. FundedNext's checked page lists 5% for Stellar 2-Step, 3% for Stellar 1-Step, and 4% for Stellar Lite, with running plus closed losses counted.</p>
+      <h3>Use the exact rule</h3>
+      <p>Confirm the program, copy the official floor, and compare it with the account value the rule measures. Then use the <a href="/blogs/daily-drawdown-calculator">daily drawdown calculator</a> to check the dollar buffer without turning that buffer into a trade instruction.</p>
     `
   },
 
@@ -766,25 +915,27 @@ export const glossaryTerms = [
   {
     slug: 'emotion-tracking',
     title: 'Emotion Tracking',
-    shortDefinition: 'The practice of logging your emotional state alongside each trade to identify how feelings like fear, greed, and frustration impact your trading outcomes.',
+    shortDefinition: 'Emotion tracking means recording a simple feeling tag beside a trade so you can review whether the feeling appeared near a change in your trading decisions.',
     category: 'Journal & Analysis',
     relatedTerms: ['trading-journal', 'tilt', 'fomo'],
-    proplogConnection: 'PropLogAI has built-in emotion tagging with violet badges. Tag each trade with your emotional state and the AI coach correlates emotions with performance — showing you which emotions cost you money.',
+    guide: { href: '/blogs/how-emotions-affect-trading-decisions', label: 'See how a feeling may change a trading decision' },
+    proplogConnection: 'PropLogAI lets you tag emotions and record whether a trade followed your own rules. These are user-entered review records, not a diagnosis or proof that an emotion caused a result.',
     fullContent: `
-      <h3>What is Emotion Tracking?</h3>
-      <p>Emotion tracking means recording how you feel before and during each trade — not after, when hindsight colors your memory. The goal is to build a dataset that connects your emotional states to your trading outcomes, revealing patterns you can't see in real-time.</p>
-      <h3>Common Trading Emotions to Track</h3>
+      <h3>What emotion tracking means</h3>
+      <p>Emotion tracking means adding a short feeling tag to a specific trading moment. You might record how you felt before entering, while managing the position, or after exiting.</p>
+      <p>The tag does not tell you whether the trade was good or bad. It gives you one piece of context to compare with the setup, session, rule adherence, decision, and result.</p>
+      <h3>Simple tags you can use</h3>
       <ul>
-        <li><strong>Confident:</strong> Clear-headed, plan is clear, executing calmly</li>
-        <li><strong>Anxious:</strong> Uncertain about the trade, worried about loss</li>
-        <li><strong>Greedy:</strong> Wanting more, increasing size, taking extra trades</li>
-        <li><strong>FOMO:</strong> Rushing to enter because the market is moving</li>
-        <li><strong>Frustrated:</strong> Angry about recent losses, feeling impatient</li>
-        <li><strong>Bored:</strong> No setups available, trading for entertainment</li>
-        <li><strong>Revenge:</strong> Trying to win back a loss immediately</li>
+        <li><strong>Calm:</strong> You feel able to check the plan without rushing.</li>
+        <li><strong>Hesitant:</strong> You keep delaying a decision that the plan already covers.</li>
+        <li><strong>Frustrated:</strong> A recent result is still affecting your attention.</li>
+        <li><strong>Rushed:</strong> You feel pressure to act before the move continues.</li>
+        <li><strong>Confident:</strong> You feel sure about the decision; check whether the written rules stayed the same.</li>
       </ul>
-      <h3>What the Data Reveals</h3>
-      <p>After 30-50 tagged trades, patterns emerge that are genuinely surprising. A trader might discover that trades tagged "bored" have a 22% win rate versus 61% overall. Or that "confident" trades have the highest win rate but also the largest average loss (because confidence leads to larger position sizes). These insights are impossible to access without systematic tracking.</p>
+      <h3>Example</h3>
+      <p>You record <strong>frustrated</strong> after an XAUUSD loss. Before the next trade, you enter before the breakout candle closes. The useful record is not "frustration caused a loss." It is "frustrated + entered before the planned confirmation." You can later check whether that same combination appears again.</p>
+      <h3>Common confusion</h3>
+      <p>Emotion tracking is not a mental-health diagnosis, and a repeated tag does not prove that the feeling caused a profit or loss. Review the observable decision beside the tag and keep the trade result separate.</p>
     `
   },
   {
@@ -830,6 +981,7 @@ export const glossaryTerms = [
       </ul>
       <h3>Making Reports Actionable</h3>
       <p>The most important section of any performance report is the action plan. Every insight should connect to a specific, measurable change. Instead of "improve discipline," specify "implement a 3-trade maximum on days following a loss day." Track whether you follow through on last month's action items before creating new ones.</p>
+      <p>The <a href="/blogs/trading-performance-metrics">trading performance metrics guide</a> explains the order for checking the sample, core statistics, drawdown, equity curve, setup, and session.</p>
     `
   },
   {

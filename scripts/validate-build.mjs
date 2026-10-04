@@ -45,7 +45,8 @@ for (const file of pages) {
   if (!html.includes(`<link rel="canonical" href="${expectedCanonical}">`)) failures.push(`${relativeFile}: canonical must match the no-slash public URL`);
   if (!html.includes(`<meta property="og:url" content="${expectedCanonical}">`)) failures.push(`${relativeFile}: og:url must match the no-slash public URL`);
   if (highRiskSlugs.has(slug)) {
-    if (!html.includes('datetime="2026-09-20"')) failures.push(`${relativeFile}: missing Batch D revision date`);
+    const visibleDate = html.match(/<time\s+datetime="(\d{4}-\d{2}-\d{2})"/i)?.[1];
+    if (!visibleDate || visibleDate < '2026-09-20') failures.push(`${relativeFile}: high-risk revision date is older than the Batch D baseline`);
     if (!html.includes('Sources checked')) failures.push(`${relativeFile}: missing visible sources section`);
     if (!/<a\s+href="https:\/\//i.test(html)) failures.push(`${relativeFile}: missing external HTTPS source link`);
   }
