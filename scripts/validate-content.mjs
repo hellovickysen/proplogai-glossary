@@ -16,6 +16,7 @@ const highRiskSlugs = new Set([
   'loss-aversion',
   'profit-target',
   'overall-drawdown-limit',
+  'revenge-trading',
 ]);
 
 if (!/^\d{4}-\d{2}-\d{2}$/.test(glossaryPageUpdatedAt)) {
@@ -57,8 +58,10 @@ const requiredBodyLinks = new Map([
   ['trading-journal', ['/blogs/trading-journal-template', '/glossary/trade-review']],
   ['overtrading', ['/glossary/trade-review', '/glossary/revenge-trading', '/glossary/fomo', '/glossary/trading-journal']],
   ['consistency-rule', ['/blogs/prop-firm-challenge-readiness']],
+  ['drawdown', ['/glossary/daily-drawdown-limit', '/glossary/overall-drawdown-limit', '/blogs/daily-drawdown-calculator', '/blogs/prop-firm-risk-management']],
+  ['revenge-trading', ['/glossary/tilt', '/glossary/overtrading']],
 ]);
-const allowedVisuals = new Set(['trading-journal-loop', 'overtrading-drift', 'daily-drawdown-buffer-note', 'consistency-ratio-note']);
+const allowedVisuals = new Set(['trading-journal-loop', 'overtrading-drift', 'daily-drawdown-buffer-note', 'consistency-ratio-note', 'drawdown-performance-rule-note', 'revenge-trading-full-check']);
 for (const term of glossaryTerms) {
   if (term.updatedAt && !/^\d{4}-\d{2}-\d{2}$/.test(term.updatedAt)) {
     failures.push(`${term.slug}: updatedAt must be an ISO date`);
@@ -105,6 +108,17 @@ if (glossaryTerms.find((term) => term.slug === 'overtrading')?.visual !== 'overt
   failures.push('overtrading: interactive drift visual is required');
 }
 
+const drawdownTerm = glossaryTerms.find((term) => term.slug === 'drawdown');
+const drawdownAsset = '/glossary/images/drawdown-performance-vs-rule-note.webp';
+if (drawdownTerm?.visual !== 'drawdown-performance-rule-note') {
+  failures.push('drawdown: handwritten drawdown learning note is required');
+}
+try {
+  await readFile(path.join(root, 'public', drawdownAsset.slice('/glossary/'.length)));
+} catch {
+  failures.push(`drawdown: missing teaching image file ${drawdownAsset}`);
+}
+
 const consistencyTerm = glossaryTerms.find((term) => term.slug === 'consistency-rule');
 for (const asset of [
   '/glossary/images/consistency-ratio-loss-note.webp',
@@ -124,6 +138,17 @@ for (const asset of [
   } catch {
     failures.push(`consistency-rule: missing teaching image file ${asset}`);
   }
+}
+
+const revengeTerm = glossaryTerms.find((term) => term.slug === 'revenge-trading');
+const revengeAsset = '/glossary/images/revenge-trading-full-check.webp';
+if (revengeTerm?.visual !== 'revenge-trading-full-check') {
+  failures.push('revenge-trading: handwritten decision note is required');
+}
+try {
+  await readFile(path.join(root, 'public', revengeAsset.slice('/glossary/'.length)));
+} catch {
+  failures.push(`revenge-trading: missing teaching image file ${revengeAsset}`);
 }
 
 const blockedHighRiskWording = [

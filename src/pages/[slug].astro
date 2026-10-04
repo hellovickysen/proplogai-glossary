@@ -3,7 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import OvertradingDrift from '../components/OvertradingDrift.astro';
 import TradingJournalLoop from '../components/TradingJournalLoop.astro';
 import DrawdownBufferNote from '../components/DrawdownBufferNote.astro';
+import DrawdownLearningNote from '../components/DrawdownLearningNote.astro';
 import ConsistencyRatioNote from '../components/ConsistencyRatioNote.astro';
+import RevengeTradingNote from '../components/RevengeTradingNote.astro';
 import { glossaryPageUpdatedAt, glossaryTerms } from '../data/glossary-terms.js';
 
 export function getStaticPaths() {
@@ -137,7 +139,9 @@ const structuredData = {
         {term.visual === 'trading-journal-loop' && <TradingJournalLoop />}
         {term.visual === 'overtrading-drift' && <OvertradingDrift />}
         {term.visual === 'daily-drawdown-buffer-note' && <DrawdownBufferNote />}
+        {term.visual === 'drawdown-performance-rule-note' && <DrawdownLearningNote />}
         {term.visual === 'consistency-ratio-note' && <ConsistencyRatioNote />}
+        {term.visual === 'revenge-trading-full-check' && <RevengeTradingNote />}
 
         <div class="prose-glossary" set:html={term.fullContent} />
 
@@ -253,8 +257,16 @@ const structuredData = {
   .prose-glossary :global(ul),
   .prose-glossary :global(ol) {
     margin-bottom: 1.25em;
-    padding-left: 1.5em;
+    padding-left: 1.75em;
     color: rgba(255, 255, 255, 0.65);
+  }
+
+  .prose-glossary :global(ul) {
+    list-style-type: disc;
+  }
+
+  .prose-glossary :global(ol) {
+    list-style-type: decimal;
   }
 
   .prose-glossary :global(li) {
