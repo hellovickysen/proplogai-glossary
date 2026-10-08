@@ -6,6 +6,7 @@ import DrawdownBufferNote from '../components/DrawdownBufferNote.astro';
 import DrawdownLearningNote from '../components/DrawdownLearningNote.astro';
 import ConsistencyRatioNote from '../components/ConsistencyRatioNote.astro';
 import RevengeTradingNote from '../components/RevengeTradingNote.astro';
+import GlossaryLearningNote from '../components/GlossaryLearningNote.astro';
 import { glossaryPageUpdatedAt, glossaryTerms } from '../data/glossary-terms.js';
 
 export function getStaticPaths() {
@@ -142,6 +143,7 @@ const structuredData = {
         {term.visual === 'drawdown-performance-rule-note' && <DrawdownLearningNote />}
         {term.visual === 'consistency-ratio-note' && <ConsistencyRatioNote />}
         {term.visual === 'revenge-trading-full-check' && <RevengeTradingNote />}
+        {term.visualNote && <GlossaryLearningNote {...term.visualNote} />}
 
         <div class="prose-glossary" set:html={term.fullContent} />
 
