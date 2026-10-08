@@ -7,155 +7,338 @@ export const glossaryTerms = [
   {
     slug: 'fomo',
     title: 'FOMO (Fear of Missing Out)',
-    shortDefinition: 'The anxiety-driven urge to enter a trade because the market is moving without you, often leading to impulsive entries outside your trading plan.',
+    shortDefinition: 'FOMO in trading is the pressure to enter because a move appears to be leaving without you, even though part of your written plan is incomplete or has changed.',
     category: 'Trading Psychology',
+    updatedAt: '2026-10-05',
     relatedTerms: ['revenge-trading', 'overtrading', 'confirmation-bias'],
-    proplogConnection: 'PropLogAI tracks your emotion tags on every trade. When you log FOMO trades, the AI coach spots the pattern and shows you how those trades perform compared to planned entries.',
+    sourceIds: ['RES-012', 'PLAI-002', 'PLAI-005'],
+    sources: [
+      { id: 'RES-012', label: 'Investor.gov — Protect Your Money', url: 'https://www.investor.gov/protect-your-investments/fraud/protect-your-money', checkedOn: '2026-10-05' },
+      { id: 'PLAI-002/005', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+    ],
+    visualNote: {
+      src: '/glossary/images/fomo-plan-vs-urge-note.webp',
+      alt: 'Handwritten comparison of a planned XAUUSD breakout and retest with a FOMO urge after price has already moved, followed by checks for entry, confirmation, stop, size, and reason',
+      caption: 'Compare the written plan with the decision you are considering now. The result comes later and does not change whether the entry followed the plan.',
+      label: 'Open the FOMO plan-versus-urge learning note at a larger size',
+    },
+    guide: { href: '/blogs/how-emotions-affect-trading-decisions', label: 'See how emotions can change a trading decision' },
+    proplogConnection: 'PropLogAI lets you record an emotion tag and whether you followed your own rules. This gives you a record to review; it does not diagnose FOMO or prevent an entry.',
     fullContent: `
       <h3>What is FOMO in Trading?</h3>
-      <p>FOMO — Fear of Missing Out — is the emotional impulse to jump into a trade because the market is moving and you feel like you're being left behind. It's one of the most common psychological traps in trading, especially for prop firm traders under pressure to hit profit targets.</p>
-      <p>A typical FOMO scenario: you see EUR/USD spike 80 pips in 30 minutes. You weren't watching earlier, you had no setup, but the candle keeps going. You enter long "just to catch the move." The market reverses 20 minutes later and you're stopped out — or worse, you hold without a stop hoping it'll come back.</p>
-      <h3>Why FOMO is Dangerous for Prop Firm Traders</h3>
-      <p>Prop firm challenges have strict drawdown limits. A single FOMO trade that goes wrong can eat 30-50% of your allowed daily drawdown. The real cost isn't just the loss — it's the psychological spiral that follows: frustration, revenge trading, and further losses.</p>
-      <ul>
-        <li><strong>No edge:</strong> FOMO entries bypass your tested setups, meaning you're trading with no statistical advantage</li>
-        <li><strong>Poor risk management:</strong> Rushed entries often have wider stops or no stops at all</li>
-        <li><strong>Emotional compounding:</strong> Win or lose, FOMO reinforces impulsive decision-making</li>
-      </ul>
-      <h3>How to Manage FOMO</h3>
-      <p>The most effective antidote to FOMO is a trading journal that makes the pattern visible. When you can see that your FOMO trades have a 28% win rate versus 62% for planned setups, the emotional pull loses its power. Other strategies include: setting alerts instead of watching charts, having a written rule that requires a setup before entry, and accepting that missing a move is not a loss — it's discipline.</p>
+      <p>FOMO means Fear of Missing Out. In trading, it is the pressure to enter because price is already moving and you feel your chance may disappear. The pressure is the key part. The trade result does not tell you whether the decision followed your plan.</p>
+
+      <h3>Simple XAUUSD London-Session Example</h3>
+      <p>Before the London session, you write: <strong>wait for an XAUUSD breakout, then wait for a retest and confirmation before entering</strong>.</p>
+      <p>A large breakout candle appears, but the retest has not happened. You think, “If I wait, I may miss the move,” and consider entering immediately. That pressure may be FOMO because the decision is moving away from the conditions you wrote before the candle appeared.</p>
+      <p>The immediate entry might win or lose. A win does not turn it into a planned entry. A loss does not prove that every similar entry is FOMO. Compare the decision with the written plan.</p>
+
+      <h3>What Changed Between the Plan and the Entry?</h3>
+      <ol>
+        <li><strong>Entry:</strong> Are you entering at the level you planned, or after price has already moved?</li>
+        <li><strong>Confirmation:</strong> Did the retest and confirmation happen, or are you entering before them?</li>
+        <li><strong>Stop:</strong> Is the stop still at the planned level?</li>
+        <li><strong>Size:</strong> Are you using the same sizing method?</li>
+        <li><strong>Reason:</strong> Is the setup still the reason, or is the fear of missing the move now the reason?</li>
+      </ol>
+
+      <h3>Use One Pause-and-Record Question</h3>
+      <p><strong>What changed between my plan and this entry?</strong></p>
+      <p>Write the answer before making the next decision. You do not need to prove that you feel calm. You need to see whether the entry, confirmation, stop, size, or reason changed.</p>
+
+      <h3>FOMO, Revenge Trading, and Overtrading Are Different</h3>
+      <p><a href="/glossary/revenge-trading">Revenge trading</a> is centred on recovering a previous loss. <a href="/glossary/overtrading">Overtrading</a> means drifting from your planned trading process, such as taking repeated entries or trading outside your chosen session. FOMO is the pressure to act because a move appears to be leaving without you. These patterns can overlap, but they do not mean the same thing.</p>
+
+      <h3>Review the Decision, Not Only the Result</h3>
+      <p>Use the guide on <a href="/blogs/how-emotions-affect-trading-decisions">how emotions affect trading decisions</a> to review what you saw, what you felt, and what changed. The broader <a href="/blogs/trading-psychology-prop-firm">trading psychology guide</a> explains how this record fits into a repeatable review process.</p>
     `
   },
   {
     slug: 'revenge-trading',
     title: 'Revenge Trading',
-    shortDefinition: 'A post-loss pattern where recovering the lost money becomes the purpose of the next decision and the trader changes or ignores part of the written plan.',
+    shortDefinition: 'Revenge trading is a post-loss decision pattern in which recovering the lost money becomes the purpose of the next trade and part of the written plan changes or is ignored.',
     category: 'Trading Psychology',
-    updatedAt: '2026-10-04',
+    updatedAt: '2026-10-08',
     relatedTerms: ['tilt', 'fomo', 'overtrading'],
-    sourceIds: ['RES-001', 'RES-009', 'RES-010', 'PLAI-001', 'PLAI-002', 'PLAI-005'],
+    sourceIds: ['RES-001', 'RES-009', 'RES-010', 'RES-011', 'RES-022', 'RES-024', 'RES-025', 'PLAI-002', 'PLAI-005'],
     sources: [
-      { id: 'RES-001', label: 'Kahneman and Tversky — Prospect Theory (1979)', url: 'https://web.mit.edu/curhan/www/docs/Articles/15341_Readings/Behavioral_Decision_Theory/Kahneman_Tversky_1979_Prospect_theory.pdf', checkedOn: '2026-09-19' },
+      { id: 'RES-001', label: 'Kahneman and Tversky — Prospect Theory (1979)', url: 'https://web.mit.edu/curhan/www/docs/Articles/15341_Readings/Behavioral_Decision_Theory/Kahneman_Tversky_1979_Prospect_theory.pdf', checkedOn: '2026-10-05' },
       { id: 'RES-009', label: 'Zerodha Varsity — Controlling your trading emotions', url: 'https://zerodha.com/varsity/chapter/controlling-your-trading-emotions/', checkedOn: '2026-09-25' },
       { id: 'RES-010', label: 'OANDA — Understanding emotions in trading', url: 'https://www.oanda.com/us-en/skills-and-insights/education/trading-psychology/emotions-in-trading/trading-psychology-understanding-your-emotions/', checkedOn: '2026-09-25' },
-      { id: 'PLAI-001', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+      { id: 'RES-011', label: 'Zerodha Varsity — Your trading checklist', url: 'https://zerodha.com/varsity/chapter/your-trading-checklist/', checkedOn: '2026-10-04' },
+      { id: 'RES-022', label: 'IG — Trading journal records and review', url: 'https://www.ig.com/uk/learn-to-trade/ig-academy/tools-for-traders/important-metrics?source=dailyfx', checkedOn: '2026-10-06' },
+      { id: 'RES-024', label: 'NIST — Correlation does not prove causation', url: 'https://www.itl.nist.gov/div898/handbook/ppc/section1/ppc136.htm', checkedOn: '2026-10-06' },
+      { id: 'RES-025', label: 'IG — What is a trading plan?', url: 'https://www.ig.com/en/ig-academy/planning-and-risk-management/what-is-a-trading-plan', checkedOn: '2026-10-06' },
+      { id: 'PLAI-002', label: 'PropLogAI — Manual trading journal', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+      { id: 'PLAI-005', label: 'PropLogAI — Rule and emotion records', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
     ],
     visual: 'revenge-trading-full-check',
     guide: { href: '/blogs/revenge-trading-prop-firm', label: 'Review a practical revenge-trading interruption workflow' },
-    proplogConnection: 'PropLogAI lets you manually record trade details, emotions, rule adherence, notes, and screenshots. It can help you review patterns in your own journal data, but it does not detect revenge trading in real time, block orders, or guarantee that the behaviour stops.',
+    proplogConnection: 'PropLogAI lets you manually record trade details, emotions, rule adherence, notes, screenshots and P&L. It can help organise records for later review; it does not detect revenge trading in real time, stop an order or guarantee that the behaviour ends.',
     fullContent: `
-      <h3>What is Revenge Trading?</h3>
-      <p>Revenge trading is a decision pattern that can appear after a loss. The main goal of the next trade changes from following a valid setup to recovering the money that was just lost.</p>
-      <p>Another trade after a loss is not automatically revenge trading. Check whether the setup, confirmation, session, sizing method, or reason changed because of the previous result.</p>
-      <h3>Simple XAUUSD Example</h3>
-      <p>You take a planned XAUUSD trade during the London session after an Asian-range liquidity sweep and a confirmed breakout. The trade follows your rules and ends at <strong>−$50</strong>.</p>
-      <p>Three minutes later, price reverses. You want to enter before a fresh breakout candle closes and use a bigger size to recover the <strong>$50</strong>. The possible revenge pattern is not the second trade itself. It is the change in confirmation, size, and reason.</p>
-      <h3>What Should You Check?</h3>
+      <h3>What is revenge trading?</h3>
+      <p>Revenge trading is a post-loss decision pattern. Recovering the lost money becomes the purpose of the next trade, and part of the <a href="/glossary/trading-plan">trading plan</a> changes or is ignored.</p>
+      <p>Another trade after a loss is not automatically revenge trading. Check whether the setup, confirmation, session, sizing method or reason changed because the purpose became “make the money back.”</p>
+
+      <h3>A fictional XAUUSD example</h3>
+      <p>You take a planned XAUUSD trade during the London session after price moves beyond the Asian range and returns, followed by a confirmed breakout. The trade follows your rules and ends at <strong>−$50</strong>.</p>
+      <p>Three minutes later, price reverses. You want to enter before a fresh breakout candle closes and use a bigger size to recover the <strong>$50</strong>. The possible revenge pattern is not the second trade itself. It is the change in confirmation, size and reason.</p>
+      <p>This is a fictional teaching example, not a live setup or signal.</p>
+
+      <h3>What should you check?</h3>
       <ol>
-        <li><strong>Setup:</strong> Is there a completely new setup that meets the same written conditions?</li>
-        <li><strong>Confirmation:</strong> Did the required candle close or checklist finish?</li>
-        <li><strong>Session:</strong> Are you still inside the time window written in your plan?</li>
-        <li><strong>Size:</strong> Are you using the same documented sizing method?</li>
-        <li><strong>Reason:</strong> Would you take this exact trade if the previous result were <strong>$0</strong>?</li>
+        <li><strong>Setup:</strong> is there a completely new setup that meets the same written conditions?</li>
+        <li><strong>Confirmation:</strong> did the required candle close or checklist finish?</li>
+        <li><strong>Session:</strong> are you still inside the time window written in your plan?</li>
+        <li><strong>Size:</strong> are you using the same documented sizing method?</li>
+        <li><strong>Reason:</strong> would you take this exact trade if the previous result were <strong>$0</strong>?</li>
       </ol>
-      <p>If the new decision passes the same checks, the fact that it follows a loss does not prove revenge trading. If the main reason is “make it back” and the normal conditions have changed, record that change before making another decision.</p>
-      <h3>Revenge Trading, Tilt, and Overtrading</h3>
-      <p><a href="/glossary/tilt">Tilt</a> is a broader state where frustration or pressure may affect decisions. <a href="/glossary/overtrading">Overtrading</a> is a drift from the planned trading process, such as repeated entries or trading outside the planned session. Revenge trading is the more specific pattern centred on recovering a previous loss.</p>
-      <h3>What Happens Next?</h3>
-      <p>There is no universal waiting time or number of losses that fits every trader. Use the loss-response rule written before the session and the current official rules for your exact prop-firm program and account stage.</p>
-      <p>A short record can include the first result, the urge you noticed, what changed in the next idea, whether you applied your written rule, and the final decision. Review several similar records before calling it a repeated pattern.</p>
+      <p>If the new decision passes the same checks, the fact that it follows a loss does not prove revenge trading. <a href="/glossary/setup-compliance">Setup compliance</a> can help you compare the new decision with the conditions written before entry.</p>
+
+      <h3>Revenge trading, tilt and overtrading are different</h3>
+      <p><a href="/glossary/tilt">Tilt</a> is a broader state where frustration or pressure appears beside a process change. <a href="/glossary/overtrading">Overtrading</a> is a wider move away from the written process, such as repeated entries or trading outside the planned session. Revenge trading is the narrower pattern centred on recovering a recent loss.</p>
+
+      <h3>What happens next?</h3>
+      <p>There is no universal waiting time, loss count or risk percentage that fits every trader. Follow the loss-response rule written before the session and the current rules for your exact prop-firm program and account stage.</p>
+      <p>Record the previous result, the urge you noticed, setup, confirmation, size method, reason and final decision. An <a href="/glossary/emotion-tracking">emotion record</a> adds context. A <a href="/glossary/trading-journal">trading journal</a> preserves the wider evidence, and a <a href="/glossary/trade-review">trade review</a> compares several similar decisions without guessing the cause.</p>
+
+      <h3>What should you do next?</h3>
+      <p>Before the next entry, ask: <strong>Would I take this same setup, with the same confirmation and size, if the previous result were $0?</strong></p>
+      <p>The <a href="/blogs/revenge-trading-prop-firm">revenge-trading guide</a> gives the full post-loss workflow. Use the <a href="/blogs/trading-psychology-prop-firm">trading psychology guide</a> for the wider behaviour system.</p>
     `
   },
   {
     slug: 'tilt',
-    title: 'Tilt',
-    shortDefinition: 'A state of emotional frustration where a trader abandons rational decision-making, often triggered by a string of losses or a single large loss.',
+    title: 'Tilt in Trading',
+    updatedAt: '2026-10-08',
+    shortDefinition: 'Tilt in trading is a period when frustration, anger or pressure appears beside a change from the process written before the decision.',
     category: 'Trading Psychology',
-    relatedTerms: ['revenge-trading', 'loss-aversion', 'overtrading'],
+    relatedTerms: ['revenge-trading', 'fomo', 'emotion-tracking', 'setup-compliance'],
     guide: { href: '/blogs/revenge-trading-prop-firm', label: 'Compare tilt with a revenge-trading decision after a loss' },
-    proplogConnection: 'PropLogAI tracks your emotional state across trades. When you log frustration or anger, the AI coach identifies which situations trigger tilt and suggests specific countermeasures based on your history.',
+    sourceIds: ['RES-009', 'RES-010', 'RES-011', 'RES-022', 'RES-024', 'PLAI-002', 'PLAI-005'],
+    sources: [
+      { id: 'RES-009', label: 'Zerodha Varsity — Controlling trading emotions', url: 'https://zerodha.com/varsity/chapter/controlling-your-trading-emotions/', checkedOn: '2026-09-25' },
+      { id: 'RES-010', label: 'OANDA — Understanding emotions in trading', url: 'https://www.oanda.com/us-en/skills-and-insights/education/trading-psychology/emotions-in-trading/trading-psychology-understanding-your-emotions/', checkedOn: '2026-09-25' },
+      { id: 'RES-011', label: 'Zerodha Varsity — Your trading checklist', url: 'https://zerodha.com/varsity/chapter/your-trading-checklist/', checkedOn: '2026-10-04' },
+      { id: 'RES-022', label: 'IG — Trading journal records and review', url: 'https://www.ig.com/uk/learn-to-trade/ig-academy/tools-for-traders/important-metrics?source=dailyfx', checkedOn: '2026-10-06' },
+      { id: 'RES-024', label: 'NIST — Correlation does not prove causation', url: 'https://www.itl.nist.gov/div898/handbook/ppc/section1/ppc136.htm', checkedOn: '2026-10-06' },
+      { id: 'PLAI-002', label: 'PropLogAI — Manual trading journal', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+      { id: 'PLAI-005', label: 'PropLogAI — Rule and emotion records', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+    ],
+    visualNote: {
+      src: '/glossary/images/tilt-feeling-decision-note.webp',
+      alt: 'Handwritten XAUUSD learning note comparing the original London-session rule with a frustrated feeling, missing retest confirmation and changed USD size',
+      caption: 'Record the feeling and the decision change as separate facts. The record does not prove that one caused the other. Click or tap to enlarge.',
+      label: 'Open the tilt feeling-and-decision learning note at a larger size',
+    },
+    proplogConnection: 'PropLogAI lets you manually record an emotion tag, trade notes, screenshots and whether you followed your own rules. The record can support a later comparison; it does not diagnose tilt or prove what caused a result.',
     fullContent: `
-      <h3>What is Tilt?</h3>
-      <p>Borrowed from poker, "tilt" describes a mental state where emotional frustration overrides logical thinking. A tilted trader makes decisions based on anger, fear, or desperation rather than their tested strategy. The term captures the feeling of your mental equilibrium tipping over.</p>
-      <p>Tilt can be triggered by losses, but also by missed opportunities, technical issues (platform freezing, internet dropping during a trade), or external stress. The key characteristic is that the trader <em>knows</em> they're not thinking clearly but feels unable to stop.</p>
-      <h3>Signs You're on Tilt</h3>
+      <h3>What does tilt mean in trading?</h3>
+      <p>Tilt in trading is a period when frustration, anger or pressure appears beside a change from the process you wrote before the decision. The useful evidence is the feeling you recorded, the original rule and the action that changed.</p>
+      <p>One loss, one emotion tag or one imperfect trade does not prove that you were on tilt. A record can show what happened together; it cannot by itself prove what caused the result.</p>
+
+      <h3>A fictional XAUUSD example</h3>
+      <p>Imagine you are trading XAUUSD during your planned London session.</p>
+      <ol>
+        <li>Your first breakout attempt loses, and you record <strong>frustrated</strong>.</li>
+        <li>Your <a href="/glossary/trading-plan">trading plan</a> says to wait for a break and retest of the Asian high.</li>
+        <li>The next idea has no planned retest confirmation.</li>
+        <li>You enter anyway and change the USD size written in your plan.</li>
+      </ol>
+      <p>The review can say: <strong>frustrated + confirmation missing + size changed</strong>. It should not say that frustration caused the trade or the result. This is a fictional teaching example, not a signal.</p>
+
+      <h3>Tilt, revenge trading and FOMO are different</h3>
       <ul>
-        <li><strong>Physical symptoms:</strong> Elevated heart rate, shallow breathing, tension in jaw or shoulders</li>
-        <li><strong>Behavioral signs:</strong> Taking trades without checking your setup criteria, increasing lot sizes, trading outside your session</li>
-        <li><strong>Thought patterns:</strong> "I need to make this back," "The market owes me," "Just one more trade"</li>
+        <li><strong>Tilt:</strong> pressure or frustration appears beside a broader process change.</li>
+        <li><strong><a href="/glossary/revenge-trading">Revenge trading:</a></strong> recovering a recent loss becomes the purpose of the next decision.</li>
+        <li><strong><a href="/glossary/fomo">FOMO:</a></strong> urgency appears because a move seems to be leaving without you.</li>
       </ul>
-      <h3>Managing Tilt</h3>
-      <p>Prevention is more effective than cure. Experienced prop firm traders build tilt-prevention rules into their trading plan: maximum daily loss limits (separate from the prop firm's), maximum consecutive loss rules, and mandatory break times. When tilt does occur, the best action is to close all charts and walk away. No amount of analysis will fix an emotional state — only time and distance from the screen.</p>
+      <p>The same record may contain more than one label, but do not treat one label as proof of another.</p>
+
+      <h3>What should you record?</h3>
+      <ol>
+        <li><strong>Feeling and time:</strong> what you noticed and when you noticed it.</li>
+        <li><strong>Original rule:</strong> the setup, confirmation, session and sizing words written before entry.</li>
+        <li><strong>Actual action and reason:</strong> what you did and the reason you recorded at that time.</li>
+      </ol>
+      <p>An <a href="/glossary/emotion-tracking">emotion tag</a> gives context. A <a href="/glossary/trading-journal">trading journal</a> preserves the wider record, and a <a href="/glossary/trade-review">trade review</a> compares the decision with the original plan.</p>
+
+      <h3>What can you do when you notice the change?</h3>
+      <p>Use the pause or no-trade condition already written in your own plan. If you do not have one, write a condition that is clear enough to check later. A fixed break length, loss count or risk percentage is not suitable for every trader.</p>
+      <p><a href="/glossary/rule-based-trading">Rule-based trading</a> explains how predefined conditions guide a decision. <a href="/glossary/setup-compliance">Setup compliance</a> checks later whether the recorded action matched those words.</p>
+
+      <h3>What should you do next?</h3>
+      <p>Choose one pressured decision. Place it beside the original plan and describe what changed without judging the decision only by profit or loss.</p>
+      <p>The <a href="/blogs/revenge-trading-prop-firm">revenge-trading guide</a> gives a practical post-loss review. Use the <a href="/blogs/trading-psychology-prop-firm">trading psychology guide</a> for the wider behaviour system.</p>
     `
   },
   {
     slug: 'confirmation-bias',
-    title: 'Confirmation Bias',
-    shortDefinition: 'The tendency to seek out information that supports your existing trade idea while ignoring evidence that contradicts it.',
+    title: 'Confirmation Bias in Trading',
+    updatedAt: '2026-10-08',
+    shortDefinition: 'Confirmation bias in trading is the tendency to search for, notice or interpret information in a way that supports an existing trade idea.',
     category: 'Trading Psychology',
-    relatedTerms: ['overconfidence', 'trading-plan', 'setup-compliance'],
-    proplogConnection: 'PropLogAI helps you fight confirmation bias by objectively analyzing whether your trade entries matched your documented setups — the AI compares what you planned versus what you actually did.',
+    relatedTerms: ['trading-plan', 'rule-based-trading', 'setup-compliance', 'trading-journal'],
+    guide: { href: '/blogs/trading-discipline-checklist', label: 'Use a pre-entry checklist to place the idea beside its conditions' },
+    sourceIds: ['RES-011', 'RES-022', 'RES-024', 'RES-026', 'PLAI-002', 'PLAI-005'],
+    sources: [
+      { id: 'RES-026', label: 'NIST — Confirmation bias definition', url: 'https://www.nist.gov/glossary-term/36676', checkedOn: '2026-10-08' },
+      { id: 'RES-011', label: 'Zerodha Varsity — Your trading checklist', url: 'https://zerodha.com/varsity/chapter/your-trading-checklist/', checkedOn: '2026-10-04' },
+      { id: 'RES-022', label: 'IG — Trading journal records and review', url: 'https://www.ig.com/uk/learn-to-trade/ig-academy/tools-for-traders/important-metrics?source=dailyfx', checkedOn: '2026-10-06' },
+      { id: 'RES-024', label: 'NIST — Correlation does not prove causation', url: 'https://www.itl.nist.gov/div898/handbook/ppc/section1/ppc136.htm', checkedOn: '2026-10-06' },
+      { id: 'PLAI-002', label: 'PropLogAI — Manual trading journal', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+      { id: 'PLAI-005', label: 'PropLogAI — Rule and emotion records', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+    ],
+    visualNote: {
+      src: '/glossary/images/confirmation-bias-idea-evidence-note.webp',
+      alt: 'Handwritten XAUUSD learning note placing an Asian-high breakout idea beside required candle-close and retest evidence, invalidation and the actual record',
+      caption: 'Place the idea, required evidence and invalidation beside the actual record. Click or tap to enlarge.',
+      label: 'Open the confirmation-bias idea-and-evidence learning note at a larger size',
+    },
+    proplogConnection: 'PropLogAI lets you manually save the trade idea, notes, screenshots and whether you followed your own rules. It can organise those records for review; it does not decide which market view is correct or diagnose confirmation bias.',
     fullContent: `
-      <h3>What is Confirmation Bias?</h3>
-      <p>Confirmation bias is a cognitive shortcut where your brain selectively processes information that confirms what you already believe, while filtering out contradictory data. In trading, this means once you've decided you want to go long on a pair, you unconsciously seek bullish signals and dismiss bearish ones.</p>
-      <p>For example, a trader decides GBP/USD is going up. They see a bullish engulfing candle (confirmation!), a support level nearby (more confirmation!), and ignore the bearish divergence on RSI, the resistance overhead, and the fact that they're trading against the higher-timeframe trend.</p>
-      <h3>How Confirmation Bias Hurts Prop Firm Traders</h3>
-      <p>Prop firm challenges require consistent, edge-based trading. Confirmation bias erodes your edge because you're no longer objectively evaluating setups — you're building a case for a decision you've already made emotionally. This leads to:</p>
-      <ul>
-        <li>Taking trades that only partially meet your setup criteria</li>
-        <li>Holding losing trades longer because you keep finding reasons it "should" work</li>
-        <li>Over-trading your conviction trades with larger position sizes</li>
-      </ul>
-      <h3>Countering Confirmation Bias</h3>
-      <p>The best defense is a structured pre-trade checklist. Before every entry, actively look for reasons NOT to take the trade. Write down at least one bearish factor for every long setup (and vice versa). If you can't find a counter-argument, you're probably not looking hard enough.</p>
+      <h3>What is confirmation bias in trading?</h3>
+      <p>Confirmation bias in trading is the tendency to search for, notice or interpret information in a way that supports an existing trade idea. The practical check is to keep your idea, required evidence and invalidation separate.</p>
+      <p>Having a bullish or bearish idea does not automatically mean you have confirmation bias. Ask whether you checked the conditions written before the decision, including what would make the setup invalid.</p>
+
+      <h3>A fictional XAUUSD example</h3>
+      <p>Imagine your idea is: <strong>XAUUSD may break above the Asian high during the London session.</strong></p>
+      <ol>
+        <li><strong>Evidence required:</strong> a candle closes above the level and the planned retest confirms.</li>
+        <li><strong>Invalidation before entry:</strong> price closes back below the level.</li>
+        <li><strong>Actual record:</strong> price makes a wick above the high, but there is no close above it and the retest fails.</li>
+        <li><strong>Review:</strong> the recorded entry did not meet the written setup.</li>
+      </ol>
+      <p>The trade could still finish in profit. A winning result does not fill a missing condition. This is a fictional teaching example, not a market view or signal.</p>
+
+      <h3>Use three simple questions</h3>
+      <ol>
+        <li><strong>What is my idea?</strong> Write the direction or scenario in plain words.</li>
+        <li><strong>What evidence is required?</strong> Use the conditions in your <a href="/glossary/trading-plan">trading plan</a>.</li>
+        <li><strong>What would invalidate it?</strong> Write this before entry so you do not change it after seeing price move.</li>
+      </ol>
+      <p>This is a neutral check. You do not need to add a random opposing indicator or another person's opinion. <a href="/glossary/rule-based-trading">Rule-based trading</a> explains how to make a condition clear enough to apply.</p>
+
+      <h3>What should the record contain?</h3>
+      <p>A chart screenshot can preserve what was visible, but the picture still needs the words written before entry. Save the original idea, required evidence, invalidation, actual action and reason.</p>
+      <p>A <a href="/glossary/trading-journal">trading journal</a> can preserve those records. Later, <a href="/glossary/setup-compliance">setup compliance</a> and a <a href="/glossary/trade-review">trade review</a> can compare the action with the original conditions. An <a href="/glossary/emotion-tracking">emotion record</a> may add context, but it does not prove what caused the decision.</p>
+
+      <h3>What should you do next?</h3>
+      <p>Review one recent trade. Write the evidence that supported the idea, the evidence that conflicted with it and the prewritten condition that decided whether the setup qualified.</p>
+      <p>Use the <a href="/blogs/trading-discipline-checklist">trading discipline checklist</a> before a planned entry and the <a href="/blogs/trading-psychology-prop-firm">trading psychology guide</a> for the wider behaviour system.</p>
     `
   },
   {
     slug: 'loss-aversion',
     title: 'Loss Aversion',
-    shortDefinition: 'The tendency for a loss to affect a decision more strongly than an equivalent gain in many situations.',
+    shortDefinition: 'Loss aversion in trading means the fear of a loss or giving back a gain may influence a decision more strongly than an equivalent gain.',
     category: 'Trading Psychology',
-    updatedAt: '2026-10-02',
+    updatedAt: '2026-10-05',
     relatedTerms: ['tilt', 'risk-per-trade', 'stop-loss'],
+    guide: { href: '/blogs/how-emotions-affect-trading-decisions', label: 'Review how emotions may affect a trading decision' },
+    visualNote: {
+      src: '/glossary/images/loss-aversion-check-decision-note.webp',
+      alt: 'Handwritten XAUUSD London-session note comparing a written plan with an early exit and three review questions',
+      caption: 'Use the questions to review what changed. One trade does not prove a pattern. Click or tap to enlarge.',
+      label: 'Open the loss-aversion decision-review learning note at a larger size',
+    },
     sourceIds: ['RES-001', 'PLAI-001', 'PLAI-005'],
     sources: [
-      { id: 'RES-001', label: 'Kahneman and Tversky — Prospect Theory (1979)', url: 'https://web.mit.edu/curhan/www/docs/Articles/15341_Readings/Behavioral_Decision_Theory/Kahneman_Tversky_1979_Prospect_theory.pdf', checkedOn: '2026-09-19' },
-      { id: 'PLAI-001', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
+      { id: 'RES-001', label: 'Kahneman and Tversky — Prospect Theory (1979)', url: 'https://web.mit.edu/curhan/www/docs/Articles/15341_Readings/Behavioral_Decision_Theory/Kahneman_Tversky_1979_Prospect_theory.pdf', checkedOn: '2026-10-05' },
+      { id: 'PLAI-001', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-10-05' },
     ],
-    proplogConnection: 'PropLogAI can use your own journal entries to help you review patterns. Emotion tags and rule-adherence notes let you compare planned decisions with what you recorded after a gain or loss.',
+    proplogConnection: 'PropLogAI lets you record emotion tags, planned and actual decisions, and rule adherence. These records can help you compare repeated journal entries, but they cannot diagnose why a decision occurred.',
     fullContent: `
-      <h3>What is Loss Aversion?</h3>
-      <p>Loss aversion is a concept from prospect theory. It describes how a loss can influence a choice more strongly than an equivalent gain. The strength of the effect varies by person and situation, so this definition does not use a fixed multiplier.</p>
-      <p>In a trading journal, possible signs include closing a planned winner early to protect a gain or changing an exit after a loss becomes uncomfortable. Those actions can also have other causes, so a single trade does not prove a bias.</p>
-      <h3>What to Review</h3>
+      <h3>What is loss aversion in trading?</h3>
+      <p>Loss aversion means the fear of a loss, or the fear of giving back a gain, may affect your decision more strongly than the chance of making an equivalent gain.</p>
+      <p>It does not simply mean you dislike losing. It describes how that feeling may change a choice while the result is still uncertain. One trade cannot prove that you have this bias.</p>
+
+      <h3>A simple XAUUSD example</h3>
+      <p>Imagine you planned an XAUUSD liquidity-sweep setup during the London session. A liquidity sweep is a quick move through an obvious recent high or low before price turns back. Your written plan says you will wait for the setup and use your planned exit rule.</p>
+      <p>The trade moves into profit. You then feel uncomfortable because the price may take some profit back, so you close early. The early exit might be sensible if new market information invalidated the setup. It might also be an emotional change if nothing in your written rule changed. Your journal needs to separate those two possibilities.</p>
+
+      <h3>What should you review?</h3>
+      <ol>
+        <li><strong>What was the written plan?</strong> Record the setup, planned exit and <a href="/glossary/risk-per-trade">planned USD risk</a> before entry.</li>
+        <li><strong>What did you actually do?</strong> Record the real exit and whether you followed the rule.</li>
+        <li><strong>What changed?</strong> Write down any new market information separately from the feeling you noticed.</li>
+        <li><strong>What reason did you record at the time?</strong> A later explanation can be different from what you felt during the trade.</li>
+        <li><strong>Does it repeat?</strong> Compare several similar trades before calling it a pattern.</li>
+      </ol>
+
+      <h3>New information or an emotional change?</h3>
       <ul>
-        <li><strong>Planned versus actual exit:</strong> Record whether the exit followed the written rule.</li>
-        <li><strong>Reason for the change:</strong> Note new market information separately from discomfort about realizing a loss.</li>
-        <li><strong>Repeated pattern:</strong> Compare many similar trades before drawing a conclusion.</li>
+        <li><strong>New market information:</strong> your written invalidation or exit rule is triggered.</li>
+        <li><strong>Emotional change:</strong> you change the decision because the possible loss or profit give-back feels uncomfortable, without a new rule-based reason.</li>
+        <li><strong>Not enough evidence:</strong> you cannot tell from one entry, so you keep recording comparable trades.</li>
       </ul>
-      <h3>How to Use the Concept</h3>
-      <p>Treat loss aversion as a review question, not a diagnosis. A written exit rule and a journal comparison can show whether decisions changed after gains or losses. The record can identify a pattern, but it cannot guarantee why the pattern occurred or what a trader should do next.</p>
+      <p>Loss aversion does not mean you should ignore valid new information or hold every trade mechanically. Your <a href="/glossary/stop-loss">stop loss</a> and exit rules remain part of the plan.</p>
+
+      <h3>How to use the idea</h3>
+      <p>Treat loss aversion as a review question, not a diagnosis. Look for the same plan-versus-actual change across several comparable trades. The <a href="/blogs/how-emotions-affect-trading-decisions">guide to emotions and trading decisions</a> shows a wider review process, while the <a href="/blogs/trading-psychology-prop-firm">trading psychology guide</a> connects this pattern with other behaviours.</p>
     `
   },
   {
     slug: 'overconfidence',
-    title: 'Overconfidence',
-    shortDefinition: 'An inflated belief in your trading ability, often following a winning streak, leading to increased risk-taking and abandonment of risk rules.',
+    title: 'Overconfidence in Trading',
+    updatedAt: '2026-10-08',
+    shortDefinition: 'Overconfidence in trading is confidence that appears beside a decision to change or ignore a rule written before the trade.',
     category: 'Trading Psychology',
-    relatedTerms: ['confirmation-bias', 'position-sizing', 'risk-per-trade'],
-    proplogConnection: 'PropLogAI analyzes your performance after winning streaks and compares it to your baseline. The AI coach warns you when your risk-taking behavior escalates during hot streaks.',
+    relatedTerms: ['confirmation-bias', 'position-sizing', 'setup-compliance', 'trading-journal'],
+    guide: { href: '/blogs/tracking-trading-emotions', label: 'Use a simple record to review confidence beside a decision change' },
+    sourceIds: ['RES-009', 'RES-010', 'RES-011', 'RES-022', 'RES-024', 'RES-025', 'PLAI-002', 'PLAI-005'],
+    sources: [
+      { id: 'RES-009', label: 'Zerodha Varsity — Controlling trading emotions', url: 'https://zerodha.com/varsity/chapter/controlling-your-trading-emotions/', checkedOn: '2026-09-25' },
+      { id: 'RES-010', label: 'OANDA — Understanding emotions in trading', url: 'https://www.oanda.com/us-en/skills-and-insights/education/trading-psychology/emotions-in-trading/trading-psychology-understanding-your-emotions/', checkedOn: '2026-09-25' },
+      { id: 'RES-011', label: 'Zerodha Varsity — Your trading checklist', url: 'https://zerodha.com/varsity/chapter/your-trading-checklist/', checkedOn: '2026-10-04' },
+      { id: 'RES-022', label: 'IG — Trading journal records and review', url: 'https://www.ig.com/uk/learn-to-trade/ig-academy/tools-for-traders/important-metrics?source=dailyfx', checkedOn: '2026-10-06' },
+      { id: 'RES-024', label: 'NIST — Correlation does not prove causation', url: 'https://www.itl.nist.gov/div898/handbook/ppc/section1/ppc136.htm', checkedOn: '2026-10-06' },
+      { id: 'RES-025', label: 'IG — What is a trading plan?', url: 'https://www.ig.com/en/ig-academy/planning-and-risk-management/what-is-a-trading-plan', checkedOn: '2026-10-06' },
+      { id: 'PLAI-002', label: 'PropLogAI — Manual trading journal', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+      { id: 'PLAI-005', label: 'PropLogAI — Rule and emotion records', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+    ],
+    visualNote: {
+      src: '/glossary/images/overconfidence-rule-change-note.webp',
+      alt: 'Handwritten XAUUSD learning note comparing breakout-close, retest and fixed USD-size rules with recent wins, an early entry and a changed size',
+      caption: 'Recent wins are context. Compare the recorded decision with the rule written before it. Click or tap to enlarge.',
+      label: 'Open the overconfidence written-rule versus recorded-action learning note at a larger size',
+    },
+    proplogConnection: 'PropLogAI lets you manually record the setup, emotion tag, notes, screenshots, USD result and whether you followed your own rules. The record can support later review; it does not diagnose overconfidence or prove what caused a decision.',
     fullContent: `
-      <h3>What is Overconfidence in Trading?</h3>
-      <p>Overconfidence is the cognitive bias where traders overestimate their skill and underestimate the role of randomness in their results. After a streak of winning trades, the brain attributes success to ability rather than favorable market conditions, leading to riskier behavior.</p>
-      <p>A trader who hits 8 winners in a row starts to feel invincible. They increase their lot size, skip their checklist, trade outside their best sessions, and take setups they'd normally pass on. When the inevitable losing streak arrives, they're now trading with 2x or 3x their normal risk.</p>
-      <h3>Why Winning Streaks are Dangerous</h3>
+      <h3>What is overconfidence in trading?</h3>
+      <p>Overconfidence in trading is confidence that appears beside a decision to change or ignore a rule written before the trade. The useful evidence is the original rule, the action you took and the reason you recorded at that time.</p>
+      <p>Confidence, one winning trade or a winning streak does not by itself prove overconfidence. A sequence of past results does not guarantee what the next trade will do.</p>
+
+      <h3>A fictional XAUUSD example</h3>
+      <p>Imagine you have recorded several recent winning trades and are considering an XAUUSD breakout during the New York session.</p>
+      <ol>
+        <li>Your <a href="/glossary/trading-plan">trading plan</a> requires a candle close above the level and a retest before entry.</li>
+        <li>Your written size uses a fixed planned USD loss.</li>
+        <li>You enter before the retest because the setup “looks obvious.”</li>
+        <li>You also increase the size written in the plan.</li>
+      </ol>
+      <p>The review can say: <strong>recent wins + retest missing + size changed</strong>. It should not say that the wins caused the decision. This is a fictional teaching example, not a market signal.</p>
+
+      <h3>Confidence and overconfidence are not the same</h3>
       <ul>
-        <li><strong>Position size creep:</strong> Gradually increasing lot sizes because "I'm on a roll"</li>
-        <li><strong>Rule relaxation:</strong> Skipping your pre-trade checklist or trading outside your session window</li>
-        <li><strong>Revenge sensitivity:</strong> When the streak ends, overconfident traders often spiral into revenge trading because the loss feels like a personal failure</li>
+        <li><strong>Confidence:</strong> you feel ready and still follow the process written before the trade.</li>
+        <li><strong>Overconfidence-like process change:</strong> confidence appears beside a relaxed confirmation, session or size rule.</li>
+        <li><strong><a href="/glossary/confirmation-bias">Confirmation bias</a>:</strong> you give more attention to evidence that supports an idea and less attention to evidence that conflicts with it.</li>
       </ul>
-      <h3>Staying Grounded</h3>
-      <p>Professional prop firm traders treat every trade as independent — the last 8 wins have zero predictive power over trade number 9. Keep your position sizing formula-based and mechanical. When you notice yourself thinking "I don't need to check my setup criteria this time," that's the exact moment you need to check them most carefully.</p>
+
+      <h3>What should you record?</h3>
+      <ol>
+        <li><strong>Original condition:</strong> the setup, confirmation, session and <a href="/glossary/position-sizing">position size</a> written before entry.</li>
+        <li><strong>Actual action:</strong> what you did, including any change in timing or planned <a href="/glossary/risk-per-trade">USD risk</a>.</li>
+        <li><strong>Reason at the time:</strong> the words you recorded when making the decision.</li>
+      </ol>
+      <p>A <a href="/glossary/trading-journal">trading journal</a> preserves the evidence. Later, <a href="/glossary/setup-compliance">setup compliance</a> and a <a href="/glossary/trade-review">trade review</a> can compare the action with the original rule.</p>
+
+      <h3>Does the final profit or loss prove it?</h3>
+      <p><strong>No.</strong> A profitable trade can still miss a required condition. A losing trade can still follow the plan. Keep the result beside the process record, but do not use P&amp;L alone to decide whether the rule was followed.</p>
+
+      <h3>What should you do next?</h3>
+      <p>Review one decision made after a recent win. Write what stayed the same and what changed. The <a href="/blogs/tracking-trading-emotions">emotion-tracking guide</a> shows the wider recording process, while the <a href="/blogs/trading-psychology-prop-firm">trading psychology guide</a> connects this definition to the full behaviour cluster.</p>
     `
   },
 
@@ -213,124 +396,258 @@ export const glossaryTerms = [
   {
     slug: 'position-sizing',
     title: 'Position Sizing',
-    shortDefinition: 'Determining how many lots or contracts to trade based on your account size, risk tolerance, and distance to your stop loss.',
+    shortDefinition: 'Position sizing is the calculation used to choose trade size so the estimated loss at the planned stop matches your chosen USD risk and exact account rules.',
     category: 'Risk Management',
-    relatedTerms: ['risk-per-trade', 'stop-loss', 'drawdown'],
-    proplogConnection: 'PropLogAI logs your lot sizes on every trade and the AI coach identifies when your sizing deviates from your stated risk rules, helping you maintain consistent risk management.',
+    updatedAt: '2026-10-05',
+    relatedTerms: ['risk-per-trade', 'stop-loss', 'daily-drawdown-limit'],
+    sourceIds: ['RES-013', 'PLAI-002', 'PLAI-005'],
+    sources: [
+      { id: 'RES-013', label: 'CME Group — Proper Position Size', url: 'https://www.cmegroup.com/education/courses/trade-and-risk-management/proper-position-size', checkedOn: '2026-10-05' },
+      { id: 'PLAI-002/005', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+    ],
+    visualNote: {
+      src: '/glossary/images/position-sizing-formula-note.webp',
+      alt: 'Handwritten fictional XAUUSD position-sizing example using a planned 50 dollar loss and an order-ticket estimate of 10 dollars loss per 0.01 lot to calculate 0.05 lot',
+      caption: 'This is a fictional calculation. Verify the instrument and account details shown by your own platform before using a size.',
+      label: 'Open the position-sizing formula learning note at a larger size',
+    },
+    guide: { href: '/blogs/prop-firm-risk-management', label: 'Continue with the forex and prop-firm risk-management guide' },
+    proplogConnection: 'PropLogAI lets you record trade details and whether the trade followed your own rules. It is not a live position-size calculator, broker feed, or breach monitor.',
     fullContent: `
       <h3>What is Position Sizing?</h3>
-      <p>Position sizing is the process of calculating how large your trade should be based on how much you're willing to lose if the trade hits your stop loss. It's arguably the single most important skill in risk management — more important than your entry strategy or win rate.</p>
-      <p>The formula is straightforward: <strong>Lot Size = (Account Risk $) / (Stop Loss Distance in pips × Pip Value)</strong>. If you have a $100,000 account, risk 1% ($1,000), and your stop loss is 50 pips on EUR/USD (pip value $10/pip for a standard lot), your position size is $1,000 / (50 × $10) = 0.20 standard lots.</p>
-      <h3>Why Fixed Lot Sizing is Risky</h3>
-      <ul>
-        <li>Trading 1 lot on every trade means your risk varies wildly depending on stop loss distance</li>
-        <li>A 20-pip stop risks $200, while a 100-pip stop risks $1,000 — same lot size, 5x the risk</li>
-        <li>Prop firm traders who use fixed lots often blow their drawdown limits on wide-stop trades</li>
-      </ul>
-      <h3>Best Practice for Prop Firms</h3>
-      <p>Calculate position size for every trade based on your stop loss distance. Never risk more than 1-2% of your account per trade. When your account grows from profits, your position sizes grow proportionally — and when you're in drawdown, they shrink automatically, protecting your remaining capital.</p>
+      <p>Position sizing is the calculation used to choose the trade size so the estimated loss at your planned <a href="/glossary/stop-loss">stop loss</a> matches the USD amount you chose before entry. The size must also fit the exact rules for your account and prop-firm program.</p>
+
+      <h3>The Four Inputs</h3>
+      <ol>
+        <li><strong>Planned USD risk:</strong> the maximum loss you plan for this trade. See <a href="/glossary/risk-per-trade">risk per trade</a>.</li>
+        <li><strong>Entry:</strong> the price where you expect to open the trade.</li>
+        <li><strong>Stop distance:</strong> the distance between the entry and the planned stop.</li>
+        <li><strong>Estimated loss per unit:</strong> what one unit, contract, or 0.01 lot would lose if the stop filled at the expected price.</li>
+      </ol>
+      <p><code>Position size = planned USD risk ÷ estimated loss per unit at the stop</code></p>
+
+      <h3>Fictional XAUUSD Example</h3>
+      <p>You plan a maximum loss of <strong>$50</strong>. After choosing the entry and stop, your platform's order ticket estimates that each <strong>0.01 lot</strong> would lose <strong>$10</strong> if price reached that stop.</p>
+      <ol>
+        <li><strong>$50 ÷ $10 = 5 units</strong></li>
+        <li><strong>5 × 0.01 lot = 0.05 lot</strong></li>
+      </ol>
+      <p>The calculated size for this fictional ticket is <strong>0.05 lot</strong>. The $50 amount is an example, not a recommendation.</p>
+
+      <h3>Check the Platform Details Before Using the Result</h3>
+      <p>Do not assume that the same price move has the same value on every instrument or platform. Check the contract specification, tick or price-move value, account currency, and any currency conversion shown for your exact order.</p>
+      <p>Spread, commission, slippage, or a price gap can make the realised loss different from the estimate. A stop is part of the calculation, but it does not guarantee the exact exit price.</p>
+
+      <h3>Prop-Firm Limits Are Separate Checks</h3>
+      <p>After calculating the trade size, compare the planned loss and any open exposure with the current <a href="/glossary/daily-drawdown-limit">daily drawdown limit</a> and <a href="/glossary/overall-drawdown-limit">overall drawdown limit</a> for your exact program and account stage. Position sizing does not replace those checks.</p>
+      <p>The <a href="/blogs/prop-firm-risk-management">forex and prop-firm risk-management guide</a> explains how the size, stop, open exposure, and firm limits fit together.</p>
     `
   },
   {
     slug: 'risk-reward-ratio',
     title: 'Risk-Reward Ratio',
-    shortDefinition: 'The comparison between how much you stand to lose (risk) versus how much you stand to gain (reward) on a trade, expressed as a ratio like 1:2 or 1:3.',
+    shortDefinition: 'A comparison between the loss planned at your stop and the gain planned at your target, commonly written as 1:2 or 1:3.',
     category: 'Risk Management',
-    relatedTerms: ['stop-loss', 'expectancy', 'win-rate'],
-    proplogConnection: 'PropLogAI automatically calculates your risk-reward ratio from your entry, exit, and stop loss prices. The AI coach shows your actual achieved R:R versus your planned R:R.',
+    updatedAt: '2026-10-05',
+    relatedTerms: ['stop-loss', 'position-sizing', 'expectancy', 'win-rate'],
+    sourceIds: ['RES-014', 'PLAI-002', 'PLAI-003'],
+    sources: [
+      { id: 'RES-014', label: 'CME Group — Risk Management and Your Trade Plan', url: 'https://www.cmegroup.com/education/courses/building-a-trade-plan/risk-management-and-your-trade-plan', checkedOn: '2026-10-05' },
+      { id: 'PLAI-002/003', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+    ],
+    visualNote: {
+      src: '/glossary/images/risk-reward-planned-vs-realised-note.webp',
+      alt: 'Handwritten fictional XAUUSD example showing 50 dollars of planned risk, 100 dollars of planned reward, and a 1 to 2 risk-reward ratio',
+      caption: 'The ratio describes the plan. Costs, fills and changes made during the trade can change the realised result.',
+      label: 'Open the planned risk-reward learning note at a larger size',
+    },
+    guide: { href: '/blogs/prop-firm-risk-management', label: 'Continue with the forex and prop-firm risk-management guide' },
+    proplogConnection: 'PropLogAI lets you log trade details and view average R from the data you entered. It does not recommend a risk-reward ratio.',
     fullContent: `
-      <h3>What is Risk-Reward Ratio?</h3>
-      <p>Risk-reward ratio (R:R) compares the potential loss of a trade to its potential profit. A 1:2 R:R means you're risking $1 to make $2. If your stop loss is 30 pips and your take profit is 60 pips, that's a 1:2 risk-reward ratio.</p>
-      <p>R:R is critical because it determines what win rate you need to be profitable. With 1:1 R:R, you need to win more than 50% of trades. With 1:3 R:R, you only need to win 25% to break even. Higher R:R ratios give you a larger margin for error.</p>
-      <h3>R:R and Win Rate Together</h3>
+      <h3>What does a 1:2 risk-reward ratio mean?</h3>
+      <p>A risk-reward ratio compares the loss planned at your <a href="/glossary/stop-loss">stop loss</a> with the gain planned at your target. A <strong>1:2 risk-reward ratio</strong> means the plan risks $1 for every $2 of planned reward.</p>
+      <p>This describes the trade plan. It does not promise that the target will be reached or that the final loss will stop at the exact planned amount.</p>
+
+      <h3>Fictional XAUUSD London-session example</h3>
+      <p>Imagine you are planning an XAUUSD breakout during the London session. Your chosen entry, stop and <a href="/glossary/position-sizing">position size</a> produce these order-ticket estimates:</p>
       <ul>
-        <li><strong>1:1 R:R</strong> — Need >50% win rate to profit (breakeven at 50%)</li>
-        <li><strong>1:2 R:R</strong> — Need >33% win rate to profit (breakeven at 33%)</li>
-        <li><strong>1:3 R:R</strong> — Need >25% win rate to profit (breakeven at 25%)</li>
+        <li><strong>Planned loss at the stop:</strong> $50.</li>
+        <li><strong>Planned gain at the target:</strong> $100.</li>
       </ul>
-      <h3>The Trap of Chasing High R:R</h3>
-      <p>A common mistake is pursuing very high R:R (1:5+) at the expense of win rate. If your target is so far away that you rarely hit it, a theoretical 1:5 R:R with a 10% win rate is actually a losing strategy. The sweet spot for most day traders is 1:1.5 to 1:3, with a win rate above 40%.</p>
+      <p><code>$100 planned reward ÷ $50 planned risk = 2</code></p>
+      <p>The plan is therefore written as <strong>1:2 risk to reward</strong>. The $50 and $100 figures are fictional examples, not recommended amounts. Some platforms label ratios differently, so check which convention your platform uses.</p>
+
+      <h3>Planned R:R is not the realised result</h3>
+      <p>Before entry, you only have a plan. The realised result can change because of spread, commission, slippage, a price gap, a partial exit, an early close, or a changed stop or target.</p>
+      <p>For example, a trade planned at 1:2 may close early at less than 2R, or a stop may fill beyond the expected price. Write down both the original plan and the final result instead of treating them as the same number.</p>
+
+      <h3>How does R:R connect with win rate?</h3>
+      <p>The simplified breakeven win rate can help you understand the arithmetic before trading costs:</p>
+      <ul>
+        <li><strong>1:1:</strong> 50% breakeven win rate before costs.</li>
+        <li><strong>1:2:</strong> about 33.3% before costs.</li>
+        <li><strong>1:3:</strong> 25% before costs.</li>
+      </ul>
+      <p>These figures do not predict profit. Real results also depend on costs, fills, losses, partial exits, the <a href="/glossary/win-rate">win rate</a>, and the <a href="/glossary/expectancy">expectancy</a> across a useful sample of comparable trades. No single ratio is a universal sweet spot.</p>
+
+      <h3>Check the full risk plan</h3>
+      <p>A ratio is one planning input. It does not replace your position-size calculation, daily loss control, open-exposure check, or the current rules for your exact prop-firm program. The <a href="/blogs/prop-firm-risk-management">forex and prop-firm risk-management guide</a> explains how these parts fit together.</p>
     `
   },
   {
     slug: 'stop-loss',
     title: 'Stop Loss',
-    shortDefinition: 'A predetermined price level at which you exit a losing trade to limit your downside, placed before or immediately after entering the trade.',
+    shortDefinition: 'A planned exit level or order instruction used to close a trade after a price trigger; the actual fill can differ from the stop price.',
     category: 'Risk Management',
+    updatedAt: '2026-10-05',
     relatedTerms: ['risk-reward-ratio', 'position-sizing', 'daily-drawdown-limit'],
-    proplogConnection: 'PropLogAI records your stop loss levels and tracks whether you honored them. The AI coach identifies if you have a habit of moving stops or trading without them.',
+    sourceIds: ['RES-015', 'PLAI-002', 'PLAI-005'],
+    sources: [
+      { id: 'RES-015', label: 'FINRA — Stop Orders: Factors to Consider During Volatile Markets', url: 'https://www.finra.org/investors/insights/stop-orders-factors-consider-during-volatile-markets', checkedOn: '2026-10-05' },
+      { id: 'PLAI-002/005', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+    ],
+    visualNote: {
+      src: '/glossary/images/stop-loss-trigger-fill-note.webp',
+      alt: 'Handwritten four-step stop-loss note showing a planned XAUUSD stop level, the trigger, the platform attempting the exit, and an actual fill that may differ',
+      caption: 'A stop level is part of the plan. The exact trigger and fill rules depend on the instrument, broker, platform and account.',
+      label: 'Open the stop-loss trigger and fill learning note at a larger size',
+    },
+    guide: { href: '/blogs/prop-firm-risk-management', label: 'Continue with the forex and prop-firm risk-management guide' },
+    proplogConnection: 'PropLogAI lets you manually record trade details and whether you followed your own rules. It is not a live stop monitor, broker feed, or breach detector.',
     fullContent: `
-      <h3>What is a Stop Loss?</h3>
-      <p>A stop loss is a protective order that automatically closes your position when price reaches a predetermined level, capping your loss on the trade. It's your primary defense against catastrophic losses and the foundation of every risk management system.</p>
-      <p>For prop firm traders, stop losses aren't optional — they're survival tools. Without them, a single trade can breach your daily drawdown limit or even your overall drawdown, ending your challenge immediately.</p>
-      <h3>Types of Stop Losses</h3>
-      <ul>
-        <li><strong>Fixed pip stop:</strong> A set number of pips from entry (e.g., always 30 pips) — simple but doesn't account for market structure</li>
-        <li><strong>Technical stop:</strong> Placed beyond a key level (support/resistance, swing high/low) — adapts to market conditions</li>
-        <li><strong>ATR-based stop:</strong> Uses Average True Range to set stops relative to current volatility</li>
-        <li><strong>Time stop:</strong> Exit after a set period if the trade hasn't moved in your favor</li>
-      </ul>
-      <h3>Common Stop Loss Mistakes</h3>
-      <p>The biggest mistake is moving your stop loss further away when price approaches it. This turns a small, planned loss into an unplanned large loss. The second mistake is placing stops too tight — getting stopped out repeatedly on normal price fluctuations, then watching the market move in your original direction.</p>
+      <h3>What is a stop loss?</h3>
+      <p>A stop loss is a planned exit level or order instruction used to close a trade after price reaches a trigger. It helps you define the loss you expect before entry, but it does not guarantee the exact exit price or final loss.</p>
+      <p>The wording and order behaviour can differ by instrument, broker and platform. Check the specification for the order you are actually using.</p>
+
+      <h3>Fictional XAUUSD London-session example</h3>
+      <p>Imagine you plan an XAUUSD breakout during the London session. You choose an entry and a stop below the level that would invalidate your setup. After you choose the <a href="/glossary/position-sizing">position size</a>, the order ticket estimates a <a href="/glossary/risk-per-trade">planned loss</a> of <strong>$50</strong> if the stop fills at the expected price.</p>
+      <p>The $50 is an estimate for this fictional example. It is not a recommended amount and it is not a guaranteed maximum.</p>
+
+      <h3>Plan, trigger and fill are three different things</h3>
+      <ol>
+        <li><strong>Planned stop level:</strong> the price level written into your trade plan.</li>
+        <li><strong>Trigger:</strong> the event that activates the exit instruction under your platform's order rules.</li>
+        <li><strong>Actual fill:</strong> the price where the exit is completed.</li>
+      </ol>
+      <p>In a calm market, the fill may be close to the planned stop. During fast movement, a price gap, a wider spread, or slippage, the fill can be different. That difference can make the realised loss higher or lower than the estimate.</p>
+
+      <h3>What about a stop-limit order?</h3>
+      <p>Some platforms offer an instruction commonly called a stop-limit order. It combines a trigger with a limit on the acceptable execution price. The trade-off is that the order may remain unfilled if that price is unavailable.</p>
+      <p>Order names and mechanics vary. Check whether your instrument and platform support this instruction and how it behaves before relying on the label.</p>
+
+      <h3>Your stop and position size work together</h3>
+      <p>The stop distance and trade size determine the estimated USD loss. If you move the stop farther away without reducing the size, the planned loss increases. Recalculate the estimate whenever one of those inputs changes.</p>
+      <p>A stop also does not replace the current <a href="/glossary/daily-drawdown-limit">daily drawdown limit</a> or <a href="/glossary/overall-drawdown-limit">overall drawdown limit</a> for your exact account. Your firm's current dashboard and rulebook decide whether a result is a breach.</p>
+
+      <h3>Use the stop as one part of the plan</h3>
+      <p>Your written setup should explain what invalidates the trade, how size is calculated, and what you will record if the exit differs from the plan. The stop provides the risk side of the <a href="/glossary/risk-reward-ratio">risk-reward ratio</a>. The <a href="/blogs/prop-firm-risk-management">forex and prop-firm risk-management guide</a> explains the wider process.</p>
     `
   },
   {
     slug: 'risk-per-trade',
     title: 'Risk Per Trade',
-    shortDefinition: 'The maximum planned loss for one trade, stated as money, account percentage, or risk units if the stop is reached.',
+    shortDefinition: 'Risk per trade is the loss amount planned before one trade if the exit fills near the expected price. It is not a guaranteed maximum or a universal percentage.',
     category: 'Risk Management',
-    updatedAt: '2026-09-20',
+    updatedAt: '2026-10-05',
     relatedTerms: ['position-sizing', 'stop-loss', 'daily-drawdown-limit'],
-    sourceIds: ['PFR-002', 'PFR-006', 'PLAI-002'],
+    guide: { href: '/blogs/prop-firm-risk-management', label: 'Use risk per trade inside the wider prop-firm risk workflow' },
+    visualNote: {
+      src: '/glossary/images/risk-per-trade-plan-vs-result-note.webp',
+      alt: 'Handwritten fictional risk-per-trade note separating a 50 dollar plan, ticket estimate, and realised result',
+      caption: 'The percentage is an input to the plan, not a universal rule. The realised result can differ. Click or tap to enlarge.',
+      label: 'Open the risk-per-trade plan-versus-result learning note at a larger size',
+    },
+    sourceIds: ['RES-013', 'PFR-002', 'PFR-006', 'PLAI-002'],
     sources: [
-      { id: 'PFR-002', label: 'FTMO trading objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-19' },
-      { id: 'PFR-006', label: 'FundedNext maximum daily loss', url: 'https://help.fundednext.com/en/articles/8019914-what-is-the-maximum-daily-loss-limit', checkedOn: '2026-09-19' },
-      { id: 'PLAI-002', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
+      { id: 'RES-013', label: 'CME Group — Proper Position Size', url: 'https://www.cmegroup.com/education/courses/trade-and-risk-management/proper-position-size', checkedOn: '2026-10-05' },
+      { id: 'PFR-002', label: 'FTMO trading objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-10-04' },
+      { id: 'PFR-006', label: 'FundedNext maximum daily loss', url: 'https://help.fundednext.com/en/articles/8019914-what-is-the-maximum-daily-loss-limit', checkedOn: '2026-10-04' },
+      { id: 'PLAI-002', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
     ],
-    proplogConnection: 'PropLogAI lets you manually record trade details, notes, emotions, and rule adherence. That record can be used to compare planned loss with the result you logged.',
+    proplogConnection: 'PropLogAI lets you manually record trade details, notes and rule adherence. You can compare the planned risk with the result you entered later, but PropLogAI is not a broker feed or live breach monitor.',
     fullContent: `
-      <h3>What is Risk Per Trade?</h3>
-      <p>Risk per trade is the loss planned before entry if the stop is filled at the expected price. It can be recorded as a currency amount, a percentage of the account reference value, or one risk unit (1R). It is an input to position sizing, not a universal percentage.</p>
-      <h3>Basic Calculation</h3>
-      <p><strong>Planned risk amount = account reference value × chosen risk percentage.</strong> Position size then depends on that amount, the stop distance, instrument value, and expected costs. Slippage or gaps can make the realized loss different from the planned loss.</p>
-      <h3>Why the Firm Rule Matters</h3>
-      <ul>
-        <li><strong>Reference value:</strong> Confirm whether the relevant rule uses initial balance, daily balance, or equity.</li>
-        <li><strong>Open P&amp;L:</strong> Some daily-loss calculations include unrealized losses, swaps, and commissions.</li>
-        <li><strong>Combined exposure:</strong> Several open trades can consume the same loss allowance at once.</li>
-      </ul>
-      <h3>No Universal Setting</h3>
-      <p>A suitable limit depends on the exact firm program, strategy distribution, open positions, costs, and the trader's written plan. The FTMO and FundedNext examples in the sources show why the governing daily-loss calculation must be checked before doing the arithmetic.</p>
+      <h3>What does risk per trade mean?</h3>
+      <p>Risk per trade is the loss amount you plan before entering one trade if your exit fills near the expected price. You can write it in USD, as a selected account percentage, or as one risk unit such as 1R.</p>
+      <p>It is a planning input. It is not a guaranteed maximum loss, and there is no single percentage that suits every trader, setup, account or prop-firm program.</p>
+
+      <h3>A simple fictional calculation</h3>
+      <p>If a trader chooses a $10,000 reference and uses 0.5% only as an arithmetic example:</p>
+      <p><strong>$10,000 × 0.5% = $50 planned risk</strong></p>
+      <p>The 0.5% is a fictional selected input. It is not a PropLogAI recommendation.</p>
+
+      <h3>Planned risk, ticket estimate and realised loss</h3>
+      <ol>
+        <li><strong>Planned risk:</strong> the USD amount written into the trade plan before entry.</li>
+        <li><strong>Ticket estimate:</strong> the platform's estimated loss from the chosen entry, stop and size.</li>
+        <li><strong>Realised result:</strong> the amount recorded after the trade closes.</li>
+      </ol>
+      <p>These amounts may differ. Spread, commission, swap, slippage, a price gap or the actual fill can change the final result. The <a href="/glossary/stop-loss">stop-loss definition</a> explains the difference between the planned level, trigger and fill.</p>
+
+      <h3>How it connects to position size</h3>
+      <p>Imagine an XAUUSD breakout during the London session. The trader has selected $50 as the planned loss. At the chosen entry and stop, the ticket estimates that each 0.01 lot would lose $10.</p>
+      <p>The separate <a href="/glossary/position-sizing">position-sizing calculation</a> is:</p>
+      <p><strong>$50 ÷ $10 = 5 units of 0.01 lot = 0.05 lot</strong></p>
+      <p>The numbers explain the connection between planned risk and size. They do not recommend $50, 0.5% or 0.05 lot.</p>
+
+      <h3>One trade amount does not replace the account rules</h3>
+      <p>Several open trades can use the account's loss allowance at the same time. Check open profit and loss, costs, reset time, balance or equity rules, and combined exposure for your exact program.</p>
+      <p>Staying inside one planned trade amount does not guarantee that the account remains inside its <a href="/glossary/daily-drawdown-limit">daily drawdown limit</a> or <a href="/glossary/overall-drawdown-limit">overall drawdown limit</a>. The firm's current dashboard and rules decide the official status.</p>
+      <p>The <a href="/blogs/prop-firm-risk-management">prop-firm risk-management guide</a> connects these checks in one workflow.</p>
     `
   },
-
-  // ─── Performance Metrics (6) ───
   {
     slug: 'win-rate',
     title: 'Win Rate',
-    shortDefinition: 'The percentage of your trades that close in profit, calculated as winning trades divided by total trades.',
+    shortDefinition: 'The percentage of closed trades counted as wins in one defined sample.',
     category: 'Performance Metrics',
-    updatedAt: '2026-09-20',
+    updatedAt: '2026-10-05',
     relatedTerms: ['risk-reward-ratio', 'profit-factor', 'expectancy'],
-    sourceIds: ['PLAI-003'],
+    sourceIds: ['RES-016', 'PLAI-003'],
     sources: [
+      { id: 'RES-016', label: 'MQL5 Reference — Testing Statistics', url: 'https://www.mql5.com/en/docs/constants/environment_state/Statistics', checkedOn: '2026-10-05' },
       { id: 'PLAI-003', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
     ],
-    proplogConnection: 'PropLogAI displays win rate from logged trade data. Review it with average win, average loss, trade count, and costs rather than treating it as a complete performance score.',
+    visualNote: {
+      src: '/glossary/images/win-rate-same-sample-note.webp',
+      alt: 'Handwritten fictional XAUUSD sample showing 8 wins averaging 180 dollars, 12 losses averaging 80 dollars, a 40 percent win rate, and a positive 480 dollar result',
+      caption: 'Win rate counts how many trades won. It does not show how large the wins and losses were.',
+      label: 'Open the win-rate and outcome-size learning note at a larger size',
+    },
+    guide: { href: '/blogs/trading-performance-metrics', label: 'Read win rate with your other trading performance metrics' },
+    proplogConnection: 'PropLogAI displays win rate from the trades you logged. Review it beside trade count, average win, average loss, profit factor, costs, and rule adherence.',
     fullContent: `
-      <h3>What is Win Rate?</h3>
-      <p>Win rate is the simplest performance metric: the number of winning trades divided by the total number of trades, expressed as a percentage. If you took 100 trades and 58 were profitable, your win rate is 58%.</p>
-      <p><strong>Win rate = winning trades ÷ total closed trades × 100.</strong> Define how breakeven trades, partial exits, fees, and multi-leg positions are counted before comparing periods.</p>
-      <h3>What Win Rate Does Not Show</h3>
+      <h3>What is win rate in trading?</h3>
+      <p>Win rate is the percentage of closed trades counted as wins in one defined sample.</p>
+      <p><code>Win rate = winning closed trades ÷ total closed trades × 100</code></p>
+      <p>The percentage tells you how often the recorded trades won. It does not tell you how much the wins or losses were worth.</p>
+
+      <h3>Fictional 20-trade XAUUSD example</h3>
+      <p>Imagine you review 20 closed XAUUSD trades. The sample includes London-session liquidity-sweep setups and New York-session breakout setups. Eight trades finished with a positive recorded result and 12 finished with a negative result.</p>
+      <p><code>8 wins ÷ 20 closed trades × 100 = 40% win rate</code></p>
+      <p>The 40% describes this fictional sample. It is not a target or recommendation.</p>
+      <p>The same sample finished at +$480 because its winning trades were larger than its losing trades. The win rate alone did not show that. You need the <a href="/glossary/average-win-vs-average-loss">average win and average loss</a> and the <a href="/glossary/profit-factor">profit factor</a> to understand the size relationship.</p>
+
+      <h3>Decide what counts before calculating</h3>
+      <ol>
+        <li><strong>Closed trades:</strong> use one clear start and end date.</li>
+        <li><strong>Breakeven trades:</strong> decide whether a zero result stays in the total or is shown separately.</li>
+        <li><strong>Partial exits:</strong> decide whether several exits belong to one trade or several records.</li>
+        <li><strong>Multi-leg positions:</strong> use the same grouping rule every time.</li>
+        <li><strong>Costs:</strong> record whether spread, commission, swap and other costs are already included.</li>
+      </ol>
+      <p>If you change the counting method between periods, the percentages are not directly comparable.</p>
+
+      <h3>What win rate does not show</h3>
       <ul>
-        <li><strong>Trade size:</strong> A small win and a large win both count as one winning trade.</li>
-        <li><strong>Loss size:</strong> A high win rate can coexist with losses that outweigh the gains.</li>
-        <li><strong>Sample stability:</strong> A short sequence may not represent the longer record.</li>
-        <li><strong>Trading costs:</strong> Spread, commission, swaps, and slippage can change the net result.</li>
+        <li><strong>Outcome size:</strong> a $20 win and a $500 win both count as one win.</li>
+        <li><strong>Trade order:</strong> the percentage does not show losing streaks or the path of drawdown.</li>
+        <li><strong>Decision quality:</strong> a winning trade may still have broken the written plan.</li>
+        <li><strong>Future results:</strong> a historical percentage does not predict the next trade.</li>
       </ul>
-      <h3>Use It With Other Metrics</h3>
-      <p>Read win rate beside average win, average loss, expectancy, profit factor, and the number of trades included. Style-based ranges are not used here because they require a defined market, timeframe, rule set, cost model, and dataset.</p>
-      <p>The <a href="/blogs/trading-performance-metrics">trading performance metrics guide</a> shows how to read these numbers together using one consistent XAUUSD sample.</p>
+
+      <h3>Read it with the same sample</h3>
+      <p>Read win rate beside average win, average loss, profit factor, <a href="/glossary/expectancy">expectancy</a>, costs and the number of trades included. A higher percentage is not automatically better, and there is no universal good win rate.</p>
+      <p>The <a href="/blogs/trading-performance-metrics">trading performance metrics guide</a> walks through every number from this same fictional XAUUSD sample.</p>
     `
   },
   {
@@ -338,111 +655,290 @@ export const glossaryTerms = [
     title: 'Profit Factor',
     shortDefinition: 'Total gross profit divided by the absolute value of total gross loss for a defined set of closed trades.',
     category: 'Performance Metrics',
-    updatedAt: '2026-09-20',
+    updatedAt: '2026-10-05',
     relatedTerms: ['win-rate', 'expectancy', 'average-win-vs-average-loss'],
-    sourceIds: ['PLAI-003'],
+    sourceIds: ['RES-016', 'PLAI-003'],
     sources: [
+      { id: 'RES-016', label: 'MQL5 Reference — Testing Statistics', url: 'https://www.mql5.com/en/docs/constants/environment_state/Statistics', checkedOn: '2026-10-05' },
       { id: 'PLAI-003', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
     ],
-    proplogConnection: 'PropLogAI displays your profit factor on the dashboard alongside monthly breakdowns, so you can see how your edge evolves over time.',
+    visualNote: {
+      src: '/glossary/images/profit-factor-same-sample-note.webp',
+      alt: 'Handwritten fictional XAUUSD sample connecting a 40 percent win rate, 180 dollar average win, 80 dollar average loss, 1.50 profit factor, and positive 24 dollar expectancy',
+      caption: 'Profit factor summarises the winning and losing totals. Keep the trade count and the rest of the sample beside it.',
+      label: 'Open the profit-factor learning note at a larger size',
+    },
+    guide: { href: '/blogs/trading-performance-metrics', label: 'Read profit factor with your other trading performance metrics' },
+    proplogConnection: 'PropLogAI displays profit factor from the trades you logged. It is a historical summary, not a prediction or proof of rule compliance.',
     fullContent: `
-      <h3>What is Profit Factor?</h3>
-      <p>Profit factor is your total gross profit divided by your total gross loss (using absolute values). If your winning trades totaled $15,000 and your losing trades totaled $10,000, your profit factor is 1.5. It's a single number that captures the relationship between your wins and losses.</p>
-      <h3>How to Read It</h3>
+      <h3>What does profit factor mean?</h3>
+      <p>Profit factor compares the total winning amount with the absolute total losing amount in one defined sample of closed trades.</p>
+      <p><code>Profit factor = total winning amount ÷ absolute total losing amount</code></p>
+      <p>The ratio summarises the size relationship between the two totals. It does not show when the wins and losses happened or whether the trades followed the plan.</p>
+
+      <h3>Fictional 20-trade XAUUSD example</h3>
+      <p>Use the same fictional sample as the <a href="/glossary/win-rate">win-rate</a> definition:</p>
       <ul>
-        <li><strong>Above 1:</strong> Gross gains were larger than gross losses in the selected sample.</li>
-        <li><strong>Equal to 1:</strong> Gross gains and gross losses were equal before any excluded costs.</li>
-        <li><strong>Below 1:</strong> Gross losses were larger than gross gains in the selected sample.</li>
+        <li><strong>8 wins × $180 average win = $1,440 total winning amount.</strong></li>
+        <li><strong>12 losses × $80 average loss = $960 total losing amount.</strong></li>
       </ul>
-      <h3>Limits of the Number</h3>
-      <p>Profit factor depends on the selected dates, included trades, currency conversion, and whether costs are already reflected in each trade's result. A small or unusually favorable sample can move the ratio sharply. There is no universal threshold for a “strong” value, so compare like-for-like periods and show the trade count.</p>
-      <p>Use the <a href="/blogs/trading-performance-metrics">trading performance metrics guide</a> to connect profit factor with win rate, average win and loss, expectancy, drawdown, and the equity curve.</p>
+      <p><code>$1,440 ÷ $960 = 1.50 profit factor</code></p>
+      <p>The recorded results in this fictional sample already include its stated costs. The 1.50 describes these 20 trades only. It is not a universal target or proof of a good strategy.</p>
+
+      <h3>How to read the number</h3>
+      <ul>
+        <li><strong>Above 1:</strong> the winning total was larger than the losing total in the selected sample.</li>
+        <li><strong>Equal to 1:</strong> the two totals were equal before any excluded costs.</li>
+        <li><strong>Below 1:</strong> the losing total was larger than the winning total.</li>
+      </ul>
+      <p>These statements describe the selected records. They do not predict the next period.</p>
+
+      <h3>What if the sample has no losing trades?</h3>
+      <p>If the total losing amount is zero, the formula cannot produce a normal finite ratio. A platform may show infinity, a very large value, a blank, or another special result. Check the platform's reporting method instead of treating that display as proof of exceptional performance.</p>
+      <p>A no-loss result can also come from a very small sample. Keep the trade count and dates visible.</p>
+
+      <h3>What profit factor does not show</h3>
+      <ul>
+        <li><strong>Sequence:</strong> it does not show losing streaks or when drawdown occurred.</li>
+        <li><strong>Sample concentration:</strong> one unusually large win can move the ratio sharply.</li>
+        <li><strong>Excluded costs:</strong> a gross report may not include every spread, commission, swap or fee.</li>
+        <li><strong>Rule adherence:</strong> a positive sample can still contain trades that broke the plan.</li>
+        <li><strong>Future performance:</strong> historical profit factor does not guarantee the ratio will continue.</li>
+      </ul>
+
+      <h3>Compare like with like</h3>
+      <p>Use the same dates, closed trades, currency, grouping method and cost treatment when comparing two periods. Read profit factor beside trade count, average win, average loss, <a href="/glossary/expectancy">expectancy</a>, <a href="/glossary/drawdown">drawdown</a> and the equity curve.</p>
+      <p>The <a href="/blogs/trading-performance-metrics">trading performance metrics guide</a> connects these numbers using this same fictional XAUUSD sample.</p>
     `
   },
   {
     slug: 'expectancy',
     title: 'Expectancy',
-    shortDefinition: 'The average result per trade in a defined historical sample, calculated from win rate, loss rate, average win, and average loss.',
+    shortDefinition: 'Trading expectancy is the average net result per trade in one defined historical sample. It does not predict the next trade.',
     category: 'Performance Metrics',
+    updatedAt: '2026-10-05',
     relatedTerms: ['win-rate', 'profit-factor', 'risk-reward-ratio'],
-    proplogConnection: 'PropLogAI stores the trade results, setup labels, and session labels that can support a later expectancy review of your own logged data.',
+    guide: { href: '/blogs/trading-expectancy-calculator', label: 'Calculate expectancy from your own trade counts and averages' },
+    visualNote: {
+      src: '/glossary/images/expectancy-average-per-trade-note.webp',
+      alt: 'Handwritten fictional 20-trade XAUUSD expectancy example showing 1440 dollars of wins, 960 dollars of losses, and a 24 dollar average per trade',
+      caption: 'The +$24 is the average of this fictional sample, not a prediction for the next trade. Click or tap to enlarge.',
+      label: 'Open the trading-expectancy learning note at a larger size',
+    },
+    sourceIds: ['RES-017', 'PLAI-003'],
+    sources: [
+      { id: 'RES-017', label: 'MQL5 Programming for Traders — Testing Statistics', url: 'https://www.mql5.com/files/book/mql5book.pdf', checkedOn: '2026-10-05' },
+      { id: 'PLAI-003', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
+    ],
+    proplogConnection: 'PropLogAI organises performance metrics from the trades you logged. A historical expectancy does not predict the next trade or prove that the average will continue.',
     fullContent: `
-      <h3>What is Expectancy?</h3>
-      <p>Expectancy shows the average result per trade in a defined historical sample. The formula is: <strong>Expectancy = (Win Rate × Average Win) - (Loss Rate × Average Loss)</strong>.</p>
-      <p>Example: if your win rate is 55%, average win is $800, and average loss is $500, the calculation is (0.55 × $800) - (0.45 × $500) = $215 per trade for that sample.</p>
-      <h3>What Expectancy Can and Cannot Tell You</h3>
-      <p>Expectancy combines how often trades won with the average size of wins and losses. It does not predict the next trade or guarantee that the same average will continue.</p>
+      <h3>What is trading expectancy?</h3>
+      <p>Trading expectancy is the average net result per trade in one defined historical sample. You can express it in USD, another account currency, points or R, as long as every result uses the same unit.</p>
+      <p>Expectancy describes the selected records. It does not predict the next trade or guarantee that the same average will continue.</p>
+
+      <h3>Two ways to calculate the same average</h3>
+      <p><strong>Net result ÷ total trades = expectancy per trade</strong></p>
+      <p>You can also calculate it from the same sample:</p>
+      <p><strong>(win rate × average win) − (loss rate × average loss) = expectancy</strong></p>
+      <p>The two formulas agree only when the inputs use the same trades, dates, counting method and cost treatment.</p>
+
+      <h3>Fictional 20-trade XAUUSD example</h3>
+      <p>Use the same sample as the <a href="/glossary/win-rate">win-rate</a> and <a href="/glossary/profit-factor">profit-factor</a> definitions:</p>
       <ul>
-        <li><strong>Keep the sample visible:</strong> show the number of trades, dates, costs, and counting method.</li>
-        <li><strong>Use the same data:</strong> win rate and average win or loss must come from the same closed trades.</li>
-        <li><strong>Break it down carefully:</strong> setup or session comparisons need enough comparable trades before you draw a conclusion.</li>
+        <li><strong>8 wins × $180 average win = $1,440.</strong></li>
+        <li><strong>12 losses × $80 average loss = $960.</strong></li>
       </ul>
-      <p>Use the <a href="/blogs/trading-expectancy-calculator">trading expectancy calculator</a> to enter your own trade counts, average win, and average loss. The <a href="/blogs/trading-performance-metrics">trading performance metrics guide</a> shows how to read expectancy beside the other numbers from the same sample.</p>
+      <p><strong>$1,440 − $960 = +$480 net result</strong></p>
+      <p><strong>+$480 ÷ 20 trades = +$24 expectancy per trade</strong></p>
+      <p>You can check it with the weighted formula:</p>
+      <p><strong>(0.40 × $180) − (0.60 × $80) = $72 − $48 = +$24</strong></p>
+      <p>The +$24 is the average of these 20 fictional trades. No single trade has to finish at +$24.</p>
+
+      <h3>Keep the sample visible</h3>
+      <ol>
+        <li>Use one clear start and end date.</li>
+        <li>Use the same closed trades for win rate, average win and average loss.</li>
+        <li>Define how breakeven trades, partial exits and multi-leg positions are counted.</li>
+        <li>Use one currency or R method throughout the sample.</li>
+        <li>Record whether spread, commission, swap and other costs are already included.</li>
+      </ol>
+      <p>The <a href="/glossary/average-win-vs-average-loss">average win and average loss</a> page explains the two outcome-size inputs.</p>
+
+      <h3>Can you calculate expectancy by setup or session?</h3>
+      <p>Yes, if you have enough comparable records. For example, you might review only XAUUSD London-session liquidity-sweep setups or only New York-session breakout setups. Keep the labels and counting method consistent.</p>
+      <p>A small sample can move sharply after one unusual result. Treat the number as a review of recorded trades, not proof of a permanent edge.</p>
+
+      <h3>What should you use next?</h3>
+      <p>The <a href="/blogs/trading-expectancy-calculator">trading expectancy calculator</a> lets you enter your own counts and averages. The <a href="/blogs/trading-performance-metrics">trading performance metrics guide</a> shows how to read expectancy beside win rate, profit factor, drawdown and trade count.</p>
     `
   },
   {
     slug: 'sharpe-ratio',
     title: 'Sharpe Ratio',
-    shortDefinition: 'A risk-adjusted-return measure that compares average return above a chosen baseline with the variation of those returns.',
+    shortDefinition: 'A historic Sharpe ratio compares average return above a defined baseline with how much those returns varied during the same period.',
     category: 'Performance Metrics',
-    relatedTerms: ['equity-curve', 'drawdown', 'profit-factor'],
-    proplogConnection: 'PropLogAI can organise logged results for performance review. A Sharpe ratio still needs a defined return period, baseline, and calculation method.',
+    updatedAt: '2026-10-05',
+    relatedTerms: ['equity-curve', 'drawdown', 'consistency-rule'],
+    guide: { href: '/blogs/trading-performance-metrics', label: 'Read Sharpe ratio after the core trading performance metrics' },
+    visualNote: {
+      src: '/glossary/images/sharpe-ratio-same-inputs-note.webp',
+      alt: 'Handwritten fictional monthly Sharpe ratio calculation using 2 percent average return, 0.5 percent baseline, and 3 percent variation',
+      caption: 'Keep the period, frequency, baseline and method consistent. This historic summary does not predict the next result. Click or tap to enlarge.',
+      label: 'Open the Sharpe-ratio learning note at a larger size',
+    },
+    sourceIds: ['RES-019', 'PLAI-003'],
+    sources: [
+      { id: 'RES-019', label: 'William F. Sharpe — The Sharpe Ratio', url: 'https://web.stanford.edu/~wfsharpe/art/sr/sr.htm', checkedOn: '2026-10-05' },
+      { id: 'PLAI-003', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
+    ],
+    proplogConnection: 'PropLogAI can organise performance information from logged trades, but a Sharpe ratio still needs a defined return series, period, baseline and calculation method.',
     fullContent: `
-      <h3>What is Sharpe Ratio?</h3>
-      <p>The Sharpe ratio compares average return above a chosen baseline with the standard deviation, or variation, of returns. The return period and baseline must be defined before two results can be compared.</p>
-      <h3>Do Not Confuse It With a Prop-Firm Consistency Rule</h3>
-      <p>A prop-firm consistency rule may compare a best day or best trade with total profit. That is a different formula. Use the exact rule published for your program instead of replacing it with a Sharpe ratio.</p>
+      <h3>What is the Sharpe ratio in trading?</h3>
+      <p>A historic Sharpe ratio compares average return above a defined baseline with how much those returns varied during the same period.</p>
+      <p>In simple words, it asks: how much return above the chosen baseline was recorded for each unit of variation in the return series?</p>
+
+      <h3>The simplified historic formula</h3>
+      <p><strong>(average return − chosen baseline return) ÷ standard deviation of those returns</strong></p>
+      <p>Standard deviation is a measure of how widely the returns moved around their average. A larger value means the selected returns varied more.</p>
+
+      <h3>A fictional monthly example</h3>
+      <p>Imagine a defined series has a 2% average monthly return, a chosen monthly baseline of 0.5%, and monthly return variation of 3%:</p>
+      <p><strong>(2% − 0.5%) ÷ 3% = 0.50</strong></p>
+      <p>The 0.50 describes only this fictional return series, baseline, monthly frequency and calculation method. It is not a universal good or bad threshold.</p>
+
+      <h3>What must stay consistent?</h3>
+      <ol>
+        <li><strong>Return series:</strong> define what value each return uses.</li>
+        <li><strong>Frequency:</strong> compare daily with daily or monthly with monthly.</li>
+        <li><strong>Baseline:</strong> use the same chosen comparison return.</li>
+        <li><strong>Period:</strong> show the start and end dates.</li>
+        <li><strong>Method:</strong> state how costs and annualisation are handled.</li>
+      </ol>
+      <p>Two Sharpe ratios are not directly comparable when these inputs differ.</p>
+
+      <h3>It is not a prop-firm consistency rule</h3>
+      <p>A <a href="/glossary/consistency-rule">prop-firm consistency rule</a> may compare a best day or best trade with total profit. That is a different formula with program-specific consequences. A Sharpe ratio does not decide whether your account passed a firm rule.</p>
+
+      <h3>What does the ratio leave out?</h3>
       <ul>
-        <li><strong>Same period:</strong> compare daily returns with daily returns, not daily with monthly.</li>
-        <li><strong>Same baseline:</strong> changing the risk-free or comparison rate changes the result.</li>
-        <li><strong>Enough observations:</strong> a short record can produce an unstable ratio.</li>
+        <li>It does not show the shape of the <a href="/glossary/equity-curve">equity curve</a>.</li>
+        <li>It does not show when <a href="/glossary/drawdown">drawdown</a> happened.</li>
+        <li>It does not show tail risk, trade count or rule adherence by itself.</li>
+        <li>A higher historic value does not predict future performance.</li>
       </ul>
-      <h3>Use It as an Advanced Review Metric</h3>
-      <p>Read the ratio beside the underlying return series, drawdown, trade count, costs, and calculation assumptions. A higher historical value is not a promise of smoother future results.</p>
-      <p>Start with the simpler <a href="/blogs/trading-performance-metrics">trading performance metrics reading order</a> before adding this advanced measure.</p>
+
+      <h3>Where should a beginner start?</h3>
+      <p>Start with <a href="/glossary/win-rate">win rate</a>, <a href="/glossary/average-win-vs-average-loss">average win and average loss</a>, <a href="/glossary/expectancy">expectancy</a>, profit factor and drawdown. The <a href="/blogs/trading-performance-metrics">trading performance metrics guide</a> puts them in a practical reading order before Sharpe ratio is added as an advanced view.</p>
     `
   },
   {
     slug: 'average-win-vs-average-loss',
     title: 'Average Win vs Average Loss',
-    shortDefinition: 'The comparison between the average dollar amount of your winning trades versus your losing trades, revealing whether your winners outsize your losers.',
+    shortDefinition: 'Average win is the total winning result divided by winning trades; average loss is the total losing result divided by losing trades in the same defined sample.',
     category: 'Performance Metrics',
+    updatedAt: '2026-10-05',
     relatedTerms: ['profit-factor', 'expectancy', 'risk-reward-ratio'],
-    proplogConnection: 'PropLogAI stores logged trade results so you can compare the average size of winning and losing trades in a defined period.',
+    guide: { href: '/blogs/trading-expectancy-calculator', label: 'Use your average win and loss in the expectancy calculator' },
+    visualNote: {
+      src: '/glossary/images/average-win-vs-average-loss-note.webp',
+      alt: 'Handwritten fictional XAUUSD sample showing a 180 dollar average win, 80 dollar average loss, and 2.25 to 1 realised size ratio',
+      caption: 'Read the realised size ratio with win rate. It is different from a planned risk-reward ratio. Click or tap to enlarge.',
+      label: 'Open the average-win-versus-average-loss learning note at a larger size',
+    },
+    sourceIds: ['RES-018', 'PLAI-003'],
+    sources: [
+      { id: 'RES-018', label: 'MQL5 — Strategy Tester metric calculations', url: 'https://www.mql5.com/en/articles/20917', checkedOn: '2026-10-05' },
+      { id: 'PLAI-003', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
+    ],
+    proplogConnection: 'PropLogAI can organise average winning and losing results from trades a user logged. The result depends on those records and counting choices.',
     fullContent: `
-      <h3>What is Average Win vs Average Loss?</h3>
-      <p>This metric compares the average size of your profitable trades against the average size of your losing trades. If your average winner is $600 and your average loser is $400, your win/loss ratio is 1.5:1. It directly reflects your trade management — how you handle entries, exits, and stop losses.</p>
-      <h3>Reading the Ratio</h3>
+      <h3>What do average win and average loss mean?</h3>
+      <p>Average win is the total result from winning trades divided by the number of winning trades. Average loss is the absolute total result from losing trades divided by the number of losing trades in the same defined sample.</p>
+      <p>These two averages describe realised results. They do not tell you what was planned before each trade.</p>
+
+      <h3>Fictional 20-trade XAUUSD example</h3>
+      <p>Use the same sample as the <a href="/glossary/win-rate">win-rate</a>, <a href="/glossary/profit-factor">profit-factor</a> and <a href="/glossary/expectancy">expectancy</a> definitions:</p>
       <ul>
-        <li><strong>Average win > average loss (ratio above 1:1):</strong> Your winners outsize your losers — you can be profitable even with a sub-50% win rate</li>
-        <li><strong>Average win = average loss (ratio near 1:1):</strong> You need a win rate above 50% to make money</li>
-        <li><strong>Average win < average loss (ratio below 1:1):</strong> Your losers are bigger than your winners — you need a very high win rate to compensate</li>
+        <li><strong>8 winning trades produced $1,440: $1,440 ÷ 8 = $180 average win.</strong></li>
+        <li><strong>12 losing trades lost $960: $960 ÷ 12 = $80 average loss.</strong></li>
       </ul>
-      <h3>Check the Reason Behind the Ratio</h3>
-      <p>A smaller average win may come from the setup, exit rules, partial exits, costs, or a few large losses. Use the trade notes and screenshots to investigate. The ratio alone cannot diagnose the cause or tell you what to change.</p>
-      <p>Use the <a href="/blogs/trading-expectancy-calculator">trading expectancy calculator</a> to combine these averages with your winning and losing trade counts. The <a href="/blogs/trading-performance-metrics">trading performance metrics guide</a> shows why this comparison must be read beside win rate rather than alone.</p>
+      <p>You can describe the realised outcome-size relationship as:</p>
+      <p><strong>$180 ÷ $80 = 2.25, or 2.25:1</strong></p>
+      <p>This ratio describes the average sizes in these 20 fictional trades. It does not guarantee that the sample is profitable and does not predict the next trade.</p>
+
+      <h3>Realised size ratio or planned risk-reward ratio?</h3>
+      <p>The 2.25:1 above comes from completed trades. A <a href="/glossary/risk-reward-ratio">planned risk-reward ratio</a> compares intended loss and intended reward before entry. Slippage, partial exits, costs and trade management can make the realised result different from the plan.</p>
+
+      <h3>Why must you read it with win rate?</h3>
+      <p>Average outcome size explains only one part of the sample. The number of wins and losses also matters. Two samples can have the same $180 average win and $80 average loss but different overall results because their <a href="/glossary/win-rate">win rates</a> differ.</p>
+      <p>The <a href="/glossary/expectancy">expectancy</a> calculation combines frequency and average outcome size.</p>
+
+      <h3>Keep the sample rules visible</h3>
+      <ol>
+        <li>Use one clear start and end date.</li>
+        <li>Define how breakeven trades, partial exits and multi-leg positions are counted.</li>
+        <li>Use one currency or R method throughout.</li>
+        <li>State whether spread, commission, swap and other costs are included.</li>
+        <li>Check whether one unusual winner or loser moved a small-sample average.</li>
+      </ol>
+
+      <h3>What should you use next?</h3>
+      <p>The <a href="/blogs/trading-expectancy-calculator">trading expectancy calculator</a> lets you enter winning and losing counts and averages. The <a href="/blogs/trading-performance-metrics">trading performance metrics guide</a> shows how to read these figures beside profit factor, expectancy, drawdown and trade count.</p>
     `
   },
   {
     slug: 'equity-curve',
     title: 'Equity Curve',
-    shortDefinition: 'A graph of cumulative account balance or equity across time or trade order, showing gains, losses, flat periods, and drawdowns.',
+    shortDefinition: 'A trading equity curve is a line showing how a defined account value changes across time or trade order. Check whether it includes only closed results or also open profit and loss.',
     category: 'Performance Metrics',
-    relatedTerms: ['drawdown', 'sharpe-ratio', 'profit-factor'],
-    proplogConnection: 'PropLogAI can display performance from logged trades and keep user-entered setup, session, emotion, and rule-adherence records beside the results.',
+    updatedAt: '2026-10-06',
+    relatedTerms: ['drawdown', 'performance-report', 'profit-factor'],
+    sourceIds: ['RES-020', 'PLAI-003'],
+    sources: [
+      { id: 'RES-020', label: 'MetaTrader 5 — Trading Report', url: 'https://www.metatrader5.com/en/terminal/help/trading/report', checkedOn: '2026-10-06' },
+      { id: 'PLAI-003', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
+    ],
+    visualNote: {
+      src: '/glossary/images/equity-curve-balance-vs-equity-note.webp',
+      alt: 'Handwritten five-trade XAUUSD account path ending with a 10,200 dollar balance and a comparison showing 10,110 dollar equity after an open 90 dollar loss',
+      caption: 'The balance and equity can differ when a position is still open. Check what your chart includes. Click or tap to enlarge.',
+      label: 'Open the balance-versus-equity learning note at a larger size',
+    },
+    guide: { href: '/blogs/trading-performance-metrics', label: 'Read the equity curve with your other trading performance metrics' },
+    proplogConnection: 'PropLogAI can display an equity curve from trades you logged. Its accuracy depends on those records and the values included in the curve.',
     fullContent: `
-      <h3>What is an Equity Curve?</h3>
-      <p>An equity curve plots cumulative balance or equity across time or trade order. It helps you see the path taken to reach the final result, including gains, losses, flat periods, and drawdowns.</p>
-      <h3>Reading Your Equity Curve</h3>
+      <h3>What is an equity curve in trading?</h3>
+      <p>An equity curve is a line showing how a defined account value changes across time or trade order. The horizontal line normally shows time or the order of trades. The vertical line shows account value or a cumulative result.</p>
+      <p>Before reading the shape, check what the line includes. A balance curve may use only closed results. An equity curve may also include the current profit or loss from positions that are still open. Platforms and journals can use these labels differently.</p>
+
+      <h3>Fictional five-trade XAUUSD example</h3>
+      <p>Imagine the account starts at <strong>$10,000</strong> and records five closed XAUUSD results:</p>
+      <p><strong>+$120, −$80, +$60, −$40, +$140</strong></p>
+      <p>The closed-result path is:</p>
+      <p><strong>$10,000 → $10,120 → $10,040 → $10,100 → $10,060 → $10,200</strong></p>
+      <p>The final balance is $10,200. If an open XAUUSD position is currently showing <strong>−$90</strong>, the balance can remain $10,200 while live equity is <strong>$10,110</strong>. This is why you must check whether the graph includes open positions.</p>
+
+      <h3>What can the shape tell you?</h3>
       <ul>
-        <li><strong>Upward section:</strong> cumulative results increased during that part of the sample.</li>
-        <li><strong>Flat section:</strong> cumulative results changed little during that part.</li>
-        <li><strong>Uneven section:</strong> check trade size, setup, session, and result distribution.</li>
-        <li><strong>Sharp drop:</strong> inspect the original trades and compare the decline with the relevant account limits.</li>
+        <li><strong>Upward section:</strong> the selected cumulative value increased during that part of the sample.</li>
+        <li><strong>Flat section:</strong> the selected value changed little during that part.</li>
+        <li><strong>Uneven section:</strong> open the original trades and check result size, setup, session and position size.</li>
+        <li><strong>Decline from an earlier peak:</strong> measure the <a href="/glossary/drawdown">drawdown</a> and check which trades or open positions created it.</li>
       </ul>
-      <h3>Equity Curve for Prop Firm Traders</h3>
-      <p>Your equity curve can help you review how close the logged account came to a loss limit. It does not replace the firm's current dashboard or rules, and there is no universal ideal curve or best-day percentage across prop-firm programs.</p>
-      <p>Use the <a href="/blogs/trading-performance-metrics">trading performance metrics guide</a> to read the curve beside drawdown, expectancy, profit factor, and the sample behind them.</p>
+      <p>A rising or smooth curve does not prove discipline, safety or future profit. The line describes the recorded path. It does not explain every decision behind it.</p>
+
+      <h3>What can change the line?</h3>
+      <ol>
+        <li>Deposits and withdrawals.</li>
+        <li>Open profit or loss.</li>
+        <li>Spread, commission and swap.</li>
+        <li>Missing or duplicate trade records.</li>
+        <li>How partial exits and grouped positions are counted.</li>
+      </ol>
+
+      <h3>What should you read with the curve?</h3>
+      <p>Use a <a href="/glossary/performance-report">trading performance report</a> to review the line with the original trades, trade count and <a href="/glossary/drawdown">drawdown</a>. <a href="/glossary/expectancy">Expectancy</a> and <a href="/glossary/profit-factor">profit factor</a> add other views of the same defined sample.</p>
+      <p>The <a href="/blogs/trading-performance-metrics">trading performance metrics guide</a> shows a practical reading order. None of these historical measures predicts the next trade.</p>
     `
   },
 
@@ -450,149 +946,374 @@ export const glossaryTerms = [
   {
     slug: 'trading-plan',
     title: 'Trading Plan',
-    shortDefinition: 'A comprehensive written document defining your strategy, risk rules, entry/exit criteria, and session schedule — your complete rulebook for trading.',
+    aliases: ['Forex trading plan', 'Written trading plan'],
+    updatedAt: '2026-10-07',
+    shortDefinition: 'A trading plan is a written framework prepared before trading that says what you may trade, when you may act, what conditions must be present, how risk and exits are planned, and what you will record afterward.',
     category: 'Trading Discipline',
-    relatedTerms: ['setup-compliance', 'rule-based-trading', 'pre-market-routine'],
-    proplogConnection: 'PropLogAI lets you define your trading setups and rules in the Rulebook. The AI coach then evaluates every trade against your plan and scores your adherence.',
+    relatedTerms: ['rule-based-trading', 'setup-compliance', 'pre-market-routine', 'position-sizing', 'trading-journal'],
+    sourceIds: ['RES-011', 'RES-025', 'PLAI-002', 'PLAI-005'],
+    sources: [
+      { id: 'RES-011', label: 'Zerodha Varsity — Your trading checklist', url: 'https://zerodha.com/varsity/chapter/your-trading-checklist/', checkedOn: '2026-10-04' },
+      { id: 'RES-025', label: 'IG — What is a trading plan?', url: 'https://www.ig.com/en/ig-academy/planning-and-risk-management/what-is-a-trading-plan', checkedOn: '2026-10-06' },
+      { id: 'PLAI-002', label: 'PropLogAI — Manual trading journal', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+      { id: 'PLAI-005', label: 'PropLogAI — Rule and emotion records', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+    ],
+    visualNote: {
+      src: '/glossary/images/trading-plan-six-lines-note.webp',
+      alt: 'Handwritten six-line XAUUSD trading plan covering market, London session, Asian-high breakout and retest setup, entry confirmation, risk, and the final journal record',
+      caption: 'A plan turns a broad idea into details you can check before and after the trade. Click or tap to enlarge.',
+      label: 'Open the six-line trading plan learning note at a larger size',
+    },
+    guide: { href: '/blogs/prop-firm-trading-rulebook', label: 'Create a trading rulebook you can check before every trade' },
+    proplogConnection: 'PropLogAI lets you manually record trade details, notes, emotions and whether you followed your own rules. You still define the plan and check the exact rules that apply to your account.',
     fullContent: `
-      <h3>What is a Trading Plan?</h3>
-      <p>A trading plan is a written document that defines exactly how you will trade. It covers your strategy (what setups you trade), risk management (how much you risk), execution rules (when and how you enter/exit), and behavioral guidelines (what to do after losses, when to stop trading). Think of it as your personal trading constitution.</p>
-      <h3>Core Components of a Trading Plan</h3>
+      <h3>What is a trading plan?</h3>
+      <p>A trading plan is a written framework you prepare before trading. It tells you what you may trade, when you may act, what conditions must be present, how risk and exits are planned, and what you will record afterward.</p>
+      <p>The plan guides your decision. It does not predict the next market move or guarantee a result.</p>
+
+      <h3>What belongs in a trading plan?</h3>
+      <ol>
+        <li><strong>Market and session:</strong> the instruments and trading window you chose.</li>
+        <li><strong>Setup:</strong> the named situation you are waiting for and the conditions that define it.</li>
+        <li><strong>Entry:</strong> what must happen before you can act.</li>
+        <li><strong>Risk:</strong> the planned <a href="/glossary/stop-loss">stop loss</a>, USD loss limit and <a href="/glossary/position-sizing">position-sizing</a> method.</li>
+        <li><strong>Exit or management:</strong> what your plan allows after entry.</li>
+        <li><strong>Record and review:</strong> what you will save in your <a href="/glossary/trading-journal">trading journal</a> and check later.</li>
+      </ol>
+
+      <h3>A simple fictional XAUUSD plan</h3>
+      <p>Imagine you trade XAUUSD during your planned London session. Your setup is a breakout and retest of the Asian high.</p>
       <ul>
-        <li><strong>Market and session:</strong> Which instruments and trading sessions you focus on</li>
-        <li><strong>Setup criteria:</strong> Exact conditions that must be met before entering a trade</li>
-        <li><strong>Risk rules:</strong> Maximum risk per trade, daily loss limit, maximum positions</li>
-        <li><strong>Entry mechanics:</strong> Order type, entry trigger, position sizing formula</li>
-        <li><strong>Exit rules:</strong> Stop loss placement, take profit targets, trade management</li>
-        <li><strong>Behavioral rules:</strong> Maximum trades per day, post-loss protocol, session end time</li>
+        <li><strong>Entry condition:</strong> wait for a candle to close above the Asian high, then wait for the retest confirmation already written in your plan.</li>
+        <li><strong>Risk check:</strong> set the stop and calculate position size from your chosen USD loss limit before entry.</li>
+        <li><strong>No-trade condition:</strong> if a required condition is missing, this setup does not qualify under your plan.</li>
+        <li><strong>After the trade:</strong> record the original plan, what you did, the result and whether you followed the rule.</li>
       </ul>
-      <h3>Why Plans Fail</h3>
-      <p>Most traders write a plan once and never reference it again. The plan isn't useful as a document — it's useful as a checklist that you physically reference before every trade. The traders who pass prop firm challenges consistently report that following their plan was more important than having the perfect plan.</p>
+      <p>This is a fictional teaching example. It is not a live setup or a signal.</p>
+
+      <h3>Plan, rule and checklist: what is the difference?</h3>
+      <ul>
+        <li><strong>Trading plan:</strong> your complete written framework.</li>
+        <li><strong>Rule:</strong> one checkable condition inside the plan. <a href="/glossary/rule-based-trading">Rule-based trading</a> means using those predefined conditions during a decision.</li>
+        <li><strong>Checklist:</strong> the short list you use before one considered trade. Your <a href="/glossary/pre-market-routine">pre-market routine</a> may prepare that checklist before the session starts.</li>
+      </ul>
+      <p>A plan can still contain judgment. The useful question is whether you wrote clearly enough to check the decision later.</p>
+
+      <h3>Does a winning trade prove that you followed the plan?</h3>
+      <p>No. A winning early entry can still be marked <strong>plan not followed</strong>. A losing trade can still match every written condition. Profit or loss tells you the result; <a href="/glossary/setup-compliance">setup compliance</a> checks whether the recorded decision matched your plan.</p>
+
+      <h3>What changes for a prop-firm account?</h3>
+      <p>Firm rules can differ by program, account stage and review period. Copy the exact current rule that applies to your account into your own plan. Do not rely on a universal percentage, trade limit or reset time.</p>
+
+      <h3>What should you do next?</h3>
+      <p>Write one setup in six lines: market, session, setup, entry, risk and record. Check whether each line is clear enough to answer <strong>yes</strong>, <strong>no</strong> or <strong>not applicable</strong> before the next planned trade.</p>
+      <p>The <a href="/blogs/prop-firm-trading-rulebook">trading rulebook guide</a> shows the full writing process. Use the <a href="/blogs/trading-discipline-checklist">trading discipline checklist</a> for the short pre-trade check and the <a href="/blogs/trading-discipline-prop-firm">trading discipline guide</a> for the wider system. After the trade, use a <a href="/glossary/trade-review">trade review</a> to compare the record with the original plan.</p>
     `
   },
   {
     slug: 'setup-compliance',
     title: 'Setup Compliance',
-    shortDefinition: 'The degree to which a trade matches your predefined setup criteria — whether you followed your own rules for entry, stop loss, and target.',
+    updatedAt: '2026-10-08',
+    shortDefinition: 'Setup compliance checks whether a recorded trade matched the setup conditions written before entry. It checks the decision record, not whether the trade won or lost.',
     category: 'Trading Discipline',
-    relatedTerms: ['trading-plan', 'rule-based-trading', 'confirmation-bias'],
-    proplogConnection: 'PropLogAI tracks setup compliance on every trade. You mark whether you followed your setup, and the AI coach compares the performance of compliant vs non-compliant trades.',
+    relatedTerms: ['trading-plan', 'rule-based-trading', 'trade-review', 'overtrading', 'trading-journal'],
+    guide: { href: '/blogs/trading-discipline-checklist', label: 'Use the trading discipline checklist before a planned trade' },
+    sourceIds: ['RES-011', 'RES-022', 'RES-025', 'PLAI-002', 'PLAI-005'],
+    sources: [
+      { id: 'RES-011', label: 'Zerodha Varsity — Your trading checklist', url: 'https://zerodha.com/varsity/chapter/your-trading-checklist/', checkedOn: '2026-10-04' },
+      { id: 'RES-022', label: 'IG — Trading journal records and review', url: 'https://www.ig.com/uk/learn-to-trade/ig-academy/tools-for-traders/important-metrics?source=dailyfx', checkedOn: '2026-10-06' },
+      { id: 'RES-025', label: 'IG — What is a trading plan?', url: 'https://www.ig.com/en/ig-academy/planning-and-risk-management/what-is-a-trading-plan', checkedOn: '2026-10-06' },
+      { id: 'PLAI-002', label: 'PropLogAI — Manual trading journal', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+      { id: 'PLAI-005', label: 'PropLogAI — Rule and emotion records', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+    ],
+    visualNote: {
+      src: '/glossary/images/setup-compliance-plan-vs-record-note.webp',
+      alt: 'Handwritten XAUUSD setup-compliance note comparing six planned London-session conditions with the recorded trade, including one condition not met and one not recorded',
+      caption: 'Place the plan beside the record. Mark what was met, not met or not recorded. Click or tap to enlarge.',
+      label: 'Open the setup-compliance plan-versus-record learning note at a larger size',
+    },
+    proplogConnection: 'PropLogAI lets you manually record trade details, notes, screenshots, emotions and whether you followed your own rules. You still define the setup and check the record.',
     fullContent: `
-      <h3>What is Setup Compliance?</h3>
-      <p>Setup compliance measures whether your executed trade matched your predefined criteria. If your setup requires a support bounce with a bullish engulfing candle on the 1-hour chart during London session — did all four conditions exist when you entered? Setup compliance is binary for each criterion: you either met it or you didn't.</p>
-      <h3>Why It's the Most Revealing Metric</h3>
-      <p>Setup compliance separates the performance of your STRATEGY from the performance of your BEHAVIOR. If your compliant trades have a 58% win rate and your non-compliant trades have a 35% win rate, the diagnosis is clear: your strategy works, but your discipline doesn't. No amount of strategy optimization will fix an execution problem.</p>
-      <ul>
-        <li><strong>High compliance + profitable:</strong> Your strategy and discipline are both working</li>
-        <li><strong>High compliance + unprofitable:</strong> Your strategy needs work, but your discipline is solid</li>
-        <li><strong>Low compliance + any result:</strong> You can't evaluate your strategy because you're not executing it</li>
-      </ul>
-      <h3>Improving Compliance</h3>
-      <p>Use a physical checklist before every trade. Write down each criterion and check them off. If even one box is unchecked, don't take the trade. This simple friction — the 30 seconds it takes to fill out a checklist — is often enough to prevent impulsive entries.</p>
+      <h3>What is setup compliance?</h3>
+      <p>Setup compliance checks whether a recorded trade matched the setup conditions you wrote before entry. It answers a process question: <strong>did the recorded decision match the original setup?</strong></p>
+      <p>It does not prove that the setup is profitable, predict the next result or diagnose you as disciplined or undisciplined.</p>
+
+      <h3>What do you need for a fair check?</h3>
+      <ol>
+        <li><strong>The original setup:</strong> the conditions written before the entry.</li>
+        <li><strong>The trade record:</strong> the timestamped action, note, screenshot or other evidence showing what happened.</li>
+        <li><strong>The comparison:</strong> apply the same wording later without rewriting the earlier rule.</li>
+      </ol>
+
+      <h3>A fictional XAUUSD example</h3>
+      <p>Your <a href="/glossary/trading-plan">trading plan</a> says you may consider an XAUUSD breakout and retest of the Asian high during your planned London session.</p>
+      <ol>
+        <li>Instrument is XAUUSD: <strong>Met</strong>.</li>
+        <li>Entry is inside the planned London window: <strong>Met</strong>.</li>
+        <li>The Asian high has broken: <strong>Met</strong>.</li>
+        <li>A candle has closed above the level: <strong>Not met</strong>. The record shows an entry before the candle closed.</li>
+        <li>The planned retest confirmation appeared: <strong>Not recorded</strong>.</li>
+        <li>The <a href="/glossary/stop-loss">stop loss</a> and <a href="/glossary/position-sizing">position size</a> were set from the written USD loss limit: <strong>Met</strong>.</li>
+      </ol>
+      <p>Because a required condition was not met, the recorded trade did not fully match this setup. This is a fictional teaching example, not a live setup or signal.</p>
+
+      <h3>What does “not recorded” mean?</h3>
+      <p><strong>Not recorded</strong> means the available note or screenshot does not show enough evidence to decide. Do not silently change missing evidence to <strong>Met</strong>. Add the missing field to future records if it matters to your review.</p>
+      <p>Some conditions are simple yes-or-no checks. Others use a written range or definition. Use the wording that existed before the trade. <a href="/glossary/rule-based-trading">Rule-based trading</a> explains how those predefined conditions guide the decision.</p>
+
+      <h3>Does profit or loss prove compliance?</h3>
+      <p>No. A winning early entry can still be non-compliant. A losing trade can still match every written condition. The result and the setup check answer different questions.</p>
+      <p>One trade also cannot prove that a setup works. Evaluating performance needs a clearly defined sample, consistent labels and stated calculation choices.</p>
+
+      <h3>What should you do next?</h3>
+      <p>Open one recent trade. Put the original setup beside the record and mark each condition <strong>Met</strong>, <strong>Not met</strong> or <strong>Not recorded</strong>. Do not rewrite the original rule to make the trade fit.</p>
+      <p>Use a <a href="/glossary/trading-journal">trading journal</a> to preserve the evidence and a <a href="/glossary/trade-review">trade review</a> for the wider comparison. The <a href="/blogs/overtrading-prop-firm-challenges">overtrading guide</a> shows how repeated changes in setup, session, confirmation or size can be reviewed without judging the decision only by P&amp;L.</p>
     `
   },
   {
     slug: 'overtrading',
     title: 'Overtrading',
     aliases: ['Over trading', 'Excessive trading'],
-    updatedAt: '2026-09-25',
+    updatedAt: '2026-10-08',
     visual: 'overtrading-drift',
-    shortDefinition: 'A departure from a trader’s written process in which trade frequency, timing, size, or setup quality changes because of pressure, impulse, or recent results.',
+    shortDefinition: 'Overtrading means moving away from the trading process written before the decision, such as taking extra entries, extending the session, weakening the setup or changing size.',
     category: 'Trading Discipline',
     relatedTerms: ['fomo', 'revenge-trading', 'trading-plan'],
     guide: { href: '/blogs/overtrading-prop-firm-challenges', label: 'Review overtrading patterns in prop firm challenges' },
-    proplogConnection: 'PropLogAI lets traders record setup labels, sessions, emotions, notes, rule adherence, screenshots, and trade results. Those records can support a later review of when the trader’s own process changed; PropLogAI does not provide signals or define a universal trade limit.',
+    sourceIds: ['RES-011', 'RES-022', 'RES-024', 'RES-025', 'RES-027', 'PLAI-002', 'PLAI-005'],
+    sources: [
+      { id: 'RES-027', label: 'Zerodha Varsity — Overtrading and Bad Ideas', url: 'https://zerodha.com/varsity/chapter/overtrading-and-bad-ideas/', checkedOn: '2026-10-08' },
+      { id: 'RES-011', label: 'Zerodha Varsity — Your trading checklist', url: 'https://zerodha.com/varsity/chapter/your-trading-checklist/', checkedOn: '2026-10-04' },
+      { id: 'RES-022', label: 'IG — Trading journal records and review', url: 'https://www.ig.com/uk/learn-to-trade/ig-academy/tools-for-traders/important-metrics?source=dailyfx', checkedOn: '2026-10-06' },
+      { id: 'RES-024', label: 'NIST — Correlation does not prove causation', url: 'https://www.itl.nist.gov/div898/handbook/ppc/section1/ppc136.htm', checkedOn: '2026-10-06' },
+      { id: 'RES-025', label: 'IG — What is a trading plan?', url: 'https://www.ig.com/en/ig-academy/planning-and-risk-management/what-is-a-trading-plan', checkedOn: '2026-10-06' },
+      { id: 'PLAI-002', label: 'PropLogAI — Manual trading journal', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+      { id: 'PLAI-005', label: 'PropLogAI — Rule and emotion records', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+    ],
+    proplogConnection: 'PropLogAI lets you manually record the setup, session, size, emotion, notes, screenshots, P&L and whether you followed your own rules. It can organise those records for later review; it does not detect overtrading in real time, block orders or define a universal trade limit.',
     fullContent: `
-      <h3>What is Overtrading?</h3>
-      <p>Overtrading means that a trader’s decisions have moved away from their documented process. The change may involve trade frequency, session timing, setup quality, position size, or the reason for entering. It is measured against the trader’s plan, not against a universal number of trades.</p>
-      <p>A high-frequency strategy can produce many valid entries. A slower strategy can drift after one unplanned trade. The useful question is whether the decision still matched the written setup, session, checklist, and account rules.</p>
-      <h3>High Activity vs Overtrading</h3>
+      <h3>What is overtrading?</h3>
+      <p>Overtrading means moving away from the trading process you wrote before the decision. The change may involve extra entries, session timing, setup quality, confirmation, position size or the reason for entering.</p>
+      <p>It is not a universal number of trades. A high-frequency plan can produce many valid entries. A slower plan can drift after one unplanned trade. Compare the decision with your <a href="/glossary/trading-plan">trading plan</a>, not with somebody else's trade count.</p>
+
+      <h3>High activity and overtrading are different</h3>
       <ul>
-        <li><strong>High activity:</strong> Several entries qualify under the same written rules and are recorded consistently.</li>
-        <li><strong>Frequency drift:</strong> Extra trades appear after a loss, win, missed move, or quiet period without a matching planned setup.</li>
-        <li><strong>Session drift:</strong> Trading continues into an unplanned session because stopping feels difficult.</li>
-        <li><strong>Setup drift:</strong> The trader weakens confirmation requirements or changes the setup label after entry.</li>
-        <li><strong>Size drift:</strong> Position size changes because of the previous result rather than the documented sizing process.</li>
+        <li><strong>High activity:</strong> several entries meet the same written rules and are recorded consistently.</li>
+        <li><strong>Frequency change:</strong> extra trades appear without another planned setup.</li>
+        <li><strong>Session change:</strong> you continue into a session that was not in your plan.</li>
+        <li><strong>Setup or confirmation change:</strong> you weaken a condition or rename the setup after entry.</li>
+        <li><strong>Size change:</strong> you change size because of the previous result instead of using the written method.</li>
       </ul>
-      <h3>Fictional XAUUSD Example</h3>
-      <p>A trader records an XAUUSD plan using IST timestamps: trade only during the London session, wait for an Asian-session liquidity sweep, and require a breakout candle to close. The first trade follows the checklist and ends at <strong>−$38</strong>. Later, the trader enters a New York-session breakout after a missed move and writes “wanted to recover the loss.” The second decision is reviewable as overtrading because the session, setup confirmation, and reason changed—not because it was simply the second trade.</p>
-      <h3>What to Record</h3>
-      <ul>
-        <li>Instrument, session, setup name, and timestamp timezone.</li>
-        <li>Whether the setup and confirmation matched the written plan.</li>
-        <li>Trade number in the session and the result of the previous trade.</li>
-        <li>Emotion or behaviour tag before entry.</li>
-        <li>Any change in size, timing, or account-rule compliance.</li>
-        <li>A factual reason for the entry and one point for later <a href="/glossary/trade-review">trade review</a>.</li>
-      </ul>
-      <h3>Related Behaviours</h3>
-      <p><a href="/glossary/revenge-trading">Revenge trading</a> describes a reaction to a loss or frustration. <a href="/glossary/fomo">FOMO</a> describes pressure created by a move that appears to be leaving without the trader. Either can contribute to overtrading, but the terms are not interchangeable. Overtrading is the observable change in the trading process.</p>
-      <h3>Review the Pattern</h3>
-      <p>Use stable labels and compare similar entries rather than judging one isolated result. The practical guide explains how to review trade count, session drift, setup quality, and rule adherence without treating profit or loss as proof that the decision was sound. A consistent <a href="/glossary/trading-journal">trading journal</a> preserves the evidence needed for that comparison.</p>
+
+      <h3>A fictional XAUUSD example</h3>
+      <p>You record an XAUUSD plan using IST timestamps: trade only during the London session, wait for price to move beyond the Asian range and return, then require a breakout candle to close.</p>
+      <p>The first trade follows the checklist and ends at <strong>−$38</strong>. Later, you enter a New York-session breakout after a missed move and write “wanted to recover the loss.” The later decision is reviewable as overtrading because the session, confirmation and reason changed—not because it was simply the second trade.</p>
+      <p>This is a fictional teaching example, not a live setup or signal.</p>
+
+      <h3>What should you check?</h3>
+      <ol>
+        <li><strong>Setup:</strong> did the entry meet the same conditions written before the session?</li>
+        <li><strong>Confirmation:</strong> did the required candle close or checklist finish?</li>
+        <li><strong>Session:</strong> was the entry inside the planned time window?</li>
+        <li><strong>Size:</strong> did you use the same documented sizing method?</li>
+        <li><strong>Reason:</strong> would you take the same trade if the previous result were <strong>$0</strong>?</li>
+      </ol>
+      <p><a href="/glossary/setup-compliance">Setup compliance</a> can help you compare these written conditions with the recorded action. Profit or loss does not decide whether the process changed.</p>
+
+      <h3>Overtrading, revenge trading and FOMO are different</h3>
+      <p><a href="/glossary/revenge-trading">Revenge trading</a> means recovering a recent loss becomes the purpose of the next decision. <a href="/glossary/fomo">FOMO</a> is pressure to act because a move appears to be leaving without you. Either may appear beside overtrading, but the terms are not interchangeable. Overtrading is the wider change from the written process.</p>
+
+      <h3>What should you record?</h3>
+      <p>Record the instrument, session, setup name, confirmation, size method, timestamp timezone, previous result, feeling, entry reason and whether the action matched your rules. Keep the feeling and decision change as separate facts; a journal association does not prove that one caused the other.</p>
+      <p>A <a href="/glossary/trading-journal">trading journal</a> preserves the record. A <a href="/glossary/trade-review">trade review</a> compares several similar decisions without judging the process only by P&amp;L.</p>
+
+      <h3>What should you do next?</h3>
+      <p>Before another decision, write one sentence: <strong>What changed between my plan and this entry?</strong> Then compare several similar records before calling it a repeated pattern.</p>
+      <p>The <a href="/blogs/overtrading-prop-firm-challenges">overtrading guide</a> gives the full review workflow. Use the <a href="/blogs/trading-discipline-prop-firm">trading discipline guide</a> for the wider process.</p>
     `
   },
   {
     slug: 'pre-market-routine',
     title: 'Pre-Market Routine',
-    shortDefinition: 'A structured preparation process completed before trading begins, including market analysis, level marking, news checks, and mental readiness assessment.',
+    updatedAt: '2026-10-08',
+    shortDefinition: 'A pre-market routine is a short sequence you complete before your planned trading session so the setup, account rules, risk and no-trade conditions are written before you consider an entry.',
     category: 'Trading Discipline',
-    relatedTerms: ['trading-plan', 'setup-compliance', 'trade-management'],
-    proplogConnection: 'PropLogAI encourages consistent routines through daily journal entries. The AI coach correlates your pre-market preparation habits with your trading outcomes.',
+    relatedTerms: ['trading-plan', 'rule-based-trading', 'setup-compliance', 'trading-journal'],
+    guide: { href: '/blogs/trading-discipline-checklist', label: 'Use the trading discipline checklist before a planned entry' },
+    sourceIds: ['RES-011', 'RES-022', 'RES-025', 'PLAI-002', 'PLAI-005'],
+    sources: [
+      { id: 'RES-011', label: 'Zerodha Varsity — Your trading checklist', url: 'https://zerodha.com/varsity/chapter/your-trading-checklist/', checkedOn: '2026-10-04' },
+      { id: 'RES-022', label: 'IG — Trading journal records and review', url: 'https://www.ig.com/uk/learn-to-trade/ig-academy/tools-for-traders/important-metrics?source=dailyfx', checkedOn: '2026-10-06' },
+      { id: 'RES-025', label: 'IG — What is a trading plan?', url: 'https://www.ig.com/en/ig-academy/planning-and-risk-management/what-is-a-trading-plan', checkedOn: '2026-10-06' },
+      { id: 'PLAI-002', label: 'PropLogAI — Manual trading journal', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+      { id: 'PLAI-005', label: 'PropLogAI — Rule and emotion records', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+    ],
+    visualNote: {
+      src: '/glossary/images/pre-market-routine-london-note.webp',
+      alt: 'Handwritten pre-London-session XAUUSD checklist covering the calendar and firm rules, setup, confirmation and invalidation, USD risk and stop, and no-trade condition',
+      caption: 'Prepare the checkable record before the planned session. The example uses IST only to record time. Click or tap to enlarge.',
+      label: 'Open the pre-market routine XAUUSD checklist learning note at a larger size',
+    },
+    proplogConnection: 'PropLogAI lets you manually save the planned session, setup, notes, screenshots, emotion tag and whether you followed your own rules. It organises the record for later review; it does not decide whether you are ready or guarantee the quality of a trade.',
     fullContent: `
-      <h3>What is a Pre-Market Routine?</h3>
-      <p>A pre-market routine is a structured sequence of steps you complete before placing any trades. It shifts your brain from "casual screen time" mode into "professional execution" mode. Like a pilot's pre-flight checklist, it ensures nothing critical is overlooked and puts you in the right mental state.</p>
-      <h3>Sample Pre-Market Routine</h3>
+      <h3>What is a pre-market routine in trading?</h3>
+      <p>A pre-market routine is a short sequence you complete before your planned trading session. It puts the setup, account rules, risk and no-trade conditions into words before price movement creates pressure.</p>
+      <p>For a forex trader, “pre-market” does not have to mean before an exchange opens. If you trade from India, it may mean preparing before your planned London or New York session and recording the time in IST.</p>
+
+      <h3>A fictional XAUUSD London-session routine</h3>
+      <ol>
+        <li><strong>Check the calendar and firm rules:</strong> review the events and exact current account rules that apply to your planned window.</li>
+        <li><strong>Write the session and setup:</strong> record <strong>XAUUSD</strong>, <strong>London session</strong> and the setup name in your journal.</li>
+        <li><strong>Mark only the levels your setup uses:</strong> this fictional setup uses the Asian high and low. Your setup may use different information.</li>
+        <li><strong>Write confirmation and invalidation:</strong> record the required breakout close, retest and the condition that cancels the idea.</li>
+        <li><strong>Write risk and stop:</strong> record the planned USD loss and why the stop belongs at that level.</li>
+        <li><strong>Write the no-trade condition:</strong> state what must be missing or present for you to make no entry.</li>
+      </ol>
+      <p>Save the routine before considering an entry. This is a fictional preparation example, not a signal or a universal method.</p>
+
+      <h3>Routine, plan and checklist are different</h3>
       <ul>
-        <li><strong>Economic calendar check (2 min):</strong> Flag high-impact news events that could affect your pairs</li>
-        <li><strong>Higher timeframe analysis (5 min):</strong> Daily and 4H structure, trend direction, key levels</li>
-        <li><strong>Level marking (5 min):</strong> Mark support/resistance, supply/demand zones on your trading timeframe</li>
-        <li><strong>Setup scanning (5 min):</strong> Identify which pairs have potential setups forming</li>
-        <li><strong>Mental check (1 min):</strong> Rate your focus level. If below 7/10, reduce risk or skip the session</li>
+        <li><strong><a href="/glossary/trading-plan">Trading plan:</a></strong> the wider personal framework for what, when, why and how much you trade.</li>
+        <li><strong>Pre-market routine:</strong> the preparation sequence completed before your planned session.</li>
+        <li><strong>Checklist:</strong> the short set of conditions checked for one considered decision.</li>
       </ul>
-      <h3>Why Routines Work</h3>
-      <p>Consistency creates quality. Traders who do the same preparation every day make fewer impulsive decisions because they've already identified their opportunities. The routine itself becomes an anchor that separates "trading time" from "screen watching time." Without a routine, you're more likely to open a chart, see movement, and chase it.</p>
+      <p><a href="/glossary/rule-based-trading">Rule-based trading</a> explains how predefined conditions guide the decision. <a href="/glossary/setup-compliance">Setup compliance</a> checks later whether the recorded action matched those conditions.</p>
+
+      <h3>Should every trader use the same routine?</h3>
+      <p><strong>No.</strong> Your routine should match your strategy and the exact rules of your account. If your setup does not use Asian-session levels, do not add them only because this example does. There is no universal number of minutes, focus score, timeframe or market level that fits every trader.</p>
+
+      <h3>What does completing the routine prove?</h3>
+      <p>Completing the routine does not guarantee a valid setup, rule compliance, emotional control or profit. It creates a record that you can compare with the later decision.</p>
+      <p>A <a href="/glossary/trading-journal">trading journal</a> preserves the preparation. A later <a href="/glossary/trade-review">trade review</a> can compare it with the actual action, while <a href="/glossary/position-sizing">position sizing</a>, <a href="/glossary/risk-per-trade">risk per trade</a> and the <a href="/glossary/stop-loss">stop loss</a> explain the risk fields.</p>
+
+      <h3>What should you do next?</h3>
+      <p>Write a five-step routine for your next planned session using your own setup and current account rules. Use the <a href="/blogs/trading-discipline-checklist">trading discipline checklist</a> for the practical pre-entry check, the <a href="/blogs/prop-firm-trading-rulebook">prop-firm rulebook guide</a> for the wider rule process and the <a href="/blogs/trading-discipline-prop-firm">trading discipline guide</a> for the full cluster.</p>
     `
   },
   {
     slug: 'trade-management',
     title: 'Trade Management',
-    shortDefinition: 'The decisions you make after entering a trade — adjusting stops, scaling in or out, trailing stops, or closing early based on changing market conditions.',
+    updatedAt: '2026-10-08',
+    shortDefinition: 'Trade management means the decisions and actions taken after a position opens and before it is fully closed, compared with the management rules written before entry.',
     category: 'Trading Discipline',
-    relatedTerms: ['stop-loss', 'risk-reward-ratio', 'loss-aversion'],
-    proplogConnection: 'PropLogAI records your entry, exit, and stop loss to calculate how you managed each trade. The AI coach identifies patterns in your trade management — like consistently closing too early.',
+    relatedTerms: ['trading-plan', 'stop-loss', 'risk-reward-ratio', 'setup-compliance', 'trade-review'],
+    guide: { href: '/blogs/trading-discipline-checklist', label: 'Check the plan before entry with the trading discipline checklist' },
+    sourceIds: ['RES-014', 'RES-015', 'RES-022', 'RES-025', 'PLAI-001', 'PLAI-002'],
+    sources: [
+      { id: 'RES-014', label: 'CME Group — Risk management and a trade plan', url: 'https://www.cmegroup.com/education/courses/building-a-trade-plan/risk-management-and-your-trade-plan', checkedOn: '2026-10-05' },
+      { id: 'RES-015', label: 'FINRA — Stop-order trigger and execution risk', url: 'https://www.finra.org/investors/insights/stop-orders-factors-consider-during-volatile-markets', checkedOn: '2026-10-05' },
+      { id: 'RES-022', label: 'IG — Trading journal records and review', url: 'https://www.ig.com/uk/learn-to-trade/ig-academy/tools-for-traders/important-metrics?source=dailyfx', checkedOn: '2026-10-06' },
+      { id: 'RES-025', label: 'IG — What is a trading plan?', url: 'https://www.ig.com/en/ig-academy/planning-and-risk-management/what-is-a-trading-plan', checkedOn: '2026-10-06' },
+      { id: 'PLAI-001', label: 'PropLogAI — Journal-data pattern analysis', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+      { id: 'PLAI-002', label: 'PropLogAI — Manual trading journal', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+    ],
+    visualNote: {
+      src: '/glossary/images/trade-management-before-after-note.webp',
+      alt: 'Handwritten XAUUSD trade-management note comparing the original stop, one allowed trigger and no-adding rule with the actual action, time and reason after entry',
+      caption: 'Write the allowed action before entry, then compare it with what you actually did. Click or tap to enlarge.',
+      label: 'Open the before-entry versus after-entry trade-management learning note at a larger size',
+    },
+    proplogConnection: 'PropLogAI lets you manually record entry, exit, stop, notes, screenshots and whether you followed your own rules. Journal analysis can organise saved records; it does not manage the open position or provide a signal.',
     fullContent: `
-      <h3>What is Trade Management?</h3>
-      <p>Trade management is everything that happens between opening and closing a position. It includes decisions about moving stop losses, taking partial profits, adding to positions, and deciding when to exit. For many traders, management is more important than the entry — you can enter at a mediocre level but manage the trade well, and still profit.</p>
-      <h3>Common Trade Management Approaches</h3>
+      <h3>What is trade management?</h3>
+      <p>Trade management means the decisions and actions taken after a position opens and before it is fully closed. A useful review compares each action with the management rules written before entry.</p>
+      <p>The rule may allow you to leave the original stop and exit unchanged, move a stop after a named trigger, take a partial exit, close the full position or add only under stated conditions. These are examples of management choices, not universal recommendations.</p>
+
+      <h3>Why write the rule before entry?</h3>
+      <p>Your <a href="/glossary/trading-plan">trading plan</a> can say which actions are allowed and what evidence permits each action. Writing the rule before entry makes the later comparison clearer when price movement and open P&amp;L create pressure.</p>
+      <p>A management rule can still contain judgment. The aim is to make the reason clear enough to check from the record. <a href="/glossary/rule-based-trading">Rule-based trading</a> explains how predefined conditions are used during the decision.</p>
+
+      <h3>A fictional XAUUSD example</h3>
+      <p>Imagine the same XAUUSD London-session breakout-and-retest example used in the trading-plan cluster.</p>
       <ul>
-        <li><strong>Set and forget:</strong> Place stop loss and take profit, then don't touch the trade. Eliminates emotional interference but misses opportunities to optimize</li>
-        <li><strong>Active management:</strong> Adjust stops and targets based on price action. More profitable in skilled hands, but creates more opportunities for emotional mistakes</li>
-        <li><strong>Partial exits:</strong> Close half the position at 1:1 R:R, move stop to breakeven, let the rest run. Balances certainty with upside</li>
+        <li><strong>Before entry:</strong> the trader writes the original stop, one allowed management trigger and <strong>no adding</strong>.</li>
+        <li><strong>After entry:</strong> price pulls back before the allowed trigger occurs.</li>
+        <li><strong>Actual action:</strong> the trader moves the stop because they feel afraid of giving back open profit.</li>
+        <li><strong>Review:</strong> moving the stop was a management action, and it did not match the rule written before entry.</li>
       </ul>
-      <h3>The Management Paradox</h3>
-      <p>The more you watch a trade, the more likely you are to make a suboptimal decision. Studies of prop firm traders consistently show that the "set and forget" approach outperforms active management for most traders — not because it's a better strategy, but because it removes the psychological pressure of watching every tick.</p>
+      <p>The trade may later win or lose. The result does not rewrite whether the recorded action matched the original rule. This is a fictional teaching example, not a signal or instruction.</p>
+
+      <h3>What should you record?</h3>
+      <ol>
+        <li><strong>Original rule:</strong> the allowed action and its trigger.</li>
+        <li><strong>Actual action:</strong> what changed, when it changed and the reason recorded at that time.</li>
+        <li><strong>Final result:</strong> the exit and relevant costs, kept separate from the rule check.</li>
+      </ol>
+      <p>Your <a href="/glossary/trading-journal">trading journal</a> can preserve those records. Later, <a href="/glossary/setup-compliance">setup compliance</a> and a <a href="/glossary/trade-review">trade review</a> can compare the action with the original rule.</p>
+
+      <h3>Does a stop guarantee the final price?</h3>
+      <p>No. A <a href="/glossary/stop-loss">stop price</a> can be a trigger rather than the final execution price. Fast movement, gaps, the instrument, broker, platform and order type can affect the fill. Check the exact specification that applies to your account.</p>
+      <p>A <a href="/glossary/risk-reward-ratio">risk-reward ratio</a> is one planning input. It is not a universal management method or a promise that the planned reward will be realised.</p>
+
+      <h3>What should you do next?</h3>
+      <p>Before the next planned trade, write which actions are allowed after entry and what evidence would permit each action. After the trade, compare the record with those words without changing them to fit the result.</p>
+      <p>The <a href="/blogs/trading-discipline-checklist">trading discipline checklist</a> can help with the pre-entry check. Use the <a href="/blogs/trading-discipline-prop-firm">trading discipline guide</a> for the wider system.</p>
     `
   },
   {
     slug: 'rule-based-trading',
     title: 'Rule-Based Trading',
-    shortDefinition: 'An approach where every trading decision — entries, exits, sizing, and session management — follows predefined written rules rather than subjective judgment.',
+    aliases: ['Rules-based trading', 'Rule based trading system'],
+    updatedAt: '2026-10-07',
+    shortDefinition: 'Rule-based trading means making trading decisions with conditions written before the moment of action and clear enough to check later from the record.',
     category: 'Trading Discipline',
-    relatedTerms: ['trading-plan', 'setup-compliance', 'overtrading'],
-    proplogConnection: 'PropLogAI is built for rule-based traders. You define your setups in the Rulebook, and the AI coach evaluates every trade against those rules, scoring your discipline.',
+    relatedTerms: ['trading-plan', 'setup-compliance', 'pre-market-routine', 'position-sizing', 'trading-journal'],
+    sourceIds: ['RES-011', 'RES-025', 'PLAI-002', 'PLAI-005'],
+    sources: [
+      { id: 'RES-011', label: 'Zerodha Varsity — Your trading checklist', url: 'https://zerodha.com/varsity/chapter/your-trading-checklist/', checkedOn: '2026-10-04' },
+      { id: 'RES-025', label: 'IG — What is a trading plan?', url: 'https://www.ig.com/en/ig-academy/planning-and-risk-management/what-is-a-trading-plan', checkedOn: '2026-10-06' },
+      { id: 'PLAI-002', label: 'PropLogAI — Manual trading journal', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+      { id: 'PLAI-005', label: 'PropLogAI — Rule and emotion records', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+    ],
+    visualNote: {
+      src: '/glossary/images/rule-based-trading-checkable-rule-note.webp',
+      alt: 'Handwritten comparison between the vague idea XAUUSD looks strong and six checkable conditions covering instrument, London session, Asian-high break, candle close, retest, stop and size',
+      caption: 'A rule makes the decision checkable. It does not predict whether the trade will win. Click or tap to enlarge.',
+      label: 'Open the vague-idea versus checkable-rule learning note at a larger size',
+    },
+    guide: { href: '/blogs/prop-firm-trading-rulebook', label: 'Write and maintain a practical trading rulebook' },
+    proplogConnection: 'PropLogAI lets you record whether you followed your own rules with the trade details, notes, emotions and screenshots. It does not provide the rule or tell you what to trade.',
     fullContent: `
-      <h3>What is Rule-Based Trading?</h3>
-      <p>Rule-based trading means every decision you make has a predefined rule behind it. Instead of "I think EUR/USD looks bullish," the rule-based trader says: "EUR/USD has a bullish engulfing on H1, above the 200 EMA, during London session, with no high-impact news in 30 minutes — all 4 criteria met, entering long."</p>
-      <h3>Rules vs Discretion</h3>
-      <p>The debate between rule-based and discretionary trading is really about when judgment is applied. Rule-based traders apply all their judgment during strategy development and rule creation — then execute mechanically. Discretionary traders apply judgment in real-time. For prop firm challenges, rule-based approaches tend to perform better because:</p>
+      <h3>What is rule-based trading?</h3>
+      <p>Rule-based trading means making decisions with conditions you wrote before the moment of action. The conditions should be clear enough to check later from your note, timestamp, screenshot or other record.</p>
+      <p>You can follow rules manually. Rule-based trading does not automatically mean algorithmic or fully automated trading.</p>
+
+      <h3>Vague idea or checkable rule?</h3>
+      <p><strong>Vague idea:</strong> “XAUUSD looks strong.” You may understand the feeling in the moment, but the sentence does not tell you what evidence was required.</p>
+      <p><strong>Checkable rule:</strong> “During my planned London session, the Asian high has broken, a candle has closed above it, and the retest meets the confirmation written in my plan.”</p>
+      <p>The second statement gives you facts to check. It still does not predict what price will do next.</p>
+
+      <h3>A fictional six-step XAUUSD check</h3>
+      <ol>
+        <li>Is the instrument XAUUSD?</li>
+        <li>Is it the planned London-session window?</li>
+        <li>Has the Asian high broken?</li>
+        <li>Has a candle closed above the level?</li>
+        <li>Has the planned retest confirmation appeared?</li>
+        <li>Are the <a href="/glossary/stop-loss">stop loss</a> and <a href="/glossary/position-sizing">position size</a> set from the written USD risk before entry?</li>
+      </ol>
+      <p>If a required condition is missing, the setup does not qualify under this trader's written rule. That statement checks the process. It is not a signal or a forecast.</p>
+
+      <h3>Must every rule be yes or no?</h3>
+      <p>Some rules are simple yes-or-no checks. Others need a written definition or an acceptable range. The aim is not to pretend that every judgment is mechanical. The aim is to make the decision clear enough for a later review.</p>
+
+      <h3>How does it relate to a plan and setup compliance?</h3>
       <ul>
-        <li>Emotional pressure during live trading degrades real-time judgment</li>
-        <li>Rules create consistency, which prop firms explicitly reward</li>
-        <li>Inconsistent execution makes it impossible to evaluate whether your strategy works</li>
-        <li>Rules can be backtested and refined; "feelings" cannot</li>
+        <li><strong><a href="/glossary/trading-plan">Trading plan:</a></strong> the complete framework that contains the rules.</li>
+        <li><strong>Rule-based trading:</strong> using the predefined conditions while making the decision.</li>
+        <li><strong><a href="/glossary/setup-compliance">Setup compliance:</a></strong> checking afterward whether the recorded trade matched those conditions.</li>
       </ul>
-      <h3>Building Your Rules</h3>
-      <p>Start with 2-3 simple setups that you can define precisely. Each rule should be binary — yes or no, met or not met. If a criterion requires subjective interpretation ("the trend looks strong"), replace it with something measurable ("price is above the 50 EMA and the EMA is sloping up"). Ambiguous rules get broken under pressure.</p>
+      <p>A <a href="/glossary/pre-market-routine">pre-market routine</a> can help you prepare the conditions before the session. Your <a href="/glossary/trading-journal">trading journal</a> preserves what you wrote and what you actually did.</p>
+
+      <h3>Can profit or loss tell you whether the rule was followed?</h3>
+      <p>No. A winning early entry can still be marked <strong>rule not followed</strong>. A losing qualified setup can still be marked <strong>rule followed</strong>. The result and the rule check answer different questions.</p>
+
+      <h3>Should you change the rule after entry?</h3>
+      <p>Do not rewrite the earlier condition to make an open or completed trade appear valid. Record what was written before the trade. If you want to change the rule, do that separately after the trade or review period.</p>
+
+      <h3>What should you do next?</h3>
+      <p>Find one vague phrase in your own plan. Replace it with a condition you can check later from a note, timestamp or screenshot.</p>
+      <p>The <a href="/blogs/prop-firm-trading-rulebook">trading rulebook guide</a> shows the full writing process. Use the <a href="/blogs/trading-discipline-checklist">trading discipline checklist</a> for the pre-entry check and the <a href="/blogs/trading-discipline-prop-firm">trading discipline guide</a> for the wider system.</p>
     `
   },
 
@@ -600,124 +1321,228 @@ export const glossaryTerms = [
   {
     slug: 'prop-firm-challenge',
     title: 'Prop Firm Challenge',
-    shortDefinition: 'A rules-based evaluation, often on a simulated account, that a trader must complete to qualify for the firm’s next account stage.',
+    updatedAt: '2026-10-08',
+    shortDefinition: 'A prop firm challenge is an evaluation stage with a program-specific rule sheet. Reaching the profit target alone may not complete every condition.',
     category: 'Prop Firm',
-    updatedAt: '2026-10-02',
-    relatedTerms: ['funded-account', 'profit-target', 'daily-drawdown-limit'],
-    guide: { href: '/blogs/prop-firm-rules-guide', label: 'Check the exact prop firm rules before you buy' },
-    sourceIds: ['PFR-001', 'PFR-002', 'PFR-004', 'PFR-009', 'PLAI-002'],
+    relatedTerms: ['funded-account', 'profit-target', 'daily-drawdown-limit', 'overall-drawdown-limit'],
+    guide: { href: '/blogs/prop-firm-challenge-readiness', label: 'Use the complete prop firm challenge readiness check' },
+    sourceIds: ['PFR-001', 'PFR-004', 'PFR-009', 'PFR-013', 'PFR-014', 'PFR-020', 'PLAI-002', 'PLAI-005'],
     sources: [
-      { id: 'PFR-001', label: 'FTMO trading objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-19' },
-      { id: 'PFR-009', label: 'FundedNext Stellar 2-Step profit target', url: 'https://help.fundednext.com/en/articles/8021071-what-is-the-profit-target-of-the-stellar-2-step-challenge', checkedOn: '2026-09-19' },
-      { id: 'PLAI-002', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
+      { id: 'PFR-001', label: 'FTMO — 2-Step trading objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-10-08' },
+      { id: 'PFR-004', label: 'FTMO — minimum trading days', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-10-08' },
+      { id: 'PFR-009', label: 'FundedNext — Stellar 2-Step profit targets', url: 'https://help.fundednext.com/en/articles/8021071-what-is-the-profit-target-of-the-stellar-2-step-challenge', checkedOn: '2026-10-08' },
+      { id: 'PFR-020', label: 'FundedNext — CFD Challenge Terms', url: 'https://fundednext.com/cfd-challenge-terms', checkedOn: '2026-10-02' },
+      { id: 'PLAI-002', label: 'PropLogAI — Manual trading journal', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
     ],
-    proplogConnection: 'PropLogAI lets traders manually log trades, emotions, screenshots, and rule adherence. Use the journal record alongside the exact terms shown in the firm’s current dashboard and rules.',
+    visualNote: {
+      src: '/glossary/images/prop-firm-challenge-rule-sheet-note.webp',
+      alt: 'Handwritten five-step prop firm challenge rule sheet covering profit target, daily loss, overall loss, time or trading days and other program rules',
+      caption: 'A profit target is one condition. Check the complete rule sheet. Click or tap to enlarge.',
+      label: 'Open the prop firm challenge rule-sheet learning note at a larger size',
+    },
+    proplogConnection: 'PropLogAI lets you manually record the rule values, trades, notes and whether you followed your own plan. It does not decide whether the firm has passed, failed or breached the account; the firm’s current dashboard, agreement and rules remain authoritative.',
     fullContent: `
-      <h3>What is a Prop Firm Challenge?</h3>
-      <p>A prop firm challenge, evaluation, or assessment is a stage in which a trader follows a named program's objectives and loss limits. Many online programs use simulated accounts. Passing can qualify the trader for another simulated or funded-stage account under a separate contract.</p>
-      <h3>Rules Vary by Program</h3>
+      <h3>What is a prop firm challenge?</h3>
+      <p>A prop firm challenge is an evaluation stage with a rule sheet for one named program. Many online programs use simulated accounts. You must meet every condition that applies and avoid the breaches listed by that program.</p>
+      <p>Reaching the <a href="/glossary/profit-target">profit target</a> alone may not mean that you have passed.</p>
+
+      <h3>What should you copy from the rule page?</h3>
+      <ol>
+        <li><strong>Profit target:</strong> the result required for the phase.</li>
+        <li><strong><a href="/glossary/daily-drawdown-limit">Daily loss limit</a>:</strong> the daily floor and how the firm calculates it.</li>
+        <li><strong><a href="/glossary/overall-drawdown-limit">Overall loss limit</a>:</strong> the account floor and whether it moves.</li>
+        <li><strong>Time or trading-day condition:</strong> any minimum days, time limit or phase timing.</li>
+        <li><strong>Other program rules:</strong> prohibited practices and conditions such as a <a href="/glossary/consistency-rule">consistency rule</a>, when applicable.</li>
+      </ol>
+
+      <h3>A fictional $100,000 XAUUSD example</h3>
+      <p>Imagine you trade an XAUUSD breakout during the New York session and your account reaches the stated profit target. Before you call the challenge passed, check the other four lines: daily loss, overall loss, trading days or time, and every other program condition.</p>
+      <p>The result may satisfy the target while another required condition is still incomplete. The firm’s current dashboard and rule page decide the status.</p>
+
+      <h3>Two current examples</h3>
+      <p><strong>Checked 8 October 2026.</strong></p>
       <ul>
-        <li><strong>Objectives:</strong> A program may set one or more profit targets.</li>
-        <li><strong>Loss limits:</strong> Daily and maximum-loss calculations may use different reference values and reset times.</li>
-        <li><strong>Trading days and time:</strong> Minimum days and time limits are program-specific.</li>
-        <li><strong>Next stage:</strong> Account model, reward eligibility, and payout conditions come from the firm's contract.</li>
+        <li><strong>FTMO 2-Step:</strong> the checked page lists a 10% target for the Challenge and 5% for Verification.</li>
+        <li><strong>FundedNext Stellar 2-Step:</strong> the checked page lists 8% for phase 1 and 5% for phase 2, with no time limit.</li>
       </ul>
-      <h3>Named Examples</h3>
-      <p>On the pages checked for this revision, FTMO's 2-Step program lists 10% for its Challenge and 5% for Verification, while FundedNext's Stellar 2-Step lists 8% for Phase 1 and 5% for Phase 2. These examples explain variation; they are not a universal range. Verify the exact program page before relying on any number.</p>
-      <h3>What This Definition Does Not Claim</h3>
-      <p>There is no approved general failure rate, standard fee, fixed duration, or universal account model in this glossary. Those details can change and require a current first-party source.</p>
+      <p>These are examples from two named programs. They are not standard percentages for the industry. Rules can change, so check the exact product before you pay or trade.</p>
+
+      <h3>What happens after you pass?</h3>
+      <p>The next step depends on the program. It may include another phase, identity checks, an agreement or a <a href="/glossary/funded-account">funded account</a> stage. Passing does not by itself prove that the next account uses live capital or that a reward is guaranteed.</p>
+
+      <h3>What should you do next?</h3>
+      <p>Open the exact current program rules and write the five checks before your first trade. The <a href="/blogs/prop-firm-rules-guide">prop firm rules guide</a> explains the wider rule review, and the <a href="/blogs/prop-firm-challenge-readiness">challenge readiness guide</a> helps you prepare your own process.</p>
     `
   },
   {
     slug: 'funded-account',
-    title: 'Funded Account',
-    shortDefinition: 'An account stage offered under a prop firm agreement after eligibility conditions are met; it may use simulated or live-market capital depending on the firm.',
+    title: 'Funded Trading Account',
+    aliases: ['Funded account'],
+    updatedAt: '2026-10-08',
+    shortDefinition: 'A funded trading account is a prop-firm account stage offered under an agreement. The word funded does not by itself prove that the account uses live capital.',
     category: 'Prop Firm',
-    updatedAt: '2026-09-20',
-    relatedTerms: ['prop-firm-challenge', 'overall-drawdown-limit', 'consistency-rule'],
-    guide: { href: '/blogs/prop-firm-payout-rules', label: 'Check payout conditions before you request' },
-    sourceIds: ['PFR-013', 'PFR-014', 'PLAI-002', 'PLAI-003'],
+    relatedTerms: ['prop-firm-challenge', 'daily-drawdown-limit', 'overall-drawdown-limit', 'consistency-rule'],
+    guide: { href: '/blogs/prop-firm-payout-rules', label: 'Check the reward and payout conditions before you request money' },
+    sourceIds: ['PFR-013', 'PFR-014', 'PFR-020', 'PFR-021', 'PFR-022', 'PLAI-002', 'PLAI-003', 'PLAI-005'],
     sources: [
-      { id: 'PFR-013', label: 'FTMO — capital used on an FTMO Account', url: 'https://ftmo.com/faq/what-capital-will-i-trade-on-an-ftmo-account/', checkedOn: '2026-09-19' },
-      { id: 'PFR-014', label: 'FundedNext — how its account model works', url: 'https://help.fundednext.com/en/articles/11982431-how-does-fundednext-work', checkedOn: '2026-09-19' },
-      { id: 'PLAI-002', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
+      { id: 'PFR-013', label: 'FTMO — technical account model', url: 'https://ftmo.com/en/faq/how-does-the-ftmo-technical-infrastructure-work/', checkedOn: '2026-10-08' },
+      { id: 'PFR-014', label: 'FundedNext — how its account model works', url: 'https://help.fundednext.com/en/articles/11982431-how-does-fundednext-work', checkedOn: '2026-10-08' },
+      { id: 'PFR-021', label: 'FTMO — reward request workflow', url: 'https://ftmo.com/en/faq/how-do-i-withdraw-my-profits/', checkedOn: '2026-10-02' },
+      { id: 'PFR-022', label: 'FundedNext — reward request workflow', url: 'https://help.fundednext.com/en/articles/8020084-how-can-i-withdraw-my-profits', checkedOn: '2026-10-02' },
+      { id: 'PLAI-002', label: 'PropLogAI — Manual trading journal', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
     ],
-    proplogConnection: 'PropLogAI provides manual journal records and dashboard metrics from logged data. Those records can support a review, while the firm’s agreement remains the source for account and reward rules.',
+    visualNote: {
+      src: '/glossary/images/funded-account-model-note.webp',
+      alt: 'Handwritten four-step funded-account check covering the account label, simulated or live model, remaining rules and how a reward is earned',
+      caption: 'The word funded is a label. The firm’s agreement explains the account model and reward rules. Click or tap to enlarge.',
+      label: 'Open the funded trading account model learning note at a larger size',
+    },
+    proplogConnection: 'PropLogAI lets you manually record trades, rules, notes, screenshots and performance. It does not verify the firm’s account model, approve rewards or replace the official dashboard, agreement or support response.',
     fullContent: `
-      <h3>What is a Funded Account?</h3>
-      <p>“Funded account” is an industry label for an account stage governed by a prop firm's agreement. The label alone does not prove that orders use the firm's live capital. Some online firms expressly describe these accounts as simulated and pay rewards based on simulated performance.</p>
-      <h3>What to Verify</h3>
+      <h3>What is a funded trading account?</h3>
+      <p>In online prop trading, a funded trading account is an account stage offered under a firm’s agreement after its eligibility conditions are met. The word <strong>funded</strong> does not by itself tell you whether the account uses simulated or live capital.</p>
+
+      <h3>Check these four questions</h3>
+      <ol>
+        <li><strong>What does the firm call this stage?</strong></li>
+        <li><strong>Is the account simulated, live, or part of another model?</strong></li>
+        <li><strong>Which loss and trading rules still apply?</strong></li>
+        <li><strong>How is a monetary reward earned and requested?</strong></li>
+      </ol>
+      <p>The agreement, official account-model page and dashboard answer these questions. The account label alone does not.</p>
+
+      <h3>A fictional $100,000 XAUUSD example</h3>
+      <p>Imagine you pass a <a href="/glossary/prop-firm-challenge">prop firm challenge</a> and receive a stage labelled “$100,000 funded account.” That label does not prove that $100,000 in live capital was transferred to you.</p>
+      <p>You still need to check the account model, the <a href="/glossary/daily-drawdown-limit">daily loss limit</a>, the <a href="/glossary/overall-drawdown-limit">overall loss limit</a>, any program-specific <a href="/glossary/consistency-rule">consistency rule</a>, prohibited practices and the reward conditions.</p>
+
+      <h3>Two current account-model examples</h3>
+      <p><strong>Checked 8 October 2026.</strong></p>
       <ul>
-        <li><strong>Account model:</strong> Simulated, live, or another contractual structure.</li>
-        <li><strong>Loss rules:</strong> Daily, maximum, trailing, and open-position calculations.</li>
-        <li><strong>Rewards:</strong> Eligibility, calculation, request schedule, and exclusions.</li>
-        <li><strong>Termination and scaling:</strong> Events that close, reset, or change the account.</li>
+        <li><strong>FTMO:</strong> its checked technical page says FTMO Accounts are demo accounts with fictitious capital and clients do not trade on live markets.</li>
+        <li><strong>FundedNext:</strong> its checked How It Works page describes the post-challenge stage as a simulated funded account with reward eligibility under its rules.</li>
       </ul>
-      <h3>Two Current Examples</h3>
-      <p>FTMO states that its FTMO Accounts use fictitious capital. FundedNext describes its funded-stage account as simulated with rewards based on performance. These statements apply to those firms' checked pages and should not be generalized to every proprietary trading business.</p>
-      <h3>Avoid Assumptions</h3>
-      <p>Account size labels and reward percentages are not included as “typical” values here. Read the current agreement and program rules before describing whose capital is used or how a payout works.</p>
-      <p>Before you request money, use the <a href="/blogs/prop-firm-payout-rules">prop firm payout rules checklist</a>. After a request or payment, keep it in a separate record using the <a href="/blogs/prop-firm-expense-tracking-guide">expense and payout tracking guide</a>.</p>
+      <p>These statements describe the checked products. They do not prove that every prop firm uses the same model. FTMO Futures also uses separate Sim-Funded and invitation-only Live Funded stages, so do not mix its futures wording with the CFD account described above.</p>
+
+      <h3>Balance and reward are different</h3>
+      <p>A displayed account balance is not automatically money you own or can withdraw. The agreement defines how trading performance may create a monetary reward, when a request is allowed and which conditions must be met.</p>
+
+      <h3>What should you do next?</h3>
+      <p>Read the account-model section and reward rules before relying on the word funded. Use the <a href="/blogs/prop-firm-payout-rules">prop firm payout rules guide</a> for the request checklist and the <a href="/blogs/prop-firm-challenge-readiness">challenge readiness guide</a> for the wider preparation process.</p>
     `
   },
   {
     slug: 'overall-drawdown-limit',
     title: 'Overall Drawdown Limit',
-    shortDefinition: 'A program rule that sets the lowest permitted account value, using a fixed or moving reference defined by the firm.',
+    aliases: ['Maximum Loss'],
+    shortDefinition: 'An overall drawdown limit is the lowest account value allowed across the account period. The official floor may stay fixed or move under the program rules.',
     category: 'Prop Firm',
-    updatedAt: '2026-09-25',
-    relatedTerms: ['daily-drawdown-limit', 'drawdown', 'prop-firm-challenge'],
-    guide: { href: '/blogs/daily-drawdown-calculator', label: 'Compare daily and overall drawdown tracking' },
-    sourceIds: ['PFR-003', 'PFR-005', 'PFR-008', 'PLAI-004'],
+    updatedAt: '2026-10-08',
+    relatedTerms: ['daily-drawdown-limit', 'drawdown', 'prop-firm-challenge', 'risk-per-trade'],
+    guide: { href: '/blogs/daily-drawdown-calculator', label: 'Compare the official floor with the measured account value' },
+    visualNote: {
+      src: '/glossary/images/overall-drawdown-static-moving-note.webp',
+      alt: 'Handwritten four-step overall drawdown note comparing a static floor with a moving floor and showing a 4500 dollar buffer above a 90000 dollar floor',
+      caption: 'First identify whether the official floor is static or moving. Then compare the measured value with the current floor. Click or tap to enlarge.',
+      label: 'Open the static versus moving overall drawdown learning note at a larger size',
+    },
+    sourceIds: ['PFR-003', 'PFR-005', 'PFR-008', 'PLAI-002', 'PLAI-005'],
     sources: [
-      { id: 'PFR-003', label: 'FTMO trading objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-25' },
-      { id: 'PFR-005', label: 'FTMO 1-Step loss objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-25' },
-      { id: 'PFR-008', label: 'FundedNext maximum loss calculation', url: 'https://help.fundednext.com/en/articles/8019812-how-can-i-calculate-the-maximum-loss-limit', checkedOn: '2026-09-25' },
-      { id: 'PLAI-004', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
+      { id: 'PFR-003', label: 'FTMO — 2-Step Maximum Loss', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-10-08' },
+      { id: 'PFR-005', label: 'FTMO — 1-Step Maximum Loss', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-10-08' },
+      { id: 'PFR-008', label: 'FundedNext — Maximum Loss Limit', url: 'https://help.fundednext.com/en/articles/8019812-how-can-i-calculate-the-maximum-loss-limit', checkedOn: '2026-10-08' },
+      { id: 'PLAI-002', label: 'PropLogAI — Manual trading journal', url: 'https://proplogai.com/', checkedOn: '2026-10-08' },
+      { id: 'PLAI-005', label: 'PropLogAI — Rule and emotion records', url: 'https://proplogai.com/', checkedOn: '2026-10-08' },
     ],
-    proplogConnection: 'PropLogAI provides a P&L calendar from logged data. Use it as a review aid, and use the firm’s platform and current rules for the official limit calculation.',
+    proplogConnection: 'PropLogAI lets you manually save the official floor, trades, notes and rule-adherence records. It does not calculate the firm’s official breach status or replace the current dashboard.',
     fullContent: `
       <h3>What is an overall drawdown limit?</h3>
-      <p>An overall drawdown limit is a program rule that sets the lowest permitted account value across the account period. The firm may call it maximum loss. A breach depends on the exact program contract.</p>
-      <p>To calculate the buffer, compare the value named in the rule with the current official floor. Do not copy a percentage or floor from another account.</p>
-      <h3>Static and moving floors</h3>
+      <p>An overall drawdown limit is the lowest account value allowed across the account period. A firm may call it <strong>maximum loss</strong>.</p>
+      <p>The first question is whether the official floor stays fixed or can move. Do not calculate the buffer until you know which model applies to your exact program and stage.</p>
+
+      <h3>What do static, trailing and end-of-day trailing mean?</h3>
       <ul>
-        <li><strong>Static:</strong> the floor stays tied to a stated reference such as initial simulated capital.</li>
-        <li><strong>Trailing:</strong> the floor can move after gains according to the program's balance or equity rule.</li>
-        <li><strong>End-of-day trailing:</strong> the program updates the floor at a daily checkpoint rather than on every price change.</li>
+        <li><strong>Static floor:</strong> it stays at the same level unless the current rules state another adjustment.</li>
+        <li><strong>Trailing floor:</strong> it can move higher as the stated balance or equity reference rises.</li>
+        <li><strong>End-of-day trailing floor:</strong> it updates at a daily checkpoint instead of moving with every price change.</li>
       </ul>
-      <h3>Current named examples</h3>
-      <p>FTMO's page checked on 25 September 2026 describes a static Maximum Loss for 2-Step and an end-of-day trailing Maximum Loss for 1-Step. FundedNext's checked page describes a fixed $90,000 floor in its $100,000 Stellar 2-Step example. These examples belong only to those named programs.</p>
-      <h3>What should you check?</h3>
-      <p>Confirm the program, account stage, reference value, current floor, balance or equity test, update time, included costs, and what happens after a reward or withdrawal. The practical <a href="/blogs/daily-drawdown-calculator">daily drawdown calculator guide</a> shows how to compare an official floor with the measured account value.</p>
+      <p>The words alone are not enough. Check the reference value, update time, whether the floor can stop moving, and what happens after a reward or withdrawal.</p>
+
+      <h3>A fictional $100,000 static-floor example</h3>
+      <p>Imagine your program dashboard shows a static overall floor of <strong>$90,000</strong>. After an XAUUSD New York-session trade, the measured equity is <strong>$94,500</strong>.</p>
+      <p><strong>$94,500 − $90,000 = $4,500 buffer above the floor.</strong></p>
+      <p>The $4,500 is distance from the floor, not a recommended amount to risk. If the dashboard instead showed a current moving floor of $92,000, you would use that official current floor rather than the starting $90,000 example.</p>
+
+      <h3>Three current rule examples</h3>
+      <p><strong>Checked 8 October 2026.</strong></p>
+      <ul>
+        <li><strong>FTMO 2-Step:</strong> the checked page uses a static 10% Maximum Loss amount. Its $100,000 example has a $90,000 floor.</li>
+        <li><strong>FTMO 1-Step:</strong> the checked page describes Maximum Loss as end-of-day trailing. The floor can rise after a profitable day and does not move lower after a loss.</li>
+        <li><strong>FundedNext Stellar 2-Step:</strong> the checked example uses a fixed $90,000 floor for a $100,000 account.</li>
+      </ul>
+      <p>These examples belong only to the named programs and checked date. The percentage, reference and breach action can differ in another program.</p>
+
+      <h3>Daily and overall limits can both apply</h3>
+      <p>A trader can remain above the overall floor and still cross the <a href="/glossary/daily-drawdown-limit">daily drawdown limit</a>. Check both rules before and during the session. The firm's dashboard and current agreement decide the official result.</p>
+
+      <h3>What should you do next?</h3>
+      <p>Copy the current official overall floor from the dashboard. Write whether it is static, trailing or end-of-day trailing, what value is measured and when it updates. The <a href="/blogs/daily-drawdown-calculator">drawdown calculator guide</a> shows the same official-floor comparison, while <a href="/glossary/drawdown">drawdown</a> explains the broader performance decline.</p>
     `
   },
   {
     slug: 'profit-target',
     title: 'Profit Target',
-    shortDefinition: 'The net-profit objective a named prop firm program requires for a particular evaluation phase.',
+    shortDefinition: 'A prop-firm profit target is the net-profit objective for a specific evaluation phase. It is one condition in the full rule set.',
     category: 'Prop Firm',
-    updatedAt: '2026-09-20',
+    updatedAt: '2026-10-05',
     relatedTerms: ['prop-firm-challenge', 'consistency-rule', 'funded-account'],
+    guide: { href: '/blogs/prop-firm-rules-guide', label: 'Check the full prop-firm rule set before buying a challenge' },
+    visualNote: {
+      src: '/glossary/images/profit-target-one-condition-note.webp',
+      alt: 'Handwritten fictional 100000 dollar account example showing an 8 percent profit target and a checklist of other phase conditions',
+      caption: 'The calculation gives one phase target. The firm’s current dashboard and rules decide the official status. Click or tap to enlarge.',
+      label: 'Open the prop-firm profit-target learning note at a larger size',
+    },
     sourceIds: ['PFR-001', 'PFR-009', 'PLAI-004'],
     sources: [
-      { id: 'PFR-001', label: 'FTMO trading objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-19' },
-      { id: 'PFR-009', label: 'FundedNext Stellar 2-Step profit target', url: 'https://help.fundednext.com/en/articles/8021071-what-is-the-profit-target-of-the-stellar-2-step-challenge', checkedOn: '2026-09-19' },
-      { id: 'PLAI-004', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
+      { id: 'PFR-001', label: 'FTMO trading objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-10-05' },
+      { id: 'PFR-009', label: 'FundedNext Stellar 2-Step profit target', url: 'https://help.fundednext.com/en/articles/8021071-what-is-the-profit-target-of-the-stellar-2-step-challenge', checkedOn: '2026-10-05' },
+      { id: 'PLAI-004', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-10-05' },
     ],
-    proplogConnection: 'PropLogAI provides a P&L calendar from logged trades. It can help you review the record, while the firm’s current program page remains the source for the target and pass conditions.',
+    proplogConnection: 'PropLogAI provides a P&L calendar from the trades you log. It can help you review progress, while the firm’s current dashboard and rules remain the source for the official target and pass status.',
     fullContent: `
-      <h3>What is a Profit Target?</h3>
-      <p>A profit target is the net-profit objective attached to a specific phase of a prop firm evaluation. The percentage, starting reference, eligible trading days, time limit, and other pass conditions come from that program's current rules.</p>
-      <h3>Basic Arithmetic</h3>
-      <p><strong>Target amount = program reference amount × target percentage.</strong> For a purely illustrative $100,000 reference and a stated 8% target, the arithmetic target is $8,000. That example does not say that 8% applies to every challenge.</p>
-      <h3>Named Examples</h3>
+      <h3>What is a profit target in a prop firm challenge?</h3>
+      <p>A profit target is the net-profit objective for one phase of a <a href="/glossary/prop-firm-challenge">prop firm challenge</a>. The percentage and the amount it is calculated from come from that program's current rules.</p>
+      <p>Reaching the number does not replace the other conditions. The firm's current dashboard, contract and rule page decide whether the phase is complete.</p>
+
+      <h3>How do you calculate the target?</h3>
+      <p><strong>Program reference amount × stated target percentage = target amount.</strong></p>
+      <p>Here is a fictional example:</p>
+      <p><strong>$100,000 × 8% = $8,000</strong></p>
+      <p>If the program uses the starting amount as its reference, the arithmetic target is $8,000 and the matching ending balance would be $108,000. This example only explains the multiplication. It does not mean every challenge uses 8%.</p>
+
+      <h3>Why the target amount and official status can differ</h3>
+      <p>You may see the target amount in your own calculation before the firm marks the phase complete. Check:</p>
+      <ol>
+        <li>Whether open profit counts or positions must be closed.</li>
+        <li>How commissions, spreads, swaps or other costs affect net profit.</li>
+        <li>Whether you respected the <a href="/glossary/daily-drawdown-limit">daily drawdown limit</a> and <a href="/glossary/overall-drawdown-limit">overall drawdown limit</a>.</li>
+        <li>Whether minimum days, a <a href="/glossary/consistency-rule">consistency rule</a>, prohibited practices, KYC or another condition applies.</li>
+        <li>Whether the program uses a reset, retry or another pass process.</li>
+      </ol>
+
+      <h3>Current examples show that programs differ</h3>
       <ul>
-        <li><strong>FTMO 2-Step:</strong> The checked page lists 10% for the Challenge and 5% for Verification.</li>
-        <li><strong>FundedNext Stellar 2-Step:</strong> The checked page lists 8% for Phase 1 and 5% for Phase 2.</li>
+        <li><strong>FTMO 2-Step:</strong> its page checked on 5 October 2026 lists 10% for the Challenge and 5% for Verification. It also describes a closed-position condition.</li>
+        <li><strong>FundedNext Stellar 2-Step:</strong> its page checked on 5 October 2026 lists 8% for Phase 1 and 5% for Phase 2. The later FundedNext Account described on that page has no profit target.</li>
       </ul>
-      <h3>Read the Whole Rule Set</h3>
-      <p>Reaching a target may not be enough if a minimum-day, loss-limit, consistency, or prohibited-practice rule is unmet. Do not convert a phase target into a promised daily return or a recommendation to increase risk.</p>
+      <p>These values belong only to the named programs and checked pages. They can change. Always read the rule page for your exact program and stage.</p>
+
+      <h3>A phase target is not a daily quota</h3>
+      <p>An 8% phase target does not tell you to make 8% in one day. It is not a reason to increase size, force an XAUUSD trade or trade outside your plan. Work from your normal setup and risk rules.</p>
+      <p>A later <a href="/glossary/funded-account">funded account</a> may use different objectives or no profit target. The agreement for that stage controls.</p>
+
+      <h3>How PropLogAI helps</h3>
+      <p>PropLogAI's P&amp;L calendar can help you review the progress recorded in your journal. It does not replace the firm's dashboard or decide whether you passed. The <a href="/blogs/prop-firm-rules-guide">prop-firm rules guide</a> gives you the wider checklist.</p>
     `
   },
   {
@@ -725,7 +1550,7 @@ export const glossaryTerms = [
     title: 'Consistency Rule',
     shortDefinition: 'A consistency rule checks whether too much of your total profit came from one day or one trade. Your firm decides the formula, limit, and what happens when you are over it.',
     category: 'Prop Firm',
-    updatedAt: '2026-09-30',
+    updatedAt: '2026-10-08',
     visual: 'consistency-ratio-note',
     guide: { href: '/blogs/prop-firm-consistency-calculator', label: 'Calculate a best-day percentage and understand its limits' },
     relatedTerms: ['profit-target', 'funded-account', 'prop-firm-challenge'],
@@ -733,7 +1558,7 @@ export const glossaryTerms = [
     sources: [
       { id: 'PFR-010', label: 'Topstep Trading Combine consistency target', url: 'https://help.topstep.com/en/articles/8284208-consistency-at-topstep', checkedOn: '2026-09-29' },
       { id: 'PFR-011', label: 'Topstep Express Funded Account consistency path', url: 'https://help.topstep.com/en/articles/8284208-consistency-at-topstep', checkedOn: '2026-09-29' },
-      { id: 'PFR-016', label: 'Tradeify consistency rule', url: 'https://help.tradeify.co/en/articles/10468320-rules-consistency-rule', checkedOn: '2026-09-29' },
+      { id: 'PFR-016', label: 'Tradeify consistency rule', url: 'https://help.tradeify.co/en/articles/10468320-rules-consistency-rule', checkedOn: '2026-10-08' },
       { id: 'PFR-017', label: 'Instant Funding IF1 rules', url: 'https://instantfunding.com/help/if1/', checkedOn: '2026-09-29' },
       { id: 'PFR-018', label: 'Apex 50% consistency requirement', url: 'https://apextraderfunding.com/help-center/additional-helpful-items/50-consistency-requirement/', checkedOn: '2026-09-29' },
       { id: 'PFR-019', label: 'My Funded Futures consistency rule', url: 'https://help.myfundedfutures.com/en/articles/11994562-consistency-rule-at-my-fundedfutures', checkedOn: '2026-09-29' },
@@ -812,46 +1637,64 @@ export const glossaryTerms = [
         <li>Is going over it a hard breach, a delayed payout, a higher target, or simply a condition not met yet?</li>
         <li>Does the firm explicitly allow continued trading until you meet the requirement?</li>
       </ol>
-      <p>Use the <a href="/blogs/prop-firm-consistency-calculator">consistency rule calculator guide</a> for a complete calculation example. Use the <a href="/blogs/prop-firm-challenge-readiness">prop firm challenge readiness guide</a> when you need to check this alongside profit targets and drawdown rules.</p>
+      <p>Use the <a href="/tools/consistency-calculator">PropLogAI consistency calculator</a> and choose the best-day or best-trade mode that matches your firm’s rule. Read the <a href="/blogs/prop-firm-consistency-calculator">consistency rule calculator guide</a> for the complete worked method. Use the <a href="/blogs/prop-firm-challenge-readiness">prop firm challenge readiness guide</a> when you need to check this alongside profit targets and drawdown rules.</p>
     `
   },
   {
     slug: 'daily-drawdown-limit',
     title: 'Daily Drawdown Limit',
     aliases: ['Maximum Daily Loss'],
-    shortDefinition: 'A prop firm rule that sets the lowest permitted account value during a defined trading day.',
+    shortDefinition: 'A daily drawdown limit is the official account floor that applies during one firm-defined trading day. Some firms call it maximum daily loss.',
     category: 'Prop Firm',
-    updatedAt: '2026-09-25',
-    visual: 'daily-drawdown-buffer-note',
-    relatedTerms: ['overall-drawdown-limit', 'drawdown', 'risk-per-trade'],
-    guide: { href: '/blogs/daily-drawdown-calculator', label: 'Calculate and review a daily drawdown buffer' },
-    sourceIds: ['PFR-002', 'PFR-006', 'PFR-007', 'PFR-015', 'PLAI-004'],
+    updatedAt: '2026-10-08',
+    relatedTerms: ['overall-drawdown-limit', 'drawdown', 'risk-per-trade', 'prop-firm-challenge'],
+    guide: { href: '/blogs/daily-drawdown-calculator', label: 'Use the daily drawdown calculator with your official floor' },
+    visualNote: {
+      src: '/glossary/images/daily-drawdown-floor-note.webp',
+      alt: 'Handwritten four-step daily drawdown note showing an official 95000 dollar floor, 96200 dollar measured equity and a 1200 dollar buffer that is not planned risk',
+      caption: 'Copy the firm’s official floor, compare it with the measured value and keep the buffer separate from your planned trade risk. Click or tap to enlarge.',
+      label: 'Open the daily drawdown floor learning note at a larger size',
+    },
+    sourceIds: ['PFR-002', 'PFR-006', 'PFR-007', 'PFR-015', 'PLAI-002', 'PLAI-005'],
     sources: [
-      { id: 'PFR-002', label: 'FTMO trading objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-09-25' },
-      { id: 'PFR-006', label: 'FundedNext maximum daily loss', url: 'https://help.fundednext.com/en/articles/8019914-what-is-the-maximum-daily-loss-limit', checkedOn: '2026-09-25' },
-      { id: 'PFR-007', label: 'FundedNext Stellar 1-Step daily loss', url: 'https://help.fundednext.com/en/articles/8019914-what-is-the-maximum-daily-loss-limit', checkedOn: '2026-09-25' },
-      { id: 'PFR-015', label: 'FundedNext Stellar Lite daily loss', url: 'https://help.fundednext.com/en/articles/8019914-what-is-the-maximum-daily-loss-limit', checkedOn: '2026-09-25' },
-      { id: 'PLAI-004', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-19' },
+      { id: 'PFR-002', label: 'FTMO — Trading Objectives', url: 'https://ftmo.com/en/trading-objectives/', checkedOn: '2026-10-08' },
+      { id: 'PFR-006', label: 'FundedNext — Maximum Daily Loss Limit', url: 'https://help.fundednext.com/en/articles/8019914-what-is-the-maximum-daily-loss-limit', checkedOn: '2026-10-08' },
+      { id: 'PFR-007', label: 'FundedNext — Stellar 1-Step Daily Loss', url: 'https://help.fundednext.com/en/articles/8019914-what-is-the-maximum-daily-loss-limit', checkedOn: '2026-10-08' },
+      { id: 'PFR-015', label: 'FundedNext — Stellar Lite Daily Loss', url: 'https://help.fundednext.com/en/articles/8019914-what-is-the-maximum-daily-loss-limit', checkedOn: '2026-10-08' },
+      { id: 'PLAI-002', label: 'PropLogAI — Manual trading journal', url: 'https://proplogai.com/', checkedOn: '2026-10-08' },
+      { id: 'PLAI-005', label: 'PropLogAI — Rule and emotion records', url: 'https://proplogai.com/', checkedOn: '2026-10-08' },
     ],
-    proplogConnection: 'PropLogAI provides a P&L calendar from logged trades. It is a review aid; the firm’s platform and current rule page remain the source for the official daily-loss figure.',
+    proplogConnection: 'PropLogAI lets you manually save the daily floor, reset time, trades, notes and whether you followed your own risk rule. The firm’s current dashboard and rules remain authoritative.',
     fullContent: `
       <h3>What is a daily drawdown limit?</h3>
-      <p>A daily drawdown limit is a prop-firm rule that sets the lowest permitted account value during the firm's defined trading day. Some firms call it maximum daily loss.</p>
-      <p>The safest buffer calculation is current measured value minus the official daily floor. Use the firm's dashboard or current rule to find the floor. Do not assume every firm starts from the same amount or resets at the same time.</p>
-      <h3>What changes the calculation?</h3>
+      <p>A daily drawdown limit is the official account floor that applies during one firm-defined trading day. Some firms call it <strong>maximum daily loss</strong>.</p>
+      <p>If the account value measured by the rule reaches or crosses that floor, the firm may treat it as a violation. The exact calculation and consequence come from your named program.</p>
+
+      <h3>Check these four things before you trade</h3>
+      <ol>
+        <li><strong>Reference value:</strong> what number sets today's floor?</li>
+        <li><strong>Measured value:</strong> does the rule test balance, equity or another value?</li>
+        <li><strong>Included amounts:</strong> do open P&amp;L, swaps and commissions count?</li>
+        <li><strong>Reset time:</strong> when does the firm's trading day restart?</li>
+      </ol>
+      <p>Do not assume the reset happens at midnight in India. Check the firm's current server time and dashboard.</p>
+
+      <h3>A fictional $100,000 XAUUSD example</h3>
+      <p>Imagine you are holding an XAUUSD London-session breakout. Your dashboard shows an official daily floor of <strong>$95,000</strong>. Open loss and costs bring the measured equity to <strong>$96,200</strong>.</p>
+      <p><strong>$96,200 − $95,000 = $1,200 buffer above the floor.</strong></p>
+      <p>The $1,200 is not an amount you should risk. It only shows the current distance from the official floor. Your planned trade risk should come from your own <a href="/glossary/risk-per-trade">risk-per-trade</a> rule.</p>
+
+      <h3>Two current rule examples</h3>
+      <p><strong>Checked 8 October 2026.</strong></p>
       <ul>
-        <li><strong>Program:</strong> one-step, two-step, evaluation, and funded-stage products may differ.</li>
-        <li><strong>Reference:</strong> the rule may use initial simulated capital, a balance at reset, or another stated value.</li>
-        <li><strong>Measured value:</strong> the rule may test balance or equity and may include open P&amp;L.</li>
-        <li><strong>Costs:</strong> commissions and swaps may count.</li>
-        <li><strong>Reset:</strong> the firm defines the timezone and checkpoint. It may not be midnight in India.</li>
+        <li><strong>FTMO 2-Step:</strong> the checked page uses a 5% Maximum Daily Loss amount based on the initial simulated capital. It recalculates the floor at 00:00 CE(S)T from the balance recorded then and tests equity including open P&amp;L, swaps and commissions.</li>
+        <li><strong>FundedNext:</strong> the checked page lists 5% for Stellar 2-Step, 3% for Stellar 1-Step and 4% for Stellar Lite. It says running loss and closed loss are counted.</li>
       </ul>
-      <h3>Simple example</h3>
-      <p>If the official daily floor is $47,500 and the measured equity is $48,300, the buffer above the floor is $800. That does not mean the trader should risk $800. It only shows the distance between the two figures entered.</p>
-      <h3>Current named examples</h3>
-      <p>FTMO's 2-Step page checked on 25 September 2026 uses a 5% Maximum Daily Loss amount based on initial simulated capital and recalculates the floor at 00:00 CE(S)T from the balance at that time. Its breach test uses equity including open P&amp;L, swaps, and commissions. FundedNext's checked page lists 5% for Stellar 2-Step, 3% for Stellar 1-Step, and 4% for Stellar Lite, with running plus closed losses counted.</p>
-      <h3>Use the exact rule</h3>
-      <p>Confirm the program, copy the official floor, and compare it with the account value the rule measures. Then use the <a href="/blogs/daily-drawdown-calculator">daily drawdown calculator</a> to check the dollar buffer without turning that buffer into a trade instruction.</p>
+      <p>These are dated examples from named programs. They are not standard limits for every firm. Both checked sources describe crossing the applicable limit as a violation, but the exact account action must be checked in your own program's current rules.</p>
+
+      <h3>What should you do next?</h3>
+      <p>Before your session starts, copy three lines from the current dashboard or rule page: the official floor, the value the firm measures and the reset time. Then use the <a href="/blogs/daily-drawdown-calculator">daily drawdown calculator</a> to check the buffer without treating it as planned risk.</p>
+      <p>Read <a href="/glossary/overall-drawdown-limit">overall drawdown limit</a> separately because the daily and overall floors can both apply at the same time.</p>
     `
   },
 
@@ -860,149 +1703,375 @@ export const glossaryTerms = [
     slug: 'trading-journal',
     title: 'Trading Journal',
     aliases: ['Trade journal', 'Forex trading journal'],
-    updatedAt: '2026-09-24',
+    updatedAt: '2026-10-06',
     visual: 'trading-journal-loop',
-    shortDefinition: 'A structured record of trade context, plan, execution, result, rule compliance, emotions, screenshots, and review notes used to compare decisions over time.',
+    shortDefinition: 'A trading journal records what you planned, what you actually did, and what happened, so the decision can be checked separately from the profit or loss.',
     category: 'Journal & Analysis',
-    relatedTerms: ['trade-review', 'emotion-tracking', 'performance-report'],
-    guide: { href: '/blogs/prop-firm-trading-journal', label: 'Build a prop firm trading journal workflow' },
-    proplogConnection: 'PropLogAI lets traders record trade details, notes, emotions, rule adherence, screenshots, and tags in one journal. Its review tools help organise patterns in the trader’s own records; they do not provide signals or tell the trader what to trade.',
+    relatedTerms: ['trade-review', 'emotion-tracking', 'setup-compliance', 'performance-report'],
+    guide: { href: '/blogs/prop-firm-trading-journal', label: 'Build a complete prop firm trading journal workflow' },
+    sourceIds: ['RES-022', 'PLAI-002', 'PLAI-005'],
+    sources: [
+      { id: 'RES-022', label: 'IG — Keeping track of your trading performance', url: 'https://www.ig.com/uk/learn-to-trade/ig-academy/tools-for-traders/important-metrics?source=dailyfx', checkedOn: '2026-10-06' },
+      { id: 'PLAI-002/005', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+    ],
+    proplogConnection: 'PropLogAI lets you manually log trade details, notes, emotions, rule adherence and screenshots. The record is only as complete as what you enter.',
     fullContent: `
-      <h3>What is a Trading Journal?</h3>
-      <p>A trading journal is a structured record of what you planned, what you did, and what happened during a trade. It keeps the result beside the decision-making process, so a profitable rule break does not look the same as a well-executed trade.</p>
-      <p>For example, an entry can identify <strong>XAUUSD</strong>, the <strong>London session</strong>, an <strong>Asian-session liquidity sweep</strong>, the planned breakout confirmation, the actual execution, and the result in USD. These stable labels make similar trades easier to compare later.</p>
-      <h3>What to Record</h3>
+      <h3>What is a trading journal?</h3>
+      <p>A trading journal is a record of what you planned, what you actually did and what happened. It preserves details that profit and loss alone cannot show, such as the setup you saw, the confirmation you waited for and whether you changed the plan.</p>
+
+      <h3>Simple XAUUSD journal example</h3>
+      <p>Imagine you are watching XAUUSD during the London session. Your setup is a breakout above the Asian-session high.</p>
+      <ol>
+        <li><strong>Plan:</strong> Wait for price to break the Asian high and for a candle to close above it. Use the stop and size written before entry.</li>
+        <li><strong>What I did:</strong> Entered after the candle closed, used the planned stop and made no unplanned change.</li>
+        <li><strong>Result and note:</strong> +$85 after the stated costs. Emotion: calm. Plan followed: yes. Screenshot attached.</li>
+      </ol>
+      <p>Now compare that with a trade that made <strong>+$120</strong> after you entered before the candle closed. The result was profitable, but the record should still say <strong>plan not followed</strong>. Profit does not rewrite the decision.</p>
+
+      <h3>What should one entry record?</h3>
       <ul>
-        <li><strong>Context:</strong> Date, account, instrument, session, setup name, timeframe, and review timezone.</li>
-        <li><strong>Plan:</strong> Why the setup qualified, what would invalidate it, and the intended entry and exit method.</li>
-        <li><strong>Execution:</strong> Actual entry and exit, whether the checklist was followed, and any unplanned change.</li>
-        <li><strong>Result:</strong> Profit, loss, or breakeven outcome with the P&amp;L amount in USD for forex records.</li>
-        <li><strong>Behaviour:</strong> Emotion, rule adherence, behaviour tags, screenshots, and one specific next-time lesson.</li>
+        <li><strong>Context:</strong> date, time, timezone, instrument, session, setup and timeframe.</li>
+        <li><strong>Plan:</strong> the conditions required before entry, the invalidation point and the planned exit method.</li>
+        <li><strong>Execution:</strong> actual entry, exit, size or planned risk, and any change made during the trade.</li>
+        <li><strong>Result:</strong> profit, loss or breakeven in USD, with commission, swap or other costs stated.</li>
+        <li><strong>Process note:</strong> whether your rules were followed, one <a href="/glossary/emotion-tracking">emotion tag</a>, a screenshot and one factual note.</li>
       </ul>
-      <h3>Journal Entry vs Trade Review</h3>
-      <p>A journal entry records evidence from one trade. A <a href="/glossary/trade-review">trade review</a> compares one or more entries to find a repeated process, mistake, or strength. Keeping the two tasks separate helps you record facts first and interpret them later.</p>
-      <h3>Use a Consistent Template</h3>
-      <p>A consistent layout makes weekly and monthly comparisons easier. Use the same core fields for a meaningful review period, then change a field only when you know which question it should answer. The practical <a href="/blogs/trading-journal-template">trading journal template</a> includes a copyable structure, an interactive journal builder, a worked XAUUSD example, and a CSV download.</p>
-      <h3>Common Mistakes</h3>
-      <ul>
-        <li>Recording only P&amp;L and leaving out setup or rule compliance.</li>
-        <li>Using vague labels such as “gold trade” instead of a stable instrument, session, and setup name.</li>
-        <li>Writing only after difficult trades, which makes later comparisons incomplete.</li>
-        <li>Collecting entries without scheduling a weekly or monthly review.</li>
-      </ul>
+
+      <h3>Why is broker history not enough?</h3>
+      <p>Your account history can show the order, entry, exit and result. It cannot always show why you entered, which setup you believed was present or whether the action matched your written conditions. The journal adds that missing decision context.</p>
+
+      <h3>Journal entry vs trade review</h3>
+      <p>A journal entry records the evidence from one trade. A <a href="/glossary/trade-review">trade review</a> checks that evidence against the plan. A weekly or monthly review compares several entries and looks for something repeated.</p>
+      <p>Use stable labels such as <strong>XAUUSD</strong>, <strong>London</strong> and <strong>breakout</strong>. If the same idea has a different name in every entry, later comparisons become confusing. The <a href="/blogs/trading-journal-template">trading journal template</a> gives you a reusable form, while the <a href="/blogs/prop-firm-trading-journal">prop firm trading journal guide</a> explains the complete record-to-review workflow.</p>
+
+      <h3>What should you do next?</h3>
+      <p>Record your next completed trade using the same three parts: plan, what you did, and result with one factual note. Add more fields only when you know which review question they should answer.</p>
     `
   },
   {
     slug: 'trade-review',
     title: 'Trade Review',
-    shortDefinition: 'A structured analysis of past trades to identify patterns, mistakes, and strengths — typically done daily, weekly, or monthly to drive continuous improvement.',
+    aliases: ['Post-trade review'],
+    updatedAt: '2026-10-06',
+    shortDefinition: 'A trade review is a post-trade check that compares the written plan with the actual execution, confirms the recorded result, and ends with one evidence-based observation.',
     category: 'Journal & Analysis',
-    relatedTerms: ['trading-journal', 'performance-report', 'pattern-recognition'],
-    proplogConnection: 'PropLogAI automates your trade reviews with AI-powered analysis. PropLogAI Coach generates monthly reviews covering discipline, psychology, mistakes, and action plans.',
+    relatedTerms: ['trading-journal', 'setup-compliance', 'performance-report'],
+    guide: { href: '/blogs/prop-firm-trading-journal', label: 'See the complete journal-to-review workflow' },
+    sourceIds: ['RES-022', 'RES-020', 'PLAI-002', 'PLAI-003', 'PLAI-005'],
+    sources: [
+      { id: 'RES-022', label: 'IG — Keeping track of your trading performance', url: 'https://www.ig.com/uk/learn-to-trade/ig-academy/tools-for-traders/important-metrics?source=dailyfx', checkedOn: '2026-10-06' },
+      { id: 'RES-020', label: 'MetaTrader 5 — Trading report', url: 'https://www.metatrader5.com/en/terminal/help/trading/report', checkedOn: '2026-10-06' },
+      { id: 'PLAI-002/003/005', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+    ],
+    visualNote: {
+      src: '/glossary/images/trade-review-decision-note.webp',
+      alt: 'Handwritten four-step XAUUSD trade review showing the plan, execution, record check and one observation, with a reminder that a profitable early entry is still a rule break',
+      caption: 'Check the decision against the plan before the result changes how you remember the trade. Click or tap to enlarge.',
+      label: 'Open the trade-review decision learning note at a larger size',
+    },
+    proplogConnection: 'PropLogAI lets you manually record trade details, notes, emotions and whether you followed your own rules. A review depends on those records and does not guarantee or automatically prove a conclusion.',
     fullContent: `
-      <h3>What is a Trade Review?</h3>
-      <p>A trade review is the process of analyzing your past trades to extract actionable insights. It's not just looking at P&L — it's examining your decision-making process, emotional patterns, and execution quality to identify what's working and what needs to change.</p>
-      <h3>Review Cadences</h3>
-      <ul>
-        <li><strong>Daily (5 min):</strong> Quick scan of today's trades. Did you follow your plan? Any emotional trades? One lesson for tomorrow</li>
-        <li><strong>Weekly (30 min):</strong> Review the full week's trades. Win rate, biggest winners/losers, setup compliance rate, emotional patterns. Set one focus for next week</li>
-        <li><strong>Monthly (1 hour):</strong> Deep analysis. Performance by setup, session, pair, emotion. Equity curve assessment. Update your trading plan based on findings</li>
-      </ul>
-      <h3>Effective Review Questions</h3>
-      <p>The quality of your review depends on the questions you ask. Instead of "Did I make money?" ask: "Which setups performed best? Am I overtrading after losses? What time of day are my worst trades? What emotional state preceded my biggest drawdowns?" These questions lead to specific, actionable improvements rather than vague resolutions.</p>
+      <h3>What is a trade review?</h3>
+      <p>A trade review is the check you make after a trade. You compare the written plan with what you actually did, confirm the entry, exit, costs and result, then write one factual observation.</p>
+      <p><strong>A profit does not prove that you followed the plan. A loss does not prove that the decision was wrong.</strong> Review the decision and the result as two separate pieces of information.</p>
+
+      <h3>Simple XAUUSD trade review</h3>
+      <p>Use the same fictional XAUUSD London-session breakout from the <a href="/glossary/trading-journal">trading journal</a> example:</p>
+      <ol>
+        <li><strong>Plan:</strong> Wait for the Asian high to break and for a candle to close above it.</li>
+        <li><strong>Execution:</strong> Entered after the close, used the planned stop and made no unplanned change.</li>
+        <li><strong>Record check:</strong> Entry, exit, stated costs and the +$85 result match the account history.</li>
+        <li><strong>One observation:</strong> The written conditions and the recorded action matched in this trade. That does not prove the setup will work next time.</li>
+      </ol>
+      <p>Now imagine you entered before the candle closed and still made <strong>+$120</strong>. The review should call it a <strong>profitable rule break</strong>. The outcome was positive, while <a href="/glossary/setup-compliance">setup compliance</a> was not complete.</p>
+
+      <h3>What should you check?</h3>
+      <ol>
+        <li>Is the journal entry complete enough to review?</li>
+        <li>Did the planned setup and confirmation actually appear?</li>
+        <li>Did you change the entry, exit, stop, size or reason?</li>
+        <li>Do the execution, costs and result match the account history?</li>
+        <li>What one factual note should you carry into a later multi-trade review?</li>
+      </ol>
+
+      <h3>Trade review vs performance report</h3>
+      <p>A trade review checks one completed decision. A <a href="/glossary/performance-report">trading performance report</a> summarises a defined group of trades. The first helps you understand one record; the second helps you compare results and recorded process across a larger sample.</p>
+
+      <h3>Trade review vs weekly or monthly review</h3>
+      <p>A single-trade review can happen after the trade or at a consistent later time. A weekly or monthly review compares several completed entries to see whether a pattern repeats. There is no universal five-minute, thirty-minute or one-hour schedule that every trader must follow.</p>
+      <p>Use the <a href="/blogs/weekly-trading-review-template">weekly trading review template</a> or <a href="/blogs/monthly-trading-review-template">monthly trading review template</a> when you are ready to compare several records.</p>
+
+      <h3>What should you do next?</h3>
+      <p>Open one completed journal entry and mark it <strong>plan matched</strong>, <strong>plan changed</strong> or <strong>record incomplete</strong>. Then write one factual sentence. Do not turn one trade into a universal rule or a prediction about the next result.</p>
     `
   },
   {
     slug: 'emotion-tracking',
     title: 'Emotion Tracking',
-    shortDefinition: 'Emotion tracking means recording a simple feeling tag beside a trade so you can review whether the feeling appeared near a change in your trading decisions.',
+    shortDefinition: 'Emotion tracking means recording a short feeling tag beside a specific trading moment and the observable decision that followed. The feeling is context; it does not prove what caused the result.',
     category: 'Journal & Analysis',
-    relatedTerms: ['trading-journal', 'tilt', 'fomo'],
-    guide: { href: '/blogs/how-emotions-affect-trading-decisions', label: 'See how a feeling may change a trading decision' },
-    proplogConnection: 'PropLogAI lets you tag emotions and record whether a trade followed your own rules. These are user-entered review records, not a diagnosis or proof that an emotion caused a result.',
+    updatedAt: '2026-10-08',
+    relatedTerms: ['trading-journal', 'trade-review', 'trading-plan', 'setup-compliance', 'tilt', 'fomo', 'revenge-trading'],
+    visualNote: {
+      src: '/glossary/images/emotion-tracking-feeling-urge-action-note.webp',
+      alt: 'Handwritten XAUUSD London-session note separating a frustrated feeling, the urge to recover 35 dollars, a plan to wait for the breakout candle to close, an early entry and the separate result',
+      caption: 'Record the feeling, urge and observable action separately. Keep P&L as the result, not proof of cause. Click or tap to enlarge.',
+      label: 'Open the emotion-tracking learning note at a larger size',
+    },
+    guide: { href: '/blogs/how-emotions-affect-trading-decisions', label: 'See how a feeling may appear beside a change in a trading decision' },
+    sourceIds: ['RES-009', 'RES-010', 'RES-011', 'RES-022', 'RES-024', 'RES-025', 'PLAI-002', 'PLAI-005'],
+    sources: [
+      { id: 'RES-009', label: 'Zerodha Varsity — Controlling your trading emotions', url: 'https://zerodha.com/varsity/chapter/controlling-your-trading-emotions/', checkedOn: '2026-09-25' },
+      { id: 'RES-010', label: 'OANDA — Understanding emotions in trading', url: 'https://www.oanda.com/us-en/skills-and-insights/education/trading-psychology/emotions-in-trading/trading-psychology-understanding-your-emotions/', checkedOn: '2026-09-25' },
+      { id: 'RES-011', label: 'Zerodha Varsity — Your trading checklist', url: 'https://zerodha.com/varsity/chapter/your-trading-checklist/', checkedOn: '2026-10-04' },
+      { id: 'RES-022', label: 'IG — Trading journal records and review', url: 'https://www.ig.com/uk/learn-to-trade/ig-academy/tools-for-traders/important-metrics?source=dailyfx', checkedOn: '2026-10-06' },
+      { id: 'RES-024', label: 'NIST — Correlation does not prove causation', url: 'https://www.itl.nist.gov/div898/handbook/ppc/section1/ppc136.htm', checkedOn: '2026-10-06' },
+      { id: 'RES-025', label: 'IG — What is a trading plan?', url: 'https://www.ig.com/en/ig-academy/planning-and-risk-management/what-is-a-trading-plan', checkedOn: '2026-10-06' },
+      { id: 'PLAI-002/005', label: 'PropLogAI — Manual journal and emotion records', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+    ],
+    proplogConnection: 'PropLogAI lets you manually add an emotion tag beside the setup, session, notes, screenshots, P&L and whether the trade followed your own rules. It does not sense emotions, diagnose you or prove that a feeling caused a result.',
     fullContent: `
-      <h3>What emotion tracking means</h3>
-      <p>Emotion tracking means adding a short feeling tag to a specific trading moment. You might record how you felt before entering, while managing the position, or after exiting.</p>
-      <p>The tag does not tell you whether the trade was good or bad. It gives you one piece of context to compare with the setup, session, rule adherence, decision, and result.</p>
-      <h3>Simple tags you can use</h3>
+      <h3>What is emotion tracking in trading?</h3>
+      <p>Emotion tracking means recording a short feeling tag beside a specific trading moment and the observable decision that followed. It gives you context for a later review.</p>
+      <p>The feeling, the action and the result are separate facts. A tag does not prove that the feeling caused a profit, loss or rule break.</p>
+
+      <h3>Five simple tags you can use</h3>
       <ul>
-        <li><strong>Calm:</strong> You feel able to check the plan without rushing.</li>
-        <li><strong>Hesitant:</strong> You keep delaying a decision that the plan already covers.</li>
-        <li><strong>Frustrated:</strong> A recent result is still affecting your attention.</li>
-        <li><strong>Rushed:</strong> You feel pressure to act before the move continues.</li>
-        <li><strong>Confident:</strong> You feel sure about the decision; check whether the written rules stayed the same.</li>
+        <li><strong>Calm:</strong> you feel able to check the plan without rushing.</li>
+        <li><strong>Hesitant:</strong> you keep delaying a decision that the plan already covers.</li>
+        <li><strong>Frustrated:</strong> a recent result is still holding your attention.</li>
+        <li><strong>Rushed:</strong> you feel pressure to act before the move continues.</li>
+        <li><strong>Confident:</strong> you feel sure about the decision, so you still check whether the written rules stayed the same.</li>
       </ul>
-      <h3>Example</h3>
-      <p>You record <strong>frustrated</strong> after an XAUUSD loss. Before the next trade, you enter before the breakout candle closes. The useful record is not "frustration caused a loss." It is "frustrated + entered before the planned confirmation." You can later check whether that same combination appears again.</p>
-      <h3>Common confusion</h3>
-      <p>Emotion tracking is not a mental-health diagnosis, and a repeated tag does not prove that the feeling caused a profit or loss. Review the observable decision beside the tag and keep the trade result separate.</p>
+      <p>You can use different short words. Keep the labels simple and use them consistently.</p>
+
+      <h3>What should you record?</h3>
+      <ol>
+        <li><strong>Time and session:</strong> write the timestamp and whether it was the Asian, London or New York session.</li>
+        <li><strong>Feeling:</strong> choose one short tag, such as calm or frustrated.</li>
+        <li><strong>Urge:</strong> write what you felt like doing, such as enter early or recover a loss.</li>
+        <li><strong>Planned condition:</strong> copy the condition from your <a href="/glossary/trading-plan">trading plan</a>.</li>
+        <li><strong>Observable action:</strong> write what you actually did.</li>
+        <li><strong>Result:</strong> keep P&amp;L in a separate field.</li>
+      </ol>
+
+      <h3>A fictional XAUUSD example</h3>
+      <p>During the London session, your planned XAUUSD breakout requires the candle to close before entry. A completed trade ends at <strong>−$35</strong>.</p>
+      <p>You record <strong>frustrated</strong>, notice the urge to make back the $35 and enter the next setup before the breakout candle closes. The useful record is: <strong>frustrated + urge to recover + entered before confirmation</strong>.</p>
+      <p>Do not write “frustration caused the loss.” Use <a href="/glossary/setup-compliance">setup compliance</a> to compare the observable action with the condition written before entry.</p>
+
+      <h3>When should you record it?</h3>
+      <ul>
+        <li><strong>Before entry:</strong> record one feeling and the planned condition.</li>
+        <li><strong>During the trade:</strong> add a note if an urge or management decision changes.</li>
+        <li><strong>After exit:</strong> record the action and result separately.</li>
+      </ul>
+      <p>Keep each entry short enough that you can use the same method consistently.</p>
+
+      <h3>How should you review the records?</h3>
+      <p>Use a <a href="/glossary/trade-review">trade review</a> to compare several similar records. Check the setup, session, size, rule adherence and P&amp;L beside the emotion tag. A repeated association gives you a question to investigate; it does not prove cause.</p>
+      <p>Terms such as <a href="/glossary/tilt">tilt</a>, <a href="/glossary/fomo">FOMO</a> and <a href="/glossary/revenge-trading">revenge trading</a> describe different patterns. Do not apply one of those labels from a single feeling tag.</p>
+
+      <h3>What should you do next?</h3>
+      <p>On your next reviewed trade, record one feeling and one observable decision. The <a href="/blogs/how-emotions-affect-trading-decisions">emotion and decision guide</a> shows one detailed example, while the <a href="/blogs/tracking-trading-emotions">emotion-tracking guide</a> gives the complete reusable workflow.</p>
     `
   },
   {
     slug: 'pattern-recognition',
     title: 'Pattern Recognition',
-    shortDefinition: 'The ability to identify recurring behaviors, habits, and tendencies in your own trading by analyzing journal data over time.',
+    shortDefinition: 'Pattern recognition in a trading journal means finding the same recorded combination across a defined group of trades. It is a clue to inspect, not proof of what caused the result.',
     category: 'Journal & Analysis',
-    relatedTerms: ['trade-review', 'ai-trading-coach', 'emotion-tracking'],
-    proplogConnection: 'PropLogAI uses AI to detect patterns across your trading history that would take hours to find manually — correlating emotions, setups, sessions, and outcomes automatically.',
+    updatedAt: '2026-10-06',
+    relatedTerms: ['trade-review', 'trading-journal', 'performance-report', 'ai-trading-coach', 'emotion-tracking'],
+    sourceIds: ['RES-022', 'RES-023', 'RES-024', 'PLAI-001', 'PLAI-002', 'PLAI-005'],
+    sources: [
+      { id: 'RES-022', label: 'IG — Keeping track of your trading performance', url: 'https://www.ig.com/uk/learn-to-trade/ig-academy/tools-for-traders/important-metrics?source=dailyfx', checkedOn: '2026-10-06' },
+      { id: 'RES-023', label: 'NIST — Generative AI Profile', url: 'https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf', checkedOn: '2026-10-06' },
+      { id: 'RES-024', label: 'NIST/SEMATECH — Correlation and causality', url: 'https://www.itl.nist.gov/div898/handbook/ppc/section1/ppc136.htm', checkedOn: '2026-10-06' },
+      { id: 'PLAI-001/002/005', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+    ],
+    visualNote: {
+      src: '/glossary/images/pattern-recognition-clue-note.webp',
+      alt: 'Handwritten four-step journal-data check showing 20 XAUUSD trades, 5 plan-not-followed records, 3 outside the planned session, and the instruction to open the original records',
+      caption: 'A repeated count gives you a reason to inspect the records. It does not prove what caused the decisions or results. Click or tap to enlarge.',
+      label: 'Open the pattern-or-coincidence learning note at a larger size',
+    },
+    guide: { href: '/blogs/ai-journal-pattern-detection', label: 'Review possible patterns in your journal data step by step' },
+    proplogConnection: 'PropLogAI analyzes possible patterns in a trader’s own journal data. It does not provide signals or tell the trader what to trade, and its output depends on the records and labels the trader entered.',
     fullContent: `
-      <h3>What is Pattern Recognition in Trading Performance?</h3>
-      <p>Pattern recognition here doesn't mean chart patterns — it means recognizing recurring behaviors in YOUR trading. Do you always overtrade on Fridays? Do your losses cluster after 2 PM? Do you perform worse after a big win? These are behavioral patterns that silently erode performance, and they're invisible without data.</p>
-      <h3>Types of Behavioral Patterns</h3>
+      <h3>What does pattern recognition mean in a trading journal?</h3>
+      <p>Pattern recognition in a trading journal means finding the same recorded combination across a defined group of trades. You might notice that several trades marked <strong>plan not followed</strong> also happened outside your planned session. That is a clue to inspect. It is not proof that the session caused the decision or result.</p>
+      <p>This is different from chart-pattern recognition. Chart-pattern recognition studies price shapes. Here, you are studying the records in your own <a href="/glossary/trading-journal">trading journal</a>.</p>
+
+      <h3>A simple 20-trade XAUUSD example</h3>
+      <p>Imagine your <a href="/glossary/performance-report">trading performance report</a> contains 20 XAUUSD trades from one defined month:</p>
       <ul>
-        <li><strong>Temporal patterns:</strong> Performance differences by day of week, time of day, or session</li>
-        <li><strong>Sequential patterns:</strong> How you trade after a win streak vs a loss streak</li>
-        <li><strong>Emotional patterns:</strong> Which emotional states correlate with your best and worst performance</li>
-        <li><strong>Setup patterns:</strong> Which setups have positive expectancy and which are losing you money</li>
-        <li><strong>Risk patterns:</strong> When you deviate from your position sizing rules</li>
+        <li><strong>Setup:</strong> 12 breakout records and 8 liquidity-sweep records.</li>
+        <li><strong>Session:</strong> 4 Asian, 10 London and 6 New York session records.</li>
+        <li><strong>Plan followed:</strong> 15 marked yes and 5 marked no by you.</li>
+        <li><strong>Possible pattern:</strong> 3 of the 5 plan-not-followed records occurred outside your planned session.</li>
       </ul>
-      <h3>From Pattern to Action</h3>
-      <p>Identifying a pattern is only useful if you create a rule to address it. "I overtrade on Fridays" becomes "Maximum 2 trades on Friday." "I revenge trade after 2 losses" becomes "Mandatory 30-minute break after 2 consecutive losses." Patterns without rules remain just interesting observations.</p>
+      <p>The count tells you which records deserve a closer look. It does not tell you that trading outside the session caused a loss, and it does not create a universal rule for every trader.</p>
+
+      <h3>How should you check a possible pattern?</h3>
+      <ol>
+        <li><strong>Define the question:</strong> name the account, date range and records you are checking.</li>
+        <li><strong>Use stable labels:</strong> keep names such as XAUUSD, London, breakout and plan not followed consistent.</li>
+        <li><strong>Show the count:</strong> write both the matching records and the total, such as 3 of 5.</li>
+        <li><strong>Keep the comparison simple:</strong> start with one field or one clear combination.</li>
+        <li><strong>Open the trades:</strong> check the original notes, screenshots and actions through a <a href="/glossary/trade-review">trade review</a>.</li>
+        <li><strong>Watch future records:</strong> see whether the same combination appears again before changing your written plan.</li>
+      </ol>
+
+      <h3>What can make a pattern misleading?</h3>
+      <p>A small sample can change quickly. Missing trades, inconsistent labels, a changed setup or an incorrect result can also change the summary. An <a href="/glossary/emotion-tracking">emotion tag</a> records what you entered; it does not prove that the feeling caused the result.</p>
+      <p>A useful statement is: <strong>“3 of 5 plan-not-followed records were outside my planned session.”</strong> An overclaim is: <strong>“Trading outside my planned session caused my losses.”</strong> Correlation does not establish causation.</p>
+
+      <h3>Does every pattern need a new rule?</h3>
+      <p>No. A possible pattern gives you a question to investigate. Open the records, check the context and watch future trades. If you later change a personal rule, record that decision separately. Do not turn one small sample into advice for every trader.</p>
+      <p>An <a href="/glossary/ai-trading-coach">AI trading coach</a> may help group the logged records, but you still need to verify the output against the original trades. The <a href="/blogs/ai-journal-pattern-detection">journal pattern guide</a> shows the deeper review process.</p>
+
+      <h3>What should you do next?</h3>
+      <p>Choose one summary that surprised you. Open every trade behind it and write one sentence that says only what the records support.</p>
     `
   },
   {
     slug: 'performance-report',
-    title: 'Performance Report',
-    shortDefinition: 'A comprehensive analysis of your trading over a defined period, covering statistics, patterns, strengths, weaknesses, and actionable recommendations.',
+    title: 'Trading Performance Report',
+    shortDefinition: 'A trading performance report summarises trades from one clearly defined period using records you can check. It keeps financial results separate from the process details you recorded.',
     category: 'Journal & Analysis',
+    updatedAt: '2026-10-06',
     relatedTerms: ['trade-review', 'trading-journal', 'equity-curve'],
-    proplogConnection: 'PropLogAI generates AI-powered monthly performance reports with PropLogAI Coach, covering discipline scores, psychology analysis, top mistakes, and a personalized action plan.',
+    sourceIds: ['RES-020', 'RES-021', 'PLAI-002', 'PLAI-003', 'PLAI-005'],
+    sources: [
+      { id: 'RES-020', label: 'MetaTrader 5 — Trading Report', url: 'https://www.metatrader5.com/en/terminal/help/trading/report', checkedOn: '2026-10-06' },
+      { id: 'RES-021', label: 'Investor.gov — Performance claim checks', url: 'https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-47', checkedOn: '2026-10-06' },
+      { id: 'PLAI-002/003/005', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+    ],
+    visualNote: {
+      src: '/glossary/images/trading-performance-report-two-questions-note.webp',
+      alt: 'Handwritten report card separating a fictional 20-trade XAUUSD financial result from recorded setup, session and plan-followed fields',
+      caption: 'P&L shows the result. Your records show whether you followed the plan. Click or tap to enlarge.',
+      label: 'Open the trading performance report learning note at a larger size',
+    },
+    guide: { href: '/blogs/trading-performance-metrics', label: 'Read a trading performance report metric by metric' },
+    proplogConnection: 'PropLogAI lets you manually log trade details, notes, emotions and rule adherence. Its dashboard displays approved metrics and an equity curve from logged data, so any report remains dependent on those records and counting choices.',
     fullContent: `
-      <h3>What is a Performance Report?</h3>
-      <p>A performance report is a structured analysis of your trading over a specific period — typically monthly. It goes beyond raw numbers to provide context: what's improving, what's declining, what behavioral changes led to the results, and what to focus on next.</p>
-      <h3>Key Components</h3>
+      <h3>What is a trading performance report?</h3>
+      <p>A trading performance report is a summary of trades from one clearly defined period. It should name the date range, account, currency, trade count and counting method so you can check every summary against the original records.</p>
+      <p>A report can answer two different questions. <strong>What happened?</strong> uses financial results. <strong>What did I record?</strong> uses your setup, session, planned risk, emotion, written note and plan-followed answer. Keep these two groups separate.</p>
+
+      <h3>Fictional 20-trade XAUUSD report</h3>
+      <p>Imagine a report covers 20 XAUUSD trades from one defined month:</p>
       <ul>
-        <li><strong>Overall scores:</strong> Discipline, psychology, execution, risk management, consistency</li>
-        <li><strong>Statistics:</strong> Win rate, profit factor, expectancy, drawdown, average R:R</li>
-        <li><strong>Breakdown analysis:</strong> Performance by setup, session, pair, day of week</li>
-        <li><strong>Mistake audit:</strong> Top 3 recurring mistakes with frequency and cost</li>
-        <li><strong>Emotional analysis:</strong> Performance by emotional state, emotion distribution</li>
-        <li><strong>Action plan:</strong> 1-3 specific focus areas for the next period</li>
+        <li><strong>8 winning trades</strong> produced $1,440 gross profit.</li>
+        <li><strong>12 losing trades</strong> lost $960 gross loss.</li>
+        <li><strong>Net result:</strong> +$480 before any separately stated cost treatment.</li>
+        <li><strong>Win rate:</strong> 8 ÷ 20 = 40%.</li>
+        <li><strong>Average win:</strong> $1,440 ÷ 8 = $180.</li>
+        <li><strong>Average loss:</strong> $960 ÷ 12 = $80.</li>
+        <li><strong>Profit factor:</strong> $1,440 ÷ $960 = 1.50.</li>
+        <li><strong>Expectancy:</strong> +$24 per trade for this fictional sample.</li>
       </ul>
-      <h3>Making Reports Actionable</h3>
-      <p>The most important section of any performance report is the action plan. Every insight should connect to a specific, measurable change. Instead of "improve discipline," specify "implement a 3-trade maximum on days following a loss day." Track whether you follow through on last month's action items before creating new ones.</p>
-      <p>The <a href="/blogs/trading-performance-metrics">trading performance metrics guide</a> explains the order for checking the sample, core statistics, drawdown, equity curve, setup, and session.</p>
+      <p>These figures explain the financial result. They do not prove whether the trader followed the plan.</p>
+
+      <h3>What did the trader record?</h3>
+      <p>The same fictional report can group the original records without turning them into a discipline score:</p>
+      <ul>
+        <li><strong>Setup:</strong> 12 breakout trades and 8 liquidity-sweep trades.</li>
+        <li><strong>Session:</strong> 4 Asian, 10 London and 6 New York session trades.</li>
+        <li><strong>Plan followed:</strong> 15 marked yes and 5 marked no by the trader.</li>
+        <li><strong>Review clue:</strong> 3 of the 5 “plan not followed” records occurred outside the trader's planned session.</li>
+      </ul>
+      <p>The last line is a reason to open those three trades and read the notes. It is not proof that the session caused the result, and it is not a universal instruction to avoid that session.</p>
+
+      <h3>What should you check before trusting the report?</h3>
+      <ol>
+        <li>Are any trades missing or duplicated?</li>
+        <li>Are partial exits and multi-leg positions grouped consistently?</li>
+        <li>How are breakeven trades counted?</li>
+        <li>Are spread, commission and swap included?</li>
+        <li>Did deposits, withdrawals or open positions change the account path?</li>
+        <li>Can you open the original <a href="/glossary/trading-journal">trading journal</a> records behind a surprising number?</li>
+      </ol>
+
+      <h3>How should you read the results?</h3>
+      <p>Start with the sample, then check <a href="/glossary/win-rate">win rate</a>, <a href="/glossary/average-win-vs-average-loss">average win and average loss</a>, <a href="/glossary/profit-factor">profit factor</a>, <a href="/glossary/expectancy">expectancy</a>, <a href="/glossary/drawdown">drawdown</a> and the <a href="/glossary/equity-curve">equity curve</a>. Weekly, monthly and challenge-stage reports can all be useful when the period matches the question.</p>
+      <p>The <a href="/blogs/trading-performance-metrics">trading performance metrics guide</a> explains the full reading order. Past results describe the selected records; they do not predict the next period.</p>
+
+      <h3>What should you do next?</h3>
+      <p>Choose one number or recorded pattern that surprised you. Open the trades behind it before changing your plan. A report is useful when you can trace its summary back to the original records.</p>
     `
   },
   {
     slug: 'ai-trading-coach',
     title: 'AI Trading Coach',
-    shortDefinition: 'An AI system that analyzes your trading journal data to provide personalized performance coaching — identifying patterns, weaknesses, and behavioral improvements.',
+    shortDefinition: 'An AI trading coach reviews a trader’s own recorded journal data and returns summaries, questions or possible patterns for the trader to verify against the original records.',
     category: 'Journal & Analysis',
-    relatedTerms: ['pattern-recognition', 'performance-report', 'trading-journal'],
-    proplogConnection: 'PropLogAI features Propol, a built-in AI Trading Coach that analyzes your trades, journal entries, emotions, and discipline to provide personalized coaching based entirely on your own data.',
+    updatedAt: '2026-10-06',
+    relatedTerms: ['pattern-recognition', 'performance-report', 'trading-journal', 'trade-review', 'emotion-tracking'],
+    sourceIds: ['RES-022', 'RES-023', 'RES-024', 'PLAI-001', 'PLAI-002', 'PLAI-003', 'PLAI-005'],
+    sources: [
+      { id: 'RES-022', label: 'IG — Keeping track of your trading performance', url: 'https://www.ig.com/uk/learn-to-trade/ig-academy/tools-for-traders/important-metrics?source=dailyfx', checkedOn: '2026-10-06' },
+      { id: 'RES-023', label: 'NIST — Generative AI Profile', url: 'https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf', checkedOn: '2026-10-06' },
+      { id: 'RES-024', label: 'NIST/SEMATECH — Correlation and causality', url: 'https://www.itl.nist.gov/div898/handbook/ppc/section1/ppc136.htm', checkedOn: '2026-10-06' },
+      { id: 'PLAI-001/002/003/005', label: 'PropLogAI product overview', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
+    ],
+    visualNote: {
+      src: '/glossary/images/ai-trading-coach-review-loop-note.webp',
+      alt: 'Handwritten AI trading coach review loop showing Ask, Check, Verify and Decide with a fictional XAUUSD journal question and factual output',
+      caption: 'AI can point you to the records behind an answer. You still check those records before changing a plan. Click or tap to enlarge.',
+      label: 'Open the AI trading coach review-loop learning note at a larger size',
+    },
+    guide: { href: '/blogs/ai-trading-coach-prop-firm', label: 'See what an AI trading coach should and should not do' },
+    proplogConnection: 'PropLogAI analyzes patterns in a trader’s own journal data and does not provide signals or tell the trader what to trade. Its output is limited by what the trader records.',
     fullContent: `
-      <h3>What is an AI Trading Coach?</h3>
-      <p>An AI trading coach uses artificial intelligence to analyze your personal trading data — journal entries, emotions, statistics, and behavioral patterns — and provide coaching insights that would be impossible to derive manually. Unlike generic trading education, AI coaching is entirely personalized to YOUR trading history.</p>
-      <h3>How AI Coaching Differs from Human Coaching</h3>
+      <h3>What is an AI trading coach?</h3>
+      <p>An AI trading coach is software that reviews your own recorded journal data and returns summaries, questions or possible patterns for you to check. It can help organise the records. It cannot see missing context, prove why something happened, predict the next market move or decide what you should trade.</p>
+
+      <h3>What information can it review?</h3>
+      <p>The answer depends on what you recorded in your <a href="/glossary/trading-journal">trading journal</a>: date, instrument, session, setup, written plan, actual action, result, costs, emotion tag, rule-followed answer, note and screenshot. If a trade or detail is missing, the AI cannot safely recover it from the journal.</p>
+
+      <h3>A simple XAUUSD example</h3>
+      <p>Imagine you have the same fictional 20-trade XAUUSD sample used in the <a href="/glossary/performance-report">trading performance report</a>.</p>
+      <p>You ask: <strong>“Show the records marked plan not followed and group them by session.”</strong></p>
+      <p>The output says: <strong>“5 records were marked plan not followed. 3 occurred outside the planned session.”</strong></p>
+      <p>This is a useful pointer. Your next step is to open those five records, verify the labels and read the notes. The output does not prove that the session caused the decisions or results.</p>
+
+      <h3>What can an AI trading coach help with?</h3>
       <ul>
-        <li><strong>Data processing:</strong> AI can analyze hundreds of trades across dozens of variables simultaneously, finding correlations a human would miss</li>
-        <li><strong>Objectivity:</strong> AI has no ego, no confirmation bias, and no motivation to tell you what you want to hear</li>
-        <li><strong>Consistency:</strong> AI applies the same analytical framework every time, without mood or fatigue</li>
-        <li><strong>Speed:</strong> What takes a human coach hours of review, AI can process in seconds</li>
+        <li>Organise the journal records you entered.</li>
+        <li>Group records by stable labels such as XAUUSD, London or breakout.</li>
+        <li>Summarise approved metrics from a clearly defined sample.</li>
+        <li>Flag a possible <a href="/glossary/pattern-recognition">repeated pattern</a> for you to inspect.</li>
+        <li>Suggest factual questions for a manual <a href="/glossary/trade-review">trade review</a>.</li>
       </ul>
-      <h3>What AI Coaching is NOT</h3>
-      <p>AI trading coaches do not give financial advice, predict market movements, or recommend specific trades. An ethical AI coach focuses exclusively on YOUR behavior: your discipline, psychology, and execution patterns. It tells you what you're doing well, what you're doing poorly, and — most importantly — which single change would have the biggest impact on your results. The insights come from your own data, not market opinions.</p>
+
+      <h3>What can it not know from the journal alone?</h3>
+      <ul>
+        <li>A trade you never recorded.</li>
+        <li>Whether you entered a label or result correctly.</li>
+        <li>Context you did not write down or show in a screenshot.</li>
+        <li>Whether an association caused the result.</li>
+        <li>What the market will do next.</li>
+        <li>Which trade you should take.</li>
+      </ul>
+      <p>An <a href="/glossary/emotion-tracking">emotion tag</a> is also a trader-entered record. It is not a diagnosis, and the AI should not infer a feeling that you did not record.</p>
+
+      <h3>Use the Ask, Check, Verify, Decide loop</h3>
+      <ol>
+        <li><strong>Ask:</strong> use one narrow question about a named account and date range.</li>
+        <li><strong>Check:</strong> open the records behind the answer.</li>
+        <li><strong>Verify:</strong> confirm the labels, counts, results and missing context.</li>
+        <li><strong>Decide:</strong> choose whether the observation is useful. The AI does not make the trading decision for you.</li>
+      </ol>
+      <p>A safe request is: <strong>“Compare my recorded London and New York session trades for this date range.”</strong> An unsafe expectation is: <strong>“Tell me which session will make money tomorrow.”</strong></p>
+
+      <h3>Is it a replacement for a human coach?</h3>
+      <p>No. The word <em>coach</em> describes the review role. It does not make the tool a licensed adviser, psychologist, broker record or human-coach replacement. Read the <a href="/blogs/ai-trading-coach-prop-firm">AI trading coach guide</a> for the full capability and limitation checklist.</p>
+
+      <h3>What should you do next?</h3>
+      <p>Ask one narrow question about a defined group of journal records. Then open the trades behind the answer before changing any written plan.</p>
     `
   },
 ];
