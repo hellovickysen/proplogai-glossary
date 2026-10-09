@@ -398,7 +398,7 @@ export const glossaryTerms = [
     title: 'Position Sizing',
     shortDefinition: 'Position sizing is the calculation used to choose trade size so the estimated loss at the planned stop matches your chosen USD risk and exact account rules.',
     category: 'Risk Management',
-    updatedAt: '2026-10-05',
+    updatedAt: '2026-10-09',
     relatedTerms: ['risk-per-trade', 'stop-loss', 'daily-drawdown-limit'],
     sourceIds: ['RES-013', 'PLAI-002', 'PLAI-005'],
     sources: [
@@ -425,6 +425,7 @@ export const glossaryTerms = [
         <li><strong>Estimated loss per unit:</strong> what one unit, contract, or 0.01 lot would lose if the stop filled at the expected price.</li>
       </ol>
       <p><code>Position size = planned USD risk ÷ estimated loss per unit at the stop</code></p>
+      <p>When you have these inputs, use the <a href="/tools/position-size-calculator">forex position size calculator</a>. The <a href="/blogs/how-to-calculate-position-size-forex">step-by-step position-size guide</a> shows the complete XAUUSD and EURUSD calculations.</p>
 
       <h3>Fictional XAUUSD Example</h3>
       <p>You plan a maximum loss of <strong>$50</strong>. After choosing the entry and stop, your platform's order ticket estimates that each <strong>0.01 lot</strong> would lose <strong>$10</strong> if price reached that stop.</p>
@@ -548,7 +549,7 @@ export const glossaryTerms = [
     title: 'Risk Per Trade',
     shortDefinition: 'Risk per trade is the loss amount planned before one trade if the exit fills near the expected price. It is not a guaranteed maximum or a universal percentage.',
     category: 'Risk Management',
-    updatedAt: '2026-10-05',
+    updatedAt: '2026-10-09',
     relatedTerms: ['position-sizing', 'stop-loss', 'daily-drawdown-limit'],
     guide: { href: '/blogs/prop-firm-risk-management', label: 'Use risk per trade inside the wider prop-firm risk workflow' },
     visualNote: {
@@ -588,6 +589,7 @@ export const glossaryTerms = [
       <p>The separate <a href="/glossary/position-sizing">position-sizing calculation</a> is:</p>
       <p><strong>$50 ÷ $10 = 5 units of 0.01 lot = 0.05 lot</strong></p>
       <p>The numbers explain the connection between planned risk and size. They do not recommend $50, 0.5% or 0.05 lot.</p>
+      <p>You can enter your own planned loss and platform values in the <a href="/tools/position-size-calculator">forex position size calculator</a>. Read the <a href="/blogs/how-to-calculate-position-size-forex">position-size calculation guide</a> when you want the full XAUUSD and EURUSD examples.</p>
 
       <h3>One trade amount does not replace the account rules</h3>
       <p>Several open trades can use the account's loss allowance at the same time. Check open profit and loss, costs, reset time, balance or equity rules, and combined exposure for your exact program.</p>
