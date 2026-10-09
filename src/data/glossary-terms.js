@@ -1744,7 +1744,7 @@ export const glossaryTerms = [
 
       <h3>Journal entry vs trade review</h3>
       <p>A journal entry records the evidence from one trade. A <a href="/glossary/trade-review">trade review</a> checks that evidence against the plan. A weekly or monthly review compares several entries and looks for something repeated.</p>
-      <p>Use stable labels such as <strong>XAUUSD</strong>, <strong>London</strong> and <strong>breakout</strong>. If the same idea has a different name in every entry, later comparisons become confusing. The <a href="/blogs/trading-journal-template">trading journal template</a> gives you a reusable form, while the <a href="/blogs/prop-firm-trading-journal">prop firm trading journal guide</a> explains the complete record-to-review workflow.</p>
+      <p>Use stable labels such as <strong>XAUUSD</strong>, <strong>London</strong> and <strong>breakout</strong>. If the same idea has a different name in every entry, later comparisons become confusing. The <a href="/blogs/trading-journal-template">trading journal template</a> gives you a reusable form, while the <a href="/blogs/prop-firm-trading-journal">prop firm trading journal guide</a> explains the complete record-to-review workflow. If you want to record those details online, see the <a href="/trading-journal">free trading journal</a>.</p>
 
       <h3>What should you do next?</h3>
       <p>Record your next completed trade using the same three parts: plan, what you did, and result with one factual note. Add more fields only when you know which review question they should answer.</p>
