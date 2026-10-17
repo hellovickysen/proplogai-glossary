@@ -398,7 +398,7 @@ export const glossaryTerms = [
     title: 'Position Sizing',
     shortDefinition: 'Position sizing is the calculation used to choose trade size so the estimated loss at the planned stop matches your chosen USD risk and exact account rules.',
     category: 'Risk Management',
-    updatedAt: '2026-10-09',
+    updatedAt: '2026-10-17',
     relatedTerms: ['risk-per-trade', 'stop-loss', 'daily-drawdown-limit'],
     sourceIds: ['RES-013', 'PLAI-002', 'PLAI-005'],
     sources: [
@@ -412,7 +412,8 @@ export const glossaryTerms = [
       label: 'Open the position-sizing formula learning note at a larger size',
     },
     guide: { href: '/blogs/prop-firm-risk-management', label: 'Continue with the forex and prop-firm risk-management guide' },
-    proplogConnection: 'PropLogAI lets you record trade details and whether the trade followed your own rules. It is not a live position-size calculator, broker feed, or breach monitor.',
+    proplogConnection: 'You can log the trade details and whether you followed your rules in PropLogAI. For a separate manual size estimate, use the forex position size calculator. Neither the journal nor the calculator reads your live broker account or confirms a firm’s breach status.',
+    proplogConnectionLink: { label: 'forex position size calculator', href: 'https://proplogai.com/tools/position-size-calculator' },
     fullContent: `
       <h3>What is Position Sizing?</h3>
       <p>Position sizing is the calculation used to choose the trade size so the estimated loss at your planned <a href="/glossary/stop-loss">stop loss</a> matches the USD amount you chose before entry. The size must also fit the exact rules for your account and prop-firm program.</p>
@@ -949,8 +950,8 @@ export const glossaryTerms = [
     slug: 'trading-plan',
     title: 'Trading Plan',
     aliases: ['Forex trading plan', 'Written trading plan'],
-    updatedAt: '2026-10-07',
-    shortDefinition: 'A trading plan is a written framework prepared before trading that says what you may trade, when you may act, what conditions must be present, how risk and exits are planned, and what you will record afterward.',
+    updatedAt: '2026-10-17',
+    shortDefinition: 'A trading plan says what you trade, which setup lets you enter, how much you risk, and when you exit. Write it before trading; review each trade afterward.',
     category: 'Trading Discipline',
     relatedTerms: ['rule-based-trading', 'setup-compliance', 'pre-market-routine', 'position-sizing', 'trading-journal'],
     sourceIds: ['RES-011', 'RES-025', 'PLAI-002', 'PLAI-005'],
@@ -1137,8 +1138,8 @@ export const glossaryTerms = [
   {
     slug: 'pre-market-routine',
     title: 'Pre-Market Routine',
-    updatedAt: '2026-10-08',
-    shortDefinition: 'A pre-market routine is a short sequence you complete before your planned trading session so the setup, account rules, risk and no-trade conditions are written before you consider an entry.',
+    updatedAt: '2026-10-17',
+    shortDefinition: 'A pre-market routine is a check before your trading session. Write down your setup, account rules, risk and reasons to stay out before you consider an entry.',
     category: 'Trading Discipline',
     relatedTerms: ['trading-plan', 'rule-based-trading', 'setup-compliance', 'trading-journal'],
     guide: { href: '/blogs/trading-discipline-checklist', label: 'Use the trading discipline checklist before a planned entry' },
@@ -1438,7 +1439,7 @@ export const glossaryTerms = [
     aliases: ['Maximum Loss'],
     shortDefinition: 'An overall drawdown limit is the lowest account value allowed across the account period. The official floor may stay fixed or move under the program rules.',
     category: 'Prop Firm',
-    updatedAt: '2026-10-08',
+    updatedAt: '2026-10-17',
     relatedTerms: ['daily-drawdown-limit', 'drawdown', 'prop-firm-challenge', 'risk-per-trade'],
     guide: { href: '/blogs/daily-drawdown-calculator', label: 'Compare the official floor with the measured account value' },
     visualNote: {
@@ -1455,7 +1456,7 @@ export const glossaryTerms = [
       { id: 'PLAI-002', label: 'PropLogAI — Manual trading journal', url: 'https://proplogai.com/', checkedOn: '2026-10-08' },
       { id: 'PLAI-005', label: 'PropLogAI — Rule and emotion records', url: 'https://proplogai.com/', checkedOn: '2026-10-08' },
     ],
-    proplogConnection: 'PropLogAI lets you manually save the official floor, trades, notes and rule-adherence records. It does not calculate the firm’s official breach status or replace the current dashboard.',
+    proplogConnection: 'You can keep trade details, notes and your own rule checks in PropLogAI. If you copy your firm’s overall floor into a note, include the firm, program and date you checked it. PropLogAI does not fetch or verify the official floor; use the firm’s current dashboard.',
     fullContent: `
       <h3>What is an overall drawdown limit?</h3>
       <p>An overall drawdown limit is the lowest account value allowed across the account period. A firm may call it <strong>maximum loss</strong>.</p>
@@ -1552,18 +1553,18 @@ export const glossaryTerms = [
     title: 'Consistency Rule',
     shortDefinition: 'A consistency rule checks whether too much of your total profit came from one day or one trade. Your firm decides the formula, limit, and what happens when you are over it.',
     category: 'Prop Firm',
-    updatedAt: '2026-10-08',
+    updatedAt: '2026-10-17',
     visual: 'consistency-ratio-note',
     guide: { href: '/blogs/prop-firm-consistency-calculator', label: 'Calculate a best-day percentage and understand its limits' },
     relatedTerms: ['profit-target', 'funded-account', 'prop-firm-challenge'],
     sourceIds: ['PFR-010', 'PFR-011', 'PFR-016', 'PFR-017', 'PFR-018', 'PFR-019', 'PLAI-002', 'PLAI-004'],
     sources: [
-      { id: 'PFR-010', label: 'Topstep Trading Combine consistency target', url: 'https://help.topstep.com/en/articles/8284208-consistency-at-topstep', checkedOn: '2026-09-29' },
-      { id: 'PFR-011', label: 'Topstep Express Funded Account consistency path', url: 'https://help.topstep.com/en/articles/8284208-consistency-at-topstep', checkedOn: '2026-09-29' },
-      { id: 'PFR-016', label: 'Tradeify consistency rule', url: 'https://help.tradeify.co/en/articles/10468320-rules-consistency-rule', checkedOn: '2026-10-08' },
-      { id: 'PFR-017', label: 'Instant Funding IF1 rules', url: 'https://instantfunding.com/help/if1/', checkedOn: '2026-09-29' },
-      { id: 'PFR-018', label: 'Apex 50% consistency requirement', url: 'https://apextraderfunding.com/help-center/additional-helpful-items/50-consistency-requirement/', checkedOn: '2026-09-29' },
-      { id: 'PFR-019', label: 'My Funded Futures consistency rule', url: 'https://help.myfundedfutures.com/en/articles/11994562-consistency-rule-at-my-fundedfutures', checkedOn: '2026-09-29' },
+      { id: 'PFR-010', label: 'Topstep Trading Combine consistency target', url: 'https://help.topstep.com/en/articles/8284208-consistency-at-topstep', checkedOn: '2026-10-17' },
+      { id: 'PFR-011', label: 'Topstep Express Funded Account consistency path', url: 'https://help.topstep.com/en/articles/8284208-consistency-at-topstep', checkedOn: '2026-10-17' },
+      { id: 'PFR-016', label: 'Tradeify consistency rule', url: 'https://help.tradeify.co/en/articles/10468320-rules-consistency-rule', checkedOn: '2026-10-17' },
+      { id: 'PFR-017', label: 'Instant Funding IF Starter (formerly IF1) rules', url: 'https://instantfunding.com/help/if1/', checkedOn: '2026-10-17' },
+      { id: 'PFR-018', label: 'Apex 50% consistency requirement', url: 'https://apextraderfunding.com/help-center/additional-helpful-items/50-consistency-requirement/', checkedOn: '2026-10-17' },
+      { id: 'PFR-019', label: 'My Funded Futures consistency rule', url: 'https://help.myfundedfutures.com/en/articles/11994562-consistency-rule-at-my-fundedfutures', checkedOn: '2026-10-17' },
       { id: 'PLAI-002', label: 'PropLogAI manual journal feature', url: 'https://proplogai.com/', checkedOn: '2026-09-24' },
     ],
     proplogConnection: 'PropLogAI can store manually logged daily results and rule-adherence notes. Use the firm’s current dashboard and rules for the official calculation and account status.',
@@ -1622,14 +1623,14 @@ export const glossaryTerms = [
       <table>
         <thead><tr><th>Current named example</th><th>What is checked</th><th>Limit shown on the checked page</th></tr></thead>
         <tbody>
-          <tr><td>Instant Funding IF1</td><td>Best single trade ÷ total profit</td><td>15%</td></tr>
+          <tr><td>Instant Funding IF Starter (formerly IF1)</td><td>Best single trade ÷ total profit</td><td>15%</td></tr>
           <tr><td>Tradeify Lightning Funded, first payout</td><td>Biggest day ÷ total profit</td><td>20%</td></tr>
           <tr><td>My Funded Futures Rapid EOD evaluation</td><td>Single day ÷ total evaluation profit</td><td>30%</td></tr>
           <tr><td>Apex cited payout requirement</td><td>Largest profitable day ÷ accumulated net profit</td><td>50% threshold; verify the boundary on the dashboard</td></tr>
           <tr><td>My Funded Futures Rapid Intraday and Pro evaluation</td><td>Single day ÷ total evaluation profit</td><td>50%</td></tr>
         </tbody>
       </table>
-      <p>These examples were checked on 29 September 2026 and can change. A percentage copied without its formula, stage, time window, and consequence is incomplete.</p>
+      <p>These examples were checked on 17 October 2026 and can change. A percentage copied without its formula, stage, time window, and consequence is incomplete.</p>
 
       <h3>What should you check before acting?</h3>
       <ol>
@@ -1648,7 +1649,7 @@ export const glossaryTerms = [
     aliases: ['Maximum Daily Loss'],
     shortDefinition: 'A daily drawdown limit is the official account floor that applies during one firm-defined trading day. Some firms call it maximum daily loss.',
     category: 'Prop Firm',
-    updatedAt: '2026-10-08',
+    updatedAt: '2026-10-17',
     relatedTerms: ['overall-drawdown-limit', 'drawdown', 'risk-per-trade', 'prop-firm-challenge'],
     guide: { href: '/blogs/daily-drawdown-calculator', label: 'Use the daily drawdown calculator with your official floor' },
     visualNote: {
@@ -1666,7 +1667,7 @@ export const glossaryTerms = [
       { id: 'PLAI-002', label: 'PropLogAI — Manual trading journal', url: 'https://proplogai.com/', checkedOn: '2026-10-08' },
       { id: 'PLAI-005', label: 'PropLogAI — Rule and emotion records', url: 'https://proplogai.com/', checkedOn: '2026-10-08' },
     ],
-    proplogConnection: 'PropLogAI lets you manually save the daily floor, reset time, trades, notes and whether you followed your own risk rule. The firm’s current dashboard and rules remain authoritative.',
+    proplogConnection: 'You can keep trade details, notes and your own rule checks in PropLogAI. Copy the daily floor and reset time from your firm’s current dashboard into your note if you need them for review. PropLogAI does not fetch or verify those values.',
     fullContent: `
       <h3>What is a daily drawdown limit?</h3>
       <p>A daily drawdown limit is the official account floor that applies during one firm-defined trading day. Some firms call it <strong>maximum daily loss</strong>.</p>
@@ -1810,9 +1811,9 @@ export const glossaryTerms = [
   {
     slug: 'emotion-tracking',
     title: 'Emotion Tracking',
-    shortDefinition: 'Emotion tracking means recording a short feeling tag beside a specific trading moment and the observable decision that followed. The feeling is context; it does not prove what caused the result.',
+    shortDefinition: 'Emotion tracking means noting how you felt at a trading moment and what you did next. The note gives context; it does not prove the feeling caused your result.',
     category: 'Journal & Analysis',
-    updatedAt: '2026-10-08',
+    updatedAt: '2026-10-17',
     relatedTerms: ['trading-journal', 'trade-review', 'trading-plan', 'setup-compliance', 'tilt', 'fomo', 'revenge-trading'],
     visualNote: {
       src: '/glossary/images/emotion-tracking-feeling-urge-action-note.webp',
