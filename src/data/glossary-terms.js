@@ -950,7 +950,7 @@ export const glossaryTerms = [
     slug: 'trading-plan',
     title: 'Trading Plan',
     aliases: ['Forex trading plan', 'Written trading plan'],
-    updatedAt: '2026-10-17',
+    updatedAt: '2026-10-18',
     shortDefinition: 'A trading plan says what you trade, which setup lets you enter, how much you risk, and when you exit. Write it before trading; review each trade afterward.',
     category: 'Trading Discipline',
     relatedTerms: ['rule-based-trading', 'setup-compliance', 'pre-market-routine', 'position-sizing', 'trading-journal'],
@@ -980,7 +980,7 @@ export const glossaryTerms = [
         <li><strong>Setup:</strong> the named situation you are waiting for and the conditions that define it.</li>
         <li><strong>Entry:</strong> what must happen before you can act.</li>
         <li><strong>Risk:</strong> the planned <a href="/glossary/stop-loss">stop loss</a>, USD loss limit and <a href="/glossary/position-sizing">position-sizing</a> method.</li>
-        <li><strong>Exit or management:</strong> what your plan allows after entry.</li>
+        <li><strong>Exit or <a href="/glossary/trade-management">trade management</a>:</strong> what your plan allows after entry.</li>
         <li><strong>Record and review:</strong> what you will save in your <a href="/glossary/trading-journal">trading journal</a> and check later.</li>
       </ol>
 
