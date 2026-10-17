@@ -17,6 +17,8 @@ export function getStaticPaths() {
 }
 
 const { term } = Astro.props;
+const connectionLink = term.proplogConnectionLink;
+const connectionLinkOffset = connectionLink ? term.proplogConnection.indexOf(connectionLink.label) : -1;
 
 // Category colors
 const categoryColors = {
@@ -190,7 +192,13 @@ const structuredData = {
               <p class="text-[11px] text-white/30">AI-powered trading journal</p>
             </div>
           </div>
-          <p class="text-sm text-violet-200/60 leading-relaxed">{term.proplogConnection}</p>
+          <p class="text-sm text-violet-200/60 leading-relaxed">
+            {connectionLinkOffset >= 0 ? (
+              <>
+                {term.proplogConnection.slice(0, connectionLinkOffset)}<a href={connectionLink.href} class="text-cyan-300 underline underline-offset-2 hover:text-cyan-200">{connectionLink.label}</a>{term.proplogConnection.slice(connectionLinkOffset + connectionLink.label.length)}
+              </>
+            ) : term.proplogConnection}
+          </p>
           <a
             href="https://proplogai.com/login?mode=signup"
             class="inline-flex items-center gap-2 mt-5 rounded-full px-5 py-2.5 text-sm font-semibold text-[#08080f]"
